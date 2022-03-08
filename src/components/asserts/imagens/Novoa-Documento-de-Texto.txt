@@ -1,0 +1,42 @@
+
+Você enviou Hoje às 12:34
+https://github.com/PI-RD-Grupo-04
+XMA Header Image
+
+enviou Hoje às 12:58
+.icon-config::before {
+    display: block;
+    content: " ";
+    height: 50px;
+    width: 100%;
+    background-position: center center;
+    background-size: 50px;
+    background-repeat: no-repeat;
+}
+
+.icon-perfil::before{
+    background-image: url(../images/Users_icon/account.png);
+} 
+
+.icon-fav::before{
+    background-image: url(../images/Users_icon/favorito.png);
+}
+
+.icon-cesta::before{
+    background-image: url(../images/Users_icon/shopping-cart.png);
+}
+
+enviou Hoje às 12:58
+<!-- begin icones usuario --> */}
+        <div class="col-4 icon-user justify-content-between">
+          <div class="col-4 mt-3 mb-1">
+            <a class="icon-perfil icon-config" href="./login.html">Login </a>
+          </div>
+          <div class="col-4 mt-3 mb-1">
+            <a class="icon-fav icon-config" href="./meusFavoritos.html">Favoritos</a>
+          </div>
+          <div class="col-4 mt-3 mb-1">
+            <a class="icon-cesta icon-config" href="./cesta.html">Cesta</a>
+          </div>
+        </div>
+        <!-- end icones usuario --> */}
