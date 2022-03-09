@@ -51,6 +51,7 @@ export const Routes = () => {
                 </div>
             </div>}/>
             <Route path="/error404" component={Error} /> 
+           
             
         </Switch>
     )
