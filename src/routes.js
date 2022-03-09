@@ -40,7 +40,7 @@ export const Routes = () => {
             <Route path="/PasswordChange" component={PasswordChange} exact/>
             <Route path="/PasswordRecovery" component={PasswordRecovery} exact/>
             <Route path="/cadastro" component={Register} /> 
-            <Route component={() => <h1>Ops! Página não encontrada</h1>}/>
+            <Route component={() => <h1>Ops! Página não encontrada</h1>} />
         </Switch>
     )
 }
