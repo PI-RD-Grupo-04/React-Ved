@@ -1,0 +1,22 @@
+.p-caminho{
+    color:blue;
+}
+
+.p-analise{
+    color: orange;
+} 
+
+.p-cancelado{
+    color: red;
+}
+
+.p-entregue{
+    color: green;
+}
+
+
+
+.size-text{
+    font-size: 22px;
+    font-weight: bold;
+}

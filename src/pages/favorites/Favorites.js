@@ -10,7 +10,8 @@ function Favorites() {
     return (
         <>
             <Header />
-            <div className="container mt-3 mb-4  ">
+
+            <div className="container mt-3 mb-4   ">
                 <div className="row ">
                     <div className="col-2 col-sm-3 ">
                         <CustomerMenu />
