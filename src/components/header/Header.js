@@ -5,7 +5,7 @@ import logo from '../asserts/imagens/Header/logo.png'
 import menuhamburguer from '../asserts/imagens/Header/hamburger_menu.png'
 import lupa from '../asserts/imagens/Header/icon-seach.png'
 import cart from '../asserts/imagens/Users_icon/shopping-cart.png' 
-
+import NavBar from '../navBar/NavBar'
 
 
 function Header() {
@@ -139,13 +139,7 @@ function Header() {
                     </div>
                 </div>
         </header>
-
-
-
-                {/* <li><Link to="/">Home</Link></li>
-                <li><Link to="/product">Produto</Link></li>
-                <li><Link to="/cart">Carrinho</Link></li> */}
-           
+        <NavBar/>           
         </>
     )
 }

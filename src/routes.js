@@ -8,10 +8,10 @@ import Address from "./pages/address/Address"
 import Requests from "./pages/requests/Requests"
 import Faq from './pages/faq/Faq'
 import Policy_security from './pages/policy_security/Policy_security'
+
 import HowToBuy from './pages/howToBuy/HowToBuy'
 import AboutUs from './pages/aboutUs/AboutUs'
 import PlansVed from './pages/plansVed/PlansVed'
-
 import PasswordRecovery from './pages/passwordRecovery/PasswordRecovery'
 import PasswordChange from "./pages/ passwordChange/PasswordChange"
 import Contact from './pages/contact/Contact'
@@ -20,6 +20,9 @@ import Login from "./pages/login/Login"
 import Register  from './pages/register/Register'
 import Bill from './pages/bill/Bill'
 import Category from "./pages/category/Category"
+import Suggestion from './pages/suggestion/Suggestion';
+
+
 
 export const Routes = () => {
     return (
@@ -45,6 +48,8 @@ export const Routes = () => {
             <Route path="/bill" component={Bill} />
             <Route path="category" component={Category} />
             <Route component={() => <h1>Ops! Página não encontrada</h1>} />
+            <Route path="/suggestion" component={Suggestion}/>
+        
         </Switch>
     )
 }

@@ -12,7 +12,7 @@
 
 h2{
     margin-top: 30px;
-    color: rgb(39, 39, 39);
+    color: rgb(70, 67, 67);
     font-size: clamp(1.75em, 1em + 1vw, 2.5em);
 }
 
@@ -25,11 +25,7 @@ h1{
 .termos{
     color: #28a745;
 }
-.btnPlano{
-    width:242px;
-    height: 50px;
-   
-}
+
 
 .termos-h2{
     word-break:break-all;
