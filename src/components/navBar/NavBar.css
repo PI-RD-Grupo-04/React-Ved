@@ -1,0 +1,66 @@
+
+
+/***************************************NAV BEGIN***********************************/
+
+
+a{
+    text-decoration: none; 
+    color: white;
+}
+/* cor dos link do menu principal */
+.nav-link {
+    text-decoration: none; 
+    color: white; 
+    
+}
+
+
+.nav-link:hover{
+    color:#54043c  ;
+} 
+
+
+.dropdown .show:focus{
+    color: #54043c; 
+
+}
+
+
+.dropdown-menu{
+    background-color: #198754;
+ 
+} 
+.dropdown-menu a{
+    color:white;
+}
+
+.dropdown-item:hover{
+    background-color: #42db94; 
+    color: white; 
+}
+
+nav{
+    background-color: #198754;
+    font-size: 22px;
+    
+}  
+
+.back {
+    background-color: #198754;
+    text-decoration: none;
+}
+
+
+@media (max-width:768px){
+     
+ .back{
+     display:none;
+ }
+
+
+
+     
+ }
+ 
+ /***************************************NAV END***********************************/
+ 
