@@ -13,12 +13,14 @@ import AboutUs from './pages/aboutUs/AboutUs';
 import PlansVed from './pages/plansVed/PlansVed';
 import Suggestion from './pages/suggestion/Suggestion';
 import Register  from "./pages/register/Register"
+import Basket from "./pages/basket/Basket"
 
 export const Routes = () => {
     return (
         <Switch>
             <Route path="/" component={Home} exact/>
             <Route path="/product" component={Product} />
+            <Route path="/cesta" component={Basket}/>
             <Route path="/cart" component={Cart} /> 
             <Route path="/checkout" component={Checkout} /> 
             <Route path="/favorites" component={Favorites} />
