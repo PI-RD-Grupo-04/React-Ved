@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
 import './NavBar.css'
+import { Link } from 'react-router-dom'
 
 function NavBar(props) {
 
@@ -9,13 +10,13 @@ function NavBar(props) {
             <div className = "back container-fluid" >
                 <Navbar className=" nav d-flex justify-content-around back container-fluid" >
                         <NavDropdown title="Categorias" >
-                            <NavDropdown.Item href="#action/3.1">Frutas</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Verduras</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Mercearia</NavDropdown.Item>
+                            <NavDropdown.Item > <Link to="/category"> <p className = "font"> Frutas </p> </Link> </NavDropdown.Item>
+                            <NavDropdown.Item > <Link to="/category"> <p className = "font">  Verduras  </p> </Link> </NavDropdown.Item>
+                            <NavDropdown.Item > <Link to="/category"> <p className = "font"> Mercearia </p> </Link> </NavDropdown.Item>
                                                     </NavDropdown>
-                        <Nav.Link href="#home">Novidades</Nav.Link>
-                        <Nav.Link href="#home">Planos</Nav.Link>
-                        <Nav.Link href="#link">Sobre Nós</Nav.Link>
+                        <Nav.Link href="/category">Novidades</Nav.Link>
+                        <Nav.Link href="/plansVed">  Planos </Nav.Link>   
+                        <Nav.Link href="/aboutUS">Sobre Nós</Nav.Link>
                 </Navbar>
             </div>
         </>
