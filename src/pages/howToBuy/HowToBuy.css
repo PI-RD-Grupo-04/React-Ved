@@ -5,11 +5,6 @@ h1{
     font-size: clamp(1.75em, 1em + 3vw, 2.5em);
 }
 
-h2{
-    color: #28a745;
-    font-size: clamp(1.75em, 1em + 3vw, 2.5em);
-}
-
 p{
     font-size: clamp(1em, 1em + 1vw, 1.25em);
 }
