@@ -1,11 +1,8 @@
-import './ConsumptionSuggestion.css'
+import './Suggestion.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-import BananaNanica from '../../components/asserts/imagens/Frutas/banana-nanica.png'
-import Favorito from '../../components/asserts/imagens/Users_icon/favorito.png'
-import Abacaxi from '../../components/asserts/imagens/Frutas/abacaxi.png'
 
-function CosumptionSuggestion() {
+function Suggestion() {
     return (
         <>
             <Header />
@@ -15,7 +12,7 @@ function CosumptionSuggestion() {
                 <h2 className=" row d-flex justify-content-center">Banana Caramelizada </h2>
             </div>
             <div className="d-flex justify-content-center">
-                <img className="imagemsugestao1 imgresp " src={BananaNanica}/>
+                <img className="imagemsugestao1 imgresp " src='https://i.ibb.co/nP8cZL2/abacaxi.png'/>
             </div>
 
             <div className="container primeiroAB mt-5 justify-content-between">
@@ -33,7 +30,7 @@ function CosumptionSuggestion() {
                         </ul>
                     </div>
                     <div className=" col-6   d-flex ">
-                        <img className="imagemsugestao " src={BananaNanica}/>
+                        <img className="imagemsugestao " src='https://i.ibb.co/nP8cZL2/abacaxi.png'/>
                     </div>
                 </div>
             </div>
@@ -69,10 +66,10 @@ function CosumptionSuggestion() {
                         {/* <!-- item 1 --> */}
                         <div className="product-card">
                             <div className="badge-B">
-                                <img src={Favorito} width="20px"/>
+                                <img src='https://i.ibb.co/nP8cZL2/abacaxi.png' width="20px"/>
                             </div>
                             <div className="product-tumb">
-                                <img src={Abacaxi}/>
+                                <img src='https://i.ibb.co/nP8cZL2/abacaxi.png'/>
                             </div>
                             <div className="product-details">
                                 <h4><a href="">Laranja</a></h4>
@@ -88,10 +85,10 @@ function CosumptionSuggestion() {
                         {/* <!-- item 2 --> */}
                         <div className="product-card">
                             <div className="badge-B">
-                                <img src={Favorito} width="20px"/>
+                                <img src='https://i.ibb.co/nP8cZL2/abacaxi.png' width="20px"/>
                             </div>
                             <div className="product-tumb">
-                                <img src={Abacaxi}/>
+                                <img src='https://i.ibb.co/nP8cZL2/abacaxi.png'/>
                             </div>
                             <div className="product-details">
                                 <h4><a href="">Laranja</a></h4>
@@ -107,10 +104,10 @@ function CosumptionSuggestion() {
                         {/* <!-- item 3 --> */}
                         <div className="product-card">
                             <div className="badge-B">
-                                <img src={Abacaxi} width="20px"/>
+                                <img src='https://i.ibb.co/nP8cZL2/abacaxi.png' width="20px"/>
                             </div>
                             <div className="product-tumb">
-                                <img src={Abacaxi}/>
+                                <img src='https://i.ibb.co/nP8cZL2/abacaxi.png'/>
                             </div>
                             <div className="product-details">
                                 <h4><a href="">Laranja</a></h4>
@@ -126,10 +123,10 @@ function CosumptionSuggestion() {
                         {/* <!-- item 4 --> */}
                         <div className="product-card">
                             <div className="badge-B">
-                                <img src={Favorito} width="20px"/>
+                                <img src='https://i.ibb.co/nP8cZL2/abacaxi.png' width="20px"/>
                             </div>
                             <div className="product-tumb">
-                                <img src={Abacaxi}/>
+                                <img src='https://i.ibb.co/nP8cZL2/abacaxi.png'/>
                             </div>
                             <div className="product-details">
                                 <h4><a href="">Laranja</a></h4>
@@ -147,7 +144,7 @@ function CosumptionSuggestion() {
 
                 <Footer />
             </>
-            )
+        )
 }
 
-export default CosumptionSuggestion
+export default Suggestion

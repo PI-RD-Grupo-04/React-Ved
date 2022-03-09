@@ -141,43 +141,6 @@ function Header() {
         </header>
 
 
-           <div className="conteiner ">
-                <nav>
-                    <ul className="nav d-flex justify-content-around">
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Categorias</a>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a className="dropdown-item" href="./categorias.html">Frutas</a>
-                                <a className="dropdown-item" href="./categorias.html">Verduras</a>
-                                <a className="dropdown-item" href="./categorias.html">Mercearia</a>
-                            </div>
-                        </li>
-                   
-                        <li className="nav-item">
-                            <a className="nav-link" href="./categorias.html">Novidades</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="./planos.html">Planos</a>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Cesta Orgânica</a>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a className="dropdown-item" href="./produtos.html">kit Natal</a>
-                                <a className="dropdown-item" href=".produtos.html">Kit Reveion</a>
-                                <div className="dropdown-divider"/> 
-                                <a className="dropdown-item" href="./categorias.html">Feira em casa</a>
-                            </div>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="./sobreNos.html">Sobre Nós</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-
 
                 {/* <li><Link to="/">Home</Link></li>
                 <li><Link to="/product">Produto</Link></li>

@@ -11,7 +11,8 @@ import Policy_security from './pages/policy_security/Policy_security'
 import HowToBuy from './pages/howToBuy/HowToBuy';
 import AboutUs from './pages/aboutUs/AboutUs';
 import PlansVed from './pages/plansVed/PlansVed';
-import CosumptionSuggestion from './pages/consumptionSuggestion/ConsumptionSuggestion';
+import Suggestion from './pages/suggestion/Suggestion';
+import Register  from "./pages/register/Register"
 
 export const Routes = () => {
     return (
@@ -20,7 +21,6 @@ export const Routes = () => {
             <Route path="/product" component={Product} />
             <Route path="/cart" component={Cart} /> 
             <Route path="/checkout" component={Checkout} /> 
-            <Route path="/cart" component={Cart}   />
             <Route path="/favorites" component={Favorites} />
             <Route path="/address" component={Address} />
             <Route path="/requests" component={Requests} />
@@ -29,7 +29,9 @@ export const Routes = () => {
             <Route path="/howToBuy" component={HowToBuy}/>
             <Route path="/aboutUS" component={AboutUs}/>
             <Route path="/plansVed" component={PlansVed}/>
-            <Route path="/cosumptionSuggestion" component={CosumptionSuggestion}/>
+            <Route path="/cosumptionSuggestion" component={Suggestion}/>
+            <Route path="/cadastro" component={Register} /> 
+            <Route component={() => <h1>Ops! Página não encontrada</h1>}/>
         </Switch>
     )
 }
