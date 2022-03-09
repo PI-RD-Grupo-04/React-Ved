@@ -8,9 +8,17 @@ import Address from "./pages/address/Address"
 import Requests from "./pages/requests/Requests"
 import Faq from './pages/faq/Faq'
 import Policy_security from './pages/policy_security/Policy_security'
-import HowToBuy from './pages/howToBuy/HowToBuy';
-import AboutUs from './pages/aboutUs/AboutUs';
-import PlansVed from './pages/plansVed/PlansVed';
+import HowToBuy from './pages/howToBuy/HowToBuy'
+import AboutUs from './pages/aboutUs/AboutUs'
+import PlansVed from './pages/plansVed/PlansVed'
+
+import PasswordRecovery from './pages/passwordRecovery/PasswordRecovery'
+import PasswordChange from "./pages/ passwordChange/PasswordChange"
+import Contact from './pages/contact/Contact'
+import SucessBuy from './pages/successBuy/SucessBuy'
+import Login from "./pages/login/Login"
+
+
 
 export const Routes = () => {
     return (
@@ -28,6 +36,12 @@ export const Routes = () => {
             <Route path="/howToBuy" component={HowToBuy}/>
             <Route path="/aboutUS" component={AboutUs}/>
             <Route path="/plansVed" component={PlansVed}/>
+
+            <Route path="/Login" component={Login} exact/>
+            <Route path="/SucessBuy" component={SucessBuy} exact/>
+            <Route path="/Contact" component={Contact} exact/>
+            <Route path="/PasswordChange" component={PasswordChange} exact/>
+            <Route path="/PasswordRecovery" component={PasswordRecovery} exact/>
         </Switch>
     )
 }
