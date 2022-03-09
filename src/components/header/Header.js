@@ -15,8 +15,8 @@ function Header() {
                 <div className="row align-items-center">
                     {/* LOGO */}
                     <div className="logo-img col-1">
-                        <a href="./index.html"><img src={logo} width="80px" alt="Logo Ved"
-                            title="VED - Alimentos Organicos" /></a>
+                        <Link to ="/"><img src={logo} width="80px" alt="Logo Ved"
+                            title="VED - Alimentos Organicos" /></Link>
                     </div>
                     {/* END BLOCK*/}
                     <div className="col-1 block-null"></div>
@@ -61,13 +61,13 @@ function Header() {
                     {/*} begin icones usuario */}
                     <div className="col-4 icon-user justify-content-between">
                         <div className="col-4 mt-3 mb-1">
-                            <a className="icon-perfil icon-config" href="./login.html">Login </a>
+                            <Link className="icon-perfil icon-config" to="/Login">Login </Link>
                         </div>
                         <div className="col-4 mt-3 mb-1">
-                            <a className="icon-fav icon-config" href="./meusFavoritos.html">Favoritos</a>
+                            <Link className="icon-fav icon-config" to="/favorites">Favoritos</Link>
                         </div>
                         <div className="col-4 mt-3 mb-1">
-                            <a className="icon-cesta icon-config" href="./cesta.html">Cesta</a>
+                            <Link className="icon-cesta icon-config" to="/cart">Cesta</Link>
                             <span className="badge bg-success bg-position">1</span>
                         </div>
                     </div>
