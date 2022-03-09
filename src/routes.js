@@ -8,11 +8,12 @@ import Address from "./pages/address/Address"
 import Requests from "./pages/requests/Requests"
 import Faq from './pages/faq/Faq'
 import Policy_security from './pages/policy_security/Policy_security'
-import HowToBuy from './pages/howToBuy/HowToBuy';
-import AboutUs from './pages/aboutUs/AboutUs';
-import PlansVed from './pages/plansVed/PlansVed';
-import Suggestion from './pages/suggestion/Suggestion';
-import Register  from "./pages/register/Register"
+import HowToBuy from './pages/howToBuy/HowToBuy'
+import AboutUs from './pages/aboutUs/AboutUs'
+import PlansVed from './pages/plansVed/PlansVed'
+import Suggestion from './pages/suggestion/Suggestion'
+import Register  from './pages/register/Register'
+import Error from './pages/error404/Error'
 
 export const Routes = () => {
     return (
@@ -30,8 +31,27 @@ export const Routes = () => {
             <Route path="/aboutUS" component={AboutUs}/>
             <Route path="/plansVed" component={PlansVed}/>
             <Route path="/suggestion" component={Suggestion}/>
-            <Route path="/cadastro" component={Register} /> 
-            <Route component={() => <h1>Ops! Página não encontrada</h1>}/>
+            <Route path="/cadastro" component={Register} />             
+            <Route component={() => 
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="error-template">
+                            <h1>Oops!</h1>
+                            <h2>404 Not Found</h2>
+                            <div className="error-details">
+                                Sorry, an error has occured, Requested page not found!
+                            </div>
+                            <div className="error-actions">
+                                <a href="#" className="btn btn-primary btn-lg"><span className="glyphicon glyphicon-home"></span>
+                                    Take Me Home </a><a href="#" className="btn btn-default btn-lg"><span className="glyphicon glyphicon-envelope"></span> Contact Support </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>}/>
+            <Route path="/error404" component={Error} /> 
+            
         </Switch>
     )
 }
