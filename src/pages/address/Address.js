@@ -11,18 +11,18 @@ function Address() {
     return (
         <>
             <Header />
-            <CustomerMenu />
-            {/* ************* COMEÇO DIREITA da pagina começo  **********************/}
-            <div className="col-12 col-md-9 order-md-last  mb-3">
-                {/*  inicio pag lado direito Meus Endereços */}
-                <h3 className="text-center title-main">Meus Endereços</h3>
+            <div className="container mt-3 mb-4  ">
+                <div className="row ">
+                    <div className="col-2 col-sm-3 ">
+                        <CustomerMenu />
+                    </div>
 
-                <div className="row mb-3 pb-3 pt-3 ">
-                    <AddressInfo />
-                    {/*  ************************MODEL PARA CADASTRO DE CARTÃO ********************* */}
 
-                    {/*  DIVISÃO DOS BUTTONS */}
-                    <div className="row">
+                    <div class="col-12 col-md-9 order-md-last  mb-3">
+                        <AddressInfo />
+                        {/*  ************************MODEL PARA CADASTRO DE CARTÃO ********************* */}
+
+                        {/*  DIVISÃO DOS BUTTONS */}
                         {/*  BUTTON DO MODAL */}
                         <div className="col-6">
                             <button type="button" className="btn btn-suport" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -34,10 +34,9 @@ function Address() {
                             <button className=" btn btn-delete " type="submit">Excluir Cartão</button>
                         </div>
 
+
+                        {/*  ****************** CAMPO DO MODAL ****************** */}
                     </div>
-
-                    {/*  ****************** CAMPO DO MODAL ****************** */}
-
 
 
 

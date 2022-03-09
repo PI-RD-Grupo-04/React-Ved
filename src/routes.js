@@ -19,6 +19,7 @@ import SucessBuy from './pages/successBuy/SucessBuy'
 import Login from "./pages/login/Login"
 
 
+import Register  from "./pages/register/Register"
 
 export const Routes = () => {
     return (
@@ -27,7 +28,6 @@ export const Routes = () => {
             <Route path="/product" component={Product} />
             <Route path="/cart" component={Cart} /> 
             <Route path="/checkout" component={Checkout} /> 
-            <Route path="/cart" component={Cart}   />
             <Route path="/favorites" component={Favorites} />
             <Route path="/address" component={Address} />
             <Route path="/requests" component={Requests} />
@@ -42,6 +42,8 @@ export const Routes = () => {
             <Route path="/Contact" component={Contact} exact/>
             <Route path="/PasswordChange" component={PasswordChange} exact/>
             <Route path="/PasswordRecovery" component={PasswordRecovery} exact/>
+            <Route path="/cadastro" component={Register} /> 
+            <Route component={() => <h1>Ops! Página não encontrada</h1>}/>
         </Switch>
     )
 }
