@@ -13,7 +13,7 @@ import HowToBuy from './pages/howToBuy/HowToBuy'
 import AboutUs from './pages/aboutUs/AboutUs'
 import PlansVed from './pages/plansVed/PlansVed'
 import PasswordRecovery from './pages/passwordRecovery/PasswordRecovery'
-import PasswordChange from "./pages/ passwordChange/PasswordChange"
+import PasswordChange from "./pages/passwordChange/PasswordChange"
 import Contact from './pages/contact/Contact'
 import SucessBuy from './pages/successBuy/SucessBuy'
 import Login from "./pages/login/Login"
@@ -46,7 +46,7 @@ export const Routes = () => {
             <Route path="/PasswordRecovery" component={PasswordRecovery} exact/>
             <Route path="/cadastro" component={Register} /> 
             <Route path="/bill" component={Bill} />
-            <Route path="category" component={Category} />
+            <Route path="/category" component={Category} />
             <Route component={() => <h1>Ops! Página não encontrada</h1>} />
             <Route path="/suggestion" component={Suggestion}/>
         
