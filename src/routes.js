@@ -29,7 +29,7 @@ export const Routes = () => {
             <Route path="/howToBuy" component={HowToBuy}/>
             <Route path="/aboutUS" component={AboutUs}/>
             <Route path="/plansVed" component={PlansVed}/>
-            <Route path="/cosumptionSuggestion" component={Suggestion}/>
+            <Route path="/suggestion" component={Suggestion}/>
             <Route path="/cadastro" component={Register} /> 
             <Route component={() => <h1>Ops! Página não encontrada</h1>}/>
         </Switch>
