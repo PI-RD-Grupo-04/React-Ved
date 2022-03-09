@@ -11,6 +11,7 @@ import Policy_security from './pages/policy_security/Policy_security'
 import HowToBuy from './pages/howToBuy/HowToBuy';
 import AboutUs from './pages/aboutUs/AboutUs';
 import PlansVed from './pages/plansVed/PlansVed';
+import CosumptionSuggestion from './pages/consumptionSuggestion/ConsumptionSuggestion';
 
 export const Routes = () => {
     return (
@@ -28,6 +29,7 @@ export const Routes = () => {
             <Route path="/howToBuy" component={HowToBuy}/>
             <Route path="/aboutUS" component={AboutUs}/>
             <Route path="/plansVed" component={PlansVed}/>
+            <Route path="/cosumptionSuggestion" component={CosumptionSuggestion}/>
         </Switch>
     )
 }
