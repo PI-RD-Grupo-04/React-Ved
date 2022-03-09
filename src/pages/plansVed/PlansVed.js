@@ -1,7 +1,8 @@
 import './PlansVed.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-import Button from '../../components/button/Button'
+import { Button } from 'react-bootstrap'
+
 
 function PlansVed() {
     return (

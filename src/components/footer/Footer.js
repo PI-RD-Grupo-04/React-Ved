@@ -11,7 +11,7 @@ import iconNu from '../asserts/imagens/Footer/iconNu.png'
 import iconPix from '../asserts/imagens/Footer/iconPix.png'
 import iconVisa from '../asserts/imagens/Footer/iconVisa.png'
 import seloOrganic from '../asserts/imagens/Footer/seloOrganic.png'
-
+import NavBar from '../navBar/NavBar'
 
 function Footer() {
   return (

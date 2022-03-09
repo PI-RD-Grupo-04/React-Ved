@@ -1,6 +1,6 @@
 import './CustomerMenu.css'
 import menuhamburguer from '../asserts/imagens/Header/hamburger_menu.png'
-
+import { Link } from 'react-router-dom'
 function CustomerMenu() {
 
 
@@ -14,24 +14,24 @@ function CustomerMenu() {
                 <main className="flex-fill cor-nav">
                     <div className="list-group  ">
                         <h3 className="text-center mt-2 menu-title"> Atalhos</h3>
-                        <a href="./minhaConta.html" className="list-group-item list-group-item-action  ">
+                        <Link to="/bill" className="list-group-item list-group-item-action  ">
                             <i className="bnt-hover fs-6"></i> Dados Pessoais
-                        </a>
-                        <a href="./meusPedidos.html" className="list-group-item list-group-item-action">
+                        </Link>
+                        <Link to="/requests" className="list-group-item list-group-item-action">
                             <i className="bi-mailbox fs-6"></i> Meus Pedidos
-                        </a>
-                        <a href="./meusEndereços.html" className="list-group-item list-group-item-action">
+                        </Link>
+                        <Link to="/address" className="list-group-item list-group-item-action">
                             <i className="bi-house-door fs-6"></i> Meus Endereços
-                        </a>
-                        <a href="./meusFavoritos.html" className="list-group-item list-group-item-action">
+                        </Link>
+                        <Link to="/favorites" className="list-group-item list-group-item-action">
                             <i className="bi-truck fs-6"></i> Meus Favoritos
-                        </a>
-                        <a href="./meusCartoes.html" className="list-group-item list-group-item-action">
+                        </Link>
+                        <Link to="" className="list-group-item list-group-item-action">
                             <i className="bi-heart fs-6"></i> Meus Cartões
-                        </a>
-                        <a href="./login.html" className="list-group-item list-group-item-action">
+                        </Link>
+                        <Link to="/Login" className="list-group-item list-group-item-action">
                             <i className="bi-door-open fs-6"></i> Sair
-                        </a>
+                        </Link>
                     </div>
                 </main>
             </div>
@@ -42,7 +42,7 @@ function CustomerMenu() {
             {/* ************** COMEÇO da parte do OFFCANVAS  **************   */}
             <div className="col-3 menu-lateral-canvas">
                 <div className="col-2 mt-3 mb-3">
-                    <a className="btn border canvas-btn " data-bs-toggle="offcanvas" href="#offcanvasMenuLateral" role="button"
+                    <a className="btn border canvas-btn " data-bs-toggle="offcanvas" to="#offcanvasMenuLateral" role="button"
                         aria-controls="offcanvasMenuLateral">
                         <img src={menuhamburguer} />
                     </a>
@@ -59,25 +59,25 @@ function CustomerMenu() {
                     <div className="offcanvas-body ">
                         <div className="flex-column">
                             <ul className="ul-canvas-menu">
-                                <a href="./minhaConta.html">
+                                <Link to="/bill">
                                     <li className="li-item-menuLateral">Dados Pessoais</li>
-                                </a>
-                                <a href="./meusPedidos.html">
+                                </Link>
+                                <Link to ="/requests">
                                     <li className="li-item-menuLateral">Meus Pedidos</li>
-                                </a>
-                                <a href="./meusEndereços.html">
+                                </Link>
+                                <Link to ="/address">
                                     <li className="li-item-menuLateral">Meus Endereços</li>
-                                </a>
-                                <a href="./meusFavoritos.html">
+                                </Link>
+                                <Link to ="/favorites">
                                     <li className="li-item-menuLateral">Meus Favoritos</li>
-                                </a>
-                                <a href="./meusCartoes.html">
+                                </Link>
+                                <Link to ="./meusCartoes.html">
                                     <li className="li-item-menuLateral">Meus Cartões</li>
-                                </a>
+                                </Link>
                                 <hr />
-                                <a href="./login.html">
+                                <Link to ="/Login">
                                     <li className="li-item-menuLateral">Sair</li>
-                                </a>
+                                </Link>
                             </ul>
                         </div>
                     </div>
