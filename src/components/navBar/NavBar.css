@@ -1,11 +1,7 @@
 
 
 /***************************************NAV BEGIN***********************************/
-nav{
-    background-color: #198754;
-    font-size: 22px;
-    
-}  
+
 
 a{
     text-decoration: none; 
@@ -43,6 +39,14 @@ a{
     color: white; 
 }
 
+nav{
+    background-color: #198754;
+    font-size: 22px;
+    
+}  
 
+.back {
+    background-color: #198754;
+}
  /***************************************NAV END***********************************/
  
