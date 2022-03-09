@@ -77,6 +77,7 @@ function Footer() {
           <p>©️ 2022 VED - Alimentos Orgânicos. Todos os direitos reservados.</p>
         </div>
       </footer>
+
     </>
 
   );
