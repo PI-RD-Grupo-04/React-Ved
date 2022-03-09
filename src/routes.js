@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router-dom"
 import Home from './pages/home/Home'
 import Product from './pages/product/Product'
-import Card from './pages/card/Card' 
+import Card from './pages/card/Card'
 import Checkout from './pages/checkout/Checkout'
 import Favorites from "./pages/favorites/Favorites"
 import Address from "./pages/address/Address"
@@ -19,8 +19,7 @@ import Login from "./pages/login/Login"
 import Register  from './pages/register/Register'
 import Bill from './pages/bill/Bill'
 import Category from "./pages/category/Category"
-import Suggestion from './pages/suggestion/Suggestion';
-import Register  from "./pages/register/Register"
+import Suggestion from './pages/suggestion/Suggestion'
 import Basket from "./pages/basket/Basket"
 
 
@@ -30,7 +29,6 @@ export const Routes = () => {
             <Route path="/" component={Home} exact/>
             <Route path="/product" component={Product} />
             <Route path="/cesta" component={Basket}/>
-            <Route path="/cart" component={Cart} /> 
             <Route path="/checkout" component={Checkout} /> 
             <Route path="/favorites" component={Favorites} />
             <Route path="/address" component={Address} />
