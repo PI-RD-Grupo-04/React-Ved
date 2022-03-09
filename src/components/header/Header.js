@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import './Header.css'
-import './Nav.css'
 import logo from '../asserts/imagens/Header/logo.png'
 import menuhamburguer from '../asserts/imagens/Header/hamburger_menu.png'
 import lupa from '../asserts/imagens/Header/icon-seach.png'

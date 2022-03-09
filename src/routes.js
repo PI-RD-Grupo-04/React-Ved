@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router-dom"
 import Home from './pages/home/Home'
 import Product from './pages/product/Product'
-import Cart from './pages/cart/Cart' 
+import Card from './pages/card/Card' 
 import Checkout from './pages/checkout/Checkout'
 import Favorites from "./pages/favorites/Favorites"
 import Address from "./pages/address/Address"
@@ -23,6 +23,7 @@ import Suggestion from './pages/suggestion/Suggestion';
 import Register  from "./pages/register/Register"
 import Basket from "./pages/basket/Basket"
 
+
 export const Routes = () => {
     return (
         <Switch>
@@ -33,6 +34,7 @@ export const Routes = () => {
             <Route path="/checkout" component={Checkout} /> 
             <Route path="/favorites" component={Favorites} />
             <Route path="/address" component={Address} />
+            <Route path="/meuscartao" component={Card} />
             <Route path="/requests" component={Requests} />
             <Route path="/faq" component={Faq}/>
             <Route path="/policy_security" component={Policy_security}/>
