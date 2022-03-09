@@ -62,7 +62,7 @@ function Header() {
                     {/*} begin icones usuario */}
                     <div className="col-4 icon-user justify-content-between">
                         <div className="col-4 mt-3 mb-1">
-                            <a className="icon-perfil icon-config" href="./login.html">Login </a>
+                            <Link className="icon-perfil icon-config" to="/Login">Login </Link>
                         </div>
                         <div className="col-4 mt-3 mb-1">
                             <Link className="icon-fav icon-config" to="/favorites">Favoritos</Link>

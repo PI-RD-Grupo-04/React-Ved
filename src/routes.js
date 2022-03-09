@@ -8,12 +8,11 @@ import Address from "./pages/address/Address"
 import Requests from "./pages/requests/Requests"
 import Faq from './pages/faq/Faq'
 import Policy_security from './pages/policy_security/Policy_security'
-
 import HowToBuy from './pages/howToBuy/HowToBuy'
 import AboutUs from './pages/aboutUs/AboutUs'
 import PlansVed from './pages/plansVed/PlansVed'
 import PasswordRecovery from './pages/passwordRecovery/PasswordRecovery'
-import PasswordChange from "./pages/ passwordChange/PasswordChange"
+import PasswordChange from "./pages/passwordChange/PasswordChange"
 import Contact from './pages/contact/Contact'
 import SucessBuy from './pages/successBuy/SucessBuy'
 import Login from "./pages/login/Login"
@@ -42,11 +41,11 @@ export const Routes = () => {
             <Route path="/Login" component={Login} exact/>
             <Route path="/SucessBuy" component={SucessBuy} exact/>
             <Route path="/Contact" component={Contact} exact/>
-            <Route path="/PasswordChange" component={PasswordChange} exact/>
-            <Route path="/PasswordRecovery" component={PasswordRecovery} exact/>
+            <Route path="/PasswordChange" component={PasswordChange}/>
+            <Route path="/PasswordRecovery" component={PasswordRecovery}/>
             <Route path="/cadastro" component={Register} /> 
             <Route path="/bill" component={Bill} />
-            <Route path="category" component={Category} />
+            <Route path="/category" component={Category} />
             <Route component={() => <h1>Ops! Página não encontrada</h1>} />
             <Route path="/suggestion" component={Suggestion}/>
         
