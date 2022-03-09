@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 //import './ItemBasket.css'
 
-function ItemBasket(props) {
+function ItemBasket(larissa) {
 
-    const [nome, setNome] = useState('')
+    const [valor, setVAlor] = useState('')
 
-    const modeloFuncao = () => {
-        setNome('SeuNome')
+    const somaValor = () => {
+        setNome(valor)
     }
 
     return (
@@ -20,7 +20,7 @@ function ItemBasket(props) {
                     <div className="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
                         <h4>
                             <b><a href="#" className="text-decoration-none text-success">
-                                Abacate Manteiga</a></b>
+                               a{larissa.nome}</a></b>
                         </h4>
                         <h5>
                             Abacate manteiga da melhor qualidade possível e muito fresco.
