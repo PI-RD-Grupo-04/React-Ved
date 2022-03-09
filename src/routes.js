@@ -17,7 +17,9 @@ import PasswordChange from "./pages/ passwordChange/PasswordChange"
 import Contact from './pages/contact/Contact'
 import SucessBuy from './pages/successBuy/SucessBuy'
 import Login from "./pages/login/Login"
-import Register  from "./pages/register/Register"
+import Register  from './pages/register/Register'
+import Bill from './pages/bill/Bill'
+import Category from "./pages/category/Category"
 
 export const Routes = () => {
     return (
@@ -40,6 +42,8 @@ export const Routes = () => {
             <Route path="/PasswordChange" component={PasswordChange} exact/>
             <Route path="/PasswordRecovery" component={PasswordRecovery} exact/>
             <Route path="/cadastro" component={Register} /> 
+            <Route path="/bill" component={Bill} />
+            <Route path="category" component={Category} />
             <Route component={() => <h1>Ops! Página não encontrada</h1>} />
         </Switch>
     )
