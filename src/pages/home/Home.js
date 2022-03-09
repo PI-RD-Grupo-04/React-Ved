@@ -1,6 +1,4 @@
 import './Home.css'
-import Footer from '../../components/footer/Footer'
-import Header from '../../components/header/Header'
 import React from 'react'
 import frete from '../../components/asserts/imagens/imgBody/frete.png'
 import carrosel1mel from '../../components/asserts/imagens/Carousel/carrosel1mel.jpg'
@@ -13,9 +11,7 @@ import favorito from '../../components/asserts/imagens/Users_icon/favorito.png'
 
 function Home() {
   return (
-    <>  
-
-      <Header/>
+    <>
       {/* *************************************** BANNER END ************************************ */}
       <div className="d-flex justify-content-center flex-column">
         <img className="banner" src={frete}
@@ -256,7 +252,6 @@ function Home() {
           </div>
         </div>
       </div>
-      <Footer/>
     </>)
 }
 

@@ -1,32 +1,13 @@
-@import  url('https://fonts.googleapis.com/css2?family=Fruktur&family=Zen+Old+Mincho&display=swap'); 
-
-
-
-*{
-    list-style: none;
-    /* font-family: Arial, Helvetica, sans-serif; */
-    /* font-family:American Typewriter, serif	;    */
-    /* font-family:URW Chancery L, cursive; */
-    /* font-weight: strong; */
-     font-weight: family=fruktur; 
-    
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-/* Anotaçoes  */
-/* # -> para ID´S para referenciar las 
-   . -> para CLASSES para referencia las
-   
-   */
- 
 
-
-body{
-    background-color:rgb(243, 243, 243);
-}   
-
-.title-main{
-    color: #28a745;
-} 
-
-.form-title{
-    text-align-last: left;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
