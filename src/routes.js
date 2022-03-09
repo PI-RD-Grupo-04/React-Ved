@@ -17,8 +17,6 @@ import PasswordChange from "./pages/ passwordChange/PasswordChange"
 import Contact from './pages/contact/Contact'
 import SucessBuy from './pages/successBuy/SucessBuy'
 import Login from "./pages/login/Login"
-
-
 import Register  from "./pages/register/Register"
 
 export const Routes = () => {
@@ -36,7 +34,6 @@ export const Routes = () => {
             <Route path="/howToBuy" component={HowToBuy}/>
             <Route path="/aboutUS" component={AboutUs}/>
             <Route path="/plansVed" component={PlansVed}/>
-
             <Route path="/Login" component={Login} exact/>
             <Route path="/SucessBuy" component={SucessBuy} exact/>
             <Route path="/Contact" component={Contact} exact/>
