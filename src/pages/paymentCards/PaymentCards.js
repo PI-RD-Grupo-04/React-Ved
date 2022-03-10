@@ -1,4 +1,4 @@
-import './Card.css'
+import './PaymentCards.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
@@ -6,7 +6,7 @@ import CardInfo from '../../components/cardInfo/CardInfo'
 
 
 
-function Card() {
+function PaymentCards() {
     return (
         <>
             <Header />
@@ -71,7 +71,7 @@ function Card() {
                                                         <input type="text" class="form-control" id="cc-name" placeholder="" required/>
                                                             <small class="text-muted">Nome conforme exibido no
                                                                 cartão</small>
-                                                            <div class="invalid-feedback">Nome Obrigatorio</div>
+                                                            <div class="invalid-feedback">Nome Obrigatório</div>
                                                     </div>
                                                     {/* <!--******CPF do cartão ***** --> */}
                                                     <div class="col-12">
@@ -116,4 +116,4 @@ function Card() {
     )
 }
 
-export default Card
+export default PaymentCards

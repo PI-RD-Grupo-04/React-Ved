@@ -1,8 +1,8 @@
-import './Policy_security.css'
+import './PolicySecurity.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 
-function Policy_security() {
+function PolicySecurity() {
     return (
         <>
             <Header />
@@ -34,4 +34,4 @@ function Policy_security() {
     )
 }
 
- export default Policy_security
+ export default PolicySecurity

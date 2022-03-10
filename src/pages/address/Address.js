@@ -44,21 +44,13 @@ function Address() {
                         </div>
                         {/*  ****************** CAMPO DO MODAL ****************** */}
                     </div>
-
-
-
-
-
                 </div>
             </div>
-
-
 
             <Footer />
 
         </>
     )
-
 
 }
 
