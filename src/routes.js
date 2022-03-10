@@ -20,7 +20,7 @@ import OrderSucess from './pages/orderSuccess/OrderSuccess'
 import Login from "./pages/login/Login"
 import MyAccount from "./pages/myAccount/MyAccount"
 import Category from "./pages/category/Category"
-
+import ShippingPolicy from "./pages/shippingPolicy/ShippingPolicy"
 import Error404 from './pages/error404/Error'
 import Basket from "./pages/cart/Basket"
 
@@ -54,9 +54,9 @@ export const Routes = () => {
             <Route path="/register" component={Register} /> 
             <Route path="/myAccount" component={MyAccount} />
             <Route path="/category" component={Category} />
-            <Route path="/suggestion" component={Suggestion}/>
-            <Route component={Error404}/>
-
+            <Route path="/shippingPolicy" component={ShippingPolicy}/>
+             <Route component={Error404}/>
+            
         </Switch>
     )
 }
