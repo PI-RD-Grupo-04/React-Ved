@@ -68,38 +68,20 @@ function Home() {
 
       <div className="container mb-5">
         <div className="row justify-content-between ">
-          <div className="flex-wrap  mt-md-5 ">
-            <div class="col-12 col-sm-6 col-lg-4">
-              <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
-                peso={1.00} price={12.90} />
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-              <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
-              peso={1.00} price={12.90} />
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-              <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
-              peso={1.00} price={12.90} />
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-              <ProductCard col="col-12 col-sm-6 col-lg-4" link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
-              peso={1.00} price={12.90} />
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-              <ProductCard col="col-12 col-sm-6 col-lg-4" link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome='Abacaxi'
-              peso={1.0} price={12.90} />
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-              <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome='Abacaxi'
-              peso={1.0} price={12.90} />
-            </div>
-
-          </div>
 
 
-
-
-
+          <ProductCard col="col-12 col-sm-6 col-lg-4" link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
+            peso={1.00} price={12.90} />
+          <ProductCard col="col-12 col-sm-6 col-lg-4" link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
+            peso={1.00} price={12.90} />
+          <ProductCard col="col-12 col-sm-6 col-lg-4" link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-lg-4" link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
+            peso={1.00} price={12.90} />
+          <ProductCard col="col-12 col-sm-6 col-lg-4" link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
+            peso={1.00} price={12.90} />
+          <ProductCard col="col-12 col-sm-6 col-lg-4" link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
+            peso={1.00} price={12.90} />
 
           {/* *************************************** CESTAS BEGIN *********************************** */}
 
