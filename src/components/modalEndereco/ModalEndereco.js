@@ -8,11 +8,11 @@ function ModalEndereco() {
         <>
 
             {/*  <!-- BUTTON DO MODAL --> */}
-            <div className="col-12 col-md-6 ">
-                <button  type="button" className="btn btn-suport" data-bs-toggle="modal" data-bs-target="#exampleModal">
+         
+                <button  type="button" className="btn btn-suport mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Cadastrar Novo Endereço
                 </button> 
-            </div>
+           
 
 
             {/*  <!-- ****************** CAMPO DO MODAL ****************** --> */}

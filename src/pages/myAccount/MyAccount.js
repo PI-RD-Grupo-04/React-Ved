@@ -3,7 +3,7 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 
-export default function MyAccount() {
+function MyAccount() {
     return (
         <>
             <Header/>
@@ -89,5 +89,8 @@ export default function MyAccount() {
         </>
 
     )
-}
+} 
+
+
+export default MyAccount
 
