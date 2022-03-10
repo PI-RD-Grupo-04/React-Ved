@@ -7,7 +7,7 @@ import carrosel1mel from '../../components/asserts/imagens/Carousel/carrosel1mel
 import carrosel2frutas from '../../components/asserts/imagens/Carousel/carrosel2frutas.png'
 import venhaconhecer from '../../components/asserts/imagens/Carousel/venhaconhecer.jpg'
 import ProductCard from '../../components/productCard/ProductCard' 
-import bannerprincipal from '../../components/asserts/imagens/bannerprincipal.gif'
+// import bannerprincipal from  '../../components/asserts/imagens/'
 
 
 
@@ -17,10 +17,10 @@ function Home() {
     <>
 
       <Header />
-
+{/* 
       <div class="gif gif-expand-lg d-flex justify-content-center flex-column">
       <img src={bannerprincipal} className="bannergif"/>
-    </div>
+    </div> */}
       {/* *************************************** BANNER END ************************************ */}
       <div className="d-flex justify-content-center flex-column">
         <img className="banner" src={frete}

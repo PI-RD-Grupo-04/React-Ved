@@ -19,7 +19,7 @@ import Contact from './pages/contact/Contact'
 import SucessBuy from './pages/successBuy/SucessBuy'
 import Login from "./pages/login/Login"
 import Bill from './pages/bill/Bill'
-import Category from "./pages/category/Category"
+import Category from './pages/category/Category'
 import Basket from "./pages/basket/Basket"
 import Error404 from './pages/error404/Error'
 
@@ -27,7 +27,7 @@ export const Routes = () => {
     return (
         <Switch>
             <Route path="/" component={Home} exact/>
-            <Route path="/cadastro" component={Register} exact/>
+            <Route path="/cadastro" component={Register} />
             <Route path="/product" component={Product} />
             <Route path="/cesta" component={Basket}/>
             <Route path="/checkout" component={Checkout} /> 
@@ -42,16 +42,15 @@ export const Routes = () => {
             <Route path="/plansVed" component={PlansVed}/>
             <Route path="/suggestion" component={Suggestion}/>
             <Route path="/cadastro" component={Register} />             
-            <Route component={Error404}/>
-            <Route path="/Login" component={Login} exact/>
-            <Route path="/SucessBuy" component={SucessBuy} exact/>
-            <Route path="/contact" component={Contact} exact/>
+            <Route path="/Login" component={Login}/>
+            <Route path="/SucessBuy" component={SucessBuy} />
+            <Route path="/contact" component={Contact} />
             <Route path="/PasswordChange" component={PasswordChange}/>
             <Route path="/PasswordRecovery" component={PasswordRecovery}/>
             <Route path="/bill" component={Bill} />
-            <Route path="/category" component={Category} />
             <Route path="/suggestion" component={Suggestion}/>
-            <Route path="/modal" component={ModalEndereco} />
+            <Route path="/category" component={Category} />
+            <Route component={Error404}/>
         </Switch>
     )
 }
