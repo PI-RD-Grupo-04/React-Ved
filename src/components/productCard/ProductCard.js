@@ -4,7 +4,7 @@ import favorito from '../asserts/imagens/Users_icon/favorito.png'
 function ProductCard(props) {
 
     return (
-        <>
+        <div className={props.col}>
       <div class="product-card">
         <div class="badge-B"><img src={favorito} width="20px"/></div>
         <div class="product-tumb">
@@ -23,7 +23,7 @@ function ProductCard(props) {
         
         </div>
       </div>
-        </>
+        </div>
     )
 }
 
