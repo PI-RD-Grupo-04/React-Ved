@@ -71,6 +71,7 @@ export const Routes = () => {
             <Route path="/cadastro" component={Register} /> 
             <Route path="/bill" component={Bill} />
             <Route path="/category" component={Category} />
+            <Route component={() => <h1>Ops! Página não encontrada</h1>} />
             <Route path="/suggestion" component={Suggestion}/>
         
         </Switch>
