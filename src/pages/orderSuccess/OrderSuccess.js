@@ -1,4 +1,4 @@
-import './SucessBuy.css'
+import './OrderSuccess.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import  Logo from '../../components/asserts/imagens/Header/logo.png'

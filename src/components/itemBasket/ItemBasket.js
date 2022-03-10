@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 //import './ItemBasket.css'
 
 function ItemBasket(props) {
@@ -14,13 +15,18 @@ function ItemBasket(props) {
             <li className="list-group-item py-3">
                 <div className="row g-3">
                     <div className="col-4 col-md-3 col-lg-2">
-                        <a href="#">
-                            <img className="mr-3 imgfruta" src="../" alt="Banana-Prata-Organica-600g-800g-Ved" />                                </a>
+
+                        <Link to="/product">
+                            <img className="mr-3 imgfruta" src="../" alt="Banana-Prata-Organica-600g-800g-Ved" />
+                        </Link>
                     </div>
                     <div className="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
                         <h4>
-                            <b><a href="#" className="text-decoration-none text-success">
-                                Abacate Manteiga</a></b>
+                            <b>
+                                <Link to="product" className="text-decoration-none text-success">
+                                    Abacate Manteiga
+                                </Link>
+                            </b>
                         </h4>
                         <h5>
                             Abacate manteiga da melhor qualidade possível e muito fresco.

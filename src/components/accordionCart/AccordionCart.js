@@ -5,7 +5,7 @@ function AccordionCart (props) {
 
     //aqui recebe os dados do cartao cadastrados no banco,utilizando o ID do cartao como diferencial 
     // para cada identificador de acordios 
-    // let idAccordion = '#collapse' + id.cartao;  
+    // let idAccordion = '#collapse' + id.cartao;
     
 
     return (
@@ -29,9 +29,9 @@ function AccordionCart (props) {
                             <p>CVV</p>
                             <input type="number" className="form-control" id="cvv-number" required />
 
-                            <div className="invalid-feedback">Numero obrigatorio</div>
+                            <div className="invalid-feedback">Número obrigatório</div>
                         </div>
-                        <small className="text-muted">Nome conforme exibido atrás do
+                        <small className="text-muted">Nome conforme exibido na parte posterior do
                             cartão</small>
 
                     </div>

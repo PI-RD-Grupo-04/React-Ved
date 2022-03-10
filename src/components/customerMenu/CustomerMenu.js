@@ -1,20 +1,16 @@
 import './CustomerMenu.css'
 import menuhamburguer from '../asserts/imagens/Header/hamburger_menu.png'
 import { Link } from 'react-router-dom'
+
 function CustomerMenu() {
-
-
     return (
-
-
-
         <>
             {/* ************** BEGIN Parte do Menu lateral  **************   */}
             <div className="text-left menu-lateral-mobile">
                 <main className="flex-fill cor-nav">
                     <div className="list-group  ">
                         <h3 className="text-center mt-2 menu-title"> Atalhos</h3>
-                        <Link to="/bill" className="list-group-item list-group-item-action  ">
+                        <Link to="/myAccount" className="list-group-item list-group-item-action  ">
                             <i className="bnt-hover fs-6"></i> Dados Pessoais
                         </Link>
                         <Link to="/requests" className="list-group-item list-group-item-action">
@@ -26,10 +22,10 @@ function CustomerMenu() {
                         <Link to="/favorites" className="list-group-item list-group-item-action">
                             <i className="bi-truck fs-6"></i> Meus Favoritos
                         </Link>
-                        <Link to="" className="list-group-item list-group-item-action">
+                        <Link to="/paymentCards" className="list-group-item list-group-item-action">
                             <i className="bi-heart fs-6"></i> Meus Cartões
                         </Link>
-                        <Link to="/Login" className="list-group-item list-group-item-action">
+                        <Link to="/login" className="list-group-item list-group-item-action">
                             <i className="bi-door-open fs-6"></i> Sair
                         </Link>
                     </div>
@@ -59,23 +55,23 @@ function CustomerMenu() {
                     <div className="offcanvas-body ">
                         <div className="flex-column">
                             <ul className="ul-canvas-menu">
-                                <Link to="/bill">
+                                <Link to="/myAccount">
                                     <li className="li-item-menuLateral">Dados Pessoais</li>
                                 </Link>
-                                <Link to ="/requests">
+                                <Link to="/requests">
                                     <li className="li-item-menuLateral">Meus Pedidos</li>
                                 </Link>
-                                <Link to ="/address">
+                                <Link to="/address">
                                     <li className="li-item-menuLateral">Meus Endereços</li>
                                 </Link>
-                                <Link to ="/favorites">
+                                <Link to="/favorites">
                                     <li className="li-item-menuLateral">Meus Favoritos</li>
                                 </Link>
-                                <Link to ="./meusCartoes.html">
+                                <Link to="/paymentCards">
                                     <li className="li-item-menuLateral">Meus Cartões</li>
                                 </Link>
                                 <hr />
-                                <Link to ="/Login">
+                                <Link to="/login">
                                     <li className="li-item-menuLateral">Sair</li>
                                 </Link>
                             </ul>
@@ -88,18 +84,6 @@ function CustomerMenu() {
             </div>
 
         </>
-
-
-
-
     )
-
-
-
-
-
-
 }
-
-
 export default CustomerMenu;
