@@ -41,7 +41,6 @@ function Favorites() {
                             <div class="col-12 col-sm-6 col-lg-4">
                             <ProductCard link ='https://i.ibb.co/nP8cZL2/abacaxi.png' nome ='Abacaxi' peso ={1.0}  price ={12.90}/>
                             </div>
-
                         </div>
                     </div>
                 </div>

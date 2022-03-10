@@ -71,7 +71,7 @@ function CustomerMenu() {
                                 <Link to ="/favorites">
                                     <li className="li-item-menuLateral">Meus Favoritos</li>
                                 </Link>
-                                <Link to ="./meusCartoes.html">
+                                <Link to ="/meuscartao">
                                     <li className="li-item-menuLateral">Meus Cartões</li>
                                 </Link>
                                 <hr />
