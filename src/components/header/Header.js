@@ -120,7 +120,7 @@ function Header() {
                                 <h3 className="title-canvas">Sua Area</h3>
                             </li>
                             <hr />
-                            <li className="link-canvas"><a href="./login.html">Fazer Login</a></li>
+                           <Link  to="/login"><li className="link-canvas">Fazer Login</li></Link> 
                             <li><a href="./cesta.html">Cesta</a></li>
                             <li><a href="./meusFavoritos.html">Favorito</a></li>
                             <ul />

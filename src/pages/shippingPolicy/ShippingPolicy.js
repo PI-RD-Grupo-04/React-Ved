@@ -8,7 +8,7 @@ function Shipping_Policy() {
         <>
             <Header />
             <div className="container" />
-            <h1>Política de Frete</h1>
+            <h1 className="pdf">Política de Frete</h1>
 
             <div className="container" />
 

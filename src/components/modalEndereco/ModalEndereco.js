@@ -21,8 +21,8 @@ function ModalEndereco() {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Novo Endereço de Entrega
-                            </h5>
+                            <h4 className="text-center" id="exampleModalLabel">Novo Endereço 
+                            </h4>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
