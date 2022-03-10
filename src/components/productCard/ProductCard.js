@@ -1,5 +1,6 @@
 import './ProductCard.css'
-import favorito from '../asserts/imagens/Users_icon/favorito.png'
+import favorito from '../asserts/imagens/Users_icon/favorito.png' 
+import Button from '../../components/button/Button'
 
 function ProductCard(props) {
 
@@ -17,10 +18,10 @@ function ProductCard(props) {
           <div class="product-bottom-details text-center">
             <div class="product-price">
 
-             {props.price}
+             R$ {props.price}
             </div>
           </div>
-        
+        <Button label="adicionar a cesta" success/>
         </div>
       </div>
         </div>

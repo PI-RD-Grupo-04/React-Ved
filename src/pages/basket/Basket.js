@@ -17,11 +17,9 @@ function Basket(props) {
 
                 <ul className="list-group mb-3">
                    
-                <ItemBasket nome="larissa"/>    
-                <ItemBasket  nome="will"/>   
-                <ItemBasket  nome="whasigotn"/>    
-                <ItemBasket  nome="jeff"/>    
- 
+                <ItemBasket valor={1} nome="larissa"/>    
+                <ItemBasket valor={2} nome="will"/>   
+
 
                    
                     <li className="list-group-item py-3">
