@@ -34,10 +34,7 @@ function Basket(props) {
                     
                                 <div className="col-6 inputcep">
                                     <input type="text" className="form-control" id="cep" required/>
-                                    <span className="msg-nome  msg-error error-nome" id='cep-erro' >Apenas
-                                        Numeros</span>
-                                    <span className="msg-nome  msg-success valid-nome" >ok</span>
-                                    <span className="campo-obrigatorio" >*Campo Obrigatorio</span>
+
                                 </div>
                     
                             </div>

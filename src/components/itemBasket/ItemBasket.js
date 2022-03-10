@@ -35,7 +35,7 @@ function ItemBasket(props) {
                         <h4>
                             <b>
                                 <Link to="product" className="text-decoration-none text-success">
-                                    Abacate Manteiga
+                                    Abacate Manteigá
                                 </Link>
                             </b>
                         </h4>
