@@ -9,7 +9,7 @@ function Button(props) {
     btn += props.suporte ? 'btn-suport ' : ''
     btn += props.delete ? 'btn-delete ' : ''
     btn += props.success ? 'btn-success ' : ''
-    btn += props.plans ? 'btnPlano ' : ''
+    btn += props.plans ? 'btn-Plano ' : ''
     
 
     return (

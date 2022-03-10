@@ -19,10 +19,8 @@ import PasswordChange from "./pages/passwordChange/PasswordChange"
 import Contact from './pages/contact/Contact'
 import SucessBuy from './pages/successBuy/SucessBuy'
 import Login from "./pages/login/Login"
-import Register  from './pages/register/Register'
 import Bill from './pages/bill/Bill'
 import Category from "./pages/category/Category"
-import Suggestion from './pages/suggestion/Suggestion'
 import Basket from "./pages/basket/Basket"
 
 
@@ -73,7 +71,6 @@ export const Routes = () => {
             <Route path="/cadastro" component={Register} /> 
             <Route path="/bill" component={Bill} />
             <Route path="/category" component={Category} />
-            <Route component={() => <h1>Ops! Página não encontrada</h1>} />
             <Route path="/suggestion" component={Suggestion}/>
         
         </Switch>

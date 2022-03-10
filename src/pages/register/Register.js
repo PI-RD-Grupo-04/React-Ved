@@ -49,7 +49,7 @@ function Register(props) {
                                         <label for="form-email" class="form-label">Email:</label>
                                         <input type="email" class="form-control" id="form-email" required />
                                         {/* <span class="msg-email  msg-error invalid-email " >campo inválido</span>
-                <span class="msg-email ok msg-success valid-email" >ok</span> */}
+                                        <span class="msg-email ok msg-success valid-email" >ok</span> */}
                                     </div>
                                     {/* <!--  campo nome social --> */}
                                     <div class="form-group form-title" >
