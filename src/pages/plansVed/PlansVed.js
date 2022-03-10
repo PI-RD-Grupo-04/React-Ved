@@ -23,7 +23,7 @@ function PlansVed() {
                     </div>
 
                     <div className="item  margens  col-lg-3 mb-3">
-                        <h2 className="topo">PLANO</h2>
+                        <h2>PLANO</h2>
                         <h2 >SEMESTRAL</h2>
                         <hr/>
                         <h2>R$ 350,00</h2>

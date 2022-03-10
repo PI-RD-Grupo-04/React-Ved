@@ -27,7 +27,7 @@ enviou Hoje às 12:58
 }
 
 enviou Hoje às 12:58
-<!-- begin icones usuario --> */}
+<!-- begin icones usuario -->
         <div class="col-4 icon-user justify-content-between">
           <div class="col-4 mt-3 mb-1">
             <a class="icon-perfil icon-config" href="./login.html">Login </a>
@@ -39,4 +39,4 @@ enviou Hoje às 12:58
             <a class="icon-cesta icon-config" href="./cesta.html">Cesta</a>
           </div>
         </div>
-        <!-- end icones usuario --> */}
+        <!-- end icones usuario -->
