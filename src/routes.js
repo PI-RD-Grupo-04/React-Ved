@@ -29,7 +29,7 @@ export const Routes = () => {
     return (
         <Switch>
             <Route path="/" component={Home} exact/>
-            <Route path="/cadastro" component={Register} exact/>
+            <Route path="/cadastro" component={Register} />
             <Route path="/product" component={Product} />
             <Route path="/basket" component={Basket}/>
             <Route path="/checkout" component={Checkout} /> 
