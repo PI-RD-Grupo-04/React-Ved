@@ -10,7 +10,7 @@ function Suggestion() {
             <div className=" col-12 container mt-5">
                 <h1 className=" d-flex justify-content-center mb-5  "> Sugestão de Consumo</h1>
                 <hr/>
-                <h2 className=" row d-flex justify-content-center">Banana Caramelizada </h2>
+                <h2 className=" row d-flex justify-content-center sugest2">Banana Caramelizada </h2>
             </div>
             <div className="d-flex justify-content-center">
                 <img className="imagemsugestao1 imgresp " src='https://i.ibb.co/nP8cZL2/abacaxi.png'/>
@@ -19,7 +19,7 @@ function Suggestion() {
             <div className="container primeiroAB mt-5 justify-content-between">
                 <div className="row ">
                     <div className="col-lg-6 col-md-12">
-                        <h2 className="col-12">Ingredientes</h2>
+                        <h2 className="col-12 sugest2">Ingredientes</h2>
                         <ul className="col-12">
                             <li className="ponto">4 Banana (4 unidades).</li>
                             <li className="ponto">37 g de Amido de milho (1/4 de xícara).</li>
@@ -39,7 +39,7 @@ function Suggestion() {
 
             <div className="container mt-5 segundoAB text-justif">
                 <hr/>
-                    <h2>Como Preparar</h2>
+                    <h2 className='sugest2'>Como Preparar</h2>
                     <div className="row">
                         <div className="col-12">
                             <ul>

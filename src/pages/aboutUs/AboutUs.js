@@ -38,7 +38,7 @@ function AboutUs() {
                 </div>
                 <br/><br/><br/>
             
-                <h2>Entenda como essa parceria ajuda vários produtores:</h2>
+                <h2 className='about2'>Entenda como essa parceria ajuda vários produtores:</h2>
                 <br/><br/><br/>
 
                 <div className="row">
