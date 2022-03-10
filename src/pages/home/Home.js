@@ -90,7 +90,7 @@ function Home() {
 
           {/* *************************************** CESTAS BEGIN *********************************** */}
 
-          {/*   < /> !--Titulo * */}
+         {/*  {/*   < /> !--Titulo * */}
           <div className="container title-main text-center">
             <h2 className="text-center "> Cestas Prontas</h2>
           </div>
@@ -130,7 +130,7 @@ function Home() {
               </div>
             </div>
           </div>
-        </div></div>
+        </div></div> 
       <Footer />
     </>)
 }

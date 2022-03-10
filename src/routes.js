@@ -21,6 +21,7 @@ import Login from "./pages/login/Login"
 import Bill from './pages/bill/Bill'
 import Category from "./pages/category/Category"
 import Basket from "./pages/basket/Basket"
+import ShippingPolicy from "./pages/shippingPolicy/ShippingPolicy"
 import Error404 from './pages/error404/Error'
 
 export const Routes = () => {
@@ -42,7 +43,6 @@ export const Routes = () => {
             <Route path="/plansVed" component={PlansVed}/>
             <Route path="/suggestion" component={Suggestion}/>
             <Route path="/cadastro" component={Register} />             
-            <Route component={Error404}/>
             <Route path="/Login" component={Login} exact/>
             <Route path="/SucessBuy" component={SucessBuy} exact/>
             <Route path="/contact" component={Contact} exact/>
@@ -51,9 +51,9 @@ export const Routes = () => {
             <Route path="/cadastro" component={Register} /> 
             <Route path="/bill" component={Bill} />
             <Route path="/category" component={Category} />
-
-            <Route path="/suggestion" component={Suggestion}/>
-        
+            <Route path="/shippingPolicy" component={ShippingPolicy}/>
+             <Route component={Error404}/>
+            
         </Switch>
     )
 }
