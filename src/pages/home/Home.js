@@ -6,7 +6,8 @@ import frete from '../../components/asserts/imagens/imgBody/frete.png'
 import carrosel1mel from '../../components/asserts/imagens/Carousel/carrosel1mel.jpg'
 import carrosel2frutas from '../../components/asserts/imagens/Carousel/carrosel2frutas.png'
 import venhaconhecer from '../../components/asserts/imagens/Carousel/venhaconhecer.jpg'
-import ProductCard from '../../components/productCard/ProductCard'
+import ProductCard from '../../components/productCard/ProductCard' 
+import bannerprincipal from '../../components/asserts/imagens/bannerprincipal.gif'
 
 
 
@@ -16,6 +17,10 @@ function Home() {
     <>
 
       <Header />
+
+      <div class="gif gif-expand-lg d-flex justify-content-center flex-column">
+      <img src={bannerprincipal} className="bannergif"/>
+    </div>
       {/* *************************************** BANNER END ************************************ */}
       <div className="d-flex justify-content-center flex-column">
         <img className="banner" src={frete}
@@ -68,32 +73,12 @@ function Home() {
 
       <div className="container mb-5">
         <div className="row justify-content-between ">
-          <div className="flex-wrap  mt-md-5 ">
+          <div className="flex-row mt-md-5 ">
             <div class="col-12 col-sm-6 col-lg-4">
               <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
                 peso={1.00} price={12.90} />
+          
             </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-              <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
-              peso={1.00} price={12.90} />
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-              <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
-              peso={1.00} price={12.90} />
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-              <ProductCard col="col-12 col-sm-6 col-lg-4" link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
-              peso={1.00} price={12.90} />
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-              <ProductCard col="col-12 col-sm-6 col-lg-4" link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome='Abacaxi'
-              peso={1.0} price={12.90} />
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-              <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome='Abacaxi'
-              peso={1.0} price={12.90} />
-            </div>
-
           </div>
 
 
