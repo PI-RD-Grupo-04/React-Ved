@@ -17,10 +17,10 @@ function Basket(props) {
 
                 <ul className="list-group mb-3">
                    
-                <ItemBasket/>    
-                <ItemBasket/>   
-                <ItemBasket/>    
-                <ItemBasket/>    
+                <ItemBasket nome="larissa"/>    
+                <ItemBasket  nome="will"/>   
+                <ItemBasket  nome="whasigotn"/>    
+                <ItemBasket  nome="jeff"/>    
  
 
                    
