@@ -48,10 +48,10 @@ export const Routes = () => {
             <Route path="/contact" component={Contact} exact/>
             <Route path="/PasswordChange" component={PasswordChange}/>
             <Route path="/PasswordRecovery" component={PasswordRecovery}/>
-            <Route path="/bill" component={Bill} />
+            <Route path="/bill" component={Bill} exact/>
             <Route path="/category" component={Category} />
             <Route path="/suggestion" component={Suggestion}/>
-            <Route path="/modal" component={ModalEndereco} />
+   
         </Switch>
     )
 }

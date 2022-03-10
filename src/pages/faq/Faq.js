@@ -7,7 +7,7 @@ function Faq() {
         <>
             <Header />
             <div className="container">
-                <h1>FAQ</h1>
+                <h1 className="faq">FAQ</h1>
                 <br/><br/><br/>
                 <h2>Entrega em caixa postal:</h2>
                 <br/>

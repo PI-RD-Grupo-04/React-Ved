@@ -9,7 +9,7 @@ function PlansVed() {
         <>
             <Header />
             <div className="container mb-5 text-center justify-content-between">
-                <h1>Nossos Planos</h1>
+                <h1 className="plansh1">Nossos Planos</h1>
                 <div className="row mt-5 justify-content-between align-items-center">
                     <div className="item margens  col-lg-3 mb-3 ">
                         <h2 className="topo">PLANO</h2>

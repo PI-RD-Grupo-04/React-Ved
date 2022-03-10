@@ -3,7 +3,9 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 
-export default function Bill() {
+function Bill() {
+
+    
     return (
         <>
             <Header/>
@@ -89,5 +91,8 @@ export default function Bill() {
         </>
 
     )
-}
+} 
+
+
+export default Bill
 
