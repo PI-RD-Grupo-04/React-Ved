@@ -22,7 +22,7 @@ import Login from "./pages/login/Login"
 import Bill from './pages/bill/Bill'
 import Category from "./pages/category/Category"
 import Basket from "./pages/basket/Basket"
-
+import ModalEndereco from './components/modalEndereco/ModalEndereco'
 
 export const Routes = () => {
     return (
@@ -42,7 +42,7 @@ export const Routes = () => {
             <Route path="/aboutUS" component={AboutUs}/>
             <Route path="/plansVed" component={PlansVed}/>
             <Route path="/suggestion" component={Suggestion}/>
-            <Route path="/cadastro" component={Register} />             
+            <Route path="/cadastro" component={Register} />    
             <Route component={() => 
             <div className="container">
                 <div className="row">
@@ -69,12 +69,11 @@ export const Routes = () => {
             <Route path="/Contact" component={Contact} exact/>
             <Route path="/PasswordChange" component={PasswordChange}/>
             <Route path="/PasswordRecovery" component={PasswordRecovery}/>
-            <Route path="/cadastro" component={Register} /> 
             <Route path="/bill" component={Bill} />
             <Route path="/category" component={Category} />
             <Route component={() => <h1>Ops! Página não encontrada</h1>} />
             <Route path="/suggestion" component={Suggestion}/>
-        
+            <Route path="/modal" component={ModalEndereco} />
         </Switch>
     )
 }

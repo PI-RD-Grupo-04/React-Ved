@@ -3,8 +3,8 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import AddressInfo from '../../components/addressInfo/AddressInfo'
-
-
+import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
+import Button from '../../components/button/Button'
 
 function Address() {
 
@@ -20,21 +20,28 @@ function Address() {
 
                     <div class="col-12 col-md-9 order-md-last  mb-3">
                         <AddressInfo />
-                        {/*  ************************MODEL PARA CADASTRO DE CARTÃO ********************* */}
+                        <AddressInfo />
+                        <AddressInfo />
+                        <AddressInfo />
+                        <AddressInfo />
 
-                        {/*  DIVISÃO DOS BUTTONS */}
-                        {/*  BUTTON DO MODAL */}
-                        <div className="col-6">
-                            <button type="button" className="btn btn-suport" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Cadastrar Endereço
-                            </button>
+
+
+                        <div className=' d-flex mt-5  '>
+                            {/*  BUTTON DO EXCLUIR CARTÃO */}
+                            <div className=" col-12  col-sm-9  d-flex justify-content-start">
+                                <ModalEndereco />
+                            </div>
+                            <div className="col-12  col-sm-3  d-flex justify-content-start">
+                                <Button label='Excluir' delete />
+                            </div>
+
+
+                            {/*  DIVISÃO DOS BUTTONS */}
+                            {/*  BUTTON DO MODAL */}
+
+                       
                         </div>
-                        {/*  BUTTON DO EXCLUIR CARTÃO */}
-                        <div className="col-6">
-                            <button className=" btn btn-delete " type="submit">Excluir Cartão</button>
-                        </div>
-
-
                         {/*  ****************** CAMPO DO MODAL ****************** */}
                     </div>
 
