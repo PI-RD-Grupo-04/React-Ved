@@ -43,9 +43,7 @@ export const Routes = () => {
             <Route path="/aboutUS" component={AboutUs}/>
             <Route path="/plansVed" component={PlansVed}/>
             <Route path="/suggestion" component={Suggestion}/>
-            <Route path="/register" component={Register} />             
-               
-           
+            <Route path="/register" component={Register} />                
             <Route path="/login" component={Login} exact/>
             <Route path="/orderSucess" component={OrderSucess} exact/>
             <Route path="/contact" component={Contact} exact/>

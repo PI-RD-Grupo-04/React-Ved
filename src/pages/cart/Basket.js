@@ -35,9 +35,9 @@ function Basket(props) {
                                 <div className="col-6 inputcep">
                                     <input type="text" className="form-control" id="cep" required/>
                                     <span className="msg-nome  msg-error error-nome" id='cep-erro' >Apenas
-                                        Numeros</span>
+                                        Números</span>
                                     <span className="msg-nome  msg-success valid-nome" >ok</span>
-                                    <span className="campo-obrigatorio" >*Campo Obrigatorio</span>
+                                    <span className="campo-obrigatorio" >Campo Obrigatório</span>
                                 </div>
                     
                             </div>
@@ -52,7 +52,7 @@ function Basket(props) {
                                 <div className="col-1"></div>
                     
                                 <div className="col-3">
-                                    <h6>Quantidade Total de Itens: 5</h6>
+                                    <h6>Quantidade Total De Itens: 5</h6>
                                 </div>
                     
                                 <div className="col-1"></div>
@@ -81,7 +81,7 @@ function Basket(props) {
                             <a href="./index.html" className="btn btn-outline-success btn-delete mt-3">
                                 Continuar Comprando                            
                             </a>
-                            <a href="./checkout.html" className="btn btn-success btn-lg ms-2 mt-3  btn-add-card">Fechar Compra</a>
+                            <a href="./checkout.html" className="btn btn-success btn-lg ms-2 mt-3  btn-add-card">Finalizar Compra</a>
                         </div>
                         
                     </li>
