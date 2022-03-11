@@ -7,7 +7,7 @@ function AboutUs() {
         <>
             <Header/>
           
-            <div className="container">
+            <div className="container" >
 
                 <h1>Sobre a VED</h1>
                 <br/><br/><br/>

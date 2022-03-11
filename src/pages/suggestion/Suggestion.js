@@ -43,7 +43,7 @@ function Suggestion() {
                 <div className="row">
                     <div className="col-12">
                         <ul>
-                            <li className="ponto">Misture em uma tigela a farinha de trigo, o amido de milho, o açúcar e o sal.</li>
+                            <li className="ponto">Misture em uma tigela a farinha de trigo, amido de milho, açúcar e sal.</li>
                             <li className="ponto">Adicione a água gelada e mexa até ficar homogêneo, sem pelotinhos de farinha.</li>
                             <li className="ponto">Por último acrescente o fermento químico e misture novamente.</li>
                             <li className="ponto">Adicione as bananas cortadas ao meio e envolva na massa.</li>
