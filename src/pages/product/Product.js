@@ -5,7 +5,8 @@ import transgenico from '../../components/asserts/imagens/selo-produtos/nao-tran
 import vegano from '../../components/asserts/imagens/selo-produtos/sem-gluten.png'
 import gluten from '../../components/asserts/imagens/selo-produtos/vegano.png'
 import ProductCard from '../../components/productCard/ProductCard'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom' 
+import Buttonqty from '../../components/button/ButtonProduct'
 
 function Product() {
     return (
@@ -50,19 +51,8 @@ function Product() {
                                 <div className="row text-center justify-content-center">
                                     <div className="col-10 col-sm-4 mb-1">
                                         {/* AREA DO BOTÃO DE QUANTIDADE */}
-                                        <div className="row">
-                                            <div className=" input-group ">
-                                                <button className="btn btn-outline-success border-dark btn-green btn-sm" type="button">
-                                                    + <i className="bi-caret-down"></i>
-                                                </button>
-                                                <input type="text" className="form-control text-center border-dark area-btn " value="4" />
-                                                <button className="btn btn-outline-success border-dark btn-green btn-sm" type="button">
-                                                    - <i className="bi-caret-up"></i>
-                                                </button>
-                                                <button className="btn btn-outline-danger border-dark  btn-sm btn-red " type="button">
-                                                    <i className="bi-trash"></i>
-                                                </button>
-                                            </div>
+                                        <div className="row d-grid gy-2">
+                                        <Buttonqty/>
                                         </div>
                                         {/* FIM  AREA DO BOTÃO DE QUANTIDADE */}
                                     </div>
