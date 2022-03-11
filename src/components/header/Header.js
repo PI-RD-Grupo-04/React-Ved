@@ -41,7 +41,7 @@ function Header() {
                             {/*} **************** CESTA **************** */}
                             <div className="col-3 mt-3 mb-3  icon-cesta-mobile">
                                 <span className="badge bg-success bg-position-mobile">1</span>
-                                <Link to="/cesta"><img src={cart} width="60px" /></Link>
+                                <Link to="/basket"><img src={cart} width="60px" /></Link>
                             </div>
                         </div>
 
@@ -67,7 +67,7 @@ function Header() {
                                 <Link className="icon-fav icon-config" to='/favorites'>Favoritos</Link>
                             </div>
                             <div className="col-4 mt-3 mb-1">
-                                <Link className="icon-cesta icon-config" to='/cesta'>Cesta</Link>
+                                <Link className="icon-cesta icon-config" to='/basket'>Cesta</Link>
                                 <span className="badge bg-success bg-position">1</span>
                             </div>
                         </div>
@@ -106,13 +106,13 @@ function Header() {
 
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="./categorias.html">Novidades</a>
+                                <Link className="nav-link" to="/category">Novidades</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="./planos.html">Planos</a>
+                                <Link className="nav-link" to="/plansVed">Planos</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="./sobreNos.html">Sobre Nós</a>
+                                <Link className="nav-link" to="/aboutUS">Sobre Nós</Link>
                             </li>
                             <hr />
 
@@ -121,8 +121,8 @@ function Header() {
                             </li>
                             <hr />
                            <Link  to="/login"><li className="link-canvas">Fazer Login</li></Link> 
-                            <li><a href="./cesta.html">Cesta</a></li>
-                            <li><a href="./meusFavoritos.html">Favorito</a></li>
+                            <li><Link to ="/basket">Cesta</Link></li>
+                            <li><Link to ="/favorites">Favorito</Link></li>
                             <ul />
                         </div>
                     </div>
