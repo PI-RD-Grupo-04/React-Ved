@@ -1,36 +1,38 @@
-import './Address.css'
+import './PaymentCards.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
-import AddressInfo from '../../components/addressInfo/AddressInfo'
-import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
+import CardInfo from '../../components/cardInfo/CardInfo' 
+import ModelPayCard from '../../components/modelPayCard/ModelPayCard' 
 import Button from '../../components/button/Button'
 
-function Address() {
 
+function PaymentCards() {
     return (
         <>
             <Header />
-            <div className="container mt-3 mb-4  ">
-                <div className="row ">
-                 
-                    <div class="col-2 col-sm-3  ">
-                        <CustomerMenu />
-                    </div>
+            <div class="container mt-3 mb-4  ">
 
+                <div class="row ">
+                    {/* <!--************* Parte esquerda da pagina começo *********************--> */}
+                    <div class="col-2 col-sm-3  "> 
+                       <CustomerMenu/>
+                    </div>
                     {/* <!--************* COMEÇO DIREITA da pagina começo  *********************-->  */}
                     <div class="col-12 col-sm-9 order-md-last  mb-3">
-                        <h1 class=" cardh1 justify-content-between align-items-center title-main text-center mb-3">Meus endereços</h1>
+                        <h1 class="cardh1 justify-content-between align-items-center title-main text-center mb-3">Meus Cartões</h1>
                         {/* <!-- area do primeira cartão --> */}
                         <div class="row border mb-3 pb-3 pt-3">
                             <div class="row ">
-                            <AddressInfo />
+                                <CardInfo/>
                             </div>
                         </div>
 
+                        {/* <!-- ************************MODEL PARA CADASTRO DE CARTÃO ********************* --> */}
+                        {/* <!-- DIVISÃO DOS BUTTONS --> */}
                         <div className='mt-5 row '>
                             <div className="col-12 d-grid gap-2 col-sm-8    ">
-                                <ModalEndereco />
+                                <ModelPayCard />
                             </div>
 
                             <div className="col-12 d-grid gap-2  col-sm-4   ">
@@ -38,16 +40,13 @@ function Address() {
                             </div>
 
                         </div>
-                        {/*  ****************** CAMPO DO MODAL ****************** */}
+
                     </div>
                 </div>
             </div>
-
             <Footer />
-
         </>
     )
-
 }
 
-export default Address;
+export default PaymentCards

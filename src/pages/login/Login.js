@@ -1,9 +1,11 @@
 import './Login.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import { Link } from 'react-router-dom'
+import Button from '../../components/button/Button'
 
 
-export default function Login() {
+function Login() {
     return (
         <>
 
@@ -25,29 +27,28 @@ export default function Login() {
 
                                         <div className="form-group form-title" >
                                             <label for="name">Seu e-mail</label>
-                                            <input type="text" className="form-control" id="name" name="name" placeholder="" aria-describedby="nameHelp" />
-                                            <span id="nameHelp" className="form-text text-muted"/>
+                                            <input type="text" className="form-control" id="name" name="name" aria-describedby="nameHelp" />
+                                            <span id="nameHelp" className="form-text text-muted" />
 
                                         </div>
 
 
                                         <div className="form-group form-title" >
                                             <label for="email">Sua senha</label>
-                                            <input type="password" className="form-control" id="email" name="email" placeholder="" aria-describedby="emailHelp"/>
-                                            <span id="emailHelp" className="form-text text-muted"/>
-
-                                        </div>
-                                        
-                                        <p>Esqueceu sua senha? <a href="./RecuperarSenha.html">Clique aqui.</a></p>
-                                            <div className="d-grid gap-2 col-6 mx-auto mb-5">
-                                            <a href="./minhaConta.html" className="btn btn-success btn-block" type="button">Logar</a>
+                                            <input type="password" className="form-control" id="email" name="email" aria-describedby="emailHelp" />
+                                            <span id="emailHelp" className="form-text text-muted" />
 
                                         </div>
 
-                                        <div className="form-group">
-                                            <p>Ainda não tem conta? <a href="./cadastrar.html" className="btn  btn-outline-success btn-suport" >Cadastre-se</a></p>
-                                        </div>  
-                                                                               
+                                        <p>Esqueceu sua senha? <Link to="/passwordRecovery">Clique aqui.</Link></p>
+                                        <div className="d-grid gap-2 col-6 mx-auto mb-2">
+                                            <Button success label="Acessar" link="/myAccount">Logar</Button>
+                                        </div>
+
+                                        <div className="form-group col-6  d-grid gap-2 mx-auto">
+                                            <p>Ainda não tem conta? <Button success link="/register" label="Cadastre-se"></Button></p>
+                                        </div>
+
 
 
                                     </form>
@@ -69,7 +70,7 @@ export default function Login() {
     )
 }
 
-
+export default Login;
 
 
 

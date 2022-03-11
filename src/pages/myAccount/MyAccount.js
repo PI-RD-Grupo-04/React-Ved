@@ -1,12 +1,12 @@
-import './Bill.css'
+import './MyAccount.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 
-export default function Bill() {
+function MyAccount() {
     return (
         <>
-            <Header/>
+            <Header />
 
             <div className="container mt-3 mb-4   ">
                 <div className="row ">
@@ -33,18 +33,18 @@ export default function Bill() {
                             <div className="form-group mt-3">
                                 <label for="CPF" className="form-label">CPF:</label>
                                 <h4 id="CPF" className="form-label border">XXX.XXX.XXX-XX</h4>
-                                <div className="invalid-feedback">Apenas Numeros</div>
+                                <div className="invalid-feedback">Apenas Números</div>
                             </div>
 
                             <div className="form-group mt-3 ">
                                 <label id="Data De Nascimento" className="form-label">Data De Nascimento:</label>
                                 <h4 for="Data De Nascimento" className="form-label border ">DD/MM/YYYY</h4>
-                                <div className="invalid-feedback">Apenas Numeros</div>
+                                <div className="invalid-feedback">Apenas Números</div>
                             </div>
 
                             <div className="form-group mt-3 ">
                                 <label id="E-mail" className="form-label">E-mail:</label>
-                                <h4 for="E-mail" className="form-label border">VedAlimentosOrganicos@ved.com</h4>
+                                <h4 for="E-mail" className="form-label border">vedalimentosorganicos@ved.com</h4>
                                 <div className="invalid-feedback">Apenas Letras</div>
                             </div>
 
@@ -87,7 +87,7 @@ export default function Bill() {
 
             <Footer />
         </>
-
     )
 }
+export default MyAccount
 

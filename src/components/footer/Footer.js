@@ -11,12 +11,12 @@ import iconNu from '../asserts/imagens/Footer/iconNu.png'
 import iconPix from '../asserts/imagens/Footer/iconPix.png'
 import iconVisa from '../asserts/imagens/Footer/iconVisa.png'
 import seloOrganic from '../asserts/imagens/Footer/seloOrganic.png'
-import NavBar from '../navBar/NavBar'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
     <>
-      <footer className="footertext fluid">
+      <footer className="footertext fluid mt-5">
         <div className="container-fluid mt-4 mb-4">
           <div className="row justify-content-around">
 
@@ -25,32 +25,61 @@ function Footer() {
                 <div className="col-sm-6 col-md-4 col-lg-4 col-12">
                   <ul className="list-unstyled ">
                     <li><strong>Institucional</strong></li>
-                    <li className="btn-link"> <a href="./Faq-politicas.html">FAQs e Política da Empresa </a>
-                    </li>
-                    <li className="btn-link"> <a href="./comoComprar.html">Como Comprar</a> </li>
-                    <li className="btn-link"> <a href="./seguranca.html">Segurança</a> </li>
-                    <li className="btn-link"> <a href="./politicaFrete.html">Políticas de Frete</a> </li>
-                    <li className="btn-link"> <a href="./contato.html">Contato</a> </li>
+
+                    <Link to="/faq">
+                      <li className="btn-link">FAQs e Política da Empresa </li>
+                    </Link>
+
+                    <Link to="/howToBuy">
+                      <li className="btn-link">Como Comprar</li>
+                    </Link>
+
+                    <Link to="/policySecurity">
+                      <li className="btn-link">Segurança</li>
+                    </Link>
+
+                    <Link to="/">
+                      <li className="btn-link">Políticas de Frete</li>
+                    </Link>
+
+                    <Link to="/contact">
+                      <li className="btn-link">Contato</li>
+                    </Link>
+
                   </ul>
                 </div>
                 <div className="col-sm-6 col-md-4 col-lg-4 col-12">
                   <ul className="list-unstyled">
                     <li><strong>Atendimento</strong></li>
-                    <li className="btn-link"> <a href="#"><img src={iconWhatsapp} width="20px" /> (11)
-                      98765-1243</a>
+                    <li className="btn-link"> <a href="https://web.whatsapp.com/"><img src={iconWhatsapp} width="20px" />
+                      (11)98765-1243</a>
                     </li>
-                    <li className="btn-link"> <a href="#"><img src={iconEmail} width="20px" />
-                      Ved@sac.com.br</a>
+                    <li className="btn-link"> <a href="https://gmail.com/"><img src={iconEmail} width="20px" />
+                      ved@sac.com.br</a>
                     </li>
                   </ul>
                 </div>
                 <div className="col-sm-6 col-md-4 col-lg-4 col-12">
                   <ul className="list-unstyled">
                     <li><strong>Minha Conta</strong></li>
-                    <li className="btn-link"> <a href="#">Meus Dados</a> </li>
-                    <li className="btn-link"> <a href="#">Meus Pedidos</a> </li>
-                    <li className="btn-link"> <a href="#">Meus Favoritos</a> </li>
-                    <li className="btn-link"> <a href="#">Criar uma conta</a> </li>
+
+                    <Link to="/myAccount">
+                      <li className="btn-link"> Meus Dados</li>
+                    </Link>
+
+                    <Link to="/requests">
+                      <li className="btn-link">Meus Pedidos</li>
+                    </Link>
+
+                    <Link to="/favorites">
+                      <li className="btn-link"> Meus Favoritos</li>
+                    </Link>
+
+                    <Link to="/register">
+                      <li className="btn-link">Criar uma conta</li>
+                    </Link>
+
+
                   </ul>
                 </div>
               </div>

@@ -3,7 +3,9 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import transgenico from '../../components/asserts/imagens/selo-produtos/nao-transgenico.png'
 import vegano from '../../components/asserts/imagens/selo-produtos/sem-gluten.png'
-import gluten from  '../../components/asserts/imagens/selo-produtos/vegano.png'
+import gluten from '../../components/asserts/imagens/selo-produtos/vegano.png'
+import ProductCard from '../../components/productCard/ProductCard'
+import { Link } from 'react-router-dom'
 
 function Product() {
     return (
@@ -14,7 +16,7 @@ function Product() {
                     <div className="col-12 col-md-6">
                         {/* imagem do produto */}
                         <img className="mr-3 border " src='https://i.ibb.co/nP8cZL2/abacaxi.png' alt="Banana-Prata-Organica-600g-800g-Ved"
-                            /> 
+                        />
 
 
                     </div>
@@ -36,9 +38,9 @@ function Product() {
                                 </div>
                                 <div className="row">
                                     <div className="col-12">
-                                        <img src= {transgenico} className="icons-product" />
-                                        <img src= {vegano} className="icons-product" />
-                                        <img src= {gluten} className="icons-product" />
+                                        <img src={transgenico} className="icons-product" />
+                                        <img src={vegano} className="icons-product" />
+                                        <img src={gluten} className="icons-product" />
 
                                     </div>
                                 </div>
@@ -66,7 +68,7 @@ function Product() {
                                     </div>
                                     <div className="col-12 col-sm-8">
                                         <div className="row">
-                                            <a href="./cesta.html" className="btn btn-success btn-lg w-100 ">Adicionar</a>
+                                            <Link to="/cart" className="btn btn-success btn-lg w-100 ">Adicionar</Link>
                                         </div>
 
                                     </div>
@@ -93,97 +95,31 @@ function Product() {
                     <p></p>
                 </div>
                 <div className="sugestao-respo ">
-                    <a href="./NovasugestaoConsumo.html" className="btn btn-success btn-lg  mt-1 ">Sugestão de Consumo</a>
+                    <Link to="/suggestion" className="btn btn-success btn-lg  mt-1 ">Sugestão de Consumo</Link>
 
                 </div>
 
 
 
                 <hr />
-            </div> {/* Sugestões de outros produtos */}
+                {/* Sugestões de outros produtos */}
 
 
-            <h2 className="text-center mb-5 title-main">Aproveite também</h2>
 
-            <div className="container">
-                <div className="row text-center">
-                    <div className="product-card">
-                        <div className="badge-B"><img src="../images/Users_icon/favorito.png" width="20px" /></div>
-                        <div className="product-tumb">
-                            {/* <img src="../images/Frutas/laranja-pedaco.png" alt="Banana Prata Orgânica (600g - 800g) - Ved" /> */}
-                        </div>
-                        <div className="product-details">
+                <h2 className="text-center mb-5 title-main">Aproveite também</h2>
+                <div class="row  ">
+                    {/* ********************* item unidade  *********************/}
+                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                        peso={1.00} price={12.90} />
+                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                        peso={1.00} price={12.90} />
+                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                        peso={1.00} price={12.90} />
 
-                            <h4><a href="">Laranja</a></h4>
-                            <p>Aprox. 1kg</p>
-                            <div className="product-bottom-details text-center">
-                                <div className="product-price">
-
-                                    R$ 12,99
-                                </div>
-                            </div>
-                            <a href="./garantia.html" className="btn btn-success">Adicionar ao carrinho</a>
-                        </div>
-                    </div>
-                    <div className="product-card">
-                        <div className="badge-B"><img src="../images/Users_icon/favorito.png" width="20px" /></div>
-                        <div className="product-tumb">
-                            {/* <img src="../images/Frutas/laranja-pedaco.png" alt="Banana Prata Orgânica (600g - 800g) - Ved" /> */}
-                        </div>
-                        <div className="product-details">
-
-                            <h4><a href="">Laranja</a></h4>
-                            <p>Aprox. 1kg</p>
-                            <div className="product-bottom-details text-center">
-                                <div className="product-price">
-
-                                    R$ 12,99
-                                </div>
-                            </div>
-                            <a href="./garantia.html" className="btn btn-success">Adicionar ao carrinho</a>
-                        </div>
-                    </div>
-
-                    <div className="product-card">
-                        <div className="badge-B"><img src="../images/Users_icon/favorito.png" width="20px" /></div>
-                        <div className="product-tumb">
-                            {/* <img src="../images/Frutas/laranja-pedaco.png" alt="Banana Prata Orgânica (600g - 800g) - Ved" /> */}
-                        </div>
-                        <div className="product-details">
-
-                            <h4><a href="">Laranja</a></h4>
-                            <p>Aprox. 1kg</p>
-                            <div className="product-bottom-details text-center">
-                                <div className="product-price">
-
-                                    R$ 12,99
-                                </div>
-                            </div>
-                            <a href="./garantia.html" className="btn btn-success">Adicionar ao carrinho</a>
-                        </div>
-                    </div>
-                    <div className="product-card">
-                        <div className="badge-B"><img src="../images/Users_icon/favorito.png" width="20px" /></div>
-                        <div className="product-tumb">
-                            {/* <img src="../images/Frutas/laranja-pedaco.png" alt="Banana Prata Orgânica (600g - 800g) - Ved" /> */}
-                        </div>
-                        <div className="product-details">
-
-                            <h4><a href="">Laranja</a></h4>
-                            <p>Aprox. 1kg</p>
-                            <div className="product-bottom-details text-center">
-                                <div className="product-price">
-
-                                    R$ 12,99
-                                </div>
-                            </div>
-                            <a href="./garantia.html" className="btn btn-success">Adicionar ao carrinho</a>
-                        </div>
-                    </div>
                 </div>
             </div>
-          
-        <Footer />
+            <Footer />
+
         </>
     )
 }

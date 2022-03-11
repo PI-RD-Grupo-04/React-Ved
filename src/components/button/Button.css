@@ -23,6 +23,13 @@
     color:white;
 }
 
+.btn-suport:hover{
+
+    color:white !important;
+}
+
+
+
 
 /* botão excluir */
 .btn-delete{
@@ -38,7 +45,7 @@
     color:rgb(250, 234, 234);
 }
 
-.btnPlano{
+.btn-Plano{
     width:242px;
     height: 50px;
    

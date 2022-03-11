@@ -12,6 +12,12 @@ body{font-weight: family=fruktur;
 
 }
 
+.sugest2{
+    color: #28a745;
+    font-size: clamp(1.30em, 1em + 3vw, 1.50em); 
+    font-weight: bold;
+}
+
 
 
 
