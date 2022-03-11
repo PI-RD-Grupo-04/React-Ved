@@ -132,7 +132,7 @@ export default function Category() {
                                             </li>
                                         </ul>
 
-                     
+
 
 
 
@@ -160,21 +160,24 @@ export default function Category() {
                                     </div>
                                 </div>
                             </div>
-                            
-                            <p className="text-left  produtoencoontrado col-lg-6">Produtos entrados: Frutas</p>
 
-                            <div className="col-sm-6 col-lg-4 dropfilter d-flex flex-row-reverse bd-highligh align-items-center">
-                                             <Dropdown>
-                                                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                                    Filtro
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item href="#/action-1">Mais populares</Dropdown.Item>
-                                                    <Dropdown.Item href="#/action-2">Mais vendidos</Dropdown.Item>
-                                                    <Dropdown.Item href="#/action-3">Menor preço</Dropdown.Item>
-                                                    <Dropdown.Item href="#/action-4">Maior preço</Dropdown.Item>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
+                            <p className="text-left  produtoencoontrado col-lg-6">Produtos entrados: Frutas</p>
+                          
+                            <div className="dropfilter col-sm-6 col-lg-4  ">
+                                <div className="d-flex flex-row-reverse bd-highligh align-items-center">
+                                    <Dropdown>
+                                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                            filtro
+                                        </Dropdown.Toggle>
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item href="#/action-1">Mais populares</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2">Mais vendidos</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-3">Menor Preço</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-4">Maior Preço</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+
+                                </div>
                             </div>
 
                         </div>
@@ -210,10 +213,10 @@ export default function Category() {
             </div>
 
             <Footer />
-                                        <div className="col-12 row">
-                             
+            <div className="col-12 row">
 
-                                        </div>
+
+            </div>
         </>
 
 
