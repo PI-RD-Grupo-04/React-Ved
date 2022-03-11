@@ -2,6 +2,7 @@ import './Cart.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
+import Button from '../../components/button/Button'
 
 function Cart(props) {
 
@@ -16,78 +17,66 @@ function Cart(props) {
                         <div className="row mt-3 mb-3 text-center">
                             <h1>Sua cesta</h1>
                         </div>
+                        <ItemBasket valor={1} nome="larissa" />
+                        <ItemBasket valor={2} nome="will" />
+                        <div className="container mb-3 border">
+                            <div className="row mt-3 mb-1">
+                                <div className="col-sm-12 col-lg-2 mt-2">
+                                    <h5>Simular Frete: </h5>
+                                </div>
+                                <div className="col-sm-12 col-lg-5 inputcep">
+                                    <input type="text" className="form-control" id="cep" required />
+                                </div>
+                                <div className="col-sm-12 col-lg-5"></div>
+                            </div>
 
-                        <ul className="list-group mb-3">
-
-                            <ItemBasket valor={10} qty={2} nome="larissa" />
-
-
-
-
-                            <li className="list-group-item py-3">
-
-                                <div className="container mb-3 border">
-                                    <div className="row mt-3 mb-5">
-                                        <div className="col-2 mt-2">
-                                            <h6>Simular Frete: </h6>
-                                        </div>
-
-                                        <div className="col-1"></div>
-
-                                        <div className="col-6 inputcep">
-                                            <input type="text" className="form-control" id="cep" required />
-                                            <span className="msg-nome  msg-error error-nome" id='cep-erro' >Apenas
-                                                Números</span>
-                                            <span className="msg-nome  msg-success valid-nome" >ok</span>
-                                            <span className="campo-obrigatorio" >Campo Obrigatório</span>
-                                        </div>
-
-                                    </div>
-                                    {/* <!--cep--> */}
-
-                                    <div className="row">
-                                        <div className="col-4 mt-2">
-                                            <p>Entrega Comum: R$ 45,50</p>
-                                        </div>
-
-
-                                        <div className="col-1"></div>
-
-                                        <div className="col-3">
-                                            <h6>Quantidade Total De Itens: 5</h6>
-                                        </div>
-
-                                        <div className="col-1"></div>
-                                        <div className="col-3">
-                                            <h6>Total Produto: R$ 985,80</h6>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="row">
-                                        <div className="col-4">
-                                            <p>Entrega Flex: R$ 60,50</p>
-                                        </div>
-                                        <div className="col-4"></div>
-                                        <div className="col-1"></div>
-                                        <div className="col-12 col-sm-3">
-                                            <h6>Total Com Frete: R$ 1.031,30</h6>
-                                        </div>
-                                    </div>
+                            {/* <!--cep--> */}
+                            <div className="row">
+                                <div className="col-sm-12 col-lg-4">
+                                    <h5>Entrega Comum: R$ 45,50</h5>
+                                </div>                               
+                                <div className="col-sm-12 col-lg-4">
+                                    <h5>Quantidade Total De Itens: 5</h5>
                                 </div>
 
-                                <div className="text-end">
-                                    <h4 className="text-dark mb-3">
-                                        Valor Total: R$ 1.031,30
-                                    </h4>
-                                    <a href="./index.html" className="btn btn-outline-success btn-delete mt-3">
-                                        Continuar Comprando
-                                    </a>
-                                    <a href="./checkout.html" className="btn btn-success btn-lg ms-2 mt-3  btn-add-card">Finalizar Compra</a>
+                                <div className="col-sm-12 col-lg-1"></div>
+                                <div className="col-sm-12 col-lg-3">
+                                    <h5>Total Produto: R$ 985,80</h5>
                                 </div>
 
-                            </li>
-                        </ul>
+                            </div>
+
+                            <div className="row">
+                                <div className="col-sm-12 col-lg-4">
+                                    <h5>Entrega Flex: R$ 60,50</h5>
+                                </div>
+                                <div className="col-sm-12 col-lg-4"></div>
+                                <div className="col-sm-12 col-lg-1"></div>
+                                <div className="col-sm-12 col-lg-3">
+                                    <h5>Total Com Frete: R$ 1.031,30</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="text-end">
+                            <h5 className="text-dark mb-3">
+                                Valor Total: R$ 1.031,30
+                            </h5>                          
+                            <div className="row">
+                                <div className="col-sm-12 col-lg-6"></div>
+                                <div className="col-sm-12 col-lg-6">
+                                    <Button cart card plans delete label='Continuar Comprando' />
+                                </div>
+
+                            </div>
+
+                            <div className="row">
+                                <div className="col-sm-12 col-lg-6"></div>
+                                <div className="col-sm-12 col-lg-6">
+                                    <Button  cart card plans success label='Finalizar Compra' />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </main>
             </div>

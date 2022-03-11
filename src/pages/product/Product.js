@@ -17,7 +17,7 @@ function Product() {
                 <div className="row mt-3">
                     <div className="col-12 col-xl-6 mx-auto">
                         {/* imagem do produto */}
-                        <img className="border  " src='https://i.ibb.co/nP8cZL2/abacaxi.png' alt="Banana-Prata-Organica-600g-800g-Ved"
+                        <img className="border img-project  " src='https://i.ibb.co/nP8cZL2/abacaxi.png' alt="Banana-Prata-Organica-600g-800g-Ved"
                         />
 
 
@@ -52,7 +52,7 @@ function Product() {
                                 <div className="row text-center justify-content-center">
                                     <div className="col-10 col-sm-4 mb-1">
                                         {/* AREA DO BOTÃO DE QUANTIDADE */}
-                                        <div className="row d-grid gy-2">
+                                        <div className="row d-grid  mb-3 gy-2">
                                         <Buttonqty/>
                                         </div>
                                         {/* FIM  AREA DO BOTÃO DE QUANTIDADE */}
