@@ -4,7 +4,6 @@ import Footer from '../../components/footer/Footer'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
 
 function Cart(props) {
-
     return (
         <>
             <Header />
