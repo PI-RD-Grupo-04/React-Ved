@@ -31,7 +31,7 @@ export const Routes = () => {
             <Route path="/" component={Home} exact/>
             <Route path="/cadastro" component={Register} />
             <Route path="/product" component={Product} />
-            <Route path="/basket" component={Basket}/>
+            <Route path="/cart" component={Basket}/>
             <Route path="/checkout" component={Checkout} /> 
             <Route path="/favorites" component={Favorites} />
             <Route path="/address" component={Address} />
@@ -54,6 +54,8 @@ export const Routes = () => {
             <Route path="/category" component={Category} />
             <Route path="/shippingPolicy" component={ShippingPolicy}/>
              <Route component={Error404}/>
+
+             
             
         </Switch>
     )
