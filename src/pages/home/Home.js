@@ -64,7 +64,7 @@ function Home() {
       </div>
 
       {/* Titulo * */}
-      <div className="container title-main">
+      <div className="container title-main mt-5">
         <h2 className="text-center"> <strong>OFERTAS ESPECIAIS</strong></h2>
       </div>
 
@@ -72,7 +72,7 @@ function Home() {
 
       {/* *************************************** PRODUTOS BEGIN ************************************ */}
 
-      <div className="container mb-5">
+      <div className="container mb-5 mt-5">
         <div className="row justify-content-space ">
 
 
