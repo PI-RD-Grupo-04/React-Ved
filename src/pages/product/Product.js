@@ -14,7 +14,7 @@ function Product() {
             <Header />
             <div className="container justify-content-between">
                 <div className="row mt-3">
-                    <div className="col-12 col-md-6">
+                    <div className="col-12 col-xl-6">
                         {/* imagem do produto */}
                         <img className="mr-3 border " src='https://i.ibb.co/nP8cZL2/abacaxi.png' alt="Banana-Prata-Organica-600g-800g-Ved"
                         />
@@ -24,7 +24,7 @@ function Product() {
 
 
                     {/* LADO DIREITO DA PAGINA  */}
-                    <div className="col-12 col-md-6">
+                    <div className="col-12 col-xl-6">
                         <div className="media-body">
                             <div className="preco-avulso margin-price">
                                 <h2 className="mt-0 text-desc mb-2">Banana Prata Orgânica</h2>
@@ -46,17 +46,30 @@ function Product() {
                                     </div>
                                 </div>
                                 <div className="d-flex justify-content-start">
-                                    Estoque: <p className="ms-1 title-main ">Disponível</p>
+                                   <p> Estoque:</p> <p className="ms-1 title-main ">Disponível</p>
                                 </div>
                                 <div className="row text-center justify-content-center">
                                     <div className="col-10 col-sm-4 mb-1">
                                         {/* AREA DO BOTÃO DE QUANTIDADE */}
+<<<<<<< HEAD
                                         <div className="row d-grid gy-2">
                                         <Buttonqty/>
+=======
+                                        <div className="row quantidade">
+                                            <div className=" input-group ">
+                                                <button className="btn btn-outline-success border-dark btn-green btn-sm" type="button">
+                                                    + <i className="bi-caret-down"></i>
+                                                </button>
+                                                <input type="text" className="form-control text-center border-dark area-btn " value="4" />
+                                                <button className="btn btn-outline-success border-dark btn-green btn-sm" type="button">
+                                                    - <i className="bi-caret-up"></i>
+                                                </button>
+                                            </div>
+>>>>>>> 3a3398e1188765b2a980fb3f21b5a6a415edede5
                                         </div>
                                         {/* FIM  AREA DO BOTÃO DE QUANTIDADE */}
                                     </div>
-                                    <div className="col-12 col-sm-8">
+                                    <div className="col-12 col-md-8 mt-3">
                                         <div className="row">
                                             <Link to="/cart" className="btn btn-success btn-lg w-100 ">Adicionar</Link>
                                         </div>
@@ -99,12 +112,14 @@ function Product() {
                 <h2 className="text-center mb-5 title-main">Aproveite também</h2>
                 <div class="row  ">
                     {/* ********************* item unidade  *********************/}
-                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
-                        peso={1.00} price={12.90} />
-                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
-                        peso={1.00} price={12.90} />
-                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
-                        peso={1.00} price={12.90} />
+            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+          <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+          <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+          <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
 
                 </div>
             </div>
