@@ -105,15 +105,15 @@ function Header() {
                                 </div>
 
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="./categorias.html">Novidades</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="./planos.html">Planos</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="./sobreNos.html">Sobre Nós</a>
-                            </li>
+                            <Link to="/category"><li className="nav-item">
+                                Novidades
+                            </li></Link> 
+                            <Link  to="/plansVed"><li className="nav-item">
+                                Planos
+                            </li></Link> 
+                            <Link  to="/aboutUS"><li className="nav-item">
+                                Sobre Nós
+                            </li></Link> 
                             <hr />
 
                             <li className="welcome">
@@ -121,8 +121,8 @@ function Header() {
                             </li>
                             <hr />
                            <Link  to="/login"><li className="link-canvas">Fazer Login</li></Link> 
-                            <li><a href="./cesta.html">Cesta</a></li>
-                            <li><a href="./meusFavoritos.html">Favorito</a></li>
+                           <Link  to="/cart"> <li>Cesta</li></Link> 
+                           <Link  to="/favorites"> <li>Favorito</li></Link> 
                             <ul />
                         </div>
                     </div>

@@ -11,6 +11,7 @@ function Button(props) {
     btn += props.success ? 'btn-success ' : ''
     btn += props.plans ? 'btn-Plano ' : '' 
     let link = props.link ? props.link : null
+    //btn-outline-success
     
     if (link != null) {
       return (
