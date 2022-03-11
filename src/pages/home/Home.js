@@ -88,50 +88,8 @@ function Home() {
             peso={1.00} price={12.90} />
           <ProductCard col="col-12 col-sm-6 col-lg-4" link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
             peso={1.00} price={12.90} />
-
-          {/* *************************************** CESTAS BEGIN *********************************** */}
-
-         {/*  {/*   < /> !--Titulo * */}
-          <div className="container title-main text-center">
-            <h2 className="text-center "> Cestas Prontas</h2>
-          </div>
-
-          {/*   < /> !--Produtos * */}
-          <div className="container">
-            <div className="row text-center mb-5">
-              <div className="col-md-4 pb-1 pb-md-0">
-                <div className="card">
-                  <img className="card-img-top" src="../images/Cestas/Abundância.jpg" alt="Cesta Grande" />
-                  <div className="card-body">
-                    <h5 className="card-title"> Cesta Abundância</h5>
-                    <p className="card-text"> 20 itens </p>
-                    <a href="#" className="btn btn-success"> Ver Composição</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4 pb-1 pb-md-0">
-                <div className="card">
-                  <img className="card-img-top" src="../images/Cestas/cesta-presente-cafe-da-manha.jpg" alt="Cesta Média" />
-                  <div className="card-body">
-                    <h5 className="card-title"> Cesta Média</h5>
-                    <p className="card-text"> 15 itens</p>
-                    <a href="#" className="btn btn-success"> Ver Composição</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4 pb-1 pb-md-0">
-                <div className="card">
-                  <img className="card-img-top" src="../images/Cestas/cesta-pequena.jpg" alt="Cesta Pequena" />
-                  <div className="card-body">
-                    <h5 className="card-title"> Cesta Pequena</h5>
-                    <p className="card-text"> 10 itens </p>
-                    <a href="#" className="btn btn-success"> Ver Composição</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div></div> 
+        </div>
+      </div>
       <Footer />
     </>)
 }
