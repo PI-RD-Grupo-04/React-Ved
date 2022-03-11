@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom'
 function Footer() {
   return (
     <>
-      <footer className="footertext fluid">
+      <footer className="footertext fluid mt-5">
         <div className="container-fluid mt-4 mb-4">
           <div className="row justify-content-around">
 
