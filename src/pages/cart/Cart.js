@@ -17,8 +17,8 @@ function Cart(props) {
                         <div className="row mt-3 mb-3 text-center">
                             <h1>Sua cesta</h1>
                         </div>
-                        <ItemBasket valor={1} nome="larissa" />
-                        <ItemBasket valor={2} nome="will" />
+                        <ItemBasket valor={10} qty={1} nome="larissa" />
+                      
                         <div className="container mb-3 border">
                             <div className="row mt-3 mb-1">
                                 <div className="col-sm-12 col-lg-2 mt-2">

@@ -1,22 +1,49 @@
 
+import React, { useState } from 'react'
 function ButtonQty(props) {
 
     let delet = props.delete ? props.delete : null
 
 
+    const [qty, setQty] = useState(0)
+
+    // const [valorTotal, setValorTotal] = useState(props.valor * props.qty)
+
+    const incremento =  () => { 
+
+        setQty(qty + 1);
+        
+        
+     }
+
+
+     const decremento = () => {
+        
+        if(qty <= 0){
+            setQty(0); 
+        } else {
+            setQty(qty - 1); 
+        }
+
+        
+     } 
+
+  function resu() {
+      props.vl(props.preco, )
+  }
 
 
 
     return (
         <>
             <div className="input-group w-100 h-100 ">
-                <button className="btn btn-outline-dark  btn-green btn-sm" >
+                <button onClick={incremento}  className="btn btn-outline-dark  btn-green btn-sm" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                     </svg> <i className="bi-caret-down" ></i>
                 </button>
-                <input type="text" className="form-control text-center border-dark " value />
-                <button className="btn btn-outline-dark btn-green btn-sm" >
+                <input type="text" className="form-control text-center border-dark " value={qty} />
+                <button onClick={decremento}  className="btn btn-outline-dark btn-green btn-sm" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z" />
                     </svg> <i className="bi-caret-up" ></i>

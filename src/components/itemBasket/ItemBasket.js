@@ -4,23 +4,15 @@ import { Link } from 'react-router-dom'
 import Buttonqty from '../button/ButtonProduct'
 
 function ItemBasket(props) {
+    
+      
 
+    const [total, setTotal] = useState(props.valor)  
 
-    // const [numero, setNumero] = useState(props.qty)
+    function totalValor(valor, quant) {
+         setTotal = (valor * quant)
+    }
 
-    // const [valorTotal, setValorTotal] = useState(props.valor * props.qty)
-    // const incremento =  () => { 
-
-    //     setNumero(numero + 1);
-    //     setValorTotal(props.valor * numero);
-    //      console.log(numero);
-    //  }
-    //  const decremento = () => {
- 
-    //      setNumero(numero - 1);
-    //      setValorTotal(props.valor * numero);
-    //      console.log(numero);
-    //  }
 
 
     return (
@@ -48,9 +40,9 @@ function ItemBasket(props) {
                     <div className="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
                      
                         <div className="text-end mt-2">
-                       <Buttonqty delete/>
-                            <span className="text-dark">Valor Item: {props.valor}</span>
-                            <small className="text-secondary">Valor </small><br />
+                       <Buttonqty delete vl={totalValor} preco={props.valor} />
+                            <span className="text-dark">Valor Item: {valor}</span>
+                            <small className="text-secondary">Valor {total} </small><br />
                         </div>
                     </div>
                 </div>
