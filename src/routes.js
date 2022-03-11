@@ -22,7 +22,7 @@ import MyAccount from "./pages/myAccount/MyAccount"
 import Category from "./pages/category/Category"
 import ShippingPolicy from "./pages/shippingPolicy/ShippingPolicy"
 import Error404 from './pages/error404/Error'
-import Basket from "./pages/cart/Basket"
+import Cart from "./pages/cart/Cart"
 
 
 export const Routes = () => {
@@ -31,7 +31,7 @@ export const Routes = () => {
             <Route path="/" component={Home} exact/>
             <Route path="/cadastro" component={Register} />
             <Route path="/product" component={Product} />
-            <Route path="/basket" component={Basket}/>
+            <Route path="/cart" component={Cart}/>
             <Route path="/checkout" component={Checkout} /> 
             <Route path="/favorites" component={Favorites} />
             <Route path="/address" component={Address} />

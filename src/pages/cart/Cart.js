@@ -1,8 +1,9 @@
-import './Basket.css'
+import './Cart.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
-function Basket(props) {
+
+function Cart(props) {
 
     return (
         <>
@@ -98,4 +99,4 @@ function Basket(props) {
     )
 }
 
-export default Basket
+export default Cart
