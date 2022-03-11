@@ -23,6 +23,13 @@
     color:white;
 }
 
+.btn-suport:hover{
+
+    color:white !important;
+}
+
+
+
 
 /* botão excluir */
 .btn-delete{

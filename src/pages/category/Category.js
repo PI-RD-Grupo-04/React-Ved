@@ -20,7 +20,7 @@ export default function Category() {
                             <nav className="navlateral border-menu ">
                                 <ul className="nav flex-column">
                                     <li className="nav-item mt-3 ">
-                                        <h2 className="title-canvas">Categoria</h2>
+                                        <h2 className="text-category">Categoria</h2>
                                         <hr />
                                     </li>
 
@@ -39,7 +39,7 @@ export default function Category() {
                                     </li>
 
                                     <li className="nav-item mt-5">
-                                        <h2 className="title-canvas">Preço</h2>
+                                        <h2 className="text-category">Preço</h2>
                                     </li>
 
                                     <hr />
