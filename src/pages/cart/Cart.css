@@ -1,18 +1,4 @@
-
-.btnCardDel{
-   
-    width: 100%;
-    
-}
-
-
-
-
-@media (min-width:770px){
-    .btnCardDel{
-        width: 50%;
-       
-    }
-
-
+.imgfruta{
+    width: 100px;
+    height: 100px;
 }
