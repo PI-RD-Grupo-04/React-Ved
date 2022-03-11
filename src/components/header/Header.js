@@ -41,7 +41,7 @@ function Header() {
                             {/*} **************** CESTA **************** */}
                             <div className="col-3 mt-3 mb-3  icon-cesta-mobile">
                                 <span className="badge bg-success bg-position-mobile">1</span>
-                                <Link to="/basket"><img src={cart} width="60px" /></Link>
+                                <Link to="/cart"><img src={cart} width="60px" /></Link>
                             </div>
                         </div>
 
@@ -78,7 +78,7 @@ function Header() {
                 {/*} ******************* CORPO DO CANVAS   ********************/}
                 <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                     <div className="offcanvas-header">
-                        <h4 className="offcanvas-title title-canvas" id="offcanvasExampleLabel">Menu</h4>
+                        <h3 className="offcanvas-title title-canvas" id="offcanvasExampleLabel">Menu</h3>
 
                         <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
@@ -119,10 +119,15 @@ function Header() {
                             <li className="welcome">
                                 <h3 className="title-canvas">Sua Area</h3>
                             </li>
-                            <hr />
-                           <Link  to="/login"><li className="link-canvas">Fazer Login</li></Link> 
-                            <li><Link to ="/basket">Cesta</Link></li>
-                            <li><Link to ="/favorites">Favorito</Link></li>
+                            <li className="nav-item mt-4">
+                                <Link className="nav-link" to="/login">Fazer Login</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/cart">Cesta</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/favorites">Favoritos</Link>
+                            </li>
                             <ul />
                         </div>
                     </div>
@@ -132,5 +137,4 @@ function Header() {
         </>
     )
 }
-
 export default Header
