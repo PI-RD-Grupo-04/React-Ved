@@ -4,6 +4,8 @@ import './Button.css'
 
 function Button(props) {
 
+
+  let ds = props.ds
     let btn = 'w-100 ml-0 btn-lg mb-3 '
     btn += props.card ? 'btn-add-card ' : ''
     btn += props.suporte ? 'btn-suport ' : ''
@@ -15,7 +17,7 @@ function Button(props) {
     return (
       <>
         
-          <button className={btn} type="submit">{props.label}</button>
+          <button className={btn} {...props.ds} type="submit">{props.label}</button>
         
       </>
     )

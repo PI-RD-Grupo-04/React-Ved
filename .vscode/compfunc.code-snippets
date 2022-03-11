@@ -24,5 +24,4 @@
 		"export default $1",
 		],
 		"description": "Log output to console"
-	}
 }

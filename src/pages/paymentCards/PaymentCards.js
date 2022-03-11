@@ -1,4 +1,4 @@
-import './Card.css'
+import './PaymentCards.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
@@ -6,7 +6,7 @@ import CardInfo from '../../components/cardInfo/CardInfo'
 
 
 
-function Card() {
+function PaymentCards() {
     return (
         <>
             <Header />
@@ -19,8 +19,7 @@ function Card() {
                     </div>
                     {/* <!--************* COMEÇO DIREITA da pagina começo  *********************-->  */}
                     <div class="col-12 col-sm-9 order-md-last  mb-3">
-                        {/* <!-- Informação do 1º cartao salvo --> */}
-                        <h2 class="justify-content-between align-items-center title-main text-center mb-3">Meus Cartões</h2>
+                        <h1 class="cardh1 justify-content-between align-items-center title-main text-center mb-3">Meus Cartões</h1>
                         {/* <!-- area do primeira cartão --> */}
                         <div class="row border mb-3 pb-3 pt-3">
                             <div class="row ">
@@ -33,9 +32,7 @@ function Card() {
                         <div class="row">
                             {/* <!-- BUTTON DO MODAL --> */}
                             <div class="col-6">
-                                <button type="button" class="btn btn-suport" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Cadastrar Cartão
-                                </button>
+                             
                             </div>
                             {/* <!-- BUTTON DO EXCLUIR CARTÃO --> */}
                             <div class="col-6">
@@ -71,7 +68,7 @@ function Card() {
                                                         <input type="text" class="form-control" id="cc-name" placeholder="" required/>
                                                             <small class="text-muted">Nome conforme exibido no
                                                                 cartão</small>
-                                                            <div class="invalid-feedback">Nome Obrigatorio</div>
+                                                            <div class="invalid-feedback">Nome Obrigatório</div>
                                                     </div>
                                                     {/* <!--******CPF do cartão ***** --> */}
                                                     <div class="col-12">
@@ -116,4 +113,4 @@ function Card() {
     )
 }
 
-export default Card
+export default PaymentCards

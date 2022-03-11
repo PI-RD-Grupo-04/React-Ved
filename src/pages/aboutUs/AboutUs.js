@@ -16,7 +16,7 @@ function AboutUs() {
                     <p>
                         Buscamos oferecer muito mais que alimentos saudáveis! Pensando nisso, fomos ao campo para mostrar a origem dos
                         nossos ingredientes. Você sabe de onde vem a abobrinha que vai para o seu prato? Aqui embaixo você consegue
-                        entender um pouco sobre nossa parceria com agricultores familiares e orgânicos e ver quem está por trás desses
+                        entender um pouco sobre nossa parceria com agricultores familiares e ver quem está por trás desses
                         itens fresquinhos que chegam a sua casa!
                     </p>
                 </div>
@@ -76,5 +76,4 @@ function AboutUs() {
         </>
     )
 }
-
- export default AboutUs
+export default AboutUs

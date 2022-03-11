@@ -1,0 +1,21 @@
+.btn-suport{
+
+        color: white; 
+        background-color: #198754;
+        height: 50px;
+    
+}
+
+
+
+.btn-suport:hover{
+    background-color: #156b43;
+    border-color: #198754;
+}
+
+
+
+@media (min-width:770px){
+#master{columns: 12;}
+
+}
