@@ -15,6 +15,11 @@
   
 }
 
+
+.text-white {
+    color: white;
+}
+
 .border-menu{
     border: 1px solid #919191;
 }
@@ -35,7 +40,7 @@ nav.navlateral {
 .menuletra {
     
     text-decoration: none;
-    font-size: 14px;
+    font-size: 22px;
     color: rgb(255, 255, 255); }
 
 

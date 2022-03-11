@@ -7,7 +7,7 @@ function Suggestion() {
     return (
         <>
             <Header />
-            <div className=" col-12 container mt-5">
+            <div className=" col-12 container  ">
                 <h1 className=" d-flex justify-content-center mb-5  "> Sugestão de Consumo</h1>
                 <hr />
                 <h2 className=" row d-flex justify-content-center sugest2">Banana Caramelizada </h2>
@@ -16,7 +16,7 @@ function Suggestion() {
                 <img className="imagemsugestao1 imgresp " src='https://i.ibb.co/nP8cZL2/abacaxi.png' />
             </div>
 
-            <div className="container primeiroAB mt-5 justify-content-between">
+            <div className="container  primeiroAB mt-3 justify-content-between">
                 <div className="row ">
                     <div className="col-lg-6 col-md-12">
                         <h2 className="col-12 sugest2">Ingredientes</h2>
@@ -37,7 +37,7 @@ function Suggestion() {
             </div>
 
 
-            <div className="container mt-5 segundoAB text-justif">
+            <div className="container mt-5 segundoAB text-align-justify ">
                 <hr />
                 <h2 className='sugest2'>Como Preparar</h2>
                 <div className="row">

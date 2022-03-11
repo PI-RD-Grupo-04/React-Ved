@@ -11,7 +11,9 @@
 }  
 
 
-
+.bgc{
+    background-color: #fff;
+}
 
 .li-item-menuLateral:hover{
     background-color: #42db94;

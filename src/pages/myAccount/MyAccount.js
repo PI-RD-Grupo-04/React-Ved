@@ -30,9 +30,9 @@ function MyAccount() {
                                 <div className="invalid-feedback">Apenas Letras</div>
                             </div>
 
-                            <div className="form-group mt-3">
+                            <div className="form-group mt-3 d-grid gy-2">
                                 <label for="CPF" className="form-label">CPF:</label>
-                                <h4 id="CPF" className="form-label border">XXX.XXX.XXX-XX</h4>
+                                <input type="text" disabled id="CPF"  className="form-label border bgc" value="***.***.***-32"/>
                                 <div className="invalid-feedback">Apenas Números</div>
                             </div>
 
