@@ -49,12 +49,13 @@ function Product() {
                                 <div className="d-flex justify-content-start">
                                     <p> Estoque:</p> <p className="ms-1 title-main ">Disponível</p>
                                 </div>
-                                <div className="row text-center align-items-center justify-content-center">
-
-                                    {/* AREA DO BOTÃO DE QUANTIDADE */}
-
-                                    <div className="col-12 col-sm-6 mb-2">
-                                        <Buttonqty />
+                                <div className="row text-center justify-content-center">
+                                    <div className="col-10 col-sm-4 mb-1">
+                                        {/* AREA DO BOTÃO DE QUANTIDADE */}
+                                        <div className="row d-grid gy-2">
+                                        <Buttonqty/>
+                                        </div>
+                                        {/* FIM  AREA DO BOTÃO DE QUANTIDADE */}
                                     </div>
 
                                     <div className="col-12 col-sm-6">
