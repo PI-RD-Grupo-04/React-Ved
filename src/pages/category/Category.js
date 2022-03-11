@@ -10,7 +10,6 @@ export default function Category() {
     return (
         <>
             <Header />
-
             <div className="container mt-5 mb-4  ">
                 <div className="row ">
                     <div className="col-2 borda-menu color-menu2">
