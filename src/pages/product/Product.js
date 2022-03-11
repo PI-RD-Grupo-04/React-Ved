@@ -51,21 +51,8 @@ function Product() {
                                 <div className="row text-center justify-content-center">
                                     <div className="col-10 col-sm-4 mb-1">
                                         {/* AREA DO BOTÃO DE QUANTIDADE */}
-<<<<<<< HEAD
                                         <div className="row d-grid gy-2">
                                         <Buttonqty/>
-=======
-                                        <div className="row quantidade">
-                                            <div className=" input-group ">
-                                                <button className="btn btn-outline-success border-dark btn-green btn-sm" type="button">
-                                                    + <i className="bi-caret-down"></i>
-                                                </button>
-                                                <input type="text" className="form-control text-center border-dark area-btn " value="4" />
-                                                <button className="btn btn-outline-success border-dark btn-green btn-sm" type="button">
-                                                    - <i className="bi-caret-up"></i>
-                                                </button>
-                                            </div>
->>>>>>> 3a3398e1188765b2a980fb3f21b5a6a415edede5
                                         </div>
                                         {/* FIM  AREA DO BOTÃO DE QUANTIDADE */}
                                     </div>
