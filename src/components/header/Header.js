@@ -67,7 +67,7 @@ function Header() {
                                 <Link className="icon-fav icon-config" to='/favorites'>Favoritos</Link>
                             </div>
                             <div className="col-4 mt-3 mb-1">
-                                <Link className="icon-cesta icon-config" to='/cesta'>Cesta</Link>
+                                <Link className="icon-cesta icon-config" to='/cart'>Cesta</Link>
                                 <span className="badge bg-success bg-position">1</span>
                             </div>
                         </div>
