@@ -24,7 +24,8 @@ function PaymentCards() {
                         {/* <!-- area do primeira cartão --> */}
                         <div class="row border mb-3 pb-3 pt-3">
                             <div class="row ">
-                                <CardInfo/>
+                                <CardInfo nome="Visa" numero="*************23" mes="10" ano="24" />
+                                <CardInfo nome="MasterCard" numero="*************14" mes="10" ano="24" />
                             </div>
                         </div>
 
