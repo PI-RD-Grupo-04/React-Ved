@@ -12,7 +12,7 @@ import HowToBuy from './pages/howToBuy/HowToBuy'
 import AboutUs from './pages/aboutUs/AboutUs'
 import PlansVed from './pages/plansVed/PlansVed'
 import Suggestion from './pages/suggestion/Suggestion'
-import Register from './pages/register/Register'
+import Register  from './pages/register/Register'
 import PasswordRecovery from './pages/passwordRecovery/PasswordRecovery'
 import PasswordChange from "./pages/passwordChange/PasswordChange"
 import Contact from './pages/contact/Contact'
@@ -28,35 +28,33 @@ import Cart from "./pages/cart/Cart"
 export const Routes = () => {
     return (
         <Switch>
-            <Route path="/" component={Home} exact />
+            <Route path="/" component={Home} exact/>
             <Route path="/cadastro" component={Register} />
             <Route path="/product" component={Product} />
-            <Route path="/cart" component={Cart} />
-            <Route path="/checkout" component={Checkout} />
+            <Route path="/cart" component={Cart}/>
+            <Route path="/checkout" component={Checkout} /> 
             <Route path="/favorites" component={Favorites} />
             <Route path="/address" component={Address} />
             <Route path="/paymentCards" component={PaymentCards} />
             <Route path="/requests" component={Requests} />
-            <Route path="/faq" component={Faq} />
-            <Route path="/policySecurity" component={PolicySecurity} />
-            <Route path="/howToBuy" component={HowToBuy} />
-            <Route path="/aboutUS" component={AboutUs} />
-            <Route path="/plansVed" component={PlansVed} />
-            <Route path="/suggestion" component={Suggestion} />
-            <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} exact />
-            <Route path="/orderSucess" component={OrderSucess} exact />
-            <Route path="/contact" component={Contact} exact />
-            <Route path="/passwordChange" component={PasswordChange} />
-            <Route path="/passwordRecovery" component={PasswordRecovery} />
-            <Route path="/register" component={Register} />
+            <Route path="/faq" component={Faq}/>
+            <Route path="/policySecurity" component={PolicySecurity}/>
+            <Route path="/howToBuy" component={HowToBuy}/>
+            <Route path="/aboutUS" component={AboutUs}/>
+            <Route path="/plansVed" component={PlansVed}/>
+            <Route path="/suggestion" component={Suggestion}/>
+            <Route path="/register" component={Register} />             
+            <Route path="/login" component={Login} exact/>
+            <Route path="/orderSucess" component={OrderSucess} exact/>
+            <Route path="/contact" component={Contact} exact/>
+            <Route path="/passwordChange" component={PasswordChange}/>
+            <Route path="/passwordRecovery" component={PasswordRecovery}/>
+            <Route path="/register" component={Register} /> 
             <Route path="/myAccount" component={MyAccount} />
             <Route path="/category" component={Category} />
-            <Route path="/shippingPolicy" component={ShippingPolicy} />
-            <Route component={Error404} />
-
-
-
+            <Route path="/shippingPolicy" component={ShippingPolicy}/>
+             <Route component={Error404}/>
+            
         </Switch>
     )
 }
