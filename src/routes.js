@@ -43,28 +43,7 @@ export const Routes = () => {
             <Route path="/aboutUS" component={AboutUs}/>
             <Route path="/plansVed" component={PlansVed}/>
             <Route path="/suggestion" component={Suggestion}/>
-            <Route path="/cadastro" component={Register} />             
-            <Route component={() => 
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="error-template">
-                            <h1>Oops!</h1>
-                            <h2 className='erro2'>404 Not Found</h2>
-                            <div className="error-details">
-                                Sorry, an error has occured, Requested page not found!
-                            </div>
-                            <div className="error-actions">
-                                <a href="#" className="btn btn-primary btn-lg"><span className="glyphicon glyphicon-home"></span>
-                                    Take Me Home </a><a href="#" className="btn btn-default btn-lg"><span className="glyphicon glyphicon-envelope"></span> Contact Support </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>}/>
-            <Route path="/error404" component={Error} /> 
-           
-            
+            <Route path="/cadastro" component={Register} />                        
             <Route path="/Login" component={Login} exact/>
             <Route path="/Contact" component={Contact} exact/>
             <Route path="/PasswordChange" component={PasswordChange}/>
@@ -80,7 +59,7 @@ export const Routes = () => {
             <Route path="/myAccount" component={MyAccount} />
             <Route path="/category" component={Category} />
             <Route path="/shippingPolicy" component={ShippingPolicy}/>
-             <Route component={Error404}/>           
+            <Route component={Error404}/>           
         </Switch>
     )
 }
