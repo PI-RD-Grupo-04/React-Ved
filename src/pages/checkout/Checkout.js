@@ -5,7 +5,9 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
 import AccordionCart from '../../components/accordionCart/AccordionCart'
-
+import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
+import Button from '../../components/button/Button'
+import iconNu from '../../components/asserts/imagens/Footer/iconNu.png'
 
 
 class Checkout extends Component {
@@ -24,149 +26,130 @@ class Checkout extends Component {
                     <form>
                         <div className="row ">
                             <div className="col-12 col-sm-6 border ">
-                                <h4 className="mb-3 ">Dados de Entrega</h4>
-                                <div className=" mb-3">
-                                    {/*  <!--************* Parte esquerda da pagina começo  *********************--> */}
-                                    <form className="needs-validation" >
-                                        <div className="row g-3">
-                                            <h5 className="title-subs"> selecione o endereço</h5>
-                                            {/* <AddressInfo /> */}
+                                <h4 className="mb-1 mt-2">Dados de Entrega</h4>
+
+                                {/*  <!--************* Parte esquerda da pagina começo  *********************--> */}
+                                <form className="needs-validation" >
+                                    <div className="row g-3">
+                                        <h5 className="title-subs mt-4"> selecione o endereço</h5>
+                                        <AddressInfo />
 
 
-                                            {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
-                                            {/*  <!-- DIVISÃO DOS BUTTONS --> */}
-                                            <div className="row mt-1">
-                                                {/*  <!-- BUTTON DO MODAL --> */}
-                                                <div className="col-12 col-md-6">
-                                                    <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        Cadastrar Novo Endereço
-                                                    </button>
-                                                </div>
+                                        {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
+
+                                        <ModalEndereco />
+
+                                        <hr className="my-2" />
+
+                                        <div className="form-check">
+                                            <input type="checkbox" className="form-check-input" id="same-address" />
+                                            <label className="form-check-label" for="same-address">O endereço de entrega é igual ao
+                                                meu
+                                                endereço de cobrança?
+                                            </label>
+                                        </div>
+                                        <div className="form-check">
+                                            <input type="checkbox" className="form-check-input" id="save-info" />
+                                            <label className="form-check-label" for="save-info">Guarde esta informação para a
+                                                próxima
+                                                vez.
+                                            </label>
+                                        </div>
+                                        <hr className="my-2" />
+
+                                        <h4 className="mb-1 ">Calculo de Frete</h4>
+                                        <div className="col-12">
+                                            <div className="col-2 mt-2">
+                                                <h6>Simular Frete: </h6>
                                             </div>
 
-                                            {/*  <!-- ****************** CAMPO DO MODAL ****************** --> */}
-                                            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                                aria-hidden="true">
-                                                <div className="modal-dialog">
-                                                    <div className="modal-content">
-                                                        <div className="modal-header">
-                                                            <h5 className="modal-title" id="exampleModalLabel">Novo Endereço de Entrega
-                                                            </h5>
-                                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div className="modal-body">
-                                                            {/*  <!-- CORPO DO MODAL PARA CADASTRAR ENDEREÇOS --> */}
-                                                            <div className="row border  pb-3 pt-3">
-                                                                <div className="row ">
-                                                                    {/* <!-- campo Rua --> */}
-                                                                    <div className="col-12">
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="Rua" className="form-label">Rua:</label>
-                                                                            <input type="text" className="form-control" id="Rua" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Letras</div>
-                                                                        </div>
-                                                                    </div>
-                                                                    {/*  <!--**campo Número * --> */}
-                                                                    <div className="col-12">
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="N°" className="form-label">N°:</label>
-                                                                            <input type="text" className="form-control" id="N°" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Números</div>
-                                                                        </div>
-                                                                        {/*  <!--**Campo Complemento * --> */}
-                                                                        <div className="col-12">
-                                                                            <div className="form-group form-title" >
-                                                                                <label for="Complemento" className="form-label">Complemento:</label>
-                                                                                <input type="text" className="form-control" id="Complemento" placeholder="" required />
-                                                                                <div className="invalid-feedback">Apenas Letras </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="CEP" className="form-label">CEP:</label>
-                                                                            <input type="text" className="form-control" id="CEP" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Números</div>
-                                                                        </div>
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="Bairro" className="form-label">Bairro:</label>
-                                                                            <input type="text" className="form-control" id="Bairro" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Letras</div>
-                                                                        </div>
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="Cidade" className="form-label">Cidade:</label>
-                                                                            <input type="text" className="form-control" id="Cidade" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Letras</div>
-                                                                        </div>
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="Estado" className="form-label">Estado:</label>
-                                                                            <input type="text" className="form-control" id="Estado" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Letras</div>
-                                                                        </div>
-                                                                        {/* <!-- FIM DO CORPO DO MODAL --> */}
-                                                                        <div className="modal-footer justify-content-between">
-                                                                            <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                                                            <button type="button" className="btn btn-success">Salvar</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            {/*  <!-- ******* FIM DO MODAL ******* --> */}
-                                                        </div>
+                                            <div className="col-1"></div>
+
+                                            <div className="col-6 inputcep">
+                                                <input type="text" className="form-control" id="cep" required />
+                                            </div>
+                                            <label for="frete-comum">Frete para <b>******-**</b></label>
+                                            <span className="msg-nome  msg-success  disblock valid-nome">ok</span>
+                                            <span className="campo-obrigatório disblock" >*Campo Obrigatório</span>
+                                            <span className="campo-obrigatório disblock" >Valor: </span>
+                                            <span className="" id="fretes" >Formas: </span>
+                                            {/*  <!-- opçes de frete --> */}
+                                            <div className="col-12 col-sm-6">
+                                                <input type="radio" id="frete-comum" name="Frete" className="form-check-input" value="comum" />
+                                                <label for="frete-comum">Frete Comum: 12,00</label>
+
+                                                <hr className="my-2" />
+
+                                                <div className="form-check">
+                                                    <input type="checkbox" className="form-check-input" id="same-address" />
+                                                    <label className="form-check-label" for="same-address">O endereço de entrega é igual ao
+                                                        meu endereço de cobrança?
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input type="checkbox" className="form-check-input" id="save-info" />
+                                                    <label className="form-check-label" for="save-info">Guarde esta informação para a
+                                                        próxima vez.
+                                                    </label>
+                                                </div>
+                                                <hr className="my-2" />
+
+                                                <h4 className="mb-1 ">Cálculo de Frete</h4>
+                                                <div className="col-12">
+                                                    <label for="frete-comum">Frete para <b className="">12390-045</b></label>
+                                                    <span className="msg-nome  msg-success  disblock valid-nome">ok</span>
+                                                    <span className="campo-obrigatório disblock" >*Campo Obrigatório</span>
+                                                    <span className="campo-obrigatório disblock" >Valor: </span>
+                                                    <span className="" id="fretes" >Formas: </span>
+                                                    {/*  <!-- opçes de frete --> */}
+                                                    <div className="col-12 col-sm-6">
+                                                        <input type="radio" id="frete-comum" name="Frete" className="form-check-input" value="comum" />
+                                                        <label for="frete-comum">Frete Comum: 12,00</label>
+
+                                                    </div>
+                                                    <div className="col-12 col-sm-6 mb-3">
+                                                        <input type="radio" id="frete-flex" name="Frete" className="form-check-input" value="flex" />
+                                                        <label for="frete-flex">Frete Flex: 18,99</label>
+
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <hr className="my-2" />
-
-                                            <div className="form-check">
-                                                <input type="checkbox" className="form-check-input" id="same-address" />
-                                                <label className="form-check-label" for="same-address">O endereço de entrega é igual ao
-                                                    meu
-                                                    endereço de cobrança?
-                                                </label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input type="checkbox" className="form-check-input" id="save-info" />
-                                                <label className="form-check-label" for="save-info">Guarde esta informação para a
-                                                    próxima
-                                                    vez.
-                                                </label>
-                                            </div>
-                                            <hr className="my-2" />
-
-                                            <h4 className="mb-1 ">Calculo de Frete</h4>
-                                            <div className="col-12">
-                                                <label for="frete-comum">Frete para <b className="">12390-045</b></label>
-                                                <span className="msg-nome  msg-success  disblock valid-nome">ok</span>
-                                                <span className="campo-obrigatório disblock" >*Campo Obrigatório</span>
-                                                <span className="campo-obrigatório disblock" >Valor: </span>
-                                                <span className="" id="fretes" >Formas: </span>
-                                                {/*  <!-- opçes de frete --> */}
-                                                <div className="col-12 col-sm-6">
-                                                    <input type="radio" id="frete-comum" name="Frete" className="form-check-input" value="comum" />
-                                                    <label for="frete-comum">Frete Comum: 12,00</label>
-
-                                                </div>
-                                                <div className="col-12 col-sm-6 mb-3">
-                                                    <input type="radio" id="frete-flex" name="Frete" className="form-check-input" value="flex" />
-                                                    <label for="frete-flex">Frete Flex: 18,99</label>
-
-                                                </div>
-                                            </div>
                                         </div>
-                                    </form>
+                                    </div>
+                                </form>
 
-                                    <hr className="my-2" />
-                                    {/*  <!--COMEÇOS CUPOM DE DESCONTO --> */}
-                                    <h4 className="mb-3  ">Cupom de Desconto</h4>
-                                    <form className="border p-2">
-                                        <div className="input-group">
-                                            <input type="text" className="form-control" placeholder="Código promocional" />
-                                            <button type="submit" className="btn btn-success">Resgatar</button>
-                                        </div>
-                                        <span className="campo-obrigatório mt-1" >Desconto aplicado! </span>
-                                    </form>
-                                    {/*  <!-- FIM CUPOM DE DESCONTO --> */}
+                                <hr className="my-2" />
+                                {/*  <!--COMEÇOS CUPOM DE DESCONTO --> */}
+                                <h4 className="mb-3  ">Cupom de Desconto</h4>
+                                <form className="border p-2">
+                                    <div className="input-group">
+                                        <input type="text" className="form-control" placeholder="Código promocional" />
+                                        <Button success label="resgatar" />
+                                    </div>
+                                    <span className="campo-obrigatório mt-1" >Desconto aplicado! </span>
+                                </form>
+                                {/*  <!-- FIM CUPOM DE DESCONTO --> */}
+                                <div>
+                                    {/*  <!-- BEGIN SEUS PRODUTOS --> */}
+                                    <h4 className="d-flex justify-content-between align-items-center mb-3 mt-2">
+                                        <span className="">Seu carrinho</span>
+                                        <span className="badge bg-success rounded-pill">3</span>
+                                    </h4>
+                                    <ul className="list-group mb-3">
+                                        <ItemCart nome="teste" descricao="aaa" price={2.90} />
+                                        <ItemCart nome="teste" descricao="aaa" price={2.90} />
+                                        <ItemCart nome="teste" descricao="aaa" price={2.90} />
+                                        <ItemCart nome="teste" descricao="aaa" price={2.90} />
+                                        <ItemCart nome="teste" descricao="aaa" price={2.90} />
+
+
+
+                                    </ul>
+                                    <a href="./cesta.html" className=" btn btn-success mb-1 mt-1 " type="submit">Volta a Cesta</a>
+
                                 </div>
+
+
                                 {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
 
                             </div>
@@ -175,7 +158,7 @@ class Checkout extends Component {
 
                                 {/*  <!-- BEGIN SEUS PRODUTOS --> */}
                                 <h4 className="d-flex justify-content-between align-items-center mb-3 mt-2">
-                                    <span className="">Seu carrinho</span>
+                                    <span className="">Sua cesta</span>
                                     <span className="badge bg-success rounded-pill">3</span>
                                 </h4>
                                 <ul className="list-group mb-3">
@@ -183,7 +166,7 @@ class Checkout extends Component {
                                     <ItemCart />
 
                                 </ul>
-                                <a href="./cesta.html" className=" btn btn-success mb-1 mt-1 " type="submit">Volta a Cesta</a>
+                                <a href="./cesta.html" className=" btn btn-success mb-1 mt-1 " type="submit">Voltar a Cesta</a>
 
                                 <hr className="my-2" />
                                 <div className="row">
@@ -194,6 +177,7 @@ class Checkout extends Component {
                                             num='****-****-****-*000'
                                             nome='ved Alimentos'
                                             dia={2} ano={2022} />
+
                                     </div>
                                     <div>
                                         <hr className="my-2" />
@@ -240,26 +224,26 @@ class Checkout extends Component {
                                                 <input type="text" className="form-control" id="cpf-titular" placeholder="" required />
                                                 <div className="invalid-feedback">Número do Cartão Obrigatório</div>
                                             </div>
-                                            <div className="col-md-3">
+                                            <div className="col-3 ">
                                                 {/* <!-- vencimento do cartão --> */}
-                                                <p for="bandeira-card" className="form-label">Bandeira</p>
-                                                {/* <img src="../images/Footer/icon-visa.png" width="80px"> */}
+                                                <label for="bandeira-card" className="form-label col-12">Bandeira</label>
+                                                <img src={iconNu} className="iconCard" />
                                                 <div className="invalid-feedback">Cartão inválido</div>
                                             </div>
                                             <div className="col-md-3">
                                                 {/* <!-- vencimento do cartão --> */}
                                                 <label for="cc-expiration" className="form-label">Vencimento</label>
                                                 <input type="text" className="form-control" id="cc-expiration" placeholder="" required />
-                                                <div className="invalid-feedback">Data de Expiração Obrigatoria</div>
+                                                <div className="invalid-feedback">Data de Expiração Obrigatória</div>
                                             </div>
                                             <div className="col-md-2">
                                                 <label for="card-cvv" className="form-label">CVV</label>
                                                 <input type="text" className="form-control" id="card-cvv" placeholder="" required />
                                                 <div className="invalid-feedback">Codigo de seguranção Obrigatório</div>
                                             </div>
-                                            <div className="col-md-7">
-                                                <p>Parcelar em</p>
-                                                <select required>
+                                            <div className="col-md-7 d-grid gy-2">
+                                                <label for="parcela" className="col-12">Parcelar em</label>
+                                                <select id="parcela" required>
                                                     <option value="">Selecione a parcela...</option>
                                                     <option value="1">1x </option>
                                                     <option value="2">2x</option>
@@ -275,9 +259,10 @@ class Checkout extends Component {
                                         <hr className="my-4" />
 
                                     </div>
-                                    <a href="./SucessoComprar.html" className="w-100 btn btn-success btn-lg  mb-3" type="submit">Continue
-                                        para finalizar a
-                                        compra</a>
+                                    <div>
+                                        <Button label="Finalizar Pedido" success />
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

@@ -24,18 +24,19 @@ function PaymentCards() {
                         {/* <!-- area do primeira cartão --> */}
                         <div class="row border mb-3 pb-3 pt-3">
                             <div class="row ">
-                                <CardInfo/>
+                                <CardInfo nome="Visa" numero="*************23" mes="10" ano="24" />
+                                <CardInfo nome="MasterCard" numero="*************14" mes="10" ano="24" />
                             </div>
                         </div>
 
                         {/* <!-- ************************MODEL PARA CADASTRO DE CARTÃO ********************* --> */}
                         {/* <!-- DIVISÃO DOS BUTTONS --> */}
                         <div className='mt-5 row '>
-                            <div className="col-12 d-grid gap-2 col-sm-8    ">
+                            <div className="col-12 d-grid gap-2 col-sm-8   mb-2 ">
                                 <ModelPayCard />
                             </div>
 
-                            <div className="col-12 d-grid gap-2  col-sm-4   ">
+                            <div className="col-12 d-grid gap-2  col-sm-4  ">
                                 <Button label='Excluir' delete />
                             </div>
 

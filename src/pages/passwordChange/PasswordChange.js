@@ -1,6 +1,7 @@
 import './PasswordChange.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import { Link } from 'react-router-dom'
 
 export default function PasswordChange() {
     return (
@@ -24,9 +25,9 @@ export default function PasswordChange() {
 
                                         <div className="col-12 form-title">
                                             <label for="form-senha form-title " className="form-label">Digite sua nova senha</label>
-                                            <input type="password" className="form-control" id="form-senha"/>
-                                              
-                                              
+                                            <input type="password" className="form-control" id="form-senha" />
+
+
                                             {/* <span className="msg-pass  msg-error error-pass" >Senha Fraca! A senha deve conter no mínimo 8 caracteres</span>
                                             <span className="msg-pass  msg-success valid-pass" >ok</span> */}
 
@@ -35,16 +36,16 @@ export default function PasswordChange() {
 
                                         <div className="col-12 form-title mt-1">
                                             <label for="form-senha-confirma " className="form-label">Confirme sua nova senha</label>
-                                            <input type="password" className="form-control" id="form-senha-confirma"/>
-                                          
-                                          
-                                           {/* <span className="msg-password  msg-error error-pass2" >senha divergentes</span>
+                                            <input type="password" className="form-control" id="form-senha-confirma" />
+
+
+                                            {/* <span className="msg-password  msg-error error-pass2" >senha divergentes</span>
                                             <span className="msg-passoword  msg-success valid-pass2" >ok</span> */}
 
                                         </div>
 
                                         <div className="d-grid gap-2 col-3 mx-auto mb-5 mt-5">
-                                            <a href="./login.html" className="btn btn-success btn-block" type="button">Salvar</a>
+                                            <Link to="/login" className="btn btn-success btn-block" type="button">Salvar</Link>
                                         </div>
 
                                     </form>
