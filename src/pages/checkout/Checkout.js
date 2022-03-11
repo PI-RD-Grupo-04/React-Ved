@@ -6,7 +6,7 @@ import Footer from '../../components/footer/Footer'
 import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
 import AccordionCart from '../../components/accordionCart/AccordionCart'
 import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
-import Button from '../../components/button/Button' 
+import Button from '../../components/button/Button'
 import iconNu from '../../components/asserts/imagens/Footer/iconNu.png'
 
 
@@ -78,11 +78,41 @@ class Checkout extends Component {
                                                 <input type="radio" id="frete-comum" name="Frete" className="form-check-input" value="comum" />
                                                 <label for="frete-comum">Frete Comum: 12,00</label>
 
-                                            </div>
-                                            <div className="col-12 col-sm-6 mb-3">
-                                                <input type="radio" id="frete-flex" name="Frete" className="form-check-input" value="flex" />
-                                                <label for="frete-flex">Frete Flex: 18,99</label>
+                                                <hr className="my-2" />
 
+                                                <div className="form-check">
+                                                    <input type="checkbox" className="form-check-input" id="same-address" />
+                                                    <label className="form-check-label" for="same-address">O endereço de entrega é igual ao
+                                                        meu endereço de cobrança?
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input type="checkbox" className="form-check-input" id="save-info" />
+                                                    <label className="form-check-label" for="save-info">Guarde esta informação para a
+                                                        próxima vez.
+                                                    </label>
+                                                </div>
+                                                <hr className="my-2" />
+
+                                                <h4 className="mb-1 ">Cálculo de Frete</h4>
+                                                <div className="col-12">
+                                                    <label for="frete-comum">Frete para <b className="">12390-045</b></label>
+                                                    <span className="msg-nome  msg-success  disblock valid-nome">ok</span>
+                                                    <span className="campo-obrigatório disblock" >*Campo Obrigatório</span>
+                                                    <span className="campo-obrigatório disblock" >Valor: </span>
+                                                    <span className="" id="fretes" >Formas: </span>
+                                                    {/*  <!-- opçes de frete --> */}
+                                                    <div className="col-12 col-sm-6">
+                                                        <input type="radio" id="frete-comum" name="Frete" className="form-check-input" value="comum" />
+                                                        <label for="frete-comum">Frete Comum: 12,00</label>
+
+                                                    </div>
+                                                    <div className="col-12 col-sm-6 mb-3">
+                                                        <input type="radio" id="frete-flex" name="Frete" className="form-check-input" value="flex" />
+                                                        <label for="frete-flex">Frete Flex: 18,99</label>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -125,7 +155,21 @@ class Checkout extends Component {
                             </div>
                             {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
                             <div className="col-12 col-sm-6 order-md-last border mb-3">
-                                <div className="row mt-2">
+
+                                {/*  <!-- BEGIN SEUS PRODUTOS --> */}
+                                <h4 className="d-flex justify-content-between align-items-center mb-3 mt-2">
+                                    <span className="">Sua cesta</span>
+                                    <span className="badge bg-success rounded-pill">3</span>
+                                </h4>
+                                <ul className="list-group mb-3">
+                                    <ItemCart nome="teste" descricao="aaa" price={2.90} />
+                                    <ItemCart />
+
+                                </ul>
+                                <a href="./cesta.html" className=" btn btn-success mb-1 mt-1 " type="submit">Voltar a Cesta</a>
+
+                                <hr className="my-2" />
+                                <div className="row">
                                     <h5> Selecione um Cartão Salvo</h5>
                                     <div className="accordion" id="accordionExample">
                                         <AccordionCart
@@ -183,14 +227,14 @@ class Checkout extends Component {
                                             <div className="col-3 ">
                                                 {/* <!-- vencimento do cartão --> */}
                                                 <label for="bandeira-card" className="form-label col-12">Bandeira</label>
-                                                 <img src={iconNu} className="iconCard"/> 
+                                                <img src={iconNu} className="iconCard" />
                                                 <div className="invalid-feedback">Cartão inválido</div>
                                             </div>
                                             <div className="col-md-3">
                                                 {/* <!-- vencimento do cartão --> */}
                                                 <label for="cc-expiration" className="form-label">Vencimento</label>
                                                 <input type="text" className="form-control" id="cc-expiration" placeholder="" required />
-                                                <div className="invalid-feedback">Data de Expiração Obrigatoria</div>
+                                                <div className="invalid-feedback">Data de Expiração Obrigatória</div>
                                             </div>
                                             <div className="col-md-2">
                                                 <label for="card-cvv" className="form-label">CVV</label>

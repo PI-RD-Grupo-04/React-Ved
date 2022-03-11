@@ -42,7 +42,7 @@ function Register(props) {
                                     <div class="form-group form-title" >
                                         <label for="cpf" class="form-label">CPF:</label>
                                         <input type="text" class="form-control" id="cpf" placeholder="" required />
-                                        <div class="invalid-feedback">CPF Invalido!</div>
+                                        <div class="invalid-feedback">CPF Inválido!</div>
                                     </div>
                                     {/* <!--  campo nome --> */}
                                     <div class="form-group form-title" >
@@ -77,7 +77,7 @@ function Register(props) {
                                     </div>
 
                                     <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
-                                        <button type="submit" class=" btn btn-success btn-block" >Cadastrar</button>
+                                        <Link to="/Login" className="btn btn-success btn-block" type="button">Cadastrar</Link>
 
                                     </div>
 

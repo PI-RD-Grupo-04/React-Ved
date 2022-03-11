@@ -5,6 +5,7 @@ import transgenico from '../../components/asserts/imagens/selo-produtos/nao-tran
 import vegano from '../../components/asserts/imagens/selo-produtos/sem-gluten.png'
 import gluten from '../../components/asserts/imagens/selo-produtos/vegano.png'
 import ProductCard from '../../components/productCard/ProductCard'
+import { Link } from 'react-router-dom'
 
 function Product() {
     return (
@@ -67,7 +68,7 @@ function Product() {
                                     </div>
                                     <div className="col-12 col-sm-8">
                                         <div className="row">
-                                            <a href="./cesta.html" className="btn btn-success btn-lg w-100 ">Adicionar</a>
+                                            <Link to="/cart" className="btn btn-success btn-lg w-100 ">Adicionar</Link>
                                         </div>
 
                                     </div>
@@ -94,7 +95,7 @@ function Product() {
                     <p></p>
                 </div>
                 <div className="sugestao-respo ">
-                    <a href="./NovasugestaoConsumo.html" className="btn btn-success btn-lg  mt-1 ">Sugestão de Consumo</a>
+                    <Link to="/suggestion" className="btn btn-success btn-lg  mt-1 ">Sugestão de Consumo</Link>
 
                 </div>
 
