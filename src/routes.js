@@ -54,9 +54,6 @@ export const Routes = () => {
             <Route path="/category" component={Category} />
             <Route path="/shippingPolicy" component={ShippingPolicy} />
             <Route component={Error404} />
-
-
-
         </Switch>
     )
 }

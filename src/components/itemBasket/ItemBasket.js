@@ -50,7 +50,7 @@ function ItemBasket(props) {
                         <h4>
                             <b>
                                 <Link to="product" className="text-decoration-none text-success">
-                                    Abacate Manteigá
+                                    Abacate Manteiga
                                 </Link>
                             </b>
                         </h4>

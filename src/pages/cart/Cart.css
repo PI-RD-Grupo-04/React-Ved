@@ -1,0 +1,18 @@
+
+.btnCardDel{
+   
+    width: 100%;
+    
+}
+
+
+
+
+@media (min-width:770px){
+    .btnCardDel{
+        width: 50%;
+       
+    }
+
+
+}
