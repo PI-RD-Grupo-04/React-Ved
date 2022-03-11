@@ -24,7 +24,7 @@ function Address() {
                         {/* <!-- area do primeira cartão --> */}
                         <div class="row border mb-3 pb-3 pt-3">
                             <div class="row ">
-                            <AddressInfo />
+                            <AddressInfo av="rua jose"/>
                             </div>
                         </div>
 

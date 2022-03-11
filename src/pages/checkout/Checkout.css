@@ -5,4 +5,9 @@
  
 .disblock{
     display:none;
-    }
+    } 
+
+.iconCard{ 
+    width: 50px; 
+    height: 40px;
+}

@@ -2,6 +2,7 @@ import './Category.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import ProductCard from '../../components/productCard/ProductCard'
+import  hamburger_menu from '../../components/asserts/imagens/Header/hamburger_menu.png'
 
 
 
@@ -76,7 +77,7 @@ export default function Category() {
                             <div className="col-12 col-sm-6 menucanvas">
 
                                 <button className="btn border " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvascategoria"
-                                    aria-controls="offcanvasExample"><img src="../images/Header/hamburger_menu.png" alt="" />
+                                    aria-controls="offcanvasExample"><img src={hamburger_menu} alt="" />
                                 </button>
 
 
@@ -89,7 +90,7 @@ export default function Category() {
 
                                         <ul>
                                             <li className=" mt-3 ">
-                                                <h2>Categoria</h2>
+                                                <h2 className="text-white">Categoria</h2>
                                             </li>
                                             <hr />
                                             <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Frutas</a>
@@ -108,7 +109,7 @@ export default function Category() {
 
                                         <ul>
                                             <li className="nav-item mt-5">
-                                                <h2>Preço</h2>
+                                                <h2 className="text-white" >Preço</h2>
                                             </li>
                                             <hr />
                                             <li className="nav-item menuletra "><a className="nav-link menuletra" href="#">Até R$
@@ -138,7 +139,7 @@ export default function Category() {
                                             <ul>
                                                 <li className="nav-item mt-5 ">
 
-                                                    <h2>Filtro</h2>
+                                                    <h2 className="text-white">Filtro</h2>
 
                                                 </li>
                                                 <hr />
@@ -152,12 +153,7 @@ export default function Category() {
                                                     preço</a> </li>
                                             </ul>
                                         </div>
-
-
                                     </div>
-
-
-
                                 </div>
                             </div>
 
@@ -183,19 +179,26 @@ export default function Category() {
 
 
                         <div className="row text-center">
-                            
-                            <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
-                                peso={1.00} price={12.90}  />
-                            <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
-                                peso={1.00} price={12.90}  />
-                            <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
-                                peso={1.00} price={12.90}  />
-                            <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
-                                peso={1.00} price={12.90}  /> 
-                            <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
 
-                                peso={1.00} price={12.90}  />       
-                            
+            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4   col-xxl-3 	  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4 col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4   col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+
                         </div>
                     </div>
                 </div>

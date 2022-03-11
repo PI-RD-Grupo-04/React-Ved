@@ -51,10 +51,10 @@ function Footer() {
                 <div className="col-sm-6 col-md-4 col-lg-4 col-12">
                   <ul className="list-unstyled">
                     <li><strong>Atendimento</strong></li>
-                    <li className="btn-link"> <a href="https://web.whatsapp.com/"><img src={iconWhatsapp} width="20px" />
+                    <li className="btn-link"> <a href="https://web.whatsapp.com/" target="_blank"><img src={iconWhatsapp} width="20px" />
                       (11)98765-1243</a>
                     </li>
-                    <li className="btn-link"> <a href="https://gmail.com/"><img src={iconEmail} width="20px" />
+                    <li className="btn-link"> <a href="https://gmail.com/" target="_blank"><img src={iconEmail} width="20px" />
                       ved@sac.com.br</a>
                     </li>
                   </ul>

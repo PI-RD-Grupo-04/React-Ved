@@ -31,11 +31,11 @@ function PaymentCards() {
                         {/* <!-- ************************MODEL PARA CADASTRO DE CARTÃO ********************* --> */}
                         {/* <!-- DIVISÃO DOS BUTTONS --> */}
                         <div className='mt-5 row '>
-                            <div className="col-12 d-grid gap-2 col-sm-8    ">
+                            <div className="col-12 d-grid gap-2 col-sm-8   mb-2 ">
                                 <ModelPayCard />
                             </div>
 
-                            <div className="col-12 d-grid gap-2  col-sm-4   ">
+                            <div className="col-12 d-grid gap-2  col-sm-4  ">
                                 <Button label='Excluir' delete />
                             </div>
 

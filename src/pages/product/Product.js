@@ -5,6 +5,9 @@ import transgenico from '../../components/asserts/imagens/selo-produtos/nao-tran
 import vegano from '../../components/asserts/imagens/selo-produtos/sem-gluten.png'
 import gluten from '../../components/asserts/imagens/selo-produtos/vegano.png'
 import ProductCard from '../../components/productCard/ProductCard'
+import { Link } from 'react-router-dom'
+import Buttonqty from '../../components/button/ButtonProduct' 
+import Button from '../../components/button/Button'
 
 function Product() {
     return (
@@ -12,9 +15,9 @@ function Product() {
             <Header />
             <div className="container justify-content-between">
                 <div className="row mt-3">
-                    <div className="col-12 col-md-6">
+                    <div className="col-12 col-xl-6 mx-auto">
                         {/* imagem do produto */}
-                        <img className="mr-3 border " src='https://i.ibb.co/nP8cZL2/abacaxi.png' alt="Banana-Prata-Organica-600g-800g-Ved"
+                        <img className="border  " src='https://i.ibb.co/nP8cZL2/abacaxi.png' alt="Banana-Prata-Organica-600g-800g-Ved"
                         />
 
 
@@ -22,7 +25,7 @@ function Product() {
 
 
                     {/* LADO DIREITO DA PAGINA  */}
-                    <div className="col-12 col-md-6">
+                    <div className="col-12 col-xl-6">
                         <div className="media-body">
                             <div className="preco-avulso margin-price">
                                 <h2 className="mt-0 text-desc mb-2">Banana Prata Orgânica</h2>
@@ -44,33 +47,23 @@ function Product() {
                                     </div>
                                 </div>
                                 <div className="d-flex justify-content-start">
-                                    Estoque: <p className="ms-1 title-main ">Disponível</p>
+                                    <p> Estoque:</p> <p className="ms-1 title-main ">Disponível</p>
                                 </div>
-                                <div className="row text-center justify-content-center">
-                                    <div className="col-10 col-sm-4 mb-1">
-                                        {/* AREA DO BOTÃO DE QUANTIDADE */}
-                                        <div className="row">
-                                            <div className=" input-group ">
-                                                <button className="btn btn-outline-success border-dark btn-green btn-sm" type="button">
-                                                    + <i className="bi-caret-down"></i>
-                                                </button>
-                                                <input type="text" className="form-control text-center border-dark area-btn " value="4" />
-                                                <button className="btn btn-outline-success border-dark btn-green btn-sm" type="button">
-                                                    - <i className="bi-caret-up"></i>
-                                                </button>
-                                                <button className="btn btn-outline-danger border-dark  btn-sm btn-red " type="button">
-                                                    <i className="bi-trash"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        {/* FIM  AREA DO BOTÃO DE QUANTIDADE */}
-                                    </div>
-                                    <div className="col-12 col-sm-8">
-                                        <div className="row">
-                                            <a href="./cesta.html" className="btn btn-success btn-lg w-100 ">Adicionar</a>
-                                        </div>
+                                <div className="row text-center align-items-center justify-content-center">
 
+                                    {/* AREA DO BOTÃO DE QUANTIDADE */}
+
+                                    <div className="col-12 col-sm-6 mb-2">
+                                        <Buttonqty />
                                     </div>
+
+                                    <div className="col-12 col-sm-6">
+                                        <Link to="/cart" className="btn btn-success btn-lg w-100 ">Adicionar</Link>
+                                    </div>
+
+
+
+
                                 </div>
                             </div>
 
@@ -94,7 +87,7 @@ function Product() {
                     <p></p>
                 </div>
                 <div className="sugestao-respo ">
-                    <a href="./NovasugestaoConsumo.html" className="btn btn-success btn-lg  mt-1 ">Sugestão de Consumo</a>
+                    <Button link="/suggestion" label="Sugestão de Consumo" success></Button>
 
                 </div>
 
@@ -108,11 +101,13 @@ function Product() {
                 <h2 className="text-center mb-5 title-main">Aproveite também</h2>
                 <div class="row  ">
                     {/* ********************* item unidade  *********************/}
-                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                    <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
                         peso={1.00} price={12.90} />
-                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                    <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
                         peso={1.00} price={12.90} />
-                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                    <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                        peso={1.00} price={12.90} />
+                    <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
                         peso={1.00} price={12.90} />
 
                 </div>
