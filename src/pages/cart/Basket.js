@@ -2,8 +2,8 @@ import './Basket.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
-function Basket(props) {
 
+function Basket(props) {
     return (
         <>
             <Header />
@@ -97,5 +97,4 @@ function Basket(props) {
         </>
     )
 }
-
 export default Basket
