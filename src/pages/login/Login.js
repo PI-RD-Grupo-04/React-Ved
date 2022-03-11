@@ -3,7 +3,7 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 
 
-export default function Login() {
+function Login() {
     return (
         <>
 
@@ -69,7 +69,7 @@ export default function Login() {
     )
 }
 
-
+export default Login;
 
 
 

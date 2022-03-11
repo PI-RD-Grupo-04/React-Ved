@@ -5,9 +5,10 @@ h1{
     font-size: clamp(1.75em, 1em + 3vw, 2.5em);
 }
 
-h2{
+.about2{
     color: #28a745;
-    font-size: clamp(1.50em, 1em + 3vw, 2.20em);
+    font-size: clamp(1.50em, 1em + 3vw, 1.75em);
+    font-weight: bold;
 }
 
 p{

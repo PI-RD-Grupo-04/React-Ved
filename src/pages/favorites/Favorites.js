@@ -20,27 +20,21 @@ function Favorites() {
                         {/* inicio produtos */}
                         <div class="row">
                             {/* ********************* item unidade  *********************/}
-                            <div class="col-12 col-sm-6 col-lg-4">
-                            <ProductCard link ='https://i.ibb.co/nP8cZL2/abacaxi.png' nome ='Abacaxi' peso ={1.0}  price ={12.90}/>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                            <ProductCard link ='https://i.ibb.co/nP8cZL2/abacaxi.png' nome ='Abacaxi' peso ={1.0}  price ={12.90}/>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                            <ProductCard link ='https://i.ibb.co/nP8cZL2/abacaxi.png' nome ='Abacaxi' peso ={1.0}  price ={12.90}/>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                            <ProductCard link ='https://i.ibb.co/nP8cZL2/abacaxi.png' nome ='Abacaxi' peso ={1.0}  price ={12.90}/>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                            <ProductCard link ='https://i.ibb.co/nP8cZL2/abacaxi.png' nome ='Abacaxi' peso ={1.0}  price ={12.90}/>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                            <ProductCard link ='https://i.ibb.co/nP8cZL2/abacaxi.png' nome ='Abacaxi' peso ={1.0}  price ={12.90}/>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                            <ProductCard link ='https://i.ibb.co/nP8cZL2/abacaxi.png' nome ='Abacaxi' peso ={1.0}  price ={12.90}/>
-                            </div>
+                            <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                                peso={1.00} price={12.90}  />
+                                <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                                peso={1.00} price={12.90}  />
+                                <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                                peso={1.00} price={12.90}  />
+                                <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                                peso={1.00} price={12.90}  />
+                                <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                                peso={1.00} price={12.90}  />
+                                <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                                peso={1.00} price={12.90}  />
+                                <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                                peso={1.00} price={12.90}  />
+                                
                         </div>
                     </div>
                 </div>

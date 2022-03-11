@@ -61,13 +61,13 @@ function Header() {
                         {/*} begin icones usuario */}
                         <div className="col-4 icon-user justify-content-between">
                             <div className="col-4 mt-3 mb-1">
-                                <Link className="icon-perfil icon-config" to="/Login">Login </Link>
+                                <Link className="icon-perfil icon-config" to='/Login'>Login </Link>
                             </div>
                             <div className="col-4 mt-3 mb-1">
-                                <Link className="icon-fav icon-config" to="/favorites">Favoritos</Link>
+                                <Link className="icon-fav icon-config" to='/favorites'>Favoritos</Link>
                             </div>
                             <div className="col-4 mt-3 mb-1">
-                                <Link className="icon-cesta icon-config" to="/cart">Cesta</Link>
+                                <Link className="icon-cesta icon-config" to='/cart'>Cesta</Link>
                                 <span className="badge bg-success bg-position">1</span>
                             </div>
                         </div>
@@ -89,7 +89,7 @@ function Header() {
                             <li className="nav-item-canvas dropdown">
                                 <a className="nav-link " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
                                     aria-controls="collapseExample">
-                                    Categorias  <a></a> <svg className="mr" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                     Categorias <svg className="mr" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z" />
                                     </svg>
 
@@ -98,9 +98,9 @@ function Header() {
                                 {/*} CORPO */}
                                 <div className="collapse" id="collapseExample">
                                     <div className="card card-body">
-                                        <Link to="/category" className="dropdown-item" href="./categorias.html">Frutas</Link>
-                                        <Link to="/category" className="dropdown-item" href="./categorias.html">Verduras</Link>
-                                        <Link to="/category" className="dropdown-item" href="./categorias.html">Mercearia</Link>
+                                        <Link to="/category" className="dropdown-item">Frutas</Link>
+                                        <Link to="/category" className="dropdown-item">Verduras</Link>
+                                        <Link to="/category" className="dropdown-item" >Mercearia</Link>
                                     </div>
                                 </div>
 
@@ -120,7 +120,7 @@ function Header() {
                                 <h3 className="title-canvas">Sua Area</h3>
                             </li>
                             <hr />
-                            <li className="link-canvas"><a href="./login.html">Fazer Login</a></li>
+                           <Link  to="/login"><li className="link-canvas">Fazer Login</li></Link> 
                             <li><a href="./cesta.html">Cesta</a></li>
                             <li><a href="./meusFavoritos.html">Favorito</a></li>
                             <ul />

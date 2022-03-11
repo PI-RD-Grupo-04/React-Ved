@@ -3,7 +3,7 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 
 
-function Shipping_Policy() {
+function ShippingPolicy() {
     return (
         <>
             <Header />
@@ -63,4 +63,4 @@ function Shipping_Policy() {
     )
 }
 
-export default Shipping_Policy
+export default ShippingPolicy

@@ -9,7 +9,7 @@ function Faq() {
             <div className="container">
                 <h1 className="faq">FAQ</h1>
                 <br/><br/><br/>
-                <h2>Entrega em caixa postal:</h2>
+                <h2 className='faq2'>Entrega em caixa postal:</h2>
                 <br/>
                 <div class="row">
                     <p>
@@ -17,7 +17,7 @@ function Faq() {
                     </p>
                 </div>
                 <br/><br/>
-                <h2>Fique Atento:</h2>
+                <h2 className='faq2'>Fique Atento:</h2>
                 <br/>
                 <div class="row">
                     <p>
@@ -31,7 +31,7 @@ function Faq() {
                     </p>
                 </div>
                 <br/><br/>
-                <h2>Políticas da Empresa:</h2>
+                <h2 className='faq2'>Políticas da Empresa:</h2>
                 <br/>
 
                 <div class="row">
@@ -40,7 +40,7 @@ function Faq() {
                     </p>
                 </div>
                 <br/><br/>
-                <h2>Políticas de Preço:</h2>
+                <h2 className='faq2'>Políticas de Preço:</h2>
                 <br/>
 
                 <div class="row">

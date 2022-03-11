@@ -101,25 +101,24 @@ function Product() {
 
 
                 <hr />
-            </div> {/* Sugestões de outros produtos */}
+                {/* Sugestões de outros produtos */}
 
 
-            <h2 className="text-center mb-5 title-main">Aproveite também</h2>
-            <div className="container">
-                <div className="row text-center">
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome='Abacaxi' peso={1.0} price={12.90} />
-                    </div>                           
-                     <div class="col-12 col-sm-6 col-lg-4">
-                        <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome='Abacaxi' peso={1.0} price={12.90} />
-                    </div>                            
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome='Abacaxi' peso={1.0} price={12.90} />
-                    </div>
+
+                <h2 className="text-center mb-5 title-main">Aproveite também</h2>
+                <div class="row  ">
+                    {/* ********************* item unidade  *********************/}
+                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                        peso={1.00} price={12.90} />
+                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                        peso={1.00} price={12.90} />
+                    <ProductCard link='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi" col="col-12 col-sm-6 col-lg-4"
+                        peso={1.00} price={12.90} />
+
                 </div>
             </div>
-
             <Footer />
+
         </>
     )
 }
