@@ -36,7 +36,7 @@ function MyAccount() {
                                 <div className="invalid-feedback">Apenas Letras</div>
                             </div>
 
-                            <div className="form-group mt-3">
+                            <div className="form-group mt-3 d-grid gy-2">
                                 <label for="CPF" className="form-label">CPF:</label>
                                 <h3 id="CPF" className="form-label border">XXX.XXX.XXX-XX</h3>
                                 <div className="invalid-feedback">Apenas Números</div>

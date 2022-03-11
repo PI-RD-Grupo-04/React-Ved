@@ -37,44 +37,47 @@ function CustomerMenu() {
 
             {/* ************** COMEÇO da parte do OFFCANVAS  **************   */}
             <div className="col-3 menu-lateral-canvas">
-                <div className="col-2 mt-3 mb-3">
-                    <a className="btn border canvas-btn " data-bs-toggle="offcanvas" to="#offcanvasMenuLateral" role="button"
-                        aria-controls="offcanvasMenuLateral">
-                        <img src={menuhamburguer} />
-                    </a>
-                </div>
+
                 {/* COMEÇO DO CANVAS */}
-                <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenuLateral"
-                    aria-labelledby="offcanvasMenuLateral">
-                    <div className="offcanvas-header">
-                        <h3 className="offcanvas-title text-center" id="offcanvasMenuLateral">Atalhos</h3>
-                        <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
+                <div className="col-12 col-sm-6 menucanvas">
+
+                    <button className="btn border " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvascategoria"
+                        aria-controls="offcanvasExample"><img src= {menuhamburguer} alt="" />
+                    </button>
 
 
-                    <div className="offcanvas-body ">
-                        <div className="flex-column">
-                            <ul className="ul-canvas-menu">
-                                <Link to="/myAccount">
-                                    <li className="li-item-menuLateral">Dados Pessoais</li>
-                                </Link>
-                                <Link to="/requests">
-                                    <li className="li-item-menuLateral">Meus Pedidos</li>
-                                </Link>
-                                <Link to="/address">
-                                    <li className="li-item-menuLateral">Meus Endereços</li>
-                                </Link>
-                                <Link to="/favorites">
-                                    <li className="li-item-menuLateral">Meus Favoritos</li>
-                                </Link>
-                                <Link to="/paymentCards">
-                                    <li className="li-item-menuLateral">Meus Cartões</li>
-                                </Link>
-                                <hr />
-                                <Link to="/login">
-                                    <li className="li-item-menuLateral">Sair</li>
-                                </Link>
-                            </ul>
+                    <div className="offcanvas menucanvasdentro  offcanvas-start" tabindex="-1" id="offcanvascategoria"
+                        aria-labelledby="offcanvasExampleLabel">
+                        <div className="offcanvas-header menucanvasdentro ">
+                            <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div className="menucanvasdentro">
+
+                            <div className="offcanvas-body ">
+                                <div className="flex-column">
+                                    <ul className="ul-canvas-menu">
+                                        <Link to="/myAccount">
+                                            <li className="li-item-menuLateral">Dados Pessoais</li>
+                                        </Link>
+                                        <Link to="/requests">
+                                            <li className="li-item-menuLateral">Meus Pedidos</li>
+                                        </Link>
+                                        <Link to="/address">
+                                            <li className="li-item-menuLateral">Meus Endereços</li>
+                                        </Link>
+                                        <Link to="/favorites">
+                                            <li className="li-item-menuLateral">Meus Favoritos</li>
+                                        </Link>
+                                        <Link to="/paymentCards">
+                                            <li className="li-item-menuLateral">Meus Cartões</li>
+                                        </Link>
+                                        <hr />
+                                        <Link to="/login">
+                                            <li className="li-item-menuLateral">Sair</li>
+                                        </Link>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

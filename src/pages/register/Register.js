@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import Button from '../../components/button/Button'
 //import './Register.css'
 
 function Register(props) {
@@ -76,8 +77,8 @@ function Register(props) {
                                         <div class="invalid-feedback">Apenas Letras</div>
                                     </div>
 
-                                    <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
-                                        <Link to="/Login" className="btn btn-success btn-block" type="button">Cadastrar</Link>
+                                    <div class="d-grid gap-2 mx-auto mt-3 mb-3">
+                                        <Button link="/Login" success label="Cadastrar"></Button >
 
                                     </div>
 
