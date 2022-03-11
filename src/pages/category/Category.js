@@ -179,22 +179,24 @@ export default function Category() {
 
                         <div className="row text-center">
 
-                            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
+            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4   col-xxl-3 	  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4 col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
+             <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4   col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+            peso={1.00} price={12.90} />
 
                         </div>
                     </div>
