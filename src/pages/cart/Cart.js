@@ -65,7 +65,7 @@ function Cart(props) {
                             <div className="row">
                                 <div className="col-sm-12 col-lg-6"></div>
                                 <div className="col-sm-12 col-lg-6">
-                                    <Button card plans delete label='Continuar Comprando' />
+                                    <Button cart card plans delete label='Continuar Comprando' />
                                 </div>
 
                             </div>
@@ -73,7 +73,7 @@ function Cart(props) {
                             <div className="row">
                                 <div className="col-sm-12 col-lg-6"></div>
                                 <div className="col-sm-12 col-lg-6">
-                                    <Button card plans success label='Finalizar Compra' />
+                                    <Button  cart card plans success label='Finalizar Compra' />
                                 </div>
                             </div>
                         </div>

@@ -12,7 +12,7 @@ function ProductCard(props) {
         <div class="product-tumb">
           <Link to={props.link}>  <img src={props.img} alt="Abacaxi queen" /></Link>
         </div>
-        <div class="product-details">
+        <div class="product-details align-items-center justify-content-center">
 
           <h4 className="text-center"><a href="">{props.nome}</a></h4>
           <p className='text-center'>{props.peso}</p>
@@ -22,7 +22,13 @@ function ProductCard(props) {
               R$ {props.price}
             </div>
           </div>
-          <Button label="adicionar a cesta" success />
+          <div class=" row text-center justify-content-center ">
+            <div className="col-12 d-grid gy-2">
+              <Button label="adicionar a cesta" success />
+            </div>
+
+          </div>
+
         </div>
       </div>
     </div >
