@@ -17,11 +17,7 @@ function Product() {
                 <div className="row mt-3">
                     <div className="col-12 col-xl-6 mx-auto">
                         {/* imagem do produto */}
-<<<<<<< HEAD
-                        <img className="mr-3 border imgProdct" src='https://i.ibb.co/nP8cZL2/abacaxi.png' alt="Banana-Prata-Organica-600g-800g-Ved"
-=======
                         <img className="border img-project  " src='https://i.ibb.co/nP8cZL2/abacaxi.png' alt="Banana-Prata-Organica-600g-800g-Ved"
->>>>>>> b9fc443ae917c2e361fcd1df2617e60e95609124
                         />
 
 
