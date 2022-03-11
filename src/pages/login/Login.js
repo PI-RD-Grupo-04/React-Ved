@@ -1,6 +1,7 @@
 import './Login.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import { Link } from 'react-router-dom'
 
 
 function Login() {
@@ -40,12 +41,12 @@ function Login() {
                                         
                                         <p>Esqueceu sua senha? <a href="./RecuperarSenha.html">Clique aqui.</a></p>
                                             <div className="d-grid gap-2 col-6 mx-auto mb-5">
-                                            <a href="./minhaConta.html" className="btn btn-success btn-block" type="button">Logar</a>
+                                            <Link to="/myAccount" className="btn btn-success btn-block" type="button">Logar</Link>
 
                                         </div>
 
                                         <div className="form-group">
-                                            <p>Ainda não tem conta? <a href="./cadastrar.html" className="btn  btn-outline-success btn-suport" >Cadastre-se</a></p>
+                                            <p>Ainda não tem conta? <Link to="/requests" className="btn  btn-outline-success btn-suport" >Cadastre-se</Link></p>
                                         </div>  
                                                                                
 

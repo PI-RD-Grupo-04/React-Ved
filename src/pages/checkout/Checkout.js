@@ -120,20 +120,18 @@ class Checkout extends Component {
                                             <div className="form-check">
                                                 <input type="checkbox" className="form-check-input" id="same-address" />
                                                 <label className="form-check-label" for="same-address">O endereço de entrega é igual ao
-                                                    meu
-                                                    endereço de cobrança?
+                                                    meu endereço de cobrança?
                                                 </label>
                                             </div>
                                             <div className="form-check">
                                                 <input type="checkbox" className="form-check-input" id="save-info" />
                                                 <label className="form-check-label" for="save-info">Guarde esta informação para a
-                                                    próxima
-                                                    vez.
+                                                    próxima vez.
                                                 </label>
                                             </div>
                                             <hr className="my-2" />
 
-                                            <h4 className="mb-1 ">Calculo de Frete</h4>
+                                            <h4 className="mb-1 ">Cálculo de Frete</h4>
                                             <div className="col-12">
                                                 <label for="frete-comum">Frete para <b className="">12390-045</b></label>
                                                 <span className="msg-nome  msg-success  disblock valid-nome">ok</span>
@@ -175,7 +173,7 @@ class Checkout extends Component {
 
                                 {/*  <!-- BEGIN SEUS PRODUTOS --> */}
                                 <h4 className="d-flex justify-content-between align-items-center mb-3 mt-2">
-                                    <span className="">Seu carrinho</span>
+                                    <span className="">Sua cesta</span>
                                     <span className="badge bg-success rounded-pill">3</span>
                                 </h4>
                                 <ul className="list-group mb-3">
@@ -183,7 +181,7 @@ class Checkout extends Component {
                                     <ItemCart />
 
                                 </ul>
-                                <a href="./cesta.html" className=" btn btn-success mb-1 mt-1 " type="submit">Volta a Cesta</a>
+                                <a href="./cesta.html" className=" btn btn-success mb-1 mt-1 " type="submit">Voltar a Cesta</a>
 
                                 <hr className="my-2" />
                                 <div className="row">
@@ -250,7 +248,7 @@ class Checkout extends Component {
                                                 {/* <!-- vencimento do cartão --> */}
                                                 <label for="cc-expiration" className="form-label">Vencimento</label>
                                                 <input type="text" className="form-control" id="cc-expiration" placeholder="" required />
-                                                <div className="invalid-feedback">Data de Expiração Obrigatoria</div>
+                                                <div className="invalid-feedback">Data de Expiração Obrigatória</div>
                                             </div>
                                             <div className="col-md-2">
                                                 <label for="card-cvv" className="form-label">CVV</label>
