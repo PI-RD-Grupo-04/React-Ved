@@ -68,7 +68,7 @@ function Cart(props) {
                                         </div>
                                         <div className="col-4"></div>
                                         <div className="col-1"></div>
-                                        <div className="col-3">
+                                        <div className="col-12 col-sm-3">
                                             <h6>Total Com Frete: R$ 1.031,30</h6>
                                         </div>
                                     </div>
