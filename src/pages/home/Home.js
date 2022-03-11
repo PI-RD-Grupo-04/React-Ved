@@ -78,21 +78,21 @@ function Home() {
 
           <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price={12.90} />
-            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+          <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price={12.90} />
-            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+          <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price={12.90} />
-            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+          <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price={12.90} />
-            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+          <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price={12.90} />
-            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+          <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price={12.90} />
           <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' nome="abacaxi"
             peso={1.00} price={12.90} />
-            <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+          <ProductCard col="col-12 col-sm-6 col-lg-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price={12.90} />
-     
+
 
           {/* *************************************** CESTAS BEGIN *********************************** */}
 

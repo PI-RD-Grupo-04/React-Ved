@@ -4,6 +4,8 @@ import Footer from '../../components/footer/Footer'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
 
 function Cart(props) {
+
+
     return (
         <>
             <Header />
@@ -17,8 +19,8 @@ function Cart(props) {
 
                         <ul className="list-group mb-3">
 
-                            <ItemBasket valor={1} nome="larissa" />
-                            <ItemBasket valor={2} nome="will" />
+                            <ItemBasket valor={10} qty={2} nome="larissa" />
+
 
 
 

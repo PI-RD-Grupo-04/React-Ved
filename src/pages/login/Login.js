@@ -42,7 +42,7 @@ function Login() {
 
                                         <p>Esqueceu sua senha? <Link to="/passwordRecovery">Clique aqui.</Link></p>
                                         <div className="d-grid gap-2 col-6 mx-auto mb-2">
-                                            <Button success label="Acessar">Logar</Button>
+                                            <Button success label="Acessar" link="/myAccount">Logar</Button>
                                         </div>
 
                                         <div className="form-group col-6  d-grid gap-2 mx-auto">
