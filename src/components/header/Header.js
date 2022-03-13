@@ -10,7 +10,7 @@ import Button from '../../components/button/Button'
 
 function Header() {
     return (
-        <>
+      <>
             <header>
                 <div className="container ">
                     <div className="row align-items-center">
