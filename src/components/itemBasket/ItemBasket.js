@@ -41,7 +41,7 @@ function ItemBasket(props) {
                      
                         <div className="text-end mt-2">
                        <Buttonqty delete vl={totalValor} preco={props.valor} />
-                            <span className="text-dark">Valor Item: {valor}</span>
+                            <span className="text-dark">Valor Item: {props.valor}</span>
                             <small className="text-secondary">Valor {total} </small><br />
                         </div>
                     </div>
