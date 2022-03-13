@@ -1,7 +1,6 @@
 import './Cart.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-import ItemBasket from '../../components/itemBasket/ItemBasket'
 import Button from '../../components/button/Button'
 
 function Cart(props) {
@@ -17,7 +16,7 @@ function Cart(props) {
                         <div className="row mt-3 mb-3 text-center">
                             <h1>Sua cesta</h1>
                         </div>
-                        <ItemBasket valor={10} qty={1} nome="larissa" />
+                       
                       
                         <div className="container mb-3 border">
                             <div className="row mt-3 mb-1">
