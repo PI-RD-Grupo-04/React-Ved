@@ -1,7 +1,6 @@
 import './Cart.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-import ItemBasket from '../../components/itemBasket/ItemBasket'
 import Button from '../../components/button/Button'
 
 function Cart(props) {

@@ -7,8 +7,8 @@ import carrosel1mel from '../../components/asserts/imagens/Carousel/carrosel1mel
 import carrosel2frutas from '../../components/asserts/imagens/Carousel/carrosel2frutas.png'
 import venhaconhecer from '../../components/asserts/imagens/Carousel/venhaconhecer.jpg'
 import ProductCard from '../../components/productCard/ProductCard'
-import bannerprincipal from '../../components/asserts/imagens/bannerprincipal.gif'
-
+// import bannerprincipal from '../../components/asserts/imagens/bannerprincipal.gif'
+// import Carousel from 'react-responsive-carousel'
 
 
 
@@ -19,9 +19,9 @@ function Home() {
 
       <Header />
       <div className="banner">
-        <div class="gif gif-expand-lg d-flex justify-content-center flex-column">
+        {/* <div class="gif gif-expand-lg d-flex justify-content-center flex-column">
           <img src={bannerprincipal} className="bannergif" />
-        </div>
+        </div> */}
         {/* *************************************** BANNER END ************************************ */}
         <div className="d-flex justify-content-center flex-column">
           <img className="banner" src={frete}
@@ -88,12 +88,307 @@ function Home() {
             peso={1.00} price={12.90} />
           <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price={12.90} />
-            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+          <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price={12.90} />
           <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price={12.90} />
         </div>
       </div>
+
+
+      <div className="row  tela1">
+        <div className="container mb-5 mt-5 ">
+          <Carousel variant="dark">
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item >
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>
+          </Carousel>
+        </div>
+      </div>
+
+
+
+
+
+      <div className="row  tela2 ">
+        <div className="container mb-5 mt-5 ">
+          <Carousel variant="dark">
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item >
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome=" abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>
+          </Carousel>
+        </div>
+      </div>
+
+
+
+      <div className="row  tela3 ">
+        <div className="container mb-5 mt-5 ">
+          <Carousel variant="dark">
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                  <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+
+                </div>
+              </div>
+            </Carousel.Item>
+          </Carousel>
+        </div>
+      </div>
+
+
+      <div className="row  tela5 ">
+        <div className="container mb-5 mt-5 ">
+          <Carousel variant="dark">
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>            <Carousel.Item>
+              <div className="container mb-5 mt-5 ">
+                <div className="row d-flex justify-content-around ">
+                  <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                    peso={1.00} price={12.90} />
+                </div>
+              </div>
+            </Carousel.Item>
+          </Carousel>]
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
       <Footer />
     </>
   )
