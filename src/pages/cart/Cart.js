@@ -11,14 +11,17 @@ function Cart(props) {
             <Header />
             {/* <!-- Titulo --> */}
             <div className="container">
-                <main className="flex-fill">
+                
                     <div className="container">
-                        <div className="row mt-3 mb-3 text-center">
-                            <h1>Sua cesta</h1>
-                        </div>
+                        <div className="row  mb-3 text-center mt-3">
+                            <h1 className="title">Sua cesta</h1>
+                        </div> 
+                        <ul>
                         <ItemBasket valor={10} qty={1} nome="larissa" />
                         <ItemBasket valor={13} qty={1} nome="Will" />
                         <ItemBasket valor={28} qty={1} nome="Jeff" />
+                        </ul>
+                     
                       
                         <div className="container mb-3 border">
                             <div className="row mt-3 mb-1">
@@ -62,7 +65,13 @@ function Cart(props) {
                         <div className="text-end">
                             <h5 className="text-dark mb-3">
                                 Valor Total: R$ 1.031,30
-                            </h5>                          
+                            </h5>       
+                            <div className="row">
+                                <div className="col-sm-12 col-lg-6"></div>
+                                <div className="col-sm-12 col-lg-6">
+                                    <Button  cart card plans success label='Finalizar Compra' />
+                                </div>
+                            </div>                   
                             <div className="row">
                                 <div className="col-sm-12 col-lg-6"></div>
                                 <div className="col-sm-12 col-lg-6">
@@ -71,15 +80,10 @@ function Cart(props) {
 
                             </div>
 
-                            <div className="row">
-                                <div className="col-sm-12 col-lg-6"></div>
-                                <div className="col-sm-12 col-lg-6">
-                                    <Button  cart card plans success label='Finalizar Compra' />
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
-                </main>
+               
             </div>
 
             {/* <!--***************************************CESTA END***********************************--> */}
