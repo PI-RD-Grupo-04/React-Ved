@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import Button from '../../components/button/Button'
-//import './Register.css'
+import './Register.css'
 
 function Register(props) {
 
@@ -20,7 +20,7 @@ function Register(props) {
                             </div>
                             {/* <!--  campo de recuperar senha--> */}
                             <div class="col-12">
-                                <span>Já Possui uma Conta?<Link to="/Login"> Clique Aqui.</Link></span>
+                                <span>Já Possui uma Conta?<Link className='link' to="/Login"> Clique Aqui.</Link></span>
                             </div>
                             {/* <!--  começo do campo de inputs --> */}
                             <div class="col-12">

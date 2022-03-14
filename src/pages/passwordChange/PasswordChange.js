@@ -44,7 +44,7 @@ export default function PasswordChange() {
 
                                         </div>
 
-                                        <div className="d-grid gap-2 col-3 mx-auto mb-5 mt-5">
+                                        <div className="d-grid gap-2 col-12 col-sm-6  mx-auto mb-5 mt-5">
                                             <Link to="/login" className="btn btn-success btn-block" type="button">Salvar</Link>
                                         </div>
 

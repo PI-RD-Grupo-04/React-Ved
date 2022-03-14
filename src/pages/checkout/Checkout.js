@@ -22,7 +22,7 @@ class Checkout extends Component {
             <>
                 <Header />
                 <div className="container mt-3 checkout-style mb-4 ">
-                    <h1 className="mb-2 text-center title-main">Checkout</h1>
+                    <h2 className="mb-2 text-center title-main mb-2">Checkout</h2>
                     <form>
                         <div className="row ">
                             <div className="col-12 col-sm-6 border ">
@@ -32,7 +32,8 @@ class Checkout extends Component {
                                 <form className="needs-validation" >
                                     <div className="row g-3">
                                         <h5 className="title-subs mt-4"> selecione o endereço</h5>
-                                        <AddressInfo />
+                                        <AddressInfo av= "Santos" n= "230" complement= "Casa" district= "Vila São Paulo" zipcode= "11740-000" city= "Santos" states= "Sao Paulo" country= "Brasil" />
+                            <AddressInfo av= "Condessa de Vimieiros" n= "345" complement= "Apto" district= "Centro" zipcode= "11740-000" city= "Itanhaém" states= "Sao Paulo" country= "Brasil" />
 
 
                                         {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
@@ -58,7 +59,7 @@ class Checkout extends Component {
                                         <hr className="my-2" />
 
                                         <h4 className="mb-1 ">Calculo de Frete</h4>
-                                        <div className="col-12">
+                                        {/* <div className="col-12"> */}
                                             <div className="col-2 mt-2">
                                                 <h6>Simular Frete: </h6>
                                             </div>
@@ -74,24 +75,10 @@ class Checkout extends Component {
                                             <span className="campo-obrigatório disblock" >Valor: </span>
                                             <span className="" id="fretes" >Formas: </span>
                                             {/*  <!-- opçes de frete --> */}
-                                            <div className="col-12 col-sm-6">
+                                            <div className="col-12 ">
                                                 <input type="radio" id="frete-comum" name="Frete" className="form-check-input" value="comum" />
                                                 <label for="frete-comum">Frete Comum: 12,00</label>
-
-                                                <hr className="my-2" />
-
-                                                <div className="form-check">
-                                                    <input type="checkbox" className="form-check-input" id="same-address" />
-                                                    <label className="form-check-label" for="same-address">O endereço de entrega é igual ao
-                                                        meu endereço de cobrança?
-                                                    </label>
-                                                </div>
-                                                <div className="form-check">
-                                                    <input type="checkbox" className="form-check-input" id="save-info" />
-                                                    <label className="form-check-label" for="save-info">Guarde esta informação para a
-                                                        próxima vez.
-                                                    </label>
-                                                </div>
+                                             
                                                 <hr className="my-2" />
 
                                                 <h4 className="mb-1 ">Cálculo de Frete</h4>
@@ -114,7 +101,7 @@ class Checkout extends Component {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        {/* </div> */}
                                     </div>
                                 </form>
 
@@ -122,32 +109,14 @@ class Checkout extends Component {
                                 {/*  <!--COMEÇOS CUPOM DE DESCONTO --> */}
                                 <h4 className="mb-3  ">Cupom de Desconto</h4>
                                 <form className="border p-2">
-                                    <div className="input-group">
-                                        <input type="text" className="form-control" placeholder="Código promocional" />
-                                        <Button success label="resgatar" />
+                                    <div className="input-group d-grid gy-2">
+                                        <input type="text" className="form-control w-100 mb-2" placeholder="Código promocional" />
+                                        <Button none success label="resgatar" />
                                     </div>
                                     <span className="campo-obrigatório mt-1" >Desconto aplicado! </span>
                                 </form>
                                 {/*  <!-- FIM CUPOM DE DESCONTO --> */}
-                                <div>
-                                    {/*  <!-- BEGIN SEUS PRODUTOS --> */}
-                                    <h4 className="d-flex justify-content-between align-items-center mb-3 mt-2">
-                                        <span className="">Seu carrinho</span>
-                                        <span className="badge bg-success rounded-pill">3</span>
-                                    </h4>
-                                    <ul className="list-group mb-3">
-                                        <ItemCart nome="teste" descricao="aaa" price={2.90} />
-                                        <ItemCart nome="teste" descricao="aaa" price={2.90} />
-                                        <ItemCart nome="teste" descricao="aaa" price={2.90} />
-                                        <ItemCart nome="teste" descricao="aaa" price={2.90} />
-                                        <ItemCart nome="teste" descricao="aaa" price={2.90} />
-
-
-
-                                    </ul>
-                                    <a href="./cesta.html" className=" btn btn-success mb-1 mt-1 " type="submit">Volta a Cesta</a>
-
-                                </div>
+                               
 
 
                                 {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
@@ -155,30 +124,36 @@ class Checkout extends Component {
                             </div>
                             {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
                             <div className="col-12 col-sm-6 order-md-last border mb-3">
+                            <div>
+                                    {/*  <!-- BEGIN SEUS PRODUTOS --> */}
+                                    <h4 className="d-flex justify-content-between align-items-center mb-3 mt-2">
+                                        <span className="">Seu carrinho</span>
+                                        <span className="badge bg-success rounded-pill">2</span>
+                                    </h4>
+                                    <ul className="list-group mb-3">
+                                        <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
+                                        <ItemCart nome="laranja" descricao="12 unid." price="12,90" />
 
-                                {/*  <!-- BEGIN SEUS PRODUTOS --> */}
-                                <h4 className="d-flex justify-content-between align-items-center mb-3 mt-2">
-                                    <span className="">Sua cesta</span>
-                                    <span className="badge bg-success rounded-pill">3</span>
-                                </h4>
-                                <ul className="list-group mb-3">
-                                    <ItemCart nome="teste" descricao="aaa" price={2.90} />
-                                    <ItemCart />
 
-                                </ul>
-                                <a href="./cesta.html" className=" btn btn-success mb-1 mt-1 " type="submit">Voltar a Cesta</a>
 
+
+                                    </ul>
+                                    
+                                    <Button link="/cart" cart card plans delete label='volta a cesta'/>
+
+                                </div>
+                               
                                 <hr className="my-2" />
                                 <div className="row">
                                     <h5> Selecione um Cartão Salvo</h5>
-                                    <div className="accordion" id="accordionExample">
+                                  
                                         <AccordionCart
                                             bandeira='Bandeira'
                                             num='****-****-****-*000'
                                             nome='ved Alimentos'
                                             dia={2} ano={2022} />
 
-                                    </div>
+                                   
                                     <div>
                                         <hr className="my-2" />
                                         {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
@@ -208,13 +183,13 @@ class Checkout extends Component {
                                                 {/* <!-- nome do titular do cartão --> */}
                                                 <label for="cc-name" className="form-label">Nome no cartão</label>
                                                 <input type="text" className="form-control" id="cc-name" placeholder="" required />
-                                                <small className="text-muted">Nome completo conforme exibido no cartão</small>
+                                                <small className="text-muted">Nome  exibido no cartão</small>
                                                 <div className="invalid-feedback">Nome Obrigatório</div>
                                             </div>
 
                                             <div className="col-md-6">
                                                 {/* <!-- Número do cartão --> */}
-                                                <label for="cc-number" className="form-label">Número do Cartão de Crédito</label>
+                                                <label for="cc-number" className="form-label">Nº Cartão de Crédito</label>
                                                 <input type="text" className="form-control" id="cc-number" placeholder="" required />
                                                 <div className="invalid-feedback">Número do Cartão Obrigatório</div>
                                             </div>
@@ -241,7 +216,7 @@ class Checkout extends Component {
                                                 <input type="text" className="form-control" id="card-cvv" placeholder="" required />
                                                 <div className="invalid-feedback">Codigo de seguranção Obrigatório</div>
                                             </div>
-                                            <div className="col-md-7 d-grid gy-2">
+                                            <div className="col-md-6 d-grid gy-2">
                                                 <label for="parcela" className="col-12">Parcelar em</label>
                                                 <select id="parcela" required>
                                                     <option value="">Selecione a parcela...</option>
@@ -256,11 +231,11 @@ class Checkout extends Component {
                                             </div>
                                         </div>
 
-                                        <hr className="my-4" />
+                                        <hr className="my-4 mb-3" />
 
                                     </div>
-                                    <div>
-                                        <Button label="Finalizar Pedido" success />
+                                    <div className="d-grid gy-2">
+                                        <Button label="Finalizar Pedido"  link="/orderSucess" success />
                                     </div>
 
                                 </div>

@@ -25,7 +25,7 @@ export default function PasswordRecovery() {
                                         <span id="nameHelp" className="form-text text-muted" />
                                     </div>
 
-                                    <div className="d-grid gap-2 col-6 mx-auto mt-3 mb-5">
+                                    <div className="d-grid gap-2 col-12 col-sm-6 mx-auto mt-3 mb-5">
                                         <Link to="/passwordChange" className="btn btn-success btn-block" type="button">Enviar</Link>
                                     </div>
 

@@ -18,9 +18,9 @@ function Cart(props) {
                             <h1 className="title">Sua cesta</h1>
                         </div> 
                         <ul>
-                        <ItemBasket valor={10} qty={1} nome="larissa" />
-                        <ItemBasket valor={13} qty={1} nome="Will" />
-                        <ItemBasket valor={28} qty={1} nome="Jeff" />
+                        <ItemBasket valor={10} qty={1} nome="abacaxi" />
+                        <ItemBasket valor={13} qty={1} nome="laranja" />
+             
                         </ul>
                      
                       
@@ -70,13 +70,13 @@ function Cart(props) {
                             <div className="row">
                                 <div className="col-sm-12 col-lg-6"></div>
                                 <div className="col-sm-12 col-lg-6">
-                                    <Button  cart card plans success label='Finalizar Compra' />
+                                    <Button  link="/checkout" cart card  success label='Finalizar Compra' />
                                 </div>
                             </div>                   
                             <div className="row">
                                 <div className="col-sm-12 col-lg-6"></div>
                                 <div className="col-sm-12 col-lg-6">
-                                    <Button cart card plans delete label='Continuar Comprando' />
+                                    <Button link="/product" cart card plans delete label='Continuar Comprando' />
                                 </div>
 
                             </div>

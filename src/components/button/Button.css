@@ -28,6 +28,10 @@
     color:white !important;
 }
 
+.none {
+    border: none !important; 
+    border-radius: 0.3rem;  
+}
 
 
 

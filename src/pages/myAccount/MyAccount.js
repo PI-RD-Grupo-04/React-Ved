@@ -44,7 +44,7 @@ function MyAccount() {
 
                             <div className="form-group mt-3 ">
                                 <label id="Data De Nascimento" className="form-label">Data De Nascimento:</label>
-                                <h3 for="Data De Nascimento" className="form-label border ">DD/MM/YYYY</h3>
+                                <h3 for="Data De Nascimento" className="form-label border ">16/03/1988</h3>
                                 <div className="invalid-feedback">Apenas Números</div>
                             </div>
 
