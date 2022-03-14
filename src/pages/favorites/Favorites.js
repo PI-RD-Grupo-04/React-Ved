@@ -35,6 +35,8 @@ function Favorites() {
                                 peso={1.00} price={12.90} />
                             <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
                                 peso={1.00} price={12.90} />
+                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                                peso={1.00} price={12.90} />
 
 
                         </div>
