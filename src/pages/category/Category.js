@@ -10,7 +10,7 @@ import  hamburger_menu from '../../components/asserts/imagens/Header/hamburger_m
 export default function Category() {
     return (
         <>
-            <Header />
+            <Header/>
 
             <div className="container mt-5 mb-4  ">
                 <div className="row ">
@@ -210,14 +210,3 @@ export default function Category() {
 
     )
 }
-
-
-
-
-
-
-
-
-
-
-
