@@ -10,7 +10,8 @@ import { InputGroup, Dropdown, DropdownButton, FormControl } from 'react-bootstr
 export default function Category() {
     return (
         <>
-            <Header />
+            <Header/>
+
             <div className="container mt-5 mb-4  ">
                 <div className="row ">
                     <div className="col-3 borda-menu color-menu2">
