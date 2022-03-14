@@ -13,7 +13,7 @@ export default function Category() {
             <Header />
             <div className="container mt-5 mb-4  ">
                 <div className="row ">
-                    <div className="col-2 borda-menu color-menu2">
+                    <div className="col-3 borda-menu color-menu2">
                         <div className="row text-left text-left">
                             <nav className="navlateral border-menu ">
                                 <ul className="nav flex-column">
@@ -67,7 +67,7 @@ export default function Category() {
 
 
 
-                    <div className="col-sm-12 col-lg-10 ladodireito ">
+                    <div className="col-sm-12 col-lg-9 ladodireito ">
                         <div className="row justify-content-around ">
 
 
