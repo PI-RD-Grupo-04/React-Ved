@@ -6,14 +6,7 @@ header {
 
 
 /***************************************BUTTON SEARCH BEGIN***********************************/
-.button-search {
-    background-color: rgb(255, 255, 255);
-    height:38px; 
-    width: 40px; 
-    padding-left: 1px; 
-    padding-top: 6px; 
-    margin-left: -4px;
-} 
+
 /***************************************BUTTON SEARCH END***********************************/
 
 .title-canvas{
@@ -85,6 +78,22 @@ header {
 
 .dropdown-item{
     color: #fff;
+}
+
+
+.header-fix{
+    position:fixed; 
+    top:0;
+    left:0;
+    width:100%;
+    box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+} 
+
+.input-search{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #198754;
+    border-right: none; 
 }
 
 

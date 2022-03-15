@@ -38,7 +38,7 @@ function Footer() {
                       <li className="btn-link">Segurança</li>
                     </Link>
 
-                    <Link to="/">
+                    <Link to="/shippingPolicy">
                       <li className="btn-link">Políticas de Frete</li>
                     </Link>
 

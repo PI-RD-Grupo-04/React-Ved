@@ -43,7 +43,7 @@ export default function OrderSucess() {
 
             <div className="container text-center mb-5">
                 <div className="row  align-items-center justify-content-center">
-                    <h3 className="pedido">Pedido #000000000 </h3>
+                    <h3 className="pedido">Pedido #145544  </h3>
                 </div>
             </div>
 

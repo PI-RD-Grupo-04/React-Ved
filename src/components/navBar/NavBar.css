@@ -1,7 +1,10 @@
 
 
 /***************************************NAV BEGIN***********************************/
-
+.navbar {
+    padding-top: 0; 
+    padding-bottom: 0;
+}
 
 a{
     text-decoration: none; 

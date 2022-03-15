@@ -1,17 +1,21 @@
 .p-caminho{
-    color:blue;
+    color:blue; 
+    margin-left: 20px
 }
 
 .p-analise{
     color: orange;
+    margin-left: 20px
 } 
 
 .p-cancelado{
     color: red;
+    margin-left: 20px
 }
 
 .p-entregue{
     color: green;
+    margin-left: 20px
 }
 
 

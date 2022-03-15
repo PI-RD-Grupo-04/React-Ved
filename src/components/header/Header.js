@@ -5,11 +5,12 @@ import menuhamburguer from '../asserts/imagens/Header/hamburger_menu.png'
 import lupa from '../asserts/imagens/Header/icon-seach.png'
 import cart from '../asserts/imagens/Users_icon/shopping-cart.png'
 import NavBar from '../navBar/NavBar'
+import Button from '../../components/button/Button'
 
 
 function Header() {
     return (
-        <>
+      <>
             <header>
                 <div className="container ">
                     <div className="row align-items-center">
@@ -48,11 +49,9 @@ function Header() {
                         {/*} search */}
                         <div className="col-12 col-md-6 search-mobile">
                             <form className="d-flex">
-                                <div className="input-group mt-3 mb-3">
-                                    <input type="text" className="form-control" placeholder="Busque Aqui..." aria-label="Recipient's username"
-                                        aria-describedby="button-addon2" />
-                                    <button className="btn  button-search" type="button" id="button-addon2"><img
-                                        src={lupa} width="24px" /></button>
+                                <div class="input-group mt-2 align-items-center justify-content-center">
+                                    <input type="text" class="form-control input-search" placeholder="Busque aqui..." aria-describedby="button-addon2" />
+                                    <Button success img />
                                 </div>
                             </form>
                         </div>
@@ -120,20 +119,20 @@ function Header() {
                                 <li className="welcome">
                                     <h3 className="title-canvas">Sua Area</h3>
                                 </li>
-                                <Link  to="/login"> <li className="nav-item mt-4">
+                                <Link to="/login"> <li className="nav-item mt-4">
                                     Fazer Login
                                 </li></Link>
-                                <Link  to="/cart"><li className="nav-item">
+                                <Link to="/cart"><li className="nav-item">
                                     Cesta
                                 </li></Link>
-                                <Link  to="/favorites"><li className="nav-item">
+                                <Link to="/favorites"><li className="nav-item">
                                     Favoritos
                                 </li></Link>
                             </ul >
                         </div>
                     </div>
                 </div>
-            </header>
+            </header >
             <NavBar />
         </>
     )

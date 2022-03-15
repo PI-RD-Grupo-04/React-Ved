@@ -9,3 +9,15 @@
     width: 100%; 
     height: 100%;
 } 
+
+@media (max-width: 4000px) { 
+.telamenor1{display: none;}
+.telaxxl1 {display:block}
+}
+
+ @media (max-width: 576px) { 
+
+    .telamenor1{display: block;}
+    .telaxxl1 {display:none}
+
+}

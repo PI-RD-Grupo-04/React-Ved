@@ -16,7 +16,7 @@ function Favorites() {
                         <CustomerMenu />
                     </div>
                     <div class="col-12 col-md-9 order-md-last  mb-3">
-                        <h3 class="text-center title-main"> Meus Favoritos </h3>
+                        <h2 class="text-center title-main"> Meus Favoritos </h2>
                         {/* inicio produtos */}
                         <div class="row">
                             <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"

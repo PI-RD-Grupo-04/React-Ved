@@ -28,6 +28,10 @@
     color:white !important;
 }
 
+.none {
+    border: none !important; 
+    border-radius: 0.3rem;  
+}
 
 
 
@@ -56,6 +60,25 @@
     width: 100%;
     
 }
+
+<<<<<<< HEAD
+ .button-search {
+=======
+  .button-search {
+>>>>>>> 9af5683bd1a640dbbac70f123091dc00aae914df
+    background-image: url(../../components/asserts/imagens/Header/search.svg);
+    background-repeat: no-repeat;  
+    background-size: 20px;
+    display: block;
+    position: relative;
+    left: 1px;
+    width: 50px;
+    height: 40px;
+    top: 8px;
+    background-position: center; 
+    border: 1px solid #198754; 
+    border-left: none;
+} 
 
 
 
