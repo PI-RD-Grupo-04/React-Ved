@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 
 
-
 function ItemBasket(props) {
     const [qty, setQty] = useState(0)
     const [total, setTotal] = useState(props.valor)
