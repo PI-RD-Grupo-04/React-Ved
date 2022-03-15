@@ -6,8 +6,9 @@ import vegano from '../../components/asserts/imagens/selo-produtos/sem-gluten.pn
 import gluten from '../../components/asserts/imagens/selo-produtos/vegano.png'
 import ProductCard from '../../components/productCard/ProductCard'
 import { Link } from 'react-router-dom'
-import Buttonqty from '../../components/button/ButtonProduct' 
+import Buttonqty from '../../components/button/ButtonProduct'
 import Button from '../../components/button/Button'
+import { Accordion } from 'react-bootstrap'
 
 function Product() {
     return (
@@ -53,7 +54,7 @@ function Product() {
                                     <div className="col-10 col-sm-4 mb-1">
                                         {/* AREA DO BOTÃO DE QUANTIDADE */}
                                         <div className="row d-grid  mb-3 gy-2">
-                                        <Buttonqty/>
+                                            <Buttonqty />
                                         </div>
                                         {/* FIM  AREA DO BOTÃO DE QUANTIDADE */}
                                     </div>
@@ -71,7 +72,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                <div className="row mt-4">
+                <div className="row mt-4 telaxxl">
 
                     <span className="d-flex justify-content-between ">
                         <h4>Descrição</h4>
@@ -87,7 +88,39 @@ function Product() {
                     <p><strong>Curiosidades: </strong> A banana prata é rica em potássio e cálcio e é uma ótima fonte de fibras.</p>
                     <p></p>
                 </div>
-                <div className="sugestao-respo ">
+
+                <div className ="telamenor mt-5">
+                <Accordion>
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header>Descrição</Accordion.Header>
+                        <Accordion.Body>
+                        A Banana é a fruta mais consumida em todo o mundo! No Brasil, o IBGE estima que
+                        cada brasileiro consome em média 7 kilos de banana por ano e nosso país é um dos líderes em produção mundial
+                        dessa amarelinha. Bastante rica em nutrientes, a Banana tem além do conhecido potássio que ajuda na prevenção
+                        de cãibras na realização de exercícios físicos (lembram do tenista Guga?), também possui quantidades
+                        relevantes de magnésio, ferro e vitaminas A, C e do complexo B. A Banana Prata em geral tem consistência mais
+                        firme que as demais, sendo super indicada para fritar.
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1">
+                        <Accordion.Header>Como guardar</Accordion.Header>
+                        <Accordion.Body>
+                        Sempre fora da geladeira, a sua fruteira chama por ela!
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="2">
+                        <Accordion.Header>Curiosidades</Accordion.Header>
+                        <Accordion.Body>
+                        A banana prata é rica em potássio e cálcio e é uma ótima fonte de fibras.
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+                </div>
+
+
+
+
+                <div className=" mt-5 d-grid gy-2 ">
                     <Button link="/suggestion" label="Sugestão de Consumo" success></Button>
 
                 </div>

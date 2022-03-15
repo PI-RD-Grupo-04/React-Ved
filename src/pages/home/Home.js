@@ -8,7 +8,7 @@ import carrosel2frutas from '../../components/asserts/imagens/Carousel/carrosel2
 import venhaconhecer from '../../components/asserts/imagens/Carousel/venhaconhecer.jpg'
 import ProductCard from '../../components/productCard/ProductCard'
 import bannerprincipal from '../../components/asserts/imagens/bannerprincipal.gif'
-// import Carousel from 'react-responsive-carousel'
+
 
 
 
@@ -373,7 +373,7 @@ function Home() {
                 </div>
               </div>
             </Carousel.Item>
-          </Carousel>]
+          </Carousel>
 
         </div>
       </div>
