@@ -61,7 +61,11 @@
     
 }
 
+<<<<<<< HEAD
  .button-search {
+=======
+  .button-search {
+>>>>>>> 9af5683bd1a640dbbac70f123091dc00aae914df
     background-image: url(../../components/asserts/imagens/Header/search.svg);
     background-repeat: no-repeat;  
     background-size: 20px;
