@@ -1,35 +1,115 @@
 import './OrderDetails.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-import ItemBasket from '../../components/itemBasket/ItemBasket'
-
+import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
+import { Table } from 'react-bootstrap'
+import logo from '../../components/asserts/imagens/Header/logo.png'
+import { Link } from 'react-router-dom'
+import master from '../../components/asserts/imagens/Users_icon/master.png'
 function OrderDetails() {
+
 
 
     return (
         <>
             <Header />
-            <div className="container col-12 d-flex">
-                    <h1 className="title row">Compra Finalizada com Sucesso</h1>
+            <div className=" container d-flex justify-content-sm-center">
+
+                <Link to="/"><img src={logo} width="180px" alt="Logo Ved"
+                    title="VED - Alimentos Organicos" /></Link>
+                <h2 className="text-center title-main mt-5" >Compra Finalizada com Sucesso</h2>
+
+            </div>
+
+
+            <div className="container col-12 d-flex mt-5">
+
 
 
                 <div className="container col-6">
-                    <ul>
-                        <ItemBasket valor={10} qty={1} nome="larissa" />
-                        <ItemBasket valor={13} qty={1} nome="Will" />
-                        <ItemBasket valor={28} qty={1} nome="Jeff" />
-                    </ul>
-                </div>
+                    <div>
+                        <h4 className="d-flex  align-items-center mb-3 mt-2">
+                            <span className="mb-3">Endereço de entrega </span>
+                        </h4>
+                      
+                            <div className="d-flex ">
+                                <li className="list-group-item d-flex-column lh-sm col-6">
+                                    <ul className="mt-2"> Rua : Santana de Parnaiba    </ul>
+                                </li>
+                                <li className="list-group-item d-flex-column lh-sm col-6">
+                                    <ul className="mt-2"> Numero : 45  </ul>
+                                </li>
+                            </div>
+                            <div className="d-flex ">
+                                <li className="list-group-item d-flex-column lh-sm col-6">
+                                    <ul className="mt-2"> Municipio : Embu das Artes  </ul>
+                                </li>
+                                <li className="list-group-item d-flex-column lh-sm col-6">
+                                    <ul className="mt-2"> UF : SP  </ul>
+                                </li>
+                            </div>
+                  
 
-                <div className="container col-6">
-                    <div className="mb-3 text-center mt-3">
+
                     </div>
-                    <ul>
-                        <ItemBasket valor={10} qty={1} nome="larissa" />
-                        <ItemBasket valor={13} qty={1} nome="Will" />
-                        <ItemBasket valor={28} qty={1} nome="Jeff" />
-                    </ul>
+
+
+                    <h4 className="d-flex justify-content-between align-items-center mb-3 mt-5">
+                        <span className="">Metodo de Pagamento : Cartão</span>
+                    </h4>
+                   
+                        <li className="list-group-item d-flex-column lh-sm">
+                            <ul className="mt-2"> Numero : **** **** **** 5674  </ul>
+                        </li>
+                        <li className="list-group-item d-flex-column lh-sm">
+                            <ul className="mt-2"> Nome do titular : Washington Pereira  </ul>
+                        </li>
+                        <div className ="d-flex">
+                        <li className="list-group-item d-flex-column lh-sm col-4">
+                            <ul className="mt-2"> <img src={master} width="40px" height="40px" alt="Logo Ved"
+                                title="VED - Alimentos Organicos" />  </ul>
+                        </li>
+                        <li className="list-group-item d-flex-column lh-sm col-8">
+                            <ul> Data : 11/29 </ul>
+                        </li>
+                        </div>
+
+
+             
+
                 </div>
+
+                <div className="container col-6">
+                    <h4 className="d-flex  align-items-center mb-3 mt-2">
+                        <span className="">Itens Comprados : </span>
+                        <span className="badge bg-success rounded-pill"> 5</span>
+                    </h4>
+                    <ul className="list-group mb-3" />
+                    <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
+                    <ItemCart nome="laranja" descricao="8 unid." price="12,90" />
+                    <ItemCart nome="Maça" descricao="1kg aprox." price="12,00" />
+                    <ItemCart nome="Alface" descricao="1 unid." price="4,90" />
+                    <ItemCart nome="Banana" descricao="1kg aprox." price="9,90" />
+                    <div>
+                        <li className="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 className="my-0">Total</h6>
+                                <small className="text-muted"></small>
+                            </div>
+                            <span className="text-muted"><strong>R$ 48,70</strong> </span>
+                        </li>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
 
             </div>
             <Footer />

@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './ItemBasket.css'
+<<<<<<< HEAD
+=======
+
+>>>>>>> edeb12b2bf7dab261158897abb72da636bcffc48
 
 
 

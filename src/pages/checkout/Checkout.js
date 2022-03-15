@@ -9,16 +9,53 @@ import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
 import Button from '../../components/button/Button'
 import iconNu from '../../components/asserts/imagens/Footer/iconNu.png'
 import CheckInput from '../../components/checkInput/CheckInput'
+import RadioBox from '../../components/radioBox/RadioBox'
+import qrcode from '../../components/asserts/imagens/qrcode.jpg'
 
 class Checkout extends Component {
 
     state = {
-        nome: ''
+        paymentForm: {
+            card: false,
+            pix: false,
+            boleto: false
+        }
     }
-    //para mudar o estado de nome use: this.setState({nome: 'Novo Nome'})
 
-    pix(paymethod) {
 
+    methodpayment = () => {
+
+    }
+
+
+
+    pix = () => {
+        return (<div className="row gy-3 ">
+            <div className="col-12 d-flex flex-column align-items-center justify-content-center">
+                <h2 className="text-center mb-2" >QR code</h2>
+                <img src={qrcode}
+                    width="120px" />
+                <h4>ou copie o código: </h4>
+                <div className="container mb-3">
+                    <input type="text" disabled className="w-100 pix text-center" value="73fg7g6s7t65cxb78cv9c5x356h78dx4345ds6gs87vcx7" />
+                </div>
+            </div>
+        </div>)
+    }
+
+    boleto = () => {
+        return (
+            <div className="row gy-3 ">
+                <div className="col-12 d-flex flex-column align-items-center justify-content-center">
+                    <h2 className="text-center mb-2">Boleto gerado!</h2>
+                    <textarea className="boleto border" disabled >34191.79001 01043.510047 91020.150008 7 89250026000</textarea>
+                    <h4>ou </h4>
+                    <div className="container d-grid gy-2 mb-3">
+                        <Button label="Acesse aqui" sucess card />
+                    </div>
+                </div>
+            </div>
+        )
     }
 
     creditcard = () => {
@@ -142,9 +179,6 @@ class Checkout extends Component {
                                     <span className="campo-obrigatório mt-1" >Desconto aplicado! </span>
                                 </form>
                                 {/*  <!-- FIM CUPOM DE DESCONTO --> */}
-
-
-
                                 {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
 
                             </div>
@@ -159,43 +193,56 @@ class Checkout extends Component {
                                     <ul className="list-group mb-3">
                                         <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
                                         <ItemCart nome="laranja" descricao="12 unid." price="12,90" />
-
-
-
-
                                     </ul>
                                 </div>
 
                                 <hr className="my-2" />
                                 <div className="row">
                                     <h5> Selecione um Cartão Salvo</h5>
-
                                     <AccordionCart
                                         bandeira='Bandeira'
                                         num='****-****-****-*000'
                                         nome='ved Alimentos'
                                         dia={2} ano={2022} />
-
-
                                     <div>
                                         <hr className="my-2" />
                                         {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
                                         <h4 className="mb-2">Pagamento</h4>
                                         <div className="my-3">
                                             {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
-                                            <CheckInput label="Cartão de crédito" id="creditcard" />
-                                            <CheckInput label="Cartão de débito" id="debitcard" />
-                                            <CheckInput label="Pix" id="pix" />
-                                            <CheckInput label="Boleto" id="ticket" />
+
+                                            <RadioBox onClick={() => this.setState({
+                                                paymentForm: {
+                                                    card: false,
+                                                    pix: false,
+                                                    boleto: true
+                                                }
+                                            })} label="Boleto" id={1} name="1" />
+                                            <RadioBox onClick={() => this.setState({
+                                                paymentForm: {
+                                                    card: true,
+                                                    pix: false,
+                                                    boleto: false
+                                                }
+                                            })} label="cartão de credito/debito" id={2} name="1" />
+                                            <RadioBox onClick={() => this.setState({
+                                                paymentForm: {
+                                                    card: false,
+                                                    pix: true,
+                                                    boleto: false
+                                                }
+                                            })} label="Pix" id={1} name="1" />
                                         </div>
+
+
                                         <hr className="my-2 border" />
-
-                                        {this.creditcard()}
+                                        {this.state.paymentForm.card ? this.creditcard() : ""}
+                                        {this.state.paymentForm.pix ? this.pix() : ""}
+                                        {this.state.paymentForm.boleto ? this.boleto() : ""}
                                         <hr className="my-4 mb-3" />
-
                                     </div>
                                     <div className="d-grid gy-2">
-                                        <Button label="Finalizar Pedido" link="/orderSucess" success />
+                                        <Button label="Finalizar Pedido" card link="/orderSucess" success />
                                     </div>
 
                                 </div>
