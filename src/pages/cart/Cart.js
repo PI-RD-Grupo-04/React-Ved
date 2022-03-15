@@ -20,7 +20,6 @@ function Cart(props) {
                     <ul>
                         <ItemBasket valor={10} qty={1} nome="abacaxi" />
                         <ItemBasket valor={13} qty={1} nome="laranja" />
-<<<<<<< HEAD
 
                     </ul>
 
@@ -48,90 +47,23 @@ function Cart(props) {
                                     <h5>Entrega Flex: R$ 65,50</h5>
                                 </div>
 
-                                <div className="left">
+                                <div className="row d-flex">
                                     <div className="col-sm-12 col-lg-6"></div>
-                                    <div className="col-sm-12 col-lg-6">
+                                    <div className="col-sm-12 col-lg-6 justify-content-end d-flex  ">
                                         <Button link="/checkout" cart card success label='Finalizar Compra' />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-sm-12 col-lg-6"></div>
-                                    <div className="col-sm-12 col-lg-6">
+                                    <div className="col-sm-12 col-lg-6 justify-content-end d-flex ">
                                         <Button link="/product" cart card plans delete label='Continuar Comprando' />
                                     </div>
                                 </div>
-=======
-
-                    </ul>
-
-
-                    <div className="container mb-3 border">
-                        <div className="row mt-3 mb-1">
-                            <div className="col-sm-12 col-lg-2 mt-2">
-                                <h5>Simular Frete: </h5>
-                            </div>
-                            <div className="col-sm-12 col-lg-5 inputcep">
-                                <input type="text" className="form-control" id="cep" required />
-                            </div>
-                            <div className="col-sm-12 col-lg-5"></div>
-                        </div>
-
-                        {/* <!--cep--> */}
-                        <div className="row">
-                            <div className="col-sm-12 col-lg-4">
-                                <h5>Entrega Comum: R$ 45,50</h5>
-                            </div>
-                            <div className="col-sm-12 col-lg-4">
-                                <h5>Quantidade Total De Itens: 5</h5>
-                            </div>
-
-                            <div className="col-sm-12 col-lg-1"></div>
-                            <div className="col-sm-12 col-lg-3">
-                                <h5>Total Produto: R$ 985,80</h5>
->>>>>>> 0b76ca24c47d2a4d0cc10b8e5603bd358ac5d86a
                             </div>
 
                         </div>
-<<<<<<< HEAD
                     </div>
                 </div>
-=======
-
-                        <div className="row">
-                            <div className="col-sm-12 col-lg-4">
-                                <h5>Entrega Flex: R$ 60,50</h5>
-                            </div>
-                            <div className="col-sm-12 col-lg-4"></div>
-                            <div className="col-sm-12 col-lg-1"></div>
-                            <div className="col-sm-12 col-lg-3">
-                                <h5>Total Com Frete: R$ 1.031,30</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="text-end">
-                        <h5 className="text-dark mb-3">
-                            Valor Total: R$ 1.031,30
-                        </h5>
-                        <div className="row">
-                            <div className="col-sm-12 col-lg-6"></div>
-                            <div className="col-sm-12 col-lg-6">
-                                <Button link="/checkout" cart card success label='Finalizar Compra' />
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-sm-12 col-lg-6"></div>
-                            <div className="col-sm-12 col-lg-6">
-                                <Button link="/product" cart card plans delete label='Continuar Comprando' />
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
-
->>>>>>> 0b76ca24c47d2a4d0cc10b8e5603bd358ac5d86a
             </div>
             {/* <!--***************************************CESTA END***********************************--> */}
 
