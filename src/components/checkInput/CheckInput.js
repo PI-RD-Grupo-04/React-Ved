@@ -9,7 +9,7 @@ function CheckInput(props) {
 
     return (
         <>
-            <div className="form-check">
+            <div onClick={props.onClick} className="form-check">
                 <input type="checkbox" className="form-check-input" id={props.id} />
                 {label != null
                     ? label
