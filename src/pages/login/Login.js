@@ -17,7 +17,7 @@ function Login() {
                         <div className="white">
                             <div className="row text-center">
                                 <div className="text-center col-12">
-                                    <h2 className="title-main">Login</h2>
+                                    <h2 className="title-main coral">Login </h2>
                                 </div>
 
                                 <div className="text-center col-12">
