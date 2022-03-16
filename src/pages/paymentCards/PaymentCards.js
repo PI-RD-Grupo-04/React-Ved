@@ -22,7 +22,7 @@ function PaymentCards() {
                     <div class="col-12 col-sm-9 order-md-last  mb-3">
                         <h1 class="cardh1 justify-content-between align-items-center title-main text-center mb-3">Meus Cartões</h1>
                         {/* <!-- area do primeira cartão --> */}
-                        <div class="row border mb-3 pb-3 pt-3">
+                        <div class="row mb-3 pb-3 pt-3">
                             <div class="row ">
                                 <CardInfo id={1} nome="Visa" numero="*************23" mes="10" ano="24" />
                                 <CardInfo id={2} nome="MasterCard" numero="*************14" mes="10" ano="24" />
