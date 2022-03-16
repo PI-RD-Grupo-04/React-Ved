@@ -9,7 +9,15 @@
 }
 
 
+.product-card:hover {
 
+    -ms-transform: scale(1.01);
+    /* IE 9 */
+    -webkit-transform: scale(1.01);
+    /* Safari 3-8 */
+    transform: scale(1.01);
+
+}
 
 .badge-B {
     position: absolute;
@@ -18,7 +26,7 @@
     text-transform: uppercase;
     font-size: 13px;
     font-weight: 700;
-  
+
     color: #fff;
     padding: 3px 10px;
 }
@@ -27,8 +35,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px; 
-  
+    padding: 5px;
+
 }
 
 .product-tumb img {
@@ -58,6 +66,7 @@
     text-decoration: none;
     transition: 0.3s;
 }
+
 /* houver do titulo */
 .product-details h4 a:hover {
     color: #00ff40;
@@ -84,7 +93,7 @@
 .product-price {
     font-size: 24px;
     color: #ffb625;
-    font-weight: 600;   
+    font-weight: 600;
     margin-top: -10px;
 }
 
@@ -102,7 +111,7 @@
 
 .product-links a {
     display: flex;
-  flex-wrap: wrap;
+    flex-wrap: wrap;
     margin-left: 5px;
     color: #e1e1e1;
     transition: 0.3s;
@@ -111,6 +120,6 @@
 
 .product-links a:hover {
     color: #0c6d1c;
-} 
+}
 
 /***************************************MODELO CARD DE PRODUTOS***********************************/

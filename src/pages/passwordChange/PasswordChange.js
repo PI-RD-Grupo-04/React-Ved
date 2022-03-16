@@ -12,7 +12,7 @@ export default function PasswordChange() {
 
             <div className="container ">
                 <div className="row mt-5 mb-5">
-                    <div className="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 mx-auto border">
+                    <div className=" forms col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 mx-auto border">
                         <div className="white">
                             <div className="row text-center">
                                 <div className="text-center col-12">
@@ -27,17 +27,13 @@ export default function PasswordChange() {
                                             <label for="form-senha  " className="form-label">Digite sua nova senha</label>
                                             <input type="password" className="form-control" id="form-senha" />
 
-
                                             {/* <span className="msg-pass  msg-error error-pass" >Senha Fraca! A senha deve conter no mínimo 8 caracteres</span>
                                             <span className="msg-pass  msg-success valid-pass" >ok</span> */}
-
-
                                         </div>
 
                                         <div className="col-12  mt-1">
                                             <label for="form-senha-confirma " className="form-label">Confirme sua nova senha</label>
                                             <input type="password" className="form-control" id="form-senha-confirma" />
-
 
                                             {/* <span className="msg-password  msg-error error-pass2" >senha divergentes</span>
                                             <span className="msg-passoword  msg-success valid-pass2" >ok</span> */}

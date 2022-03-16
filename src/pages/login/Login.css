@@ -11,12 +11,14 @@ p a {
 
 
 
+
+
 .coral {
   color: #218838;
 }
 
 
-/* 
-.bglogin {
-  background-color: ghostwhite;
-} */
+.forms {
+  background-color: #ededed;
+  border-radius: 5px;
+}

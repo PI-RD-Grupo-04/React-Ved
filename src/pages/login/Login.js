@@ -13,7 +13,7 @@ function Login() {
 
             <div className="container ">
                 <div className="row mt-5 mb-5">
-                    <div className="col-12 col-md-5 mx-auto border">
+                    <div className="col-12 col-md-6 forms mx-auto border">
                        
                             <div className="row text-center">
                                 <div className="text-center col-12">
