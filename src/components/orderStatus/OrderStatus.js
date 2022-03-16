@@ -24,7 +24,7 @@ function OrderStatus(props) {
             <div className="row border py-3 mb-2">
                 <div className="col-12 size-text  align-items-center d-flex">
                     {/* nome do titular do cartão */}
-                  <Link to="/detailsOrder" className="margin">  <img src={bagplus} width="30"/></Link>
+                  <Link to="/detalhespedido" className="margin">  <img src={bagplus} width="30"/></Link>
                    <label for={props.id}>Pedido </label>
                     <label for={props.id}>#{props.pedido}:</label>
                     <label for={props.id} className={status}>{label}</label>
