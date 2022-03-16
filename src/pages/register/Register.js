@@ -12,7 +12,7 @@ function Register(props) {
             <Header />
             <div class="container text-center">
                 <div class="row mt-5 mb-5">
-                    <div class="col-12 col-md-7 mx-auto border">
+                    <div class="forms col-12 col-md-7 mx-auto border">
                         <div class="row">
                             <div class="col-12">
                                 {/* <!--  titulo da pagina de cadastro --> */}
