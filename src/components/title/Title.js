@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-jshfjshfsdfhkfds
-=======
 import "./Title.css"
 
 
@@ -19,4 +16,3 @@ function Title(props){
     )
 }
 export default Title
->>>>>>> 49f934cf8d4ff8805cf20a72a3af76f611000d88
