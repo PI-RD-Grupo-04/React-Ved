@@ -2,6 +2,7 @@ import './PasswordRecovery.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import { Link } from 'react-router-dom'
+import Title from '../../components/title/Title'
 
 export default function PasswordRecovery() {
     return (
@@ -13,7 +14,8 @@ export default function PasswordRecovery() {
                     <div className="white">
                         <div className="row text-center">
                             <div className="text-center col-12 mb-3">
-                                <h2 className="title-main">Recuperar Senha</h2>
+                                <Title label="Recuperar Senha"/>
+                                
                             </div>
                             <div className="text-center col-12">
 

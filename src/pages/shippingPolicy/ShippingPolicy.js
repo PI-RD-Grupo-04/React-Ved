@@ -1,6 +1,7 @@
 import './ShippingPolicy.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import Title from '../../components/title/Title'
 
 
 function ShippingPolicy() {
@@ -8,9 +9,9 @@ function ShippingPolicy() {
         <>
             <Header />
             <div className="container" >
-                <h1>Política de Frete</h1>
-
-                <h2>Envio dos produtos:</h2>
+                <Title label="Política de Frete"/>
+                
+                <h3>Envio dos produtos:</h3>
 
                 <div className="row">
                     <p>
@@ -19,7 +20,7 @@ function ShippingPolicy() {
 
                 </div>
 
-                <h2>Fique atento:</h2>
+                <h3>Fique atento:</h3>
 
                 <div className="row">
                     <p>
@@ -53,7 +54,8 @@ function ShippingPolicy() {
 
                 <div className=" row frase">
                     <p>
-                        A VED espera que tenham uma excelente experiência de compra. Para qualquer dúvida não exite em nos contar por e-mail ou WhatsApp.
+                        A VED agradece sua preferência. Qualquer dúvida, crítica ou sugestão, entre em contato conosco que vamos atendê-lo o mais breve e da melhor forma possível.
+
                     </p>
 
                 </div>

@@ -2,6 +2,7 @@ import './Requests.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
+import Title from '../../components/title/Title'
 
 
 
@@ -16,7 +17,7 @@ function Request() {
                         <CustomerMenu />
                     </div>
                     <div className="col-12 col-sm-9 order-md-last  mb-3 ">
-                        <h2 className="text-center title-main"> Meus Pedidos </h2>
+                        <Title label="Meus Pedidos"/>
                         <div className="row border py-3 ">
 
                             <div className="col-12 size-text ">

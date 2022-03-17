@@ -1,6 +1,7 @@
 import './AboutUs.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import Title from '../../components/title/Title'
 
 function AboutUs() {
     return (
@@ -8,9 +9,8 @@ function AboutUs() {
             <Header/>
           
             <div className="container" >
-
-                <h1>Sobre a VED</h1>
-                <br/><br/><br/>
+                <Title label="Sobre a VED"/>
+                
 
                 <div className="row">
                     <p>
@@ -38,7 +38,7 @@ function AboutUs() {
                 </div>
                 <br/><br/><br/>
             
-                <h2 className='about2'>Entenda como essa parceria ajuda vários produtores:</h2>
+                <h3 className='about2'>Entenda como essa parceria ajuda vários produtores:</h3>
                 <br/><br/><br/>
 
                 <div className="row">
