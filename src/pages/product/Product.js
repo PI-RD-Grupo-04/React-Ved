@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import Buttonqty from '../../components/button/ButtonProduct'
 import Button from '../../components/button/Button'
 import { Accordion } from 'react-bootstrap'
+import Title from '../../components/title/Title'
 
 function Product() {
     return (
@@ -29,7 +30,8 @@ function Product() {
                     <div className="col-12 col-xl-6">
                         <div className="media-body">
                             <div className="preco-avulso margin-price">
-                                <h2 className="mt-0 text-desc mb-2">Banana Prata Orgânica</h2>
+                                
+                                <h3 className="mt-0 text-desc mb-2">Banana Prata Orgânica</h3>
                                 <p><strong>Código:</strong> 0021</p>
                                 <div className=" d-flex price-por product-price ">
                                     <p>De:
@@ -131,8 +133,8 @@ function Product() {
                 {/* Sugestões de outros produtos */}
 
 
-
-                <h2 className="text-center mb-5 title-main">Aproveite também</h2>
+                <Title label="Aproveite também"/>
+               
                 <div class="row  ">
                     {/* ********************* item unidade  *********************/}
                     <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"

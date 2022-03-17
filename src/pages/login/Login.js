@@ -3,6 +3,7 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import { Link } from 'react-router-dom'
 import Button from '../../components/button/Button'
+import Title from '../../components/title/Title'
 
 
 function Login() {
@@ -17,7 +18,7 @@ function Login() {
                        
                             <div className="row text-center">
                                 <div className="text-center col-12">
-                                    <h2 className="title-main coral">Login </h2>
+                                    <Title label = "Login"/>
                                 </div>
 
                                 <div className="text-center col-12">

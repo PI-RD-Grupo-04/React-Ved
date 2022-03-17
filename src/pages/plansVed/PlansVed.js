@@ -2,13 +2,15 @@ import './PlansVed.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import Button from '../../components/button/Button'
+import Title from '../../components/title/Title'
 
 function PlansVed() {
     return (
         <>
             <Header />
             <div className="container  text-center justify-content-between">
-                <h1 className="plansh1 mt-3">Nossos Planos</h1>
+              
+                <Title label="Nossos Planos"/>
                 <div className="row mt-5 justify-content-between align-items-center">
                     <div className="item margens  col-lg-3 mb-3 ">
                         <h2 className="plan2">PLANO</h2>
