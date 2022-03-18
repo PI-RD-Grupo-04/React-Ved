@@ -8,9 +8,13 @@ import AccordionCart from '../../components/accordionCart/AccordionCart'
 import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
 import Button from '../../components/button/Button'
 import iconNu from '../../components/asserts/imagens/Footer/iconNu.png'
+<<<<<<< HEAD
 import CheckInput from '../../components/checkInput/CheckInput'
 import RadioBox from '../../components/radioBox/RadioBox'
 import qrcode from '../../components/asserts/imagens/qrcode.jpg'
+=======
+import Title from '../../components/title/Title'
+>>>>>>> 49f934cf8d4ff8805cf20a72a3af76f611000d88
 
 class Checkout extends Component {
 
@@ -123,7 +127,8 @@ class Checkout extends Component {
             <>
                 <Header />
                 <div className="container mt-3 checkout-style mb-4 ">
-                    <h2 className="mb-2 text-center title-main mb-2">Checkout</h2>
+                <Title label="Checkout"/>
+                    
                     <form>
                         <div className="row ">
                             <div className="col-12 col-sm-6 border ">
@@ -151,7 +156,11 @@ class Checkout extends Component {
 
                                         <hr className="my-2" />
 
-                                        <h4 className="mb-1 ">Valor Frete</h4>
+                                        <h4 className="mb-1 ">Cálculo de Frete</h4>
+                                        {/* <div className="col-12"> */}
+                                            <div className="col-2 mt-2">
+                                                <h6>Simular Frete: </h6>
+                                            </div>
 
                                         <label for="frete-comum">Frete para ******-** </label>
                                         <span className="msg-nome  msg-success  disblock valid-nome">ok</span>

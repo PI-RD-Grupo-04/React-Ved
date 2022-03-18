@@ -5,6 +5,7 @@ import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import AddressInfo from '../../components/addressInfo/AddressInfo'
 import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
 import Button from '../../components/button/Button'
+import Title from '../../components/title/Title'
 
 function Address() {
 
@@ -20,9 +21,9 @@ function Address() {
 
                     {/* <!--************* COMEÇO DIREITA da pagina começo  *********************-->  */}
                     <div class="col-12 col-sm-9 order-md-last  mb-3">
-                        <h1 class=" cardh1 justify-content-between align-items-center title-main text-center mb-3">Meus endereços</h1>
+                        <Title label="Meus endereços"/>
                         {/* <!-- area do primeira cartão --> */}
-                        <div class="row border mb-3 pb-3 pt-3">
+                        <div class="row  mb-3 pb-3 pt-3">
                             <div class="row ">
                             <AddressInfo av= "Santos" n= "230" complement= "Casa" district= "Vila São Paulo" zipcode= "11740-000" city= "Santos" states= "Sao Paulo" country= "Brasil" />
                             <AddressInfo av= "Condessa de Vimieiros" n= "345" complement= "Apto" district= "Centro" zipcode= "11740-000" city= "Itanhaém" states= "Sao Paulo" country= "Brasil" />
