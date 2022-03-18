@@ -2,13 +2,15 @@ import './Suggestion.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import ProductCard from '../../components/productCard/ProductCard'
+import Title from '../../components/title/Title'
 
 function Suggestion() {
     return (
         <>
             <Header />
             <div className=" col-12 container  ">
-                <h1 className=" d-flex justify-content-center mb-5  "> Sugestão de Consumo</h1>
+                <Title label="Sugestão de Consumo"/>
+                
                 <hr />
                 <h2 className=" row d-flex justify-content-center sugest2">Banana Caramelizada </h2>
             </div>

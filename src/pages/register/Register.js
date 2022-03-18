@@ -3,6 +3,7 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import Button from '../../components/button/Button'
 import './Register.css'
+import Title from '../../components/title/Title'
 
 function Register(props) {
 
@@ -15,8 +16,9 @@ function Register(props) {
                     <div class="forms col-12 col-md-7 mx-auto border">
                         <div class="row">
                             <div class="col-12">
-                                {/* <!--  titulo da pagina de cadastro --> */}
-                                <h2 class="title-main">Nova Conta</h2>
+                               
+                                <Title label="Nova Conta"/>
+                                
                             </div>
                             {/* <!--  campo de recuperar senha--> */}
                             <div class="col-12">

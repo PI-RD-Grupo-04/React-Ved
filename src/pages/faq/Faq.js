@@ -2,6 +2,7 @@ import './Faq.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import Paragraph from '../../components/paragraph/Paragraph'
+import Title from '../../components/title/Title'
 
 function Faq() {
     return (

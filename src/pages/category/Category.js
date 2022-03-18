@@ -4,6 +4,7 @@ import Footer from '../../components/footer/Footer'
 import ProductCard from '../../components/productCard/ProductCard'
 import hamburger_menu from '../../components/asserts/imagens/Header/hamburger_menu.png'
 import { InputGroup, Dropdown, DropdownButton, FormControl } from 'react-bootstrap'
+import Title from '../../components/title/Title'
 
 
 
@@ -19,6 +20,7 @@ export default function Category() {
                             <nav className="navlateral border-menu ">
                                 <ul className="nav flex-column">
                                     <li className="nav-item mt-3 ">
+                                       
                                         <h2 className="text-category">Categoria</h2>
                                         <hr />
                                     </li>

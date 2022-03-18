@@ -2,6 +2,7 @@ import './PasswordChange.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import { Link } from 'react-router-dom'
+import Title from '../../components/title/Title'
 
 export default function PasswordChange() {
     return (
@@ -12,11 +13,12 @@ export default function PasswordChange() {
 
             <div className="container ">
                 <div className="row mt-5 mb-5">
-                    <div className=" forms col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 mx-auto border">
+                    <div className="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 mx-auto border">
                         <div className="white">
                             <div className="row text-center">
                                 <div className="text-center col-12">
-                                    <h2 className="title-main">Alterar sua Senha</h2>
+                                    <Title label="Alterar sua Senha" />
+
                                 </div>
 
                                 <div className="text-center col-12 mt-4">

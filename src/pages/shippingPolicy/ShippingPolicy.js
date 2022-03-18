@@ -2,15 +2,17 @@ import './ShippingPolicy.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import Paragraph from '../../components/paragraph/Paragraph'
+import Title from '../../components/title/Title'
+
 
 function ShippingPolicy() {
     return (
         <>
             <Header />
             <div className="container" >
-                <h1>Política de Frete</h1>
-
-                <h2>Envio dos produtos:</h2>
+                <Title label="Política de Frete"/>
+                
+                <h3>Envio dos produtos:</h3>
 
 
                 <Paragraph>

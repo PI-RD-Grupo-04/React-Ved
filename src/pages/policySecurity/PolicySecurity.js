@@ -2,14 +2,15 @@ import './PolicySecurity.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import Paragraph from '../../components/paragraph/Paragraph'
+import Title from '../../components/title/Title'
 
 function PolicySecurity() {
     return (
         <>
             <Header />
             <div class="container">
-
-                <h1>Políticas de Segurança</h1>
+                <Title label="Políticas de Segurança"/>
+                
                 <br/><br/>
 
         
