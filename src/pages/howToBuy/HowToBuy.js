@@ -9,7 +9,7 @@ function HowToBuy() {
     return (
         <>
             <Header />
-            <div className="container">
+            <div className="container telaxxl1">
                 <Title label = "Como comprar?"/>
                
                 <div className="row">
