@@ -14,7 +14,7 @@ function Address() {
             <div className="container mt-3 mb-4  ">
                 <div className="row ">
                  
-                    <div class="col-2 col-sm-3  ">
+                    <div class="col-2 col-sm-3 col-lg-6 ">
                         <CustomerMenu />
                     </div>
 
