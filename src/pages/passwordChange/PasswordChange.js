@@ -13,7 +13,7 @@ export default function PasswordChange() {
 
             <div className="container ">
                 <div className="row mt-5 mb-5">
-                    <div className=" forms col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 mx-auto border">
+                    <div className="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 mx-auto border">
                         <div className="white">
                             <div className="row text-center">
                                 <div className="text-center col-12">
