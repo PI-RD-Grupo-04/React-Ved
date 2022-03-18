@@ -25,6 +25,7 @@ li a:hover {
 
 
 footer li{
+    text-align: left;
     text-decoration: none; 
     color: rgb(255, 255, 255);
 
