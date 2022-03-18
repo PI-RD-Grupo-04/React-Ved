@@ -1,15 +1,16 @@
 import './Faq.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import Title from '../../components/title/Title'
 
 function Faq() {
     return (
         <>
             <Header />
             <div className="container">
-                <h1 className="faq ">FAQ</h1>
-
-                <h2 className='faq2'>Entrega em caixa postal:</h2>
+                <Title label="FAQ"/>
+                
+                <h3 className='faq2'>Entrega em caixa postal:</h3>
 
                 <div class="row">
                     <p>

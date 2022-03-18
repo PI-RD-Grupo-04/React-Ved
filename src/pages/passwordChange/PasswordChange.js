@@ -2,6 +2,7 @@ import './PasswordChange.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import { Link } from 'react-router-dom'
+import Title from '../../components/title/Title'
 
 export default function PasswordChange() {
     return (
@@ -16,7 +17,8 @@ export default function PasswordChange() {
                         <div className="white">
                             <div className="row text-center">
                                 <div className="text-center col-12">
-                                    <h2 className="title-main">Alterar sua Senha</h2>
+                                    <Title label="Alterar sua Senha" />
+
                                 </div>
 
                                 <div className="text-center col-12 mt-4">

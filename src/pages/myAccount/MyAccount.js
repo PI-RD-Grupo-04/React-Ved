@@ -2,6 +2,7 @@ import './MyAccount.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
+import Title from '../../components/title/Title'
 
 function MyAccount() {
     return (
@@ -15,7 +16,7 @@ function MyAccount() {
                     </div>
 
                     <div className="col-12 col-sm-9 order-md-last  align-items-center justify-content-center  mb-3">
-                        <h2 className="text-center title-main">Meus Dados </h2>
+                       <Title label="Meus Dados"/>
                         <form id="feedbackForm" className="text-center">
 
                             <div className="form-group">
