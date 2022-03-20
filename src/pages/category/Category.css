@@ -52,17 +52,20 @@ nav.navlateral {
     @media (max-width: 2000px){
         .menucanvas{display:none; }
         .filtrocanvas{display:none; }
+        
     }
 
     @media (max-width: 992px){
         .navlateral{display: none;}
         .menucanvas{display:block; }
         .produtoencoontrado{display: none;}
+        .menuletra{font-size: 32px; padding-left: 10px;}
         
         }
     @media (max-width: 576px) {
         .dropfilter{display: none;}
         .filtrocanvas{display:block; }
+        .menuletra{font-size: 40px;}
 
     }
     
