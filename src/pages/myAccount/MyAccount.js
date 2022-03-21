@@ -51,7 +51,7 @@ function MyAccount() {
 
                             <div className="form-group mt-3 ">
                                 <label id="E-mail" className="form-label">E-mail:</label>
-                                <h3 for="E-mail" className="form-label border">vedalimentosorganicos@ved.com</h3>
+                                <h3 for="E-mail" className="form-label border">ved@ved.com</h3>
                                 <div className="invalid-feedback">Apenas Letras</div>
                             </div>
 

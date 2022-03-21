@@ -74,23 +74,7 @@ function Product() {
                         </div>
                     </div>
                 </div>
-                <div className="row mt-4 telaxxl">
-
-                    <span className="d-flex justify-content-between ">
-                        <h4>Descrição</h4>
-                    </span>
-                    <p className="text-dresc">A Banana é a fruta mais consumida em todo o mundo! No Brasil, o IBGE estima que
-                        cada brasileiro consome em média 7 kilos de banana por ano e nosso país é um dos líderes em produção mundial
-                        dessa amarelinha. Bastante rica em nutrientes, a Banana tem além do conhecido potássio que ajuda na prevenção
-                        de cãibras na realização de exercícios físicos (lembram do tenista Guga?), também possui quantidades
-                        relevantes de magnésio, ferro e vitaminas A, C e do complexo B. A Banana Prata em geral tem consistência mais
-                        firme que as demais, sendo super indicada para fritar.</p>
-                    <p><strong>Como guardar</strong></p>
-                    <p>Sempre fora da geladeira, a sua fruteira chama por ela!</p>
-                    <p><strong>Curiosidades: </strong> A banana prata é rica em potássio e cálcio e é uma ótima fonte de fibras.</p>
-                    <p></p>
-                </div>
-
+               
                 <div className="telamenor mt-5">
                     <Accordion>
                         <Accordion.Item eventKey="0">

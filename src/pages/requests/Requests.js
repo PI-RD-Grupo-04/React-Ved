@@ -19,7 +19,7 @@ function Request() {
                     </div>
                     <div className="col-12 col-sm-9 order-md-last  mb-3 ">
                         <Title label="Meus Pedidos" />
-                        <div className="row border py-3 ">
+                        <div className="row py-3 ">
 
                             <OrderStatus waiting pedido={127543} />
                             <OrderStatus delivered pedido={123549} />
