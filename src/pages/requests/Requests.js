@@ -29,12 +29,7 @@ function Request() {
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
-
             <Footer />
 
         </>
