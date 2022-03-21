@@ -29,28 +29,18 @@ function Button(props) {
 
 
   //btn-outline-success
-  function btnLink() {
-    let history = useHistory();
-
-    function handleClick() { 
-      
-      props.modal ? () => setShow(true) : null
-
-      history.push({ link });
-
-    }
 
 
 
     return (
       <>
 
-        {/* {link != null 
+        {link != null 
         ? <Link to={link} onClick={ props.modal ? () => setShow(true) : null}  className={btn} type="submit">{props.label}</Link>
-        : <button onClick={ } className={btn} type="submit">{props.label}</button>}
-            */}
+        : <button onClick={props.modal ? () => setShow(true) : null } className={btn} type="submit">{props.label}</button>}
+           
 
-        <button onClick={handleClick() } className={btn} type="submit">{props.label}</button>
+    
 
         {props.modal ? <div>
           <Modal
