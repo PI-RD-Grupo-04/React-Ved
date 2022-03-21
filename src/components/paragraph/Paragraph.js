@@ -6,7 +6,7 @@ function Paragraph(props) {
 
     return (
 
-        <div className="row">
+        <div className="row pdd">
             <p>
                 {props.children }
             </p>
