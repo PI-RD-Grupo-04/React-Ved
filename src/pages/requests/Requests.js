@@ -3,6 +3,7 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import OrderStatus from '../../components/orderStatus/OrderStatus'
+import Title from '../../components/title/Title'
 
 
 
@@ -28,8 +29,8 @@ function Request() {
                         </div>
                     </div>
                 </div>
-            </div>
-
+            
+</div>
 
 
 

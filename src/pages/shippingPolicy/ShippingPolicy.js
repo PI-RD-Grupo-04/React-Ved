@@ -11,15 +11,15 @@ function ShippingPolicy() {
             <Header />
             <div className="container" >
                 <Title label="Política de Frete"/>
-                
-                <h3>Envio dos produtos:</h3>
+
+                <Title sub>Envio dos produtos:</Title>
 
 
                 <Paragraph>
                     Todos os produtos serão enviados de acordo com a forma escolhida pelo cliente, em até 2 dias úteis da confirmação do pagamento. O prazo para a entrega varia de acordo com a forma de envio escolhida.
                 </Paragraph>
-                <h2>Fique atento:</h2>
-
+                
+                <Title sub>Fique atento:</Title>
 
                 <Paragraph>
                     O prazo de entrega começa a contar após a aprovação do pagamento. Assim que seu pagamento for aprovado você será notificado por e-mail.
