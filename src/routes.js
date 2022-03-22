@@ -16,7 +16,7 @@ import Register  from './pages/register/Register'
 import PasswordRecovery from './pages/passwordRecovery/PasswordRecovery'
 import PasswordChange from "./pages/passwordChange/PasswordChange"
 import Contact from './pages/contact/Contact'
-import OrderSucess from './pages/orderSuccess/OrderSuccess'
+
 import Login from "./pages/login/Login"
 import MyAccount from "./pages/myAccount/MyAccount"
 import Category from "./pages/category/Category"
@@ -47,7 +47,7 @@ export const Routes = () => {
             <Route path="/suggestion" component={Suggestion}/>
             <Route path="/register" component={Register} />             
             <Route path="/login" component={Login} exact/>
-            <Route path="/orderSucess" component={OrderSucess} exact/>
+            <Route path="/orderSucess" component={OrderDetails} exact/>
             <Route path="/contact" component={Contact} exact/>
             <Route path="/passwordChange" component={PasswordChange}/>
             <Route path="/passwordRecovery" component={PasswordRecovery}/>
@@ -55,9 +55,7 @@ export const Routes = () => {
             <Route path="/myAccount" component={MyAccount} />
             <Route path="/category" component={Category} />
             <Route path="/shippingPolicy" component={ShippingPolicy} />
-            <Route path="/sucessodecompra" component={OrderDetails} />
             <Route path="/detalhespedido" component={DetailsOrder} /> 
-
             <Route component={Error404} />
         </Switch>
     )

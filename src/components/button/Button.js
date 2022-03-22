@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom' 
+import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
-import { Modal} from 'react-bootstrap' 
+import { Modal } from 'react-bootstrap'
 import ok from '../asserts/imagens/ok.png'
 import error from '../asserts/imagens/error.png'
+import { useHistory } from "react-router-dom";
 import './Button.css'
 
 
@@ -14,8 +15,8 @@ function Button(props) {
   btn += props.delete ? 'btn-delete ' : ''
   btn += props.success ? 'btn-success ' : ''
   btn += props.plans ? 'btn-Plano ' : ''
-  btn += props.cart ? ' btnCardDel ' : '' 
-  btn += props.img ? 'button-search ' : '' 
+  btn += props.cart ? ' btnCardDel ' : ''
+  btn += props.img ? 'button-search ' : ''
   btn += props.none ? "none " : ''
 
   let link = props.link ? props.link : null
@@ -31,35 +32,37 @@ function Button(props) {
 
 
 
+    return (
+      <>
 
-
-  return (
-    <>
-      {link != null 
-        ? <Link to={link} onClick={props.modal ? () => setShow(true) : null}  className={btn} type="submit">{props.label}</Link>
-        : <button onClick={props.modal ? () => setShow(true) : null} className={btn} type="submit">{props.label}</button>}
+        {link != null 
+        ? <Link to={link} onClick={ props.modal ? () => setShow(true) : null}  className={btn} type="submit">{props.label}</Link>
+        : <button onClick={props.modal ? () => setShow(true) : null } className={btn} type="submit">{props.label}</button>}
            
-            {props.modal ? <div>
-              <Modal
-                show={show}
-                onHide={() => setShow(false)}
-                dialogClassName="modal-10w"
-                aria-labelledby="example-custom-modal-styling-title"
 
-            >
-                <Modal.Header className={color} closeButton>
-                    <Modal.Title className="d-flex text-center align-items-center justify-content-center" id="example-custom-modal-styling-title">
-                        <div><img src={img} width="30px" height="30px" /> </div>
-                        <div className='mt-3 margin-text' ><h5 >{label}</h5></div>
-                    </Modal.Title>
-                </Modal.Header>
+    
 
-            </Modal></div> : null}
-    </>
-  )
+        {props.modal ? <div>
+          <Modal
+            show={show}
+            onHide={() => setShow(false)}
+            dialogClassName="modal-10w"
+            aria-labelledby="example-custom-modal-styling-title"
+
+          >
+            <Modal.Header className={color} closeButton>
+              <Modal.Title className="d-flex text-center align-items-center justify-content-center" id="example-custom-modal-styling-title">
+                <div><img src={img} width="30px" height="30px" /> </div>
+                <div className='mt-3 margin-text' ><h5 >{label}</h5></div>
+              </Modal.Title>
+            </Modal.Header>
+
+          </Modal></div> : null}
+      </>
+    )
 
 
 
-}
+  }
 
-export default Button
+  export default Button

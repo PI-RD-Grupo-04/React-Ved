@@ -11,7 +11,6 @@ function PolicySecurity() {
             <div class="container">
                 <Title label="Políticas de Segurança"/>
                 
-                <br/><br/>
 
         
                 <Paragraph>
@@ -25,7 +24,6 @@ function PolicySecurity() {
                         ou não, estará encriptada com a tecnologia SSL (Secure Socket Layer). Isso significa que só nossa empresa terá
                         acesso a estes dados.
                     </Paragraph>
-                <br/><br/>
             </div>
 
             <Footer />
