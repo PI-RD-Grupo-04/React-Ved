@@ -8,13 +8,9 @@ import AccordionCart from '../../components/accordionCart/AccordionCart'
 import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
 import Button from '../../components/button/Button'
 import iconNu from '../../components/asserts/imagens/Footer/iconNu.png'
-<<<<<<< HEAD
 import CheckInput from '../../components/checkInput/CheckInput'
 import RadioBox from '../../components/radioBox/RadioBox'
 import qrcode from '../../components/asserts/imagens/qrcode.jpg'
-=======
-import Title from '../../components/title/Title'
->>>>>>> 49f934cf8d4ff8805cf20a72a3af76f611000d88
 
 class Checkout extends Component {
 
