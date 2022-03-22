@@ -1,6 +1,7 @@
 import './Contact.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import Title from '../../components/title/Title'
 
 
 
@@ -10,12 +11,10 @@ export default function Contact() {
 
             <Header />
 
-
             <div className="container">
-
-                <h1 className="title-h1 mt-5">ENTRE EM CONTATO CONOSCO</h1>
-                <br />
-
+          
+                <Title label ="Entre em Contato Conosco"/>
+               
                 <div className="row">
                     <p>
                         Abaixo listamos as formas de contato disponíveis em nosso e-commerce.
@@ -26,7 +25,7 @@ export default function Contact() {
 
 
                 <div className="row">
-                    <h2>Central de Atendimento ao Cliente</h2>
+                    <h3>Central de Atendimento ao Cliente</h3>
                     <p>
                         (11) 94356-5923
                     </p>
@@ -34,7 +33,7 @@ export default function Contact() {
                 </div>
 
                 <div className="row">
-                    <h2>Horário de Atendimento</h2>
+                    <h3>Horário de Atendimento</h3>
                     <p>
                         De segunda a sexta das 9:00 às 18:00h e sábado das 09:00 às 16:00h
                     </p>
@@ -42,7 +41,7 @@ export default function Contact() {
                 </div>
 
                 <div className="row">
-                    <h2>E-mail</h2>
+                    <h3>E-mail</h3>
                     <p>
                         Entre em contato através do e-mail contato@ved.com.br
                     </p>
@@ -50,7 +49,7 @@ export default function Contact() {
                 </div>
 
                 <div className="row">
-                    <h2>Formulario de contato</h2>
+                    <h3>Formulário de contato</h3>
                     <p>
                         Campos marcados com * são de preenchimento obrigatório
                     </p>

@@ -3,15 +3,15 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import { Accordion } from 'react-bootstrap'
 
+import Title from '../../components/title/Title'
 
 function HowToBuy() {
     return (
         <>
             <Header />
             <div className="container telaxxl1">
-                <h1>Para Comprar em Nossa Loja Siga os Passos:</h1>
-                <br /><br /><br />
-
+                <Title label = "Como comprar?"/>
+               
                 <div className="row">
                     <p>
                         1) Basta navegar entre as diversas páginas de produtos (categorias, novidades, ofertas, destaques) e clicar sobre o ícone Comprar. Ou clique em Ver Detalhes para mais informações sobre o produto. Após isso o produto será inserido em seu carrinho de compras.

@@ -5,7 +5,7 @@ function CardInfo(props) {
 
     return (
         <>
-            <div class="col-12 border">
+            <div class="col-12 border mb-2">
                 <CheckInput id={props.id}>
                     <label className="margin" for={props.id}>Nome: {props.nome}</label>
                     <label className="margin" for={props.id}>Nº {props.numero}</label>
