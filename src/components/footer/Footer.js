@@ -60,7 +60,7 @@ function Footer() {
                   <li className="btn-link"> <a href="https://gmail.com/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
                   </svg>
-                    ved@sac.com.br</a>
+                    sac@ved.com.br</a>
                   </li>
                 </ul>
               </div>
@@ -92,7 +92,7 @@ function Footer() {
 
               <div className=" col-md-3 col-lg-3 col-sm-6 col-xs-12 mt-3">
                 <ul className="list-unstyled">
-                  <li><strong>Certificados e Pagamentos</strong></li>
+                  <li><strong>Certificação</strong></li>
                   <li className="btn-link"> <img src={seloOrganic} width="60px" /> </li>
                   <li><strong>Formas de Pagamentos</strong></li>
                   <li><img src={iconPix} width="30px" /> <img src={iconVisa} width="30px" /> <img src={iconElo}

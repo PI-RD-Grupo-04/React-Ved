@@ -37,12 +37,12 @@ function OrderDetails() {
                                 <ul className="mt-2"> Rua : Santana de Parnaiba    </ul>
                             </li>
                             <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                <ul className="mt-2"> Numero : 45  </ul>
+                                <ul className="mt-2"> Número : 45  </ul>
                             </li>
                         </div>
                         <div className="d-flex ">
                             <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                <ul className="mt-2"> Municipio : Embu das Artes  </ul>
+                                <ul className="mt-2"> Múnicípio : Embu das Artes  </ul>
                             </li>
                             <li className="list-group-item list1 d-flex-column lh-sm col-6">
                                 <ul className="mt-2"> UF : SP  </ul>
@@ -52,11 +52,11 @@ function OrderDetails() {
                     </div>
 
                     <h4 className="d-flex justify-content-between align-items-center mb-3 mt-5">
-                        <span className="">Metodo de Pagamento : Cartão</span>
+                        <span className="">Método de Pagamento : Cartão</span>
                     </h4>
 
                     <li className="list-group-item list1 d-flex-column lh-sm">
-                        <ul className="mt-2"> Numero : **** **** **** 5674  </ul>
+                        <ul className="mt-2"> Número : **** **** **** 5674  </ul>
                     </li>
                     <li className="list-group-item list1 d-flex-column lh-sm">
                         <ul className="mt-2"> Nome do titular : Washington Pereira  </ul>
@@ -84,7 +84,7 @@ function OrderDetails() {
                             <ul className="mt-2"> Pedido #123    </ul>
                         </li>
                         <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                            <ul className="mt-2"> Entrega Comun  </ul>
+                            <ul className="mt-2"> Entrega Comum  </ul>
                         </li>
                     </div>
                     <div className="d-flex ">
