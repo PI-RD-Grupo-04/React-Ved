@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 function ProductCard(props) {
 
-  function favorite(){}
+  
 
 
 
@@ -28,7 +28,7 @@ function ProductCard(props) {
           </div>
           <div class=" row text-center justify-content-center ">
             <div className="col-12 d-grid gy-2">
-              <Button label="adicionar a cesta" success />
+              <Button label="Adicionar à cesta" success />
             </div>
 
           </div>

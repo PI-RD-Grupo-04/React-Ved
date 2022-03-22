@@ -11,11 +11,19 @@ footer{
 
 }
 
+.list-unstyled{
+    text-decoration: none;
+    color: #54043c;
+}
+
+
 .btn-link{
     text-decoration: none; 
     color: white; 
     
 }
+
+
 
 li a:hover {
 	color: #54043c;

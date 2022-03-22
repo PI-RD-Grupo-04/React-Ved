@@ -9,7 +9,7 @@ import Title from '../../components/title/Title'
 function Favorites() {
 
     return (
-        <>
+        <> 
             <Header />
             <div className="container mt-3 mb-4  ">
                 <div className="row ">
