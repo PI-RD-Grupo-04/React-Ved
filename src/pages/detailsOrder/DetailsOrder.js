@@ -4,7 +4,7 @@ import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
 import master from '../../components/asserts/imagens/Users_icon/master.png'
-
+import Title from '../../components/title/Title'
 function DetailsOrder() {
 
     return (
@@ -16,8 +16,8 @@ function DetailsOrder() {
                         <CustomerMenu />
                     </div>
                     <div className="col-12 col-md-9 order-md-last   mb-3 ">
-                        <h2 className="text-center title-main mt-5 mb-5"> Detalhes do Pedido </h2>
-
+                    <Title label ="Detalhes do Pedido"/>
+                        
                         <div className='alterando d-flex'>
                             <div className="container col-12 col-md-12 col-lg-6 alterando  ">
                                 <div>

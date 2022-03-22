@@ -6,6 +6,7 @@ import { Table } from 'react-bootstrap'
 import logo from '../../components/asserts/imagens/Header/logo.png'
 import { Link } from 'react-router-dom'
 import master from '../../components/asserts/imagens/Users_icon/master.png'
+import Title from '../../components/title/Title'
 function OrderDetails() {
 
 
@@ -15,18 +16,15 @@ function OrderDetails() {
             <Header />
 
 
-            <div className=" container d-flex justify-content-sm-center">
+            <div className=" container d-flex justify-content-center">
 
                 <Link to="/"><img src={logo} width="180px" alt="Logo Ved"
                     title="VED - Alimentos Organicos" /></Link>
 
             </div>
-            <h2 className="text-center title-main mt-5" >Compra Finalizada com Sucesso</h2>
-
+            <Title label="Compra Finalizada com Sucesso" />
 
             <div className="container col-12 alterando d-flex mt-5">
-
-
 
                 <div className="container col-12 col-md-12 col-lg-6 ">
                     <div>
@@ -51,10 +49,7 @@ function OrderDetails() {
                             </li>
                         </div>
 
-
-
                     </div>
-
 
                     <h4 className="d-flex justify-content-between align-items-center mb-3 mt-5">
                         <span className="">Metodo de Pagamento : Cartão</span>
@@ -76,73 +71,56 @@ function OrderDetails() {
                         </li>
                     </div>
 
-
-
-
                 </div>
 
                 <div className="container col-12 col-md-12 col-lg-6">
 
-                    
-                        <h4 className="d-flex  align-items-center mb-3 mt-2">
-                            <span className="mb-3">Detalhes de Pedido </span>
-                        </h4>
+                    <h4 className="d-flex  align-items-center mb-3 mt-2">
+                        <span className="mb-3">Detalhes de Pedido </span>
+                    </h4>
 
-                        <div className="d-flex ">
-                            <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                <ul className="mt-2"> Pedido #123    </ul>
-                            </li>
-                            <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                <ul className="mt-2"> Entrega Comun  </ul>
-                            </li>
-                        </div>
-                        <div className="d-flex ">
-                            <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                <ul className="mt-2"> Data: 21/02/2022 </ul>
-                            </li>
-                            <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                <ul className="mt-2"> Total : R$68,70  </ul>
-                            </li>
-                            </div>
-
-
-
-                        <h4 className="d-flex  align-items-center mb-3 mt-5">
-                            <span className="ml">Itens Comprados :  </span>
-                  
-                            <span className="badge bg-success rounded-pill"> 5</span>
-                        </h4>
-                        <ul className="list-group " />
-                        <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
-                        <ItemCart nome="laranja" descricao="8 unid." price="12,90" />
-                        <ItemCart nome="Maça" descricao="1kg aprox." price="12,00" />
-                        <ItemCart nome="Alface" descricao="1 unid." price="4,90" />
-                        <ItemCart nome="Banana" descricao="1kg aprox." price="9,90" />
-                        <div>
-                            <li className="list-group-item list1 d-flex justify-content-between lh-sm">
-                                <div>
-                                    <h6 className="my-0">Total</h6>
-                                    <small className="text-muted"></small>
-                                </div>
-                                <span className="text-muted"><strong>R$ 48,70</strong> </span>
-                            </li>
-                        </div>
-
-
-
+                    <div className="d-flex ">
+                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                            <ul className="mt-2"> Pedido #123    </ul>
+                        </li>
+                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                            <ul className="mt-2"> Entrega Comun  </ul>
+                        </li>
+                    </div>
+                    <div className="d-flex ">
+                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                            <ul className="mt-2"> Data: 21/02/2022 </ul>
+                        </li>
+                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                            <ul className="mt-2"> Total : R$68,70  </ul>
+                        </li>
                     </div>
 
+                    <h4 className="d-flex  align-items-center mb-3 mt-5">
+                        <span className="ml">Itens Comprados :  </span>
 
-
-
-
-
-
-
+                        <span className="badge bg-success rounded-pill"> 5</span>
+                    </h4>
+                    <ul className="list-group " />
+                    <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
+                    <ItemCart nome="laranja" descricao="8 unid." price="12,90" />
+                    <ItemCart nome="Maça" descricao="1kg aprox." price="12,00" />
+                    <ItemCart nome="Alface" descricao="1 unid." price="4,90" />
+                    <ItemCart nome="Banana" descricao="1kg aprox." price="9,90" />
+                    <div>
+                        <li className="list-group-item list1 d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 className="my-0">Total</h6>
+                                <small className="text-muted"></small>
+                            </div>
+                            <span className="text-muted"><strong>R$ 48,70</strong> </span>
+                        </li>
+                    </div>
                 </div>
-                <Footer/>
-            </>
-            )
+            </div>
+            <Footer />
+        </>
+    )
 }
 
-            export default OrderDetails
+export default OrderDetails
