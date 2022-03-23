@@ -11,6 +11,7 @@ import iconNu from '../../components/asserts/imagens/Footer/iconNu.png'
 import CheckInput from '../../components/checkInput/CheckInput'
 import RadioBox from '../../components/radioBox/RadioBox'
 import qrcode from '../../components/asserts/imagens/qrcode.jpg'
+import Title from '../../components/title/Title'
 
 class Checkout extends Component {
 
