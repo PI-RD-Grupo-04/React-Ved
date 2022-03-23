@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Button from '../../components/button/Button'
 //import './ModelPayCard.css'
 
 function ModelPayCard(props) {
@@ -70,8 +71,8 @@ function ModelPayCard(props) {
                             {/* <!-- FIM DO CORPO DO MODAL --> */}
                         </div>
                         <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-success">Salvar</button>
+                            <Button label='Cancelar' delete />
+                            <Button label='Salvar' success />
                         </div>
                     </div>
                 </div>

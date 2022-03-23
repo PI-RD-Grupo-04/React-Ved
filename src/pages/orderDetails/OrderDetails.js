@@ -5,7 +5,7 @@ import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
 import { Table } from 'react-bootstrap'
 import logo from '../../components/asserts/imagens/Header/logo.png'
 import { Link } from 'react-router-dom'
-import master from '../../components/asserts/imagens/Users_icon/master.png' 
+import master from '../../components/asserts/imagens/Users_icon/master.png'
 import Title from '../../components/title/Title'
 function OrderDetails() {
 
@@ -15,7 +15,8 @@ function OrderDetails() {
         <>
             <Header />
 
-            <div className=" container d-flex justify-content-sm-center">
+
+            <div className=" container d-flex justify-content-center">
 
                 <Link to="/"><img src={logo} width="180px" alt="Logo Ved"
                     title="VED - Alimentos Organicos" /></Link>
