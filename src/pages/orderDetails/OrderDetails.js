@@ -84,7 +84,7 @@ function OrderDetails() {
                             <ul className="mt-2"> Pedido #123    </ul>
                         </li>
                         <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                            <ul className="mt-2"> Entrega Comun  </ul>
+                            <ul className="mt-2"> Entrega Comum  </ul>
                         </li>
                     </div>
                     <div className="d-flex ">

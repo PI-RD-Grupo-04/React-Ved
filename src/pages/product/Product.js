@@ -31,7 +31,7 @@ function Product() {
                         <div className="media-body">
                             <div className="preco-avulso margin-price">
 
-                                <h3 className="mt-0 text-desc mb-2">Banana Prata Orgânica</h3>
+                            <Title sub>Banana Prata Orgânica</Title>
                                 <p><strong>Código:</strong> 0021</p>
                                 <div className=" d-flex price-por product-price ">
                                     <p>De:

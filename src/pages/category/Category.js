@@ -164,7 +164,7 @@ export default function Category() {
                                 </div>
                             </div>
 
-                            <p className="text-left  produtoencoontrado col-lg-6">Produtos entrados: Frutas</p>
+                            <p className="text-left  produtoencoontrado col-lg-6">Produtos encontrados: Frutas</p>
 
                             <div className="dropfilter col-sm-6 col-lg-4  ">
                                 <div className="d-flex flex-row-reverse bd-highligh align-items-center">
