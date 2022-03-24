@@ -26,26 +26,34 @@ function Footer() {
               <div className=" col-md-3 col-lg-3 col-sm-6 col-xs-12 mt-3">
                 <ul className="list-unstyled ">
                   <li><strong>Institucional</strong></li>
+                  <li className="btn-link">
+                    <Link to="/faq">
+                      FAQs e Política da Empresa
+                    </Link>
+                  </li>
+                  <li className="btn-link">
+                    <Link to="/howToBuy">
+                      Como Comprar
+                    </Link>
+                  </li>
 
-                  <Link to="/faq">
-                    <li className="btn-link">FAQs e Política da Empresa </li>
-                  </Link>
+                  <li className="btn-link">
+                    <Link to="/policySecurity">
+                      Segurança
+                    </Link>
+                  </li>
 
-                  <Link to="/howToBuy">
-                    <li className="btn-link">Como Comprar</li>
-                  </Link>
+                  <li className="btn-link">
+                    <Link to="/shippingPolicy">
+                      Políticas de Frete
+                    </Link>
+                  </li>
 
-                  <Link to="/policySecurity">
-                    <li className="btn-link">Segurança</li>
-                  </Link>
-
-                  <Link to="/shippingPolicy">
-                    <li className="btn-link">Políticas de Frete</li>
-                  </Link>
-
-                  <Link to="/contact">
-                    <li className="btn-link">Contato</li>
-                  </Link>
+                  <li className="btn-link">
+                    <Link to="/contact">
+                      Contato
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div className="col-md-3 col-lg-3 col-sm-6 col-xs-12 mt-3">
@@ -56,34 +64,41 @@ function Footer() {
                   </svg><span>+55 (11)98765-1243</span></a>
                   </li>
                   <li className="btn-link"> <a href="https://gmail.com/" target="_blank">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
-                  </svg> <span>
-                    ved@sac.com.br</span></a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                    </svg> <span>
+                      ved@sac.com.br</span></a>
                   </li>
                 </ul>
               </div>
 
+
               <div className="col-md-3 col-lg-3 col-sm-6 col-xs-12 mt-3">
                 <ul className="list-unstyled">
                   <li><strong>Minha Conta</strong></li>
+                  <li className="btn-link">
+                    <Link to="/myAccount">
+                      Meus Dados
+                    </Link>
+                  </li>
 
-                  <Link to="/myAccount">
-                    <li className="btn-link"> Meus Dados</li>
-                  </Link>
+                  <li className="btn-link">
 
-                  <Link to="/requests">
-                    <li className="btn-link"> Meus Pedidos</li>
-                  </Link>
+                    <Link to="/requests">
+                      Meus Pedidos
+                    </Link>
+                  </li>
+                  <li className="btn-link">
+                    <Link to="/favorites">
+                      Meus Favoritos
+                    </Link>
+                  </li>
 
-                  <Link to="/favorites">
-                    <li className="btn-link"> Meus Favoritos</li>
-                  </Link>
-
-                  <Link to="/register">
-                    <li className="btn-link"> Criar uma conta</li>
-                  </Link>
-
+                  <li className="btn-link">
+                    <Link to="/register">
+                      Criar uma conta
+                    </Link>
+                  </li>
 
                 </ul>
               </div>
