@@ -92,7 +92,7 @@ function Footer() {
 
               <div className=" col-md-3 col-lg-3 col-sm-6 col-xs-12 mt-3">
                 <ul className="list-unstyled">
-                  <li><strong>Certificados e Pagamentos</strong></li>
+                  <li><strong>Certificação</strong></li>
                   <li className="btn-link"> <img src={seloOrganic} width="60px" /> </li>
                   <li><strong>Formas de Pagamentos</strong></li>
                   <li><img src={iconPix} width="30px" /> <img src={iconVisa} width="30px" /> <img src={iconElo}
