@@ -1,9 +1,6 @@
 import './ModalEndereco.css'
-<<<<<<< HEAD
 import Button from '../../components/button/Button'
-=======
 import InputMask from 'react-input-mask';
->>>>>>> 2a75ac43c03e84bdcd710d3592684581bd6f485a
 
 function ModalEndereco() {
 
