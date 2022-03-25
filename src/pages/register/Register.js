@@ -4,6 +4,7 @@ import Footer from '../../components/footer/Footer'
 import Button from '../../components/button/Button'
 import './Register.css'
 import Title from '../../components/title/Title'
+import InputMask from 'react-input-mask';
 function Register(props) {
 
 
@@ -48,7 +49,7 @@ function Register(props) {
                                     {/* <!--  campo nome --> */}
                                     <div class="form-group " >
                                         <label for="cpf" class="form-label">CPF:</label>
-                                        <input type="text" class="form-control" id="cpf" placeholder="" required />
+                                        <InputMask mask="999.999.999-99 " class="form-control" id="cpf" placeholder="" required />
                                         <div class="invalid-feedback">CPF Inválido!</div>
                                     </div>
                                     {/* <!--  campo nome --> */}
@@ -61,13 +62,13 @@ function Register(props) {
                                     {/* <!--  campo nome social --> */}
                                     <div class="form-group " >
                                         <label for="data-nasc" class="form-label">Data de Nascimento:</label>
-                                        <input type="text" class="form-control" id="data-nasc" placeholder="" required />
+                                        <InputMask mask="99/99/9999"  class="form-control" id="data-nasc" placeholder="" required />
                                         <div class="invalid-feedback">Apenas Letras</div>
                                     </div>
                                     {/* <!--  campo nome --> */}
                                     <div class="form-group " >
                                         <label for="tel-cel" class="form-label">Telefone:</label>
-                                        <input type="tel" class="form-control" id="tel-cel" placeholder="" required />
+                                        <InputMask mask="(99) 99999-9999"  class="form-control" id="tel-cel" placeholder="" required />
                                         <div class="invalid-feedback">Apenas Letras</div>
                                     </div>
                                     {/* <!--  campo nome social --> */}

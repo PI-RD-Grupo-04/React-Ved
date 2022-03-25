@@ -18,7 +18,7 @@ footer{
 }
 
 li a:hover {
-	color: #54043c;
+	color: #54043c !important; 
 	text-decoration: none;
 }
 
@@ -41,17 +41,3 @@ a{
     color: white;
 }
 
-
-{/* @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
-*
-{
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-p{
- font-size: clamp(1em, 1em + 1vw, 1.25em);
-
-}*/}

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import InputMask from 'react-input-mask';
+
 //import './ModelPayCard.css'
 
 function ModelPayCard(props) {
@@ -33,7 +35,7 @@ function ModelPayCard(props) {
                                             {/* <!--******Numero do cartão ***** --> */}
                                             <label for="cc-number" class="form-label">Nº Cartão do
                                                 Titular</label>
-                                            <input type="text" class="form-control" id="cc-number" placeholder="" required />
+                                                <InputMask mask="9999 9999 9999 9999" class="form-control" id="cc-number" placeholder="" required />
                                             <div class="invalid-feedback">Nº Cartão Obrigatorio</div>
                                         </div>
                                         {/* <!--******NOME do cartão ***** --> */}
@@ -48,7 +50,7 @@ function ModelPayCard(props) {
                                         <div class="col-12">
                                             <label for="cpf-titular" class="form-label">CPF do Titular do
                                                 Cartão</label>
-                                            <input type="text" class="form-control" id="cpf-titular" placeholder="" required />
+                                                <InputMask mask="999.999.999-99 " class="form-control" id="cpf-titular" placeholder="" required />
                                             <div class="invalid-feedback">Numero do Cartão Obrigatorio</div>
                                         </div>
                                         <div class="col-6 col-md-6">
@@ -61,7 +63,7 @@ function ModelPayCard(props) {
                                         <div class="col-6 col-sm-6">
                                             {/* <!-- vencimento do cartão --> */}
                                             <label for="cc-expiration" class="form-label">Vencimento</label>
-                                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required />
+                                            <InputMask mask="99/99"  class="form-control" id="cc-expiration" placeholder="" required />
                                             <div class="invalid-feedback">Data de Expiração Obrigatoria</div>
                                         </div>
                                     </div>

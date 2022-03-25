@@ -33,9 +33,12 @@ function Footer() {
                     <li className="btn-link">FAQs e Política da Empresa </li>
                   </Link>
 
-                  <Link to="/howToBuy">
-                    <li className="btn-link">Como Comprar</li>
+                 
+                    <li >
+                    <Link to="/howToBuy" className="btn-link">
+                      Como Comprar
                   </Link>
+                    </li>
 
                   <Link to="/policySecurity">
                     <li className="btn-link">Segurança</li>

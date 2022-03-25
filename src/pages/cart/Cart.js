@@ -3,7 +3,7 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import Button from '../../components/button/Button'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
-
+import InputMask from 'react-input-mask';
 function Cart(props) {
 
 
@@ -37,7 +37,7 @@ function Cart(props) {
                                     <h5>Simular Frete: </h5>
                                 </div>
                                 <div className="col-sm-12 col-lg-5 inputcep">
-                                    <input type="text" className="form-control" id="cep" required />
+                                <InputMask mask="99999-999"  className="form-control" id="cep" required />
                                 </div>
                                 <div className="col-sm-12 col-lg-5"></div>
                             </div>
