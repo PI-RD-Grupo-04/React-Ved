@@ -5,10 +5,13 @@ import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import Title from '../../components/title/Title'
 
 function MyAccount() {
+   
+   
+   
+   
     return (
         <>
             <Header />
-
             <div className="container mt-3 mb-4  ">
                 <div className="row ">
                     <div className="col-2 col-sm-3 ">
@@ -51,12 +54,12 @@ function MyAccount() {
 
                             <div className="form-group mt-3 ">
                                 <label id="E-mail" className="form-label">E-mail:</label>
-                                <h3 for="E-mail" className="form-label border">vedalimentosorganicos@ved.com</h3>
+                                <h3 for="E-mail" className="form-label border">ved@ved.com</h3>
                                 <div className="invalid-feedback">Apenas Letras</div>
                             </div>
 
                             <div className="form-group">
-                                <label for="Telefone Celular" className="form-label">Telefone Celular:</label>
+                                <label for="Telefone Celular" className="form-label">Telefone :</label>
                                 <input type="text" className="form-control" id="Telefone Celular"  value="(00) 99999-9999" required />
                                 <div className="invalid-feedback">Apenas Números</div>
                             </div>

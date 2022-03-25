@@ -124,8 +124,8 @@ class Checkout extends Component {
             <>
                 <Header />
                 <div className="container mt-3 checkout-style mb-4 ">
-                <Title label="Checkout"/>
-                    
+                    <Title label="Checkout" />
+
                     <form>
                         <div className="row ">
                             <div className="col-12 col-sm-6 border ">
@@ -155,9 +155,9 @@ class Checkout extends Component {
 
                                         <h4 className="mb-1 ">Cálculo de Frete</h4>
                                         {/* <div className="col-12"> */}
-                                            <div className="col-2 mt-2">
-                                                <h6>Simular Frete: </h6>
-                                            </div>
+                                        <div className="col-2 mt-2">
+                                            <h6>Simular Frete: </h6>
+                                        </div>
 
                                         <label for="frete-comum">Frete para ******-** </label>
                                         <span className="msg-nome  msg-success  disblock valid-nome">ok</span>
@@ -198,7 +198,19 @@ class Checkout extends Component {
                                     </h4>
                                     <ul className="list-group mb-3">
                                         <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
-                                        <ItemCart nome="laranja" descricao="12 unid." price="12,90" />
+                                        <ItemCart nome="laranja" descricao="8 unid." price="12,90" />
+                                        <ItemCart nome="Maça" descricao="1kg aprox." price="12,00" />
+                                        <ItemCart nome="Alface" descricao="1 unid." price="4,90" />
+                                        <ItemCart nome="Banana" descricao="1kg aprox." price="9,90" />
+                                        <div>
+                                            <li className="list-group-item list1 d-flex justify-content-between lh-sm">
+                                                <div>
+                                                    <h6 className="my-0">Total</h6>
+                                                    <small className="text-muted"></small>
+                                                </div>
+                                                <span className="text-muted"><strong>R$ 48,70</strong> </span>
+                                            </li>
+                                        </div>
                                     </ul>
                                 </div>
 

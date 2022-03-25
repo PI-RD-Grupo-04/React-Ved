@@ -47,9 +47,7 @@ function Faq() {
                 <Paragraph>
                 Não efetuamos entregas em caixa postal. Sujeito à devolução.
                 </Paragraph>
-               
             </div>
-
             <Footer />
         </>
     )
