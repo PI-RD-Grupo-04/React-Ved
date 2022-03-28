@@ -39,14 +39,14 @@ const Test = () => {
 
 
     <div>
-      <InputMask mask="99/99/9999"  >
+      <InputMask mask="99999-999"  >
       </InputMask>
   
       <InputMask mask="999.999.999-99 " id="form-cpf-cliente">
       </InputMask>
   
-      <InputMask mask="(99) 9999-9999" />
-  
+      <InputMask mask="9999 9999 9999 9999" />
+
   </div>
       </div>
    );

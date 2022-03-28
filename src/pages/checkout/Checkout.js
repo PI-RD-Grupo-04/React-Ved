@@ -12,6 +12,7 @@ import CheckInput from '../../components/checkInput/CheckInput'
 import RadioBox from '../../components/radioBox/RadioBox'
 import qrcode from '../../components/asserts/imagens/qrcode.jpg'
 import Title from '../../components/title/Title'
+import InputMask from 'react-input-mask';
 
 class Checkout extends Component {
 
@@ -105,13 +106,13 @@ class Checkout extends Component {
                 <div className="col-md-6">
                     {/* <!-- Número do cartão --> */}
                     <label for="cc-number" className="form-label">Nº Cartão de Crédito</label>
-                    <input type="text" className="form-control" id="cc-number" required />
+                    <InputMask mask="9999 9999 9999 9999" className="form-control" id="cc-number" required />
                     <div className="invalid-feedback">Número do Cartão Obrigatório</div>
                 </div>
                 <div className="col-md-9">
                     {/*  <!-- CPF do titular --> */}
                     <label for="cpf-titular" className="form-label">CPF do Titular do Cartão</label>
-                    <input type="text" className="form-control" id="cpf-titular" required />
+                    <InputMask mask="999.999.999-99 " className="form-control" id="cpf-titular" required />
                     <div className="invalid-feedback">Número do Cartão Obrigatório</div>
                 </div>
                 <div className="col-3 ">
@@ -123,12 +124,12 @@ class Checkout extends Component {
                 <div className="col-md-3">
                     {/* <!-- vencimento do cartão --> */}
                     <label for="cc-expiration" className="form-label">Vencimento</label>
-                    <input type="text" className="form-control" id="cc-expiration" required />
+                    <InputMask mask="99/99"  className="form-control" id="cc-expiration" required />
                     <div className="invalid-feedback">Data de Expiração Obrigatória</div>
                 </div>
                 <div className="col-md-2">
                     <label for="card-cvv" className="form-label">CVV</label>
-                    <input type="text" className="form-control" id="card-cvv" required />
+                    <InputMask mask="999" className="form-control" id="card-cvv" required />
                     <div className="invalid-feedback">Codigo de seguranção Obrigatório</div>
                 </div>
                 <div className="col-md-6 d-grid gy-2">
