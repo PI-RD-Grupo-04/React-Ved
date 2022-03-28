@@ -232,9 +232,9 @@ class Checkout extends Component {
                                     <ul className="list-group mb-3">
                                         <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
                                         <ItemCart nome="laranja" descricao="8 unid." price="12,90" />
-                                        <ItemCart nome="Maça" descricao="1kg aprox." price="12,00" />
-                                        <ItemCart nome="Alface" descricao="1 unid." price="4,90" />
-                                        <ItemCart nome="Banana" descricao="1kg aprox." price="9,90" />
+                                        <ItemCart nome="maça" descricao="1kg aprox." price="12,00" />
+                                        <ItemCart nome="alface" descricao="1 unid." price="4,90" />
+                                        <ItemCart nome="banana" descricao="1kg aprox." price="9,90" />
                                         <div>
                                             <li className="list-group-item list1 d-flex justify-content-between lh-sm">
                                                 <div>
@@ -278,7 +278,7 @@ class Checkout extends Component {
                                                     boleto: false,
                                                     cpfBoleto: false
                                                 }
-                                            })} label="cartão de credito/debito" id="card" name="1" />
+                                            })} label="cartão de crédito/débito" id="card" name="1" />
                                             <RadioBox onClick={() => this.setState({
                                                 paymentForm: {
                                                     card: false,
