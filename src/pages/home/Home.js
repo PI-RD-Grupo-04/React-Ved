@@ -5,7 +5,8 @@ import { Carousel } from 'react-bootstrap'
 import frete from '../../components/asserts/imagens/imgBody/frete.png'
 import carrosel1mel from '../../components/asserts/imagens/Carousel/carrosel1mel.jpg'
 import carrosel2frutas from '../../components/asserts/imagens/Carousel/carrosel2frutas.png'
-import venhaconhecer from '../../components/asserts/imagens/Carousel/venhaconhecer.jpg'
+import item1 from '../../components/asserts/imagens/Carousel/item1.webp'
+import item2 from '../../components/asserts/imagens/Carousel/item2.webp'
 import ProductCard from '../../components/productCard/ProductCard'
 import bannerprincipal from '../../components/asserts/imagens/bannerprincipal.gif'
 import Title from '../../components/title/Title'
@@ -41,24 +42,34 @@ function Home() {
           <Carousel.Item interval={500}>
             <img
               className="d-block w-100"
-              src={carrosel2frutas}
+              src={item2}
               alt="Second slide"
             />
             <Carousel.Caption>
-
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+
+          <Carousel.Item interval={500}>
             <img
               className="d-block w-100"
-              src={venhaconhecer}
-              alt="Third slide"
+              src={item1}
+              alt="
+              third slide"
             />
             <Carousel.Caption>
-
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+
+        <Carousel.Item interval={500}>
+            <img
+              className="d-block w-100"
+              src={item2}
+              alt="Second slide"
+            />
+            <Carousel.Caption>
+            </Carousel.Caption>
+          </Carousel.Item>
         {/* *************************************** CAROUSEL BEGIN ************************************ */}
       </div>
 
