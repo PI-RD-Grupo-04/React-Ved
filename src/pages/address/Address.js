@@ -14,11 +14,9 @@ function Address() {
             <Header />
             <div className="container mt-3 mb-4  ">
                 <div className="row ">
-                 
-                    <div class="col-2 col-sm-3 col-lg-6 ">
+                    <div className="col-2 col-sm-3 ">
                         <CustomerMenu />
                     </div>
-
                     {/* <!--************* COMEÇO DIREITA da pagina começo  *********************-->  */}
                     <div class="col-12 col-sm-9 order-md-last  mb-3">
                         <Title label="Meus endereços"/>
