@@ -1,24 +1,41 @@
-
-
 /***************************************NAV BEGIN***********************************/
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
-
-a{
-    text-decoration: none; 
+a {
+    text-decoration: none;
     color: white;
 }
+
 /* cor dos link do menu principal */
 .nav-link {
-    text-decoration: none; 
-    color: white; 
-    
+    text-decoration: none;
+    color: white;
+
+}
+
+.nav-hover:hover{
+    /* -ms-transform: scale(1.01); */
+  /* IE 9 */
+  /* -webkit-transform: scale(1.01); */
+  /* Safari 3-8 */
+  transform: scale(1.05);
+}
+.nav-link:focus, .nav-link:hover {
+    color: #54043c;
+}
+
+.nav-link:hover {
+    color: #54043c;
 }
 
 
-.nav-link:hover{
-    color:#54043c  ;
-} 
-
+ 
+.nav-link:focus, .nav-link:hover {
+    color: #54043c;
+}
 
 .dropdown .show:focus{
     color: #54043c; 
@@ -26,24 +43,25 @@ a{
 }
 
 
-.dropdown-menu{
+.dropdown-menu {
     background-color: #198754;
- 
-} 
-.dropdown-menu a{
-    color:white;
+
 }
 
-.dropdown-item:hover{
-    background-color: #42db94; 
-    color: white; 
+.dropdown-menu a {
+    color: white;
 }
 
-nav{
+.dropdown-item:hover {
+    background-color: #42db94;
+    color: white;
+}
+
+nav {
     background-color: #198754;
     font-size: 22px;
-    
-}  
+
+}
 
 .back {
     background-color: #198754;
@@ -54,19 +72,19 @@ nav{
 
 
 
-@media (max-width:768px){
-     
- .back{
-     display:none;
- }
+@media (max-width:768px) {
+
+    .back {
+        display: none;
+    }
 
 
 
-     
- }
- 
- /***************************************NAV END***********************************/
- .font{
+
+}
+
+/***************************************NAV END***********************************/
+.font {
     font-size: 16px;
-    margin-bottom: 0px ;
+    margin-bottom: 0px;
 }

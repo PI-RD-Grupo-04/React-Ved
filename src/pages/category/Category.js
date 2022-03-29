@@ -4,6 +4,7 @@ import Footer from '../../components/footer/Footer'
 import ProductCard from '../../components/productCard/ProductCard'
 import hamburger_menu from '../../components/asserts/imagens/Header/hamburger_menu.png'
 import { InputGroup, Dropdown, DropdownButton, FormControl } from 'react-bootstrap'
+import Title from '../../components/title/Title'
 
 
 
@@ -11,13 +12,15 @@ export default function Category() {
     return (
         <>
             <Header />
+
             <div className="container mt-5 mb-4  ">
                 <div className="row ">
-                    <div className="col-2 borda-menu color-menu2">
+                    <div className="col-3 borda-menu color-menu2">
                         <div className="row text-left text-left">
                             <nav className="navlateral border-menu ">
                                 <ul className="nav flex-column">
                                     <li className="nav-item mt-3 ">
+
                                         <h2 className="text-category">Categoria</h2>
                                         <hr />
                                     </li>
@@ -67,11 +70,11 @@ export default function Category() {
 
 
 
-                    <div className="col-sm-12 col-lg-10 ladodireito ">
-                        <div className="row justify-content-around ">
+                    <div className="col-sm-12 col-lg-9 ladodireito ">
+                        <div className="row justify-content-between ">
 
 
-                            <div className="col-12 col-sm-6 menucanvas">
+                            <div className="col-12 col-sm-6  menucanvas">
 
                                 <button className="btn border " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvascategoria"
                                     aria-controls="offcanvasExample"><img src={hamburger_menu} alt="" />
@@ -161,13 +164,13 @@ export default function Category() {
                                 </div>
                             </div>
 
-                            <p className="text-left  produtoencoontrado col-lg-6">Produtos entrados: Frutas</p>
+                            <p className="text-left  produtoencoontrado col-lg-8"> Produtos Encontrados: Frutas</p>
                           
                             <div className="dropfilter col-sm-6 col-lg-4  ">
                                 <div className="d-flex flex-row-reverse bd-highligh align-items-center">
                                     <Dropdown>
                                         <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                            filtro
+                                            Filtro
                                         </Dropdown.Toggle>
                                         <Dropdown.Menu>
                                             <Dropdown.Item href="#/action-1">Mais populares</Dropdown.Item>
@@ -188,24 +191,34 @@ export default function Category() {
 
                         <div className="row text-center">
 
-                            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4   col-xxl-3 	  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4 col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4  col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
-                            <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-4   col-xxl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price={12.90} />
+                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                                peso={1.00} price="12,90" />
+
+                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                                peso={1.00} price="12,90" />
+
+                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                                peso={1.00} price="12,90" />
+
+                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                                peso={1.00} price="12,90" />
+
+                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                                peso={1.00} price="12,90" />
+
+                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                                peso={1.00} price="12,90" />
+
+                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                                peso={1.00} price="12,90" />
+
+                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                                peso={1.00} price="12,90" />
+
+                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
+                                peso={1.00} price="12,90" />
+
+
 
                         </div>
                     </div>

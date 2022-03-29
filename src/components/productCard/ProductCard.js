@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom'
 
 function ProductCard(props) {
 
+  
+
+
+
   return (
     <div className={props.col}>
       <div class="product-card">
@@ -15,7 +19,7 @@ function ProductCard(props) {
         <div class="product-details align-items-center justify-content-center">
 
           <h4 className="text-center"><a href="">{props.nome}</a></h4>
-          <p className='text-center'>{props.peso}</p>
+          <p className='text-center'>Peso: {props.peso} kg (aprox)</p>
           <div class="product-bottom-details text-center">
             <div class="product-price">
 
@@ -24,7 +28,7 @@ function ProductCard(props) {
           </div>
           <div class=" row text-center justify-content-center ">
             <div className="col-12 d-grid gy-2">
-              <Button label="adicionar a cesta" success />
+              <Button label="Adicionar à cesta" success />
             </div>
 
           </div>

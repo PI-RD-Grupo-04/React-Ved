@@ -3,6 +3,7 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import { Link } from 'react-router-dom'
 import Button from '../../components/button/Button'
+import Title from '../../components/title/Title'
 
 
 function Login() {
@@ -13,11 +14,11 @@ function Login() {
 
             <div className="container ">
                 <div className="row mt-5 mb-5">
-                    <div className="col-12 col-md-5 mx-auto border">
-                        <div className="white">
+                    <div className="col-12 col-md-6 forms mx-auto border">
+                       
                             <div className="row text-center">
                                 <div className="text-center col-12">
-                                    <h2 className="title-main">Login</h2>
+                                    <Title label = "Login"/>
                                 </div>
 
                                 <div className="text-center col-12">
@@ -25,15 +26,13 @@ function Login() {
 
                                     <form id="feedbackForm" className="text-center">
 
-                                        <div className="form-group form-title" >
+                                        <div className="form-group " >
                                             <label for="name">Seu e-mail</label>
                                             <input type="text" className="form-control" id="name" name="name" aria-describedby="nameHelp" />
                                             <span id="nameHelp" className="form-text text-muted" />
 
-                                        </div>
-
-
-                                        <div className="form-group form-title" >
+                                        </div> 
+                                        <div className="form-group " >
                                             <label for="email">Sua senha</label>
                                             <input type="password" className="form-control" id="email" name="email" aria-describedby="emailHelp" />
                                             <span id="emailHelp" className="form-text text-muted" />
@@ -45,7 +44,7 @@ function Login() {
                                             <Button success label="Acessar" link="/myAccount">Logar</Button>
                                         </div>
 
-                                        <div className="form-group col-6  d-grid gap-2 mx-auto">
+                                        <div className="form-group col-12  d-grid gap-2 mx-auto">
                                             <p>Ainda não tem conta? <Button success link="/register" label="Cadastre-se"></Button></p>
                                         </div>
 
@@ -57,7 +56,7 @@ function Login() {
                             </div>
 
 
-                        </div>
+                       
                     </div>
                 </div>
             </div>

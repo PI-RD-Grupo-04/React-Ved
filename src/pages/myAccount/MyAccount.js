@@ -2,12 +2,16 @@ import './MyAccount.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
+import Title from '../../components/title/Title'
 
 function MyAccount() {
+   
+   
+   
+   
     return (
         <>
             <Header />
-
             <div className="container mt-3 mb-4  ">
                 <div className="row ">
                     <div className="col-2 col-sm-3 ">
@@ -15,7 +19,7 @@ function MyAccount() {
                     </div>
 
                     <div className="col-12 col-sm-9 order-md-last  align-items-center justify-content-center  mb-3">
-                        <h2 className="text-center title-main">Meus Dados </h2>
+                       <Title label="Meus Dados"/>
                         <form id="feedbackForm" className="text-center">
 
                             <div className="form-group">
@@ -44,18 +48,18 @@ function MyAccount() {
 
                             <div className="form-group mt-3 ">
                                 <label id="Data De Nascimento" className="form-label">Data De Nascimento:</label>
-                                <h3 for="Data De Nascimento" className="form-label border ">DD/MM/YYYY</h3>
+                                <h3 for="Data De Nascimento" className="form-label border ">16/03/1988</h3>
                                 <div className="invalid-feedback">Apenas Números</div>
                             </div>
 
                             <div className="form-group mt-3 ">
                                 <label id="E-mail" className="form-label">E-mail:</label>
-                                <h3 for="E-mail" className="form-label border">vedalimentosorganicos@ved.com</h3>
+                                <h3 for="E-mail" className="form-label border">ved@ved.com</h3>
                                 <div className="invalid-feedback">Apenas Letras</div>
                             </div>
 
                             <div className="form-group">
-                                <label for="Telefone Celular" className="form-label">Telefone Celular:</label>
+                                <label for="Telefone Celular" className="form-label">Telefone :</label>
                                 <input type="text" className="form-control" id="Telefone Celular"  value="(00) 99999-9999" required />
                                 <div className="invalid-feedback">Apenas Números</div>
                             </div>

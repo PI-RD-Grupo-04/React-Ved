@@ -2,6 +2,7 @@ import './Error.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import { Link } from 'react-router-dom'
+import Title from '../../components/title/Title'
 
 
 function Error404() {
@@ -12,8 +13,9 @@ function Error404() {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="error-template">
-                            <h1>Oops!</h1>
-                            <h2>404 Not Found</h2>
+                            <Title label="Oops!"/>
+                            
+                            <h3>404 Not Found</h3>
                             <div className="error-details">
                                 Sorry, an error has occured, Requested page not found!
                             </div>

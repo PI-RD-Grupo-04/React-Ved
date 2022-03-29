@@ -8,6 +8,6 @@
 			"import Footer from '../../components/footer/Footer'",
 		
 		],
-		"description": "Log output to console"
+		"description": "Log output to console "
 	}
 }

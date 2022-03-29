@@ -6,9 +6,16 @@ footer{
     margin: 0px;
     padding: 0px;
     background-color: #198754;
-    text-align:  left;
+    
+    
 
 }
+
+.list-unstyled{
+    text-decoration: none;
+    color: #54043c;
+}
+
 
 .btn-link{
     text-decoration: none; 
@@ -16,14 +23,17 @@ footer{
     
 }
 
+
+
 li a:hover {
-	color: #54043c;
+	color: #54043c !important; 
 	text-decoration: none;
 }
 
 
 
 footer li{
+    text-align: left;
     text-decoration: none; 
     color: rgb(255, 255, 255);
 
@@ -40,14 +50,10 @@ a{
     color: white;
 }
 
-.alinhamento{
-    margin-left: 20px;
-}
 
 
 
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+{/* @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 *
 {
     -webkit-box-sizing: border-box;
@@ -59,4 +65,4 @@ a{
 p{
  font-size: clamp(1em, 1em + 1vw, 1.25em);
 
-}
+}*/}

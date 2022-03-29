@@ -12,7 +12,7 @@ function ButtonQty(props) {
     const incremento =  () => { 
 
         setQty(qty + 1);
-        
+        resu()
         
      }
 
@@ -24,12 +24,12 @@ function ButtonQty(props) {
         } else {
             setQty(qty - 1); 
         }
-
+        resu()
         
      } 
 
   function resu() {
-      props.vl(props.preco, )
+      props.vl(props.preco,qty )
   }
 
 

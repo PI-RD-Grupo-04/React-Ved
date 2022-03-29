@@ -1,54 +1,53 @@
 import './Faq.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import Paragraph from '../../components/paragraph/Paragraph'
+import Title from '../../components/title/Title'
 
 function Faq() {
     return (
         <>
             <Header />
             <div className="container">
-                <h1 className="faq ">FAQ</h1>
+              
+                <Title label="FAQ"/>
 
-                <h2 className='faq2'>Entrega em caixa postal:</h2>
+              
+                <Title sub>Entrega em caixa postal:</Title>
+                <Paragraph>
+                    Não efetuamos entregas em caixa postal. Entrega sujeita à devolução.
+                </Paragraph>
 
-                <div class="row">
-                    <p>
-                        Não efetuamos entregas em caixa postal. Entrega sujeita à devolução.
-                    </p>
-                </div>
+                <Title sub>Fique atento:</Title>
+               
+                
+                <Paragraph>
+                O prazo de entrega passa a contar após a aprovação do pagamento. Assim que seu pagamento for aprovado, você será notificado por e-mail.
+                </Paragraph>
+                
+                <Paragraph>
+                Todos os pedidos estão sujeitos à análise, aprovação de dados cadastrais e confirmação de estoque.
+                </Paragraph>
 
-                <h2 className='faq2'>Fique Atento:</h2>
+                <Title sub>Política da Empresa:</Title>
+               
 
-                <div class="row">
-                    <p>
-                        O prazo de entrega passa a contar após a aprovação do pagamento. Assim que seu pagamento for aprovado, você será notificado por e-mail.
-                    </p>
-                </div>
+                <Paragraph>
+                Para saber o valor e prazo do frete, clique no produto, em seguida você será redirecionado para seu carrinho, onde poderá finalizar seu pedido, lá todos os prazos serão calculados automaticamente, e caso decida mudar algum item poderá fazer todas alterações que desejar tranquilamente e assim que estiver certo poderá finalizar seu pedido.
+                </Paragraph>
+               
+              
+                <Title sub>Política de Preço:</Title>
+               
 
-                <div class="row">
-                    <p>
-                        Todos os pedidos estão sujeitos à análise, aprovação de dados cadastrais e confirmação de estoque.
-                    </p>
-                </div>
-
-                <h2 className='faq2'>Políticas da Empresa:</h2>
-
-                <div class="row">
-                    <p>
-                        Para saber o valor e prazo do frete, clique no produto, em seguida você será redirecionado para seu carrinho, onde poderá finalizar seu pedido, lá todos os prazos serão calculados automaticamente, e caso decida mudar algum item poderá fazer todas alterações que desejar tranquilamente e assim que estiver certo poderá finalizar seu pedido.
-                    </p>
-                </div>
-
-                <h2 className='faq2'>Políticas de Preço:</h2>
-
-                <div class="row">
-                    <p>
-                        ATENÇÃO!! Os preços dentro de nossa loja virtual podem ser diferentes de loja física devido a diferenciação de custos operacionais.
-                    </p>
-                </div>
-
+                <Paragraph>
+                ATENÇÃO!! Os preços dentro de nossa loja virtual podem ser diferentes de loja física devido a diferenciação de custos operacionais.
+                </Paragraph>
+              
+                <Paragraph>
+                Não efetuamos entregas em caixa postal. Sujeito à devolução.
+                </Paragraph>
             </div>
-
             <Footer />
         </>
     )
