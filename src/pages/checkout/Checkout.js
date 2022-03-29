@@ -3,7 +3,6 @@ import './Checkout.css'
 import AddressInfo from '../../components/addressInfo/AddressInfo'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
 import AccordionCart from '../../components/accordionCart/AccordionCart'
 import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
 import Button from '../../components/button/Button'
@@ -12,7 +11,8 @@ import CheckInput from '../../components/checkInput/CheckInput'
 import RadioBox from '../../components/radioBox/RadioBox'
 import qrcode from '../../components/asserts/imagens/qrcode.jpg'
 import Title from '../../components/title/Title'
-import InputMask from 'react-input-mask';
+import InputMask from 'react-input-mask' 
+import Cart from '../../components/cart/Cart'
 
 class Checkout extends Component {
 
@@ -50,9 +50,9 @@ class Checkout extends Component {
                     <textarea className="boleto border" disabled >34191.79001 01043.510047 91020.150008 7 89250026000</textarea>
                     <h4>ou </h4>
                     <div className="container d-grid gy-2 mb-3">
-                       <a className="btn btn-success" target="_blank" href="http://www.sicadi.com.br/mhouse/boleto/boleto3.php?numero_banco=341-7&local_pagamento=PAG%C1VEL+EM+QUALQUER+BANCO+AT%C9+O+VENCIMENTO&cedente=VED+-+ALIMENTOS+ORG%C2NICOS+&data_documento=25%2F03%2F2022&numero_documento=DF+00113&especie=&aceite=N&data_processamento=25%2F03%2F2022&uso_banco=&carteira=179&especie_moeda=Real&quantidade=2&valor=1900&vencimento=25%2F03%2F2022&agencia=0049&codigo_cedente=10201-5&meunumero=00010435&valor_documento=260%2C00&instrucoes=Taxa+de+visita+de+suporte%0D%0AAp%F3s+o+vencimento+R%24+0%2C80+ao+dia&mensagem1=&mensagem2=&mensagem3=ATEN%C7%C3O%3A+N%C3O+RECEBER+AP%D3S+15+DIAS+DO+VENCIMENTO&sacado=&Submit=Enviar">Acesse aqui</a>
+                        <a className="btn btn-success" target="_blank" href="http://www.sicadi.com.br/mhouse/boleto/boleto3.php?numero_banco=341-7&local_pagamento=PAG%C1VEL+EM+QUALQUER+BANCO+AT%C9+O+VENCIMENTO&cedente=VED+-+ALIMENTOS+ORG%C2NICOS+&data_documento=25%2F03%2F2022&numero_documento=DF+00113&especie=&aceite=N&data_processamento=25%2F03%2F2022&uso_banco=&carteira=179&especie_moeda=Real&quantidade=2&valor=1900&vencimento=25%2F03%2F2022&agencia=0049&codigo_cedente=10201-5&meunumero=00010435&valor_documento=260%2C00&instrucoes=Taxa+de+visita+de+suporte%0D%0AAp%F3s+o+vencimento+R%24+0%2C80+ao+dia&mensagem1=&mensagem2=&mensagem3=ATEN%C7%C3O%3A+N%C3O+RECEBER+AP%D3S+15+DIAS+DO+VENCIMENTO&sacado=&Submit=Enviar">Acesse aqui</a>
                     </div>
-                  
+
                 </div>
             </div>
         )
@@ -82,7 +82,7 @@ class Checkout extends Component {
                     <label for="nomecpf">CPF:</label>
                     <input type="text" id="cpfboleto" class="form-control" />
 
-                    <div class="container mt-4 d-grid gy-2 mb-3"  onClick={this.ativaBoleto}>
+                    <div class="container mt-4 d-grid gy-2 mb-3" onClick={this.ativaBoleto}>
                         <Button success label="gera boleto" />
                     </div>
                 </div>
@@ -124,7 +124,7 @@ class Checkout extends Component {
                 <div className="col-md-3">
                     {/* <!-- vencimento do cartão --> */}
                     <label for="cc-expiration" className="form-label">Vencimento</label>
-                    <InputMask mask="99/99"  className="form-control" id="cc-expiration" required />
+                    <InputMask mask="99/99" className="form-control" id="cc-expiration" required />
                     <div className="invalid-feedback">Data de Expiração Obrigatória</div>
                 </div>
                 <div className="col-md-2">
@@ -171,51 +171,29 @@ class Checkout extends Component {
                                         <AddressInfo id={1} av="Santos" n="230" complement="Casa" district="Vila São Paulo" zipcode="11740-000" city="Santos" states="Sao Paulo" country="Brasil" />
                                         <AddressInfo id={2} av="Condessa de Vimieiros" n="345" complement="Apto" district="Centro" zipcode="11740-000" city="Itanhaém" states="Sao Paulo" country="Brasil" />
 
-
                                         {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
-
                                         <ModalEndereco />
 
-                                        <hr className="my-2" />
-                                        <CheckInput label="O endereço de entrega é igual ao
-                                                meu
-                                                endereço de cobrança?" id="same-address" />
-                                        <CheckInput label="Guarde esta informação para a
-                                                próxima
-                                                vez." id="save-info" />
-
-                                        <hr className="my-2" />
-
-                                        <h4 className="mb-1 ">Cálculo de Frete</h4>
+                                        <h4 className="mb-1 "> Frete</h4>
                                         {/* <div className="col-12"> */}
-                                        <div className="col-2 mt-2">
-                                            <h6>Simular Frete: </h6>
-                                        </div>
-
-                                        <label for="frete-comum">Frete para ******-** </label>
-                                        <span className="msg-nome  msg-success  disblock valid-nome">ok</span>
-                                        <span className="campo-obrigatório disblock" >*Campo Obrigatório</span>
-                                        <span className="campo-obrigatório disblock" >Valor: </span>
-                                        <span className="" id="fretes" >Opções para entrega: </span>
+                                        <label>Opções de Frete para ******-** </label>
                                         {/*  <!-- opçes de frete --> */}
                                         <div className="col-12 ">
                                             <CheckInput id="comum" label="entrega comum:" frete="10,00" />
                                             <CheckInput id="express" label="entrega express:" frete="15,50" />
-
                                         </div>
                                         {/* </div> */}
                                     </div>
                                 </form>
-
-                                <hr className="my-2" />
+                                <hr className="my-2 mt-2" />
                                 {/*  <!--COMEÇOS CUPOM DE DESCONTO --> */}
-                                <h4 className="mb-3  ">Cupom de Desconto</h4>
+                                <h4 className="mb-3 mt-3 ">Cupom de Desconto</h4>
                                 <form className="border p-2">
                                     <div className="input-group d-grid gy-2">
                                         <input type="text" className="form-control w-100 mb-2" placeholder="Código promocional" />
                                         <Button none success label="resgatar" />
                                     </div>
-                                    <span className="campo-obrigatório mt-1" >Desconto aplicado! </span>
+                                    {/* <span className="campo-obrigatório mt-1" >Desconto aplicado! </span> */}
                                 </form>
                                 {/*  <!-- FIM CUPOM DE DESCONTO --> */}
                                 {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
@@ -223,34 +201,17 @@ class Checkout extends Component {
                             </div>
                             {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
                             <div className="col-12 col-sm-6 order-md-last border mb-3">
-                                <div>
-                                    {/*  <!-- BEGIN SEUS PRODUTOS --> */}
-                                    <h4 className="d-flex justify-content-between align-items-center mb-3 mt-2">
-                                        <span className="">Seu carrinho</span>
-                                        <span className="badge bg-success rounded-pill">2</span>
-                                    </h4>
-                                    <ul className="list-group mb-3">
-                                        <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
-                                        <ItemCart nome="laranja" descricao="8 unid." price="12,90" />
-                                        <ItemCart nome="maça" descricao="1kg aprox." price="12,00" />
-                                        <ItemCart nome="alface" descricao="1 unid." price="4,90" />
-                                        <ItemCart nome="banana" descricao="1kg aprox." price="9,90" />
-                                        <div>
-                                            <li className="list-group-item list1 d-flex justify-content-between lh-sm">
-                                                <div>
-                                                    <h6 className="my-0">Total</h6>
-                                                    <small className="text-muted"></small>
-                                                </div>
-                                                <span className="text-muted"><strong>R$ 48,70</strong> </span>
-                                            </li>
-                                        </div>
-                                    </ul>
-                                </div>
-
+                                
+                            <Cart/>
                                 <hr className="my-2" />
                                 <div className="row">
                                     <h5> Selecione um Cartão Salvo</h5>
                                     <AccordionCart
+                                        bandeira='Bandeira'
+                                        num='****-****-****-*000'
+                                        nome='ved Alimentos'
+                                        dia={2} ano={2022} /> 
+                                         <AccordionCart
                                         bandeira='Bandeira'
                                         num='****-****-****-*000'
                                         nome='ved Alimentos'

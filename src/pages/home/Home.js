@@ -62,20 +62,22 @@ function Home() {
         </Carousel>
 
         <Carousel.Item interval={500}>
-            <img
-              className="d-block w-100"
-              src={item2}
-              alt="Second slide"
-            />
-            <Carousel.Caption>
-            </Carousel.Caption>
-          </Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={item2}
+            alt="Second slide"
+          />
+          <Carousel.Caption>
+          </Carousel.Caption>
+        </Carousel.Item>
         {/* *************************************** CAROUSEL BEGIN ************************************ */}
       </div>
 
       {/* Titulo * */}
       <div className="container title-main mt-5">
-        <h2 className="text-center"> <strong>OFERTAS ESPECIAIS</strong></h2>
+        <Title label="OFERTAS ESPECIAIS" > OFERTAS ESPECIAIS</Title> 
+
+        
       </div>
 
 
@@ -111,12 +113,15 @@ function Home() {
         </div>
       </div>
 
-      <h2 className="text-center "> <strong>NOVIDADES </strong></h2> 
+       {/* Titulo * */}
+       <div className="container title-main mt-5">
+        <Title label="NOVIDADES" ></Title> 
+      </div>
 
-   
+
 
       <div className="row  tela1">
-        <div className="container mb-5 mt-5 ">
+        <div className="container mb-5 ">
           <Carousel variant="dark">
             <Carousel.Item>
               <div className="container mb-5 mt-5 ">
