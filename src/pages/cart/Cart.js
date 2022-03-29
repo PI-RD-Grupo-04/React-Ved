@@ -5,7 +5,7 @@ import Button from '../../components/button/Button'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
 
 function Cart(props) {
-
+    
 
     return (
         <>
@@ -18,9 +18,8 @@ function Cart(props) {
                         <h1 className="title">Sua cesta</h1>
                     </div>
                     <ul>
-                        <ItemBasket valor={10} qty={1} nome="abacaxi" />
-                        <ItemBasket valor={13} qty={1} nome="laranja" />
-
+                        <ItemBasket valor={10.99} qty={1} nome="abacaxi"/>
+                        <ItemBasket valor={13.99} qty={1} nome="laranja"/>
                     </ul>
 
 
@@ -50,17 +49,16 @@ function Cart(props) {
                                 <div className="row d-flex">
                                     <div className="col-sm-12 col-lg-6"></div>
                                     <div className="col-sm-12 col-lg-6 justify-content-end d-flex  ">
-                                        <Button link="/checkout" cart card success label='Finalizar Compra' />
+                                        <Button link="/checkout" cart card success label='Finalizar Compra'/>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-sm-12 col-lg-6"></div>
                                     <div className="col-sm-12 col-lg-6 justify-content-end d-flex ">
-                                        <Button link="/product" cart card plans delete label='Continuar Comprando' />
+                                        <Button link="/product"card cart plans2 delete label='Continuar Compra'/>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

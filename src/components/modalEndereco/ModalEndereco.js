@@ -74,9 +74,10 @@ function ModalEndereco() {
                                         </div>
                                         {/* <!-- FIM DO CORPO DO MODAL --> */}
                                         <div className="modal-footer justify-content-between">
-                                            {/* <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cancelar</button> */}
-                                            <Button label='Cancelar' delete />
-                                            <Button label='Salvar' success />
+                                            <button type="button" className="btn btn-delete" data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="button" className="btn btn-success">Salvar</button>
+                                            {/* <Button label='Cancelar' delete />
+                                            <Button label='Salvar' success /> */}
                                         </div>
                                     </div>
                                 </div>

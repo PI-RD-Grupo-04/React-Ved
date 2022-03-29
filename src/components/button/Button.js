@@ -14,10 +14,12 @@ function Button(props) {
   btn += props.suporte ? 'btn-suport ' : ''
   btn += props.delete ? 'btn-delete ' : ''
   btn += props.success ? 'btn-success ' : ''
-  btn += props.plans ? 'btn-Plano ' : ''
-  btn += props.cart ? ' btnCardDel ' : ''
+  btn += props.plans ? 'w-100 btn-Plano ' : ''
+  btn += props.cart ? 'btnCardDel ' : ''
   btn += props.img ? 'button-search ' : ''
   btn += props.none ? "none " : ''
+  btn += props.plans2 ? 'btn-Plano ' : ''
+ 
 
   let link = props.link ? props.link : null
 

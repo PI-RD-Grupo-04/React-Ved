@@ -71,8 +71,8 @@ function ModelPayCard(props) {
                             {/* <!-- FIM DO CORPO DO MODAL --> */}
                         </div>
                         <div class="modal-footer justify-content-between">
-                            <Button label='Cancelar' delete />
-                            <Button label='Salvar' success />
+                            <button type="button" className="btn btn-delete" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" className="btn btn-success">Salvar</button>
                         </div>
                     </div>
                 </div>

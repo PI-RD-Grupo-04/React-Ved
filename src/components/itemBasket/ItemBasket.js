@@ -24,7 +24,7 @@ function ItemBasket(props) {
 
 
     const valorTotal = (qty * total)
-    console.log(valorTotal)
+    console.log(Math.round(valorTotal))
 
 
     return (
@@ -73,7 +73,8 @@ function ItemBasket(props) {
                                 </button>
                             </div>
                             <p className="text-dark">Valor Item: {props.valor}</p>
-                            <small className="text-secondary">Valor Total: {valorTotal} </small><br />
+                            <small className="text-secondary">Valor Total: {valorTotal.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})} </small><br />
+                            {/* <small className="text-secondary">Valor Total: {valorTotal.toLocaleString('pt-br', {minimumFractionDigits: 2})} </small><br /> */}
                         </div>
                     </div>
                 </div>
