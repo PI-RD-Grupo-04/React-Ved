@@ -16,6 +16,13 @@ a {
 
 }
 
+.nav-hover:hover{
+    /* -ms-transform: scale(1.01); */
+  /* IE 9 */
+  /* -webkit-transform: scale(1.01); */
+  /* Safari 3-8 */
+  transform: scale(1.05);
+}
 .nav-link:focus, .nav-link:hover {
     color: #54043c;
 }
@@ -25,8 +32,13 @@ a {
 }
 
 
-.dropdown .show:focus {
+ 
+.nav-link:focus, .nav-link:hover {
     color: #54043c;
+}
+
+.dropdown .show:focus{
+    color: #54043c; 
 
 }
 

@@ -32,10 +32,10 @@ function AboutUs() {
                     produtor.
 
                 </Paragraph>
-                <br /><br /><br />
+               
 
                 <h3 className='about2'>Entenda como essa parceria ajuda vários produtores:</h3>
-                <br /><br /><br />
+               
 
                 <Paragraph>
                     1. Garantia antecipada de compra de seus produtos a preços justos. Os produtores podem plantar já sabendo a

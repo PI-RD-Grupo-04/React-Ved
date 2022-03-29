@@ -1,5 +1,6 @@
 import './ModalEndereco.css'
 import Button from '../../components/button/Button'
+import InputMask from 'react-input-mask';
 
 function ModalEndereco() {
 
@@ -41,7 +42,7 @@ function ModalEndereco() {
                                     <div className="col-12">
                                         <div className="form-group form-title" >
                                             <label for="N°" className="form-label">N°:</label>
-                                            <input type="text" className="form-control" id="N°" placeholder="" required />
+                                            <InputMask mask="9999"  className="form-control" id="N°" placeholder="" required />
                                             <div className="invalid-feedback">Apenas Números</div>
                                         </div>
                                         {/*  <!--**Campo Complemento * --> */}
@@ -54,7 +55,7 @@ function ModalEndereco() {
                                         </div>
                                         <div className="form-group form-title" >
                                             <label for="CEP" className="form-label">CEP:</label>
-                                            <input type="text" className="form-control" id="CEP" placeholder="" required />
+                                            <InputMask mask="99999-999" className="form-control" id="CEP" placeholder="" required />
                                             <div className="invalid-feedback">Apenas Números</div>
                                         </div>
                                         <div className="form-group form-title" >

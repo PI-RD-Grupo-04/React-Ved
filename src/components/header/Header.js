@@ -117,7 +117,7 @@ function Header() {
                                 <hr />
 
                                 <li className="welcome">
-                                    <h3 className="title-canvas">Sua Area</h3>
+                                    <h3 className="title-canvas">Sua Área</h3>
                                 </li>
                                 <Link to="/login"> <li className="nav-item mt-4">
                                     Fazer Login

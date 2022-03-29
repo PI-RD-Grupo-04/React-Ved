@@ -49,9 +49,9 @@ function ItemBasket(props) {
                             Abacate manteiga da melhor qualidade possível e muito fresco.
                         </h5>
                     </div>
-                    <div className="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
+                    <div className="col-12 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
 
-                        <div className="text-end mt-2">
+                        <div className="text-end mt-2 ">
                             <div className="input-group w-100 h-100 ">
                                 <button onClick={incremento} className="btn btn-outline-dark  btn-green btn-sm" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">

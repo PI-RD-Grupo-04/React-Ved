@@ -11,20 +11,29 @@ footer{
 
 }
 
+.list-unstyled{
+    text-decoration: none;
+    color: #54043c;
+}
+
+
 .btn-link{
     text-decoration: none; 
     color: white; 
     
 }
 
+
+
 li a:hover {
-	color: #54043c;
+	color: #54043c !important; 
 	text-decoration: none;
 }
 
 
 
 footer li{
+    text-align: left;
     text-decoration: none; 
     color: rgb(255, 255, 255);
 
@@ -40,6 +49,8 @@ a{
     text-decoration: none; 
     color: white;
 }
+
+
 
 
 {/* @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');

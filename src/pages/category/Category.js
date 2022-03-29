@@ -74,7 +74,7 @@ export default function Category() {
                         <div className="row justify-content-between ">
 
 
-                            <div className="col-12 col-sm-6 menucanvas">
+                            <div className="col-12 col-sm-6  menucanvas">
 
                                 <button className="btn border " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvascategoria"
                                     aria-controls="offcanvasExample"><img src={hamburger_menu} alt="" />
@@ -164,8 +164,8 @@ export default function Category() {
                                 </div>
                             </div>
 
-                            <p className="text-left  produtoencoontrado col-lg-6">Produtos entrados: Frutas</p>
-
+                            <p className="text-left  produtoencoontrado col-lg-8"> Produtos Encontrados: Frutas</p>
+                          
                             <div className="dropfilter col-sm-6 col-lg-4  ">
                                 <div className="d-flex flex-row-reverse bd-highligh align-items-center">
                                     <Dropdown>
