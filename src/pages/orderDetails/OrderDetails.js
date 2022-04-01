@@ -7,6 +7,10 @@ import logo from '../../components/asserts/imagens/Header/logo.png'
 import { Link } from 'react-router-dom'
 import master from '../../components/asserts/imagens/Users_icon/master.png'
 import Title from '../../components/title/Title'
+import Pix from '../../components/pix/Pix'
+import TicketPayment from '../../components/ticketPayment/TicketPayment'
+
+
 function OrderDetails() {
 
 
@@ -69,6 +73,9 @@ function OrderDetails() {
                             <ul> Validade : 11/29 </ul>
                         </li>
                     </div>
+
+                    <Pix/>
+                    <TicketPayment/>
 
                 </div>
 
