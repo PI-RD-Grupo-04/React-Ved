@@ -203,6 +203,7 @@ class Checkout extends Component {
                             <div className="col-12 col-sm-6 order-md-last border mb-3">
                                 
                             <Cart/>
+
                                 <hr className="my-2" />
                                 <div className="row">
                                     <h5> Selecione um Cartão Salvo</h5>
@@ -253,8 +254,6 @@ class Checkout extends Component {
 
                                         <hr className="my-2 border" />
                                         {this.state.paymentForm.card ? this.creditcard() : ""}
-                                        {this.state.paymentForm.pix ? this.pix() : ""}
-                                        {this.state.paymentForm.boleto ? this.boleto() : ""}
                                         {this.state.paymentForm.cpfBoleto ? this.preBoleto() : ""}
                                         <hr className="my-4 mb-3" />
                                     </div>

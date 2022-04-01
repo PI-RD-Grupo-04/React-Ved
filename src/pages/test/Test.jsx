@@ -3,18 +3,22 @@ import Button from '../../components/button/Button'
 
 const Test = () => {
    
+   const [teste, setTest] = useState('');
 
-   function resposta () {
-     console.log("OPa wahstgon"); 
 
-      
-      
+   function valida (e) {
+      if(e.target.value.length < 11){
+         console.log('menos que 11')
+      } else { console.log('ok')}
+
 
    }
 
+
+
    return (
       <>
-      <Button modal label="FAla WASGINOTN" confirm  onClick={resposta}></Button>
+      <input type="text " onChange={valida} value={setTest.value}/>
       </>
 
    )
