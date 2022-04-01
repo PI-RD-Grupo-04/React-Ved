@@ -18,8 +18,12 @@ function Button(props) {
   btn += props.cart ? 'btnCardDel ' : ''
   btn += props.img ? 'button-search ' : ''
   btn += props.none ? "none " : ''
+<<<<<<< HEAD
   btn += props.plans2 ? 'btn-Plano ' : ''
  
+=======
+  btn += props.sugestao ? " " : ''
+>>>>>>> 22898a324e35eed7daf6461702bb95aac6c4d9ce
 
   let link = props.link ? props.link : null
 

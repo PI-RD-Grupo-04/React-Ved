@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import Button from '../../components/button/Button'
 
@@ -29,3 +30,5 @@ const Test = () => {
 
 export default Test;
 
+=======
+>>>>>>> 22898a324e35eed7daf6461702bb95aac6c4d9ce

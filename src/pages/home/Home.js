@@ -10,6 +10,7 @@ import item2 from '../../components/asserts/imagens/Carousel/item2.webp'
 import ProductCard from '../../components/productCard/ProductCard'
 import bannerprincipal from '../../components/asserts/imagens/bannerprincipal.gif'
 import Title from '../../components/title/Title'
+import CarroseuHome from '../../components/carroseu/CarroseuHome'
 // import Carousel from 'react-responsive-carousel'
 
 
@@ -119,6 +120,7 @@ function Home() {
       </div>
 
 
+<<<<<<< HEAD
 
       <div className="row  tela1">
         <div className="container mb-5 ">
@@ -404,6 +406,9 @@ function Home() {
 
         </div>
       </div>
+=======
+      <CarroseuHome/>
+>>>>>>> 22898a324e35eed7daf6461702bb95aac6c4d9ce
 
       <Footer />
     </>

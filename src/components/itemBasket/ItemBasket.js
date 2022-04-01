@@ -21,8 +21,6 @@ function ItemBasket(props) {
         }
     }
 
-
-
     const valorTotal = (qty * total)
     console.log(Math.round(valorTotal))
 
