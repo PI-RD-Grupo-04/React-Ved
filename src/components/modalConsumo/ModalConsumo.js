@@ -7,10 +7,10 @@ function ModalConsumo() {
   return (
     <>
       <button type="button" className=" btn-suport " data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Sugestão de Consumo </button>
-      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        Sugestão de Consumo </button>
+      <div className="modal fade container-fluid" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
-          <div className="modal-content">
+          <div className="modal-content  ">
             <div className="d-flex">
               <div className="col-11">
                 <Title label="Sugestão de Consumo" />
@@ -20,7 +20,7 @@ function ModalConsumo() {
               </div>
             </div>
 
-            <div className=" col-12 container  ">
+            <div className=" col-12 margin ">
               <hr />
               <h2 className=" row d-flex justify-content-center sugest2">Banana Caramelizada </h2>
             </div>
@@ -74,7 +74,7 @@ function ModalConsumo() {
 
             <hr />
 
-            <CarroseuHome/>
+            <CarroseuHome />
 
 
           </div>
