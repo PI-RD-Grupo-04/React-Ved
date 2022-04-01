@@ -10,6 +10,9 @@ import Buttonqty from '../../components/button/ButtonProduct'
 import Button from '../../components/button/Button'
 import { Accordion } from 'react-bootstrap'
 import Title from '../../components/title/Title'
+import ModalConsumo from '../../components/modalConsumo/ModalConsumo'
+
+
 
 function Product() {
     return (
@@ -107,8 +110,7 @@ function Product() {
 
 
                 <div className=" mt-5 d-grid gy-2 ">
-                    <Button link="/suggestion" label="Sugestão de Consumo" success></Button>
-
+                    <ModalConsumo/>
                 </div>
 
 
