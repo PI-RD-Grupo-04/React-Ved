@@ -2,7 +2,9 @@ import './MyAccount.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
-import Title from '../../components/title/Title'
+import Title from '../../components/title/Title' 
+import PasswordValid from '../../components/passwordValid/PasswordValid'
+
 
 function MyAccount() {
    
@@ -70,18 +72,7 @@ function MyAccount() {
                                 <div className="invalid-feedback">Letras e Números</div>
                             </div>
 
-                            <div className="form-group">
-                                <label for="Nova Senha" className="form-label">Nova Senha:</label>
-                                <input type="password" className="form-control" id="Nova Senha"   value="**********" required />
-                                <div className="invalid-feedback">Letras e Números</div>
-                            </div>
-
-                            <div className="form-group">
-                                <label for="Confirmação De Senha" className="form-label">Confirmação De Senha:</label>
-                                <input type="password" className="form-control" id="Confirmação De Senha"  value="**********" required />
-                                <div className="invalid-feedback">Letras e Números</div>
-                            </div>
-
+                            <PasswordValid/>
                             <div className="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
                                 <button type="submit" className=" btn btn-success btn-block">Salvar</button>
 
