@@ -1,5 +1,4 @@
 import './ModalConsumo.css'
-import ProductCard from '../../components/productCard/ProductCard'
 import Title from '../../components/title/Title'
 import CarroseuHome from '../carroseu/CarroseuHome';
 function ModalConsumo() {
