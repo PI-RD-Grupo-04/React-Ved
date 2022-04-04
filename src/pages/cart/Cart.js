@@ -3,9 +3,9 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import Button from '../../components/button/Button'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
-
+import InputMask from 'react-input-mask';
 function Cart(props) {
-
+    
 
     return (
         <>
@@ -18,6 +18,8 @@ function Cart(props) {
                         <h1 className="title">Sua cesta</h1>
                     </div>
                     <ul>
+                        <ItemBasket valor={10.000} qty={1} nome="abacaxi" />
+                        <ItemBasket valor={13} qty={1} nome="laranja" />
                         <ItemBasket valor={10} qty={1} nome="abacaxi" />
                         <ItemBasket valor={13} qty={1} nome="laranja" />
 
@@ -35,7 +37,7 @@ function Cart(props) {
                                     <h5>Simular Frete: </h5>
                                 </div>
                                 <div className="col-sm-12 col-lg-5 inputcep">
-                                    <input type="text" className="form-control" id="cep" required />
+                                <InputMask mask="99999-999"  className="form-control" id="cep" required />
                                 </div>
                                 <div className="col-sm-12 col-lg-5"></div>
                             </div>
@@ -49,18 +51,17 @@ function Cart(props) {
 
                                 <div className="row d-flex">
                                     <div className="col-sm-12 col-lg-6"></div>
-                                    <div className="col-sm-12 col-lg-6 justify-content-end d-flex  ">
+                                    <div className="col-sm-12 col-lg-6 justify-content-end d-flex ">
                                         <Button link="/checkout" cart card success label='Finalizar Compra' />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-sm-12 col-lg-6"></div>
                                     <div className="col-sm-12 col-lg-6 justify-content-end d-flex ">
-                                        <Button link="/product" cart card plans delete label='Continuar Comprando' />
+                                        <Button link="/product" cart card  delete label='Continuar Comprando' />
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

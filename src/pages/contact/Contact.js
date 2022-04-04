@@ -25,7 +25,7 @@ export default function Contact() {
 
 
                 <div className="row">
-                    <h3>Central de Atendimento ao Cliente</h3>
+                    <Title sub>Central de Atendimento ao Cliente</Title>
                     <p>
                         (11) 94356-5923
                     </p>
@@ -33,7 +33,7 @@ export default function Contact() {
                 </div>
 
                 <div className="row">
-                    <h3>Horário de Atendimento</h3>
+                    <Title sub>Horário de Atendimento</Title>
                     <p>
                         De segunda a sexta das 9:00 às 18:00h e sábado das 09:00 às 16:00h
                     </p>
@@ -41,7 +41,7 @@ export default function Contact() {
                 </div>
 
                 <div className="row">
-                    <h3>E-mail</h3>
+                <Title sub>E-mail</Title>
                     <p>
                         Entre em contato através do e-mail contato@ved.com.br
                     </p>
@@ -49,7 +49,7 @@ export default function Contact() {
                 </div>
 
                 <div className="row">
-                    <h3>Formulário de contato</h3>
+                <Title sub>Formulário de Contato</Title>
                     <p>
                         Campos marcados com * são de preenchimento obrigatório
                     </p>

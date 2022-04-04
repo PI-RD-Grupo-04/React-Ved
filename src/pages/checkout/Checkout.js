@@ -3,7 +3,6 @@ import './Checkout.css'
 import AddressInfo from '../../components/addressInfo/AddressInfo'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
 import AccordionCart from '../../components/accordionCart/AccordionCart'
 import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
 import Button from '../../components/button/Button'
@@ -12,6 +11,8 @@ import CheckInput from '../../components/checkInput/CheckInput'
 import RadioBox from '../../components/radioBox/RadioBox'
 import qrcode from '../../components/asserts/imagens/qrcode.jpg'
 import Title from '../../components/title/Title'
+import InputMask from 'react-input-mask' 
+import Cart from '../../components/cart/Cart'
 
 class Checkout extends Component {
 
@@ -19,13 +20,10 @@ class Checkout extends Component {
         paymentForm: {
             card: false,
             pix: false,
-            boleto: false
+            boleto: false,
+            cpfBoleto: false
+
         }
-    }
-
-
-    methodpayment = () => {
-
     }
 
 
@@ -48,16 +46,51 @@ class Checkout extends Component {
         return (
             <div className="row gy-3 ">
                 <div className="col-12 d-flex flex-column align-items-center justify-content-center">
-                    <h2 className="text-center mb-2">Boleto gerado!</h2>
+                    <h2 className="text-center mb-2">Boleto gerado </h2>
                     <textarea className="boleto border" disabled >34191.79001 01043.510047 91020.150008 7 89250026000</textarea>
                     <h4>ou </h4>
                     <div className="container d-grid gy-2 mb-3">
-                        <Button label="Acesse aqui" sucess card />
+                        <a className="btn btn-success" target="_blank" href="http://www.sicadi.com.br/mhouse/boleto/boleto3.php?numero_banco=341-7&local_pagamento=PAG%C1VEL+EM+QUALQUER+BANCO+AT%C9+O+VENCIMENTO&cedente=VED+-+ALIMENTOS+ORG%C2NICOS+&data_documento=25%2F03%2F2022&numero_documento=DF+00113&especie=&aceite=N&data_processamento=25%2F03%2F2022&uso_banco=&carteira=179&especie_moeda=Real&quantidade=2&valor=1900&vencimento=25%2F03%2F2022&agencia=0049&codigo_cedente=10201-5&meunumero=00010435&valor_documento=260%2C00&instrucoes=Taxa+de+visita+de+suporte%0D%0AAp%F3s+o+vencimento+R%24+0%2C80+ao+dia&mensagem1=&mensagem2=&mensagem3=ATEN%C7%C3O%3A+N%C3O+RECEBER+AP%D3S+15+DIAS+DO+VENCIMENTO&sacado=&Submit=Enviar">Acesse aqui</a>
                     </div>
+
                 </div>
             </div>
         )
     }
+
+
+    ativaBoleto = () => this.setState({
+        paymentForm: {
+            card: false,
+            pix: false,
+            boleto: true,
+            cpfBoleto: false
+        }
+    })
+
+
+
+    preBoleto = () => {
+
+        return (
+            <div class="row gy-3 ">
+
+                <div class="col-12 d-flex flex-column align-items-center justify-content-center">
+                    <h2 class="text-center mb-2">Informações para o Boleto</h2>
+                    <label for="nomeboleto">Nome:</label>
+                    <input type="text" id="nomeboleto" class="form-control" />
+                    <label for="nomecpf">CPF:</label>
+                    <input type="text" id="cpfboleto" class="form-control" />
+
+                    <div class="container mt-4 d-grid gy-2 mb-3" onClick={this.ativaBoleto}>
+                        <Button success label="gera boleto" />
+                    </div>
+                </div>
+
+            </div>
+        );
+    }
+
 
     creditcard = () => {
         return (
@@ -73,13 +106,13 @@ class Checkout extends Component {
                 <div className="col-md-6">
                     {/* <!-- Número do cartão --> */}
                     <label for="cc-number" className="form-label">Nº Cartão de Crédito</label>
-                    <input type="text" className="form-control" id="cc-number" required />
+                    <InputMask mask="9999 9999 9999 9999" className="form-control" id="cc-number" required />
                     <div className="invalid-feedback">Número do Cartão Obrigatório</div>
                 </div>
                 <div className="col-md-9">
                     {/*  <!-- CPF do titular --> */}
                     <label for="cpf-titular" className="form-label">CPF do Titular do Cartão</label>
-                    <input type="text" className="form-control" id="cpf-titular" required />
+                    <InputMask mask="999.999.999-99 " className="form-control" id="cpf-titular" required />
                     <div className="invalid-feedback">Número do Cartão Obrigatório</div>
                 </div>
                 <div className="col-3 ">
@@ -91,12 +124,12 @@ class Checkout extends Component {
                 <div className="col-md-3">
                     {/* <!-- vencimento do cartão --> */}
                     <label for="cc-expiration" className="form-label">Vencimento</label>
-                    <input type="text" className="form-control" id="cc-expiration" required />
+                    <InputMask mask="99/99" className="form-control" id="cc-expiration" required />
                     <div className="invalid-feedback">Data de Expiração Obrigatória</div>
                 </div>
                 <div className="col-md-2">
                     <label for="card-cvv" className="form-label">CVV</label>
-                    <input type="text" className="form-control" id="card-cvv" required />
+                    <InputMask mask="999" className="form-control" id="card-cvv" required />
                     <div className="invalid-feedback">Codigo de seguranção Obrigatório</div>
                 </div>
                 <div className="col-md-6 d-grid gy-2">
@@ -124,8 +157,8 @@ class Checkout extends Component {
             <>
                 <Header />
                 <div className="container mt-3 checkout-style mb-4 ">
-                <Title label="Checkout"/>
-                    
+                    <Title label="Checkout" />
+
                     <form>
                         <div className="row ">
                             <div className="col-12 col-sm-6 border ">
@@ -138,51 +171,29 @@ class Checkout extends Component {
                                         <AddressInfo id={1} av="Santos" n="230" complement="Casa" district="Vila São Paulo" zipcode="11740-000" city="Santos" states="Sao Paulo" country="Brasil" />
                                         <AddressInfo id={2} av="Condessa de Vimieiros" n="345" complement="Apto" district="Centro" zipcode="11740-000" city="Itanhaém" states="Sao Paulo" country="Brasil" />
 
-
                                         {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
-
                                         <ModalEndereco />
 
-                                        <hr className="my-2" />
-                                        <CheckInput label="O endereço de entrega é igual ao
-                                                meu
-                                                endereço de cobrança?" id="same-address" />
-                                        <CheckInput label="Guarde esta informação para a
-                                                próxima
-                                                vez." id="save-info" />
-
-                                        <hr className="my-2" />
-
-                                        <h4 className="mb-1 ">Cálculo de Frete</h4>
+                                        <h4 className="mb-1 "> Frete</h4>
                                         {/* <div className="col-12"> */}
-                                            <div className="col-2 mt-2">
-                                                <h6>Simular Frete: </h6>
-                                            </div>
-
-                                        <label for="frete-comum">Frete para ******-** </label>
-                                        <span className="msg-nome  msg-success  disblock valid-nome">ok</span>
-                                        <span className="campo-obrigatório disblock" >*Campo Obrigatório</span>
-                                        <span className="campo-obrigatório disblock" >Valor: </span>
-                                        <span className="" id="fretes" >Opções para entrega: </span>
+                                        <label>Opções de Frete para ******-** </label>
                                         {/*  <!-- opçes de frete --> */}
                                         <div className="col-12 ">
                                             <CheckInput id="comum" label="entrega comum:" frete="10,00" />
                                             <CheckInput id="express" label="entrega express:" frete="15,50" />
-
                                         </div>
                                         {/* </div> */}
                                     </div>
                                 </form>
-
-                                <hr className="my-2" />
+                                <hr className="my-2 mt-2" />
                                 {/*  <!--COMEÇOS CUPOM DE DESCONTO --> */}
-                                <h4 className="mb-3  ">Cupom de Desconto</h4>
+                                <h4 className="mb-3 mt-3 ">Cupom de Desconto</h4>
                                 <form className="border p-2">
                                     <div className="input-group d-grid gy-2">
                                         <input type="text" className="form-control w-100 mb-2" placeholder="Código promocional" />
                                         <Button none success label="resgatar" />
                                     </div>
-                                    <span className="campo-obrigatório mt-1" >Desconto aplicado! </span>
+                                    {/* <span className="campo-obrigatório mt-1" >Desconto aplicado! </span> */}
                                 </form>
                                 {/*  <!-- FIM CUPOM DE DESCONTO --> */}
                                 {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
@@ -190,22 +201,18 @@ class Checkout extends Component {
                             </div>
                             {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
                             <div className="col-12 col-sm-6 order-md-last border mb-3">
-                                <div>
-                                    {/*  <!-- BEGIN SEUS PRODUTOS --> */}
-                                    <h4 className="d-flex justify-content-between align-items-center mb-3 mt-2">
-                                        <span className="">Seu carrinho</span>
-                                        <span className="badge bg-success rounded-pill">2</span>
-                                    </h4>
-                                    <ul className="list-group mb-3">
-                                        <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
-                                        <ItemCart nome="laranja" descricao="12 unid." price="12,90" />
-                                    </ul>
-                                </div>
+                                
+                            <Cart/>
 
                                 <hr className="my-2" />
                                 <div className="row">
                                     <h5> Selecione um Cartão Salvo</h5>
                                     <AccordionCart
+                                        bandeira='Bandeira'
+                                        num='****-****-****-*000'
+                                        nome='ved Alimentos'
+                                        dia={2} ano={2022} /> 
+                                         <AccordionCart
                                         bandeira='Bandeira'
                                         num='****-****-****-*000'
                                         nome='ved Alimentos'
@@ -221,30 +228,33 @@ class Checkout extends Component {
                                                 paymentForm: {
                                                     card: false,
                                                     pix: false,
-                                                    boleto: true
+                                                    boleto: false,
+                                                    cpfBoleto: true
+
                                                 }
-                                            })} label="Boleto" id={1} name="1" />
+                                            })} label="Boleto" id='boleto' name="1" />
                                             <RadioBox onClick={() => this.setState({
                                                 paymentForm: {
                                                     card: true,
                                                     pix: false,
-                                                    boleto: false
+                                                    boleto: false,
+                                                    cpfBoleto: false
                                                 }
-                                            })} label="cartão de credito/debito" id={2} name="1" />
+                                            })} label="cartão de crédito/débito" id="card" name="1" />
                                             <RadioBox onClick={() => this.setState({
                                                 paymentForm: {
                                                     card: false,
                                                     pix: true,
-                                                    boleto: false
+                                                    boleto: false,
+                                                    cpfBoleto: false
                                                 }
-                                            })} label="Pix" id={1} name="1" />
+                                            })} label="Pix" id='pix' name="1" />
                                         </div>
 
 
                                         <hr className="my-2 border" />
                                         {this.state.paymentForm.card ? this.creditcard() : ""}
-                                        {this.state.paymentForm.pix ? this.pix() : ""}
-                                        {this.state.paymentForm.boleto ? this.boleto() : ""}
+                                        {this.state.paymentForm.cpfBoleto ? this.preBoleto() : ""}
                                         <hr className="my-4 mb-3" />
                                     </div>
                                     <div className="d-grid gy-2">

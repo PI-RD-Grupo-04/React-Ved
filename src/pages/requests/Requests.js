@@ -5,9 +5,6 @@ import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import OrderStatus from '../../components/orderStatus/OrderStatus'
 import Title from '../../components/title/Title'
 
-
-
-
 function Request() {
 
     return (
@@ -21,8 +18,6 @@ function Request() {
                     <div className="col-12 col-sm-9 order-md-last  mb-3 ">
                         <Title label="Meus Pedidos" />
                         <div className="row py-3 ">
-
-
                             <OrderStatus waiting pedido= {127543} />
                             <OrderStatus delivered pedido= {123549} />
                             <OrderStatus delivering pedido= {123549}/>
@@ -31,7 +26,12 @@ function Request() {
                         </div>
                     </div>
                 </div>
-            </div>
+            
+</div>
+
+
+
+
             <Footer />
 
         </>

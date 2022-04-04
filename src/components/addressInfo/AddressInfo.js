@@ -5,7 +5,7 @@ function AddressInfo(props) {
 
     return (
         <>
-            <div className="col-12 border mb-3">
+            <div className="col-12 border mb-2">
             <CheckInput id={props.id}>
                 <label className="margin" for={props.id}>Avenida: {props.av}</label>
                 <label className="margin" for={props.id}>N°: {props.n}</label>
