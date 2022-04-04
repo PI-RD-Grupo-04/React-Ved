@@ -21,6 +21,7 @@ function ModalConsumo() {
             </div>
 
             <div className=" col-12 container  ">
+              <div>
               <hr />
               <h2 className=" row d-flex justify-content-center sugest2">Banana Caramelizada </h2>
             </div>
@@ -81,7 +82,7 @@ function ModalConsumo() {
         </div>
       </div>
 
-
+</div>
 
 
     </>
