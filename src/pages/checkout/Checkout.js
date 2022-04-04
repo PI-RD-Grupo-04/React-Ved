@@ -11,7 +11,7 @@ import CheckInput from '../../components/checkInput/CheckInput'
 import RadioBox from '../../components/radioBox/RadioBox'
 import qrcode from '../../components/asserts/imagens/qrcode.jpg'
 import Title from '../../components/title/Title'
-import InputMask from 'react-input-mask' 
+import InputMask from 'react-input-mask'
 import Cart from '../../components/cart/Cart'
 
 class Checkout extends Component {
@@ -173,7 +173,7 @@ class Checkout extends Component {
 
                                         {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
                                         <ModalEndereco />
-
+                                        <hr className="my-2" />
                                         <h4 className="mb-1 "> Frete</h4>
                                         {/* <div className="col-12"> */}
                                         <label>Opções de Frete para ******-** </label>
@@ -191,7 +191,7 @@ class Checkout extends Component {
                                 <form className="border p-2">
                                     <div className="input-group d-grid gy-2">
                                         <input type="text" className="form-control w-100 mb-2" placeholder="Código promocional" />
-                                        <Button none success label="resgatar" />
+                                        <Button none success label="Resgatar" />
                                     </div>
                                     {/* <span className="campo-obrigatório mt-1" >Desconto aplicado! </span> */}
                                 </form>
@@ -201,8 +201,8 @@ class Checkout extends Component {
                             </div>
                             {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
                             <div className="col-12 col-sm-6 order-md-last border mb-3">
-                                
-                            <Cart/>
+
+                                <Cart />
 
                                 <hr className="my-2" />
                                 <div className="row">
@@ -211,8 +211,8 @@ class Checkout extends Component {
                                         bandeira='Bandeira'
                                         num='****-****-****-*000'
                                         nome='ved Alimentos'
-                                        dia={2} ano={2022} /> 
-                                         <AccordionCart
+                                        dia={2} ano={2022} />
+                                    <AccordionCart
                                         bandeira='Bandeira'
                                         num='****-****-****-*000'
                                         nome='ved Alimentos'
@@ -240,7 +240,7 @@ class Checkout extends Component {
                                                     boleto: false,
                                                     cpfBoleto: false
                                                 }
-                                            })} label="cartão de crédito/débito" id="card" name="1" />
+                                            })} label="Cartão de Crédito/Débito" id="card" name="1" />
                                             <RadioBox onClick={() => this.setState({
                                                 paymentForm: {
                                                     card: false,
