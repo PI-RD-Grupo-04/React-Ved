@@ -10,7 +10,7 @@ function ModalConsumo() {
       Sugestão de Consumo </button>
       <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
-          <div className="modal-content">
+          <div className="modal-content ">
             <div className="d-flex">
               <div className="col-11">
                 <Title label="Sugestão de Consumo" />
@@ -26,10 +26,10 @@ function ModalConsumo() {
             </div>
 
             <div className="d-flex justify-content-center">
-              <img className="imagemsugestao1 imgresp " src='https://i.ibb.co/nP8cZL2/abacaxi.png' width={400} />
+              <img className="imagemsugestao1 imgresp " src='https://i.ibb.co/nP8cZL2/abacaxi.png' width={375} />
             </div>
 
-            <div className="container  primeiroAB mt-3 justify-content-between">
+            <div className="container primeiroAB mt-3 ">
               <div className="row ">
                 <div className="col-lg-6 col-md-12">
                   <h2 className="col-12 sugest2">Ingredientes</h2>
@@ -43,7 +43,7 @@ function ModalConsumo() {
                     <li className="ponto">5 g de Fermento químico (1 colher de chá).</li>
                   </ul>
                 </div>
-                <div className=" col-6   d-flex ">
+                <div className=" col-6  d-flex justify-content-center">
                   <img className="imagemsugestao " src='https://i.ibb.co/nP8cZL2/abacaxi.png' />
                 </div>
               </div>
