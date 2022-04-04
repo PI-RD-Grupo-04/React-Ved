@@ -4,7 +4,7 @@ import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
 import master from '../../components/asserts/imagens/Users_icon/master.png'
-
+import Title from '../../components/title/Title'
 function DetailsOrder() {
 
     return (
@@ -16,8 +16,8 @@ function DetailsOrder() {
                         <CustomerMenu />
                     </div>
                     <div className="col-12 col-md-9 order-md-last   mb-3 ">
-                        <h2 className="text-center title-main mt-5 mb-5"> Detalhes do Pedido </h2>
-
+                    <Title label ="Detalhes do Pedido"/>
+                        
                         <div className='alterando d-flex'>
                             <div className="container col-12 col-md-12 col-lg-6 alterando  ">
                                 <div>
@@ -30,12 +30,12 @@ function DetailsOrder() {
                                             <ul className="mt-2"> Rua : Santana de Parnaiba    </ul>
                                         </li>
                                         <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                            <ul className="mt-2"> Numero : 45  </ul>
+                                            <ul className="mt-2"> Número : 45  </ul>
                                         </li>
                                     </div>
                                     <div className="d-flex ">
                                         <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                            <ul className="mt-2"> Municipio : Embu das Artes  </ul>
+                                            <ul className="mt-2"> Município : Embu das Artes  </ul>
                                         </li>
                                         <li className="list-group-item list1 d-flex-column lh-sm col-6">
                                             <ul className="mt-2"> UF : SP  </ul>
@@ -52,7 +52,7 @@ function DetailsOrder() {
                                 </h4>
 
                                 <li className="list-group-item list1 d-flex-column lh-sm">
-                                    <ul className="mt-2"> Numero : **** **** **** 5674  </ul>
+                                    <ul className="mt-2"> Número : **** **** **** 5674  </ul>
                                 </li>
                                 <li className="list-group-item list1 d-flex-column lh-sm">
                                     <ul className="mt-2"> Nome do titular : Washington Pereira  </ul>
@@ -84,7 +84,7 @@ function DetailsOrder() {
                                         <ul className="mt-2"> Pedido #123    </ul>
                                     </li>
                                     <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                        <ul className="mt-2"> Entrega Comun  </ul>
+                                        <ul className="mt-2"> Entrega Comum </ul>
                                     </li>
                                 </div>
                                 <div className="d-flex ">

@@ -19,7 +19,7 @@ function PlansVed() {
                         <h2 className="plan2">R$ 200,00</h2>
                         <p>Parcele em até 4x sem juros</p>
                         <hr/>
-                        <Button card plans success label='assine'/>
+                        <Button card plans success label='Assine'/>
                        
                     </div>
 
@@ -30,7 +30,7 @@ function PlansVed() {
                         <h2 className="plan2">R$ 350,00</h2>
                         <p>Parcele em até 4x sem juros</p>
                         <hr/>
-                        <Button card plans success label='assine'/>
+                        <Button card plans success label='Assine'/>
                     </div>
 
                     <div className="item  margens  col-lg-3 mb-3">
@@ -40,7 +40,7 @@ function PlansVed() {
                         <h2 className="plan2">R$ 550,00</h2>
                         <p>Parcele em até 4x sem juros</p>
                         <hr/>
-                        <Button card plans success label='assine'/>
+                        <Button card plans success label='Assine'/>
                     </div>
 
                     <div className="container">

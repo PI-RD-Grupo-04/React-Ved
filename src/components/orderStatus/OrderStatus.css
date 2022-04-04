@@ -24,3 +24,8 @@
     font-size: 22px;
     font-weight:400;
 }
+
+.tabela a {
+    text-decoration: none;
+    color: #000000;
+}

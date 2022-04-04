@@ -2,13 +2,18 @@ import './MyAccount.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
-import Title from '../../components/title/Title'
+import Title from '../../components/title/Title' 
+import PasswordValid from '../../components/passwordValid/PasswordValid'
+
 
 function MyAccount() {
+   
+   
+   
+   
     return (
         <>
             <Header />
-
             <div className="container mt-3 mb-4  ">
                 <div className="row ">
                     <div className="col-2 col-sm-3 ">
@@ -51,12 +56,12 @@ function MyAccount() {
 
                             <div className="form-group mt-3 ">
                                 <label id="E-mail" className="form-label">E-mail:</label>
-                                <h3 for="E-mail" className="form-label border">vedalimentosorganicos@ved.com</h3>
+                                <h3 for="E-mail" className="form-label border">ved@ved.com</h3>
                                 <div className="invalid-feedback">Apenas Letras</div>
                             </div>
 
                             <div className="form-group">
-                                <label for="Telefone Celular" className="form-label">Telefone Celular:</label>
+                                <label for="Telefone Celular" className="form-label">Telefone :</label>
                                 <input type="text" className="form-control" id="Telefone Celular"  value="(00) 99999-9999" required />
                                 <div className="invalid-feedback">Apenas Números</div>
                             </div>
@@ -67,18 +72,7 @@ function MyAccount() {
                                 <div className="invalid-feedback">Letras e Números</div>
                             </div>
 
-                            <div className="form-group">
-                                <label for="Nova Senha" className="form-label">Nova Senha:</label>
-                                <input type="password" className="form-control" id="Nova Senha"   value="**********" required />
-                                <div className="invalid-feedback">Letras e Números</div>
-                            </div>
-
-                            <div className="form-group">
-                                <label for="Confirmação De Senha" className="form-label">Confirmação De Senha:</label>
-                                <input type="password" className="form-control" id="Confirmação De Senha"  value="**********" required />
-                                <div className="invalid-feedback">Letras e Números</div>
-                            </div>
-
+                            <PasswordValid/>
                             <div className="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
                                 <button type="submit" className=" btn btn-success btn-block">Salvar</button>
 
