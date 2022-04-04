@@ -6,6 +6,9 @@ function TicketPayment (props) {
 
     return (
         <>
+          <h4 className="d-flex justify-content-between align-items-center mb-3 mt-5">
+                <span className="">Método de Pagamento : Boleto</span>
+            </h4>
              <div className="row gy-3 list1 mt-3">
                 <div className="col-12 d-flex flex-column align-items-center justify-content-center">
                     <h2 className="text-center mb-2">Boleto gerado </h2>

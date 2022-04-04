@@ -4,7 +4,8 @@ import Footer from '../../components/footer/Footer'
 import Button from '../../components/button/Button'
 import './Register.css'
 import Title from '../../components/title/Title'
-import InputMask from 'react-input-mask';
+import InputMask from 'react-input-mask' 
+import PasswordValid from '../../components/passwordValid/PasswordValid'
 function Register(props) {
 
 
@@ -71,18 +72,7 @@ function Register(props) {
                                         <InputMask mask="(99) 99999-9999"  class="form-control" id="tel-cel" placeholder="" required />
                                         <div class="invalid-feedback">Apenas Letras</div>
                                     </div>
-                                    {/* <!--  campo nome social --> */}
-                                    <div class="form-group " >
-                                        <label for="nova-senha" class="form-label">Nova Senha:</label>
-                                        <input type="password" class="form-control" id="nova-senha" placeholder="" required />
-                                        <div class="invalid-feedback">Apenas Letras</div>
-                                    </div>
-                                    {/* <!--  campo nome --> */}
-                                    <div class="form-group " >
-                                        <label for="confirma-senha" class="form-label">Confirmação Senha:</label>
-                                        <input type="password" class="form-control" id="confirma-senha" placeholder="" required />
-                                        <div class="invalid-feedback">Apenas Letras</div>
-                                    </div>
+                                    <PasswordValid/>
 
                                     <div class="d-grid gap-2 mx-auto mt-3 mb-3">
 

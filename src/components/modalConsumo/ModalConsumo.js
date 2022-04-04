@@ -1,5 +1,4 @@
 import './ModalConsumo.css'
-import ProductCard from '../../components/productCard/ProductCard'
 import Title from '../../components/title/Title'
 import CarroseuHome from '../carroseu/CarroseuHome';
 function ModalConsumo() {
@@ -7,8 +6,8 @@ function ModalConsumo() {
   return (
     <>
       <button type="button" className=" btn-suport " data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Sugestão de Consumo </button>
-      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        Sugestão de Consumo </button>
+      <div className="modal fade container-fluid" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content ">
             <div className="d-flex">
@@ -75,7 +74,7 @@ function ModalConsumo() {
 
             <hr />
 
-            <CarroseuHome/>
+            <CarroseuHome />
 
 
           </div>

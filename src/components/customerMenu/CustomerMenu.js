@@ -7,7 +7,7 @@ function CustomerMenu() {
         <>
             {/* ************** BEGIN Parte do Menu lateral  **************   */}
             <div className="text-left menu-lateral-mobile">
-                <main className="flex-fill cor-nav">
+                <main className="flex-fill cor-nav mt-4">
                     <div className="list-group  ">
                         <h3 className="text-center mt-2 menu-title"> Atalhos</h3>
                         <Link to="/myAccount" className="list-group-item list-group-item-action  ">

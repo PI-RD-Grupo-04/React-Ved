@@ -17,7 +17,7 @@ function Cart(props) {
                     <div className="row  mb-3 text-center mt-3">
                         <h1 className="title">Sua cesta</h1>
                     </div>
-                    <ul>parseFloat
+                    <ul>
                         <ItemBasket valor={10.000} qty={1} nome="abacaxi" />
                         <ItemBasket valor={13} qty={1} nome="laranja" />
                         <ItemBasket valor={10} qty={1} nome="abacaxi" />
