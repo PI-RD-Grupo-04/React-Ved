@@ -8,8 +8,8 @@ function ModalConsumo() {
       <button type="button" className=" btn-suport " data-bs-toggle="modal" data-bs-target="#exampleModal">
         Sugestão de Consumo </button>
       <div className="modal fade container-fluid" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content ">
+        <div className="modal-dialog  modal-dialog1 ">
+          <div className="modal-content  modal-content1 ">
             <div className="d-flex">
               <div className="col-11">
                 <Title label="Sugestão de Consumo" />
