@@ -18,15 +18,15 @@ function Button(props) {
   btn += props.cart ? 'btnCardDel ' : ''
   btn += props.img ? 'button-search ' : ''
   btn += props.none ? "none " : ''
-  btn += props.plans2 ? 'btn-Plano ' : ''
+  btn += props.plans2 ? 'btn-Plano ' : '' 
+
  
 
   let link = props.link ? props.link : null
 
 
   let img, label, color = '';
-  img = props.confirm ? ok : error
-  color = props.confirm ? 'ok' : 'error'
+
   label = props.confirm ? "Sucesso!" : "Error! tente novamente!"
 
 
@@ -42,24 +42,6 @@ function Button(props) {
         : <button onClick={props.modal ? () => setShow(true) : null } className={btn} type="submit">{props.label}</button>}
            
 
-    
-
-        {props.modal ? <div>
-          <Modal
-            show={show}
-            onHide={() => setShow(false)}
-            dialogClassName="modal-10w"
-            aria-labelledby="example-custom-modal-styling-title"
-
-          >
-            <Modal.Header className={color} closeButton>
-              <Modal.Title className="d-flex text-center align-items-center justify-content-center" id="example-custom-modal-styling-title">
-                <div><img src={img} width="30px" height="30px" /> </div>
-                <div className='mt-3 margin-text' ><h5 >{label}</h5></div>
-              </Modal.Title>
-            </Modal.Header>
-
-          </Modal></div> : null}
       </>
     )
 
