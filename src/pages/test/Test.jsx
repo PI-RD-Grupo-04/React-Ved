@@ -9,7 +9,7 @@ const Test = () => {
    function valida (e) {
       if(e.target.value.length < 11){
          console.log('menos que 11')
-      } else { console.log('ok')}
+      } else { console.log('okkkkkkkkkkkk')}
 
 
    }
