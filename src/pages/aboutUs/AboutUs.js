@@ -32,10 +32,11 @@ function AboutUs() {
                     produtor.
 
                 </Paragraph>
-               
+
 
                 <h3 className='about2'>Entenda como essa parceria ajuda vários produtores:</h3>
-               
+                
+
 
                 <Paragraph>
                     1. Garantia antecipada de compra de seus produtos a preços justos. Os produtores podem plantar já sabendo a
@@ -51,11 +52,11 @@ function AboutUs() {
                     3. Compartilhamento de nossa demanda futura com cada um deles. Com isso, eles podem se planejar e cultivar de
                     acordo com nosso consumo. A VED Alimentos Orgânicos cresce, eles crescem junto!
                 </Paragraph>
-                
+
                 <Paragraph>
-                4. Auxílio financeiro para a compra de sementes e insumos. A VED Alimentos Orgânicos dá a opção de pagar
-                        antecipadamente por parte dos insumos, descontando o valor em produtos após a colheita. Isso garante segurança
-                        financeira ao agricultor.
+                    4. Auxílio financeiro para a compra de sementes e insumos. A VED Alimentos Orgânicos dá a opção de pagar
+                    antecipadamente por parte dos insumos, descontando o valor em produtos após a colheita. Isso garante segurança
+                    financeira ao agricultor.
                 </Paragraph>
                 <br /> <br /> <br />
             </div>
