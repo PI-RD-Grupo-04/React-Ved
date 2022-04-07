@@ -27,9 +27,9 @@ function Cart(props) {
 
 
                     <div className="text-end">
-                        <h5 className="text-dark mb-3">
+                        <h4 className="text-dark   mt-3 mb-3">
                             Valor Total: R$ 1.031,30
-                        </h5>
+                        </h4>
 
                         <div className="container mb-3 border">
                             <div className="row mt-3 mb-1">
@@ -45,8 +45,8 @@ function Cart(props) {
                             {/* <!--cep--> */}
                             <div className="row">
                                 <div className="col-sm-12 col-lg-4">
-                                    <h5>Entrega Comum: R$ 45,50</h5>
-                                    <h5>Entrega Flex: R$ 65,50</h5>
+                                    <p>Entrega Comum: R$ 45,50</p>
+                                    <p>Entrega Flex: R$ 65,50</p>
                                 </div>
 
                                 <div className="row d-flex">

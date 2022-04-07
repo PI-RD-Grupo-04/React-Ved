@@ -4,8 +4,6 @@ import Footer from '../../components/footer/Footer'
 import Button from '../../components/button/Button'
 import './Register.css'
 import Title from '../../components/title/Title'
-import InputMask from 'react-input-mask'
-import PasswordValid from '../../components/passwordValid/PasswordValid'
 import InputGroup from '../../components/inputGroup/InputGroup'
 
 

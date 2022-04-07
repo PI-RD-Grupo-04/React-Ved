@@ -27,19 +27,19 @@ export default function PasswordChange() {
             <Header />
             <div className="container ">
                 <div className="row mt-5 mb-5">
-                    <div className="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 mx-auto border">
+                    <div className="col-12 col-sm-5 mx-auto border">
                         <div className="white">
-                            <div className="row text-center">
-                                <div className="text-center col-12">
+                            <div className="row ">
+                                <div className=" col-12">
                                     <Title label="Alterar sua Senha" />
                                 </div>
 
-                                <div className="text-center col-12 mt-4">
+                                <div className="col-12 mt-5">
 
                                     <PasswordValid />
 
 
-                                    <div className="d-grid gap-2 col-12 col-sm-6  mx-auto mb-5 mt-5">
+                                    <div className="d-grid gap-2 col-12 col-sm-6  mx-auto mt-2 mb-2">
                                         <Link to="/login" className="btn btn-success btn-block" type="submit">Salvar</Link>
                                     </div>
 

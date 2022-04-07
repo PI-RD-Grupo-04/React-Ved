@@ -3,8 +3,8 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import Title from '../../components/title/Title' 
-import PasswordValid from '../../components/passwordValid/PasswordValid'
-
+import InputGroup from '../../components/inputGroup/InputGroup' 
+import Button from '../../components/button/Button'
 
 function MyAccount() {
    
@@ -22,65 +22,28 @@ function MyAccount() {
 
                     <div className="col-12 col-sm-9 order-md-last  align-items-center justify-content-center  mb-3">
                        <Title label="Meus Dados"/>
-                        <form id="feedbackForm" className="text-center">
+                       <form id="feedbackForm" >
+                                {/* <!--  inicio do formulario de cadastro --> */}
+                                {/* <!--  campo nome --> */}
+                                <div className="row border">
+                                    <InputGroup value="Roberval" required info="Primeiro Nome" label="Nome: " type="text" id="Nome" col="col-12 col-sm-6" />
+                                    <InputGroup value="dos Santos" required label="Sobrenome: " info="Sobrenome"  type="text" id="sobrenome" col="col-12 col-sm-6" />
+                                    <InputGroup info="---" label="Nome Social: " id="Nome-Social" col="col-12 col-sm-6" />
+                                    <InputGroup block value="11111111111"  required label="CPF: " info="Apenas Números " mask="999.999.999-99" type="number" id="cpf" col="col-12 col-sm-6" />
+                                    <InputGroup block value="121219999" required mask="99/99/9999" info="dia/mês/ano" label="Data de Nasc.: " id="nascimento" type="text" col="col-12 col-sm-3" />
+                                    <InputGroup block value="ved@ved.com" required label="Email: " info="seu email" id="email" type="email" col="col-12 col-sm-5" />
+                                    <InputGroup value="11999999999"  required mask="(99) 99999-9999" info="fixo ou celular " label="Telefone: " id="telefone" type="number" col="col-12 col-sm-4" />
+                                    <InputGroup  info="Digite a Senha"   info1="Confirme a Senha" password col="col-12" />
+                                    <div class="d-grid justify-content-center align-items-center gap-2   align-cen  ter mt-3 mb-3">
 
-                            <div className="form-group">
-                                <label for="Nome" className="form-label">Nome:</label>
-                                <input type="text" className="form-control" id="Nome"  value="Roberval  " required />
-                                <div className="invalid-feedback">Apenas Letras</div>
-                            </div>
+                                    <Button  success label="Atualizar Dados" confirm></Button >
 
-                            <div className="form-group">
-                                <label for="Sobrenome" className="form-label">Sobrenome:</label>
-                                <input type="text" className="form-control" id="Sobrenome"  value="dos Santos" required />
-                                <div className="invalid-feedback">Apenas Letras</div>
-                            </div>
-
-                            <div className="form-group">
-                                <label for="Nome-Social" className="form-label">Nome Social:</label>
-                                <input type="text" className="form-control" id="Nome-Social"  value="Ved" required />
-                                <div className="invalid-feedback">Apenas Letras</div>
-                            </div>
-
-                            <div className="form-group mt-3 d-grid gy-2">
-                                <label for="CPF" className="form-label">CPF:</label>
-                                <h3 id="CPF" className="form-label border">XXX.XXX.XXX-XX</h3>
-                                <div className="invalid-feedback">Apenas Números</div>
-                            </div>
-
-                            <div className="form-group mt-3 ">
-                                <label id="Data De Nascimento" className="form-label">Data De Nascimento:</label>
-                                <h3 for="Data De Nascimento" className="form-label border ">16/03/1988</h3>
-                                <div className="invalid-feedback">Apenas Números</div>
-                            </div>
-
-                            <div className="form-group mt-3 ">
-                                <label id="E-mail" className="form-label">E-mail:</label>
-                                <h3 for="E-mail" className="form-label border">ved@ved.com</h3>
-                                <div className="invalid-feedback">Apenas Letras</div>
-                            </div>
-
-                            <div className="form-group">
-                                <label for="Telefone Celular" className="form-label">Telefone :</label>
-                                <input type="text" className="form-control" id="Telefone Celular"  value="(00) 99999-9999" required />
-                                <div className="invalid-feedback">Apenas Números</div>
-                            </div>
-
-                            <div className="form-group">
-                                <label for="Senha Atual" className="form-label">Senha Atual:</label>
-                                <input type="password" className="form-control" id="Senha Atual"   value="**********" required />
-                                <div className="invalid-feedback">Letras e Números</div>
-                            </div>
-
-                            <PasswordValid/>
-                            <div className="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
-                                <button type="submit" className=" btn btn-success btn-block">Salvar</button>
-
-                            </div>
+                                    </div> 
+                                   
+                                </div>
 
 
-                        </form >
-
+                            </form>
                     </div >
 
                 </div>
