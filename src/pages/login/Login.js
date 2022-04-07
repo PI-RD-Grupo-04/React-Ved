@@ -4,7 +4,7 @@ import Footer from '../../components/footer/Footer'
 import { Link } from 'react-router-dom'
 import Button from '../../components/button/Button'
 import Title from '../../components/title/Title'
-
+import InputGroup from '../../components/inputGroup/InputGroup' 
 
 function Login() {
     return (
@@ -16,29 +16,18 @@ function Login() {
                 <div className="row mt-5 mb-5">
                     <div className="col-12 col-md-6 forms mx-auto border">
                        
-                            <div className="row text-center">
+                            <div className="row ">
                                 <div className="text-center col-12">
                                     <Title label = "Login"/>
                                 </div>
 
-                                <div className="text-center col-12">
 
+                                    <form id="feedbackForm" className="">
 
-                                    <form id="feedbackForm" className="text-center">
+                                    <InputGroup required label="Email: " info="seu email" id="email-login" type="email" col="col-12 " /> 
+                                    <InputGroup required label="Senha: " info="sua senha" id="password-login" type="password" col="col-12 " /> 
 
-                                        <div className="form-group " >
-                                            <label for="name">Seu e-mail</label>
-                                            <input type="text" className="form-control" id="name" name="name" aria-describedby="nameHelp" />
-                                            <span id="nameHelp" className="form-text text-muted" />
-
-                                        </div> 
-                                        <div className="form-group " >
-                                            <label for="email">Sua senha</label>
-                                            <input type="password" className="form-control" id="email" name="email" aria-describedby="emailHelp" />
-                                            <span id="emailHelp" className="form-text text-muted" />
-
-                                        </div>
-
+                                        <div className="col-12 text-center mt-2"> 
                                         <p>Esqueceu sua senha? <Link to="/passwordRecovery">Clique aqui.</Link></p>
                                         <div className="d-grid gap-2 col-6 mx-auto mb-2">
                                             <Button success label="Acessar" link="/myAccount">Logar</Button>
@@ -48,11 +37,11 @@ function Login() {
                                             <p>Ainda não tem conta? <Button success link="/register" label="Cadastre-se"></Button></p>
                                         </div>
 
-
+                                        </div>
 
                                     </form>
 
-                                </div>
+
                             </div>
 
 
