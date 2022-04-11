@@ -9,6 +9,7 @@
 
 
         const [senhaOk, setSenhaOk] = useState('d-none')
+
         const [senhaError, setSenhaError] = useState('d-none')
 
         const [senhaConfirmOk, setSenhaconfirmOk] = useState('d-none')
@@ -22,10 +23,19 @@
 
 
         let columns = " text-left mt-1 " + props.col;
+       
+       
+       
+       
+        
+       
+    
+        
+
 
         function inputa() {
             if (props.mask) {
-                return <InputMask mask={props.mask} class="form-control" id="data-nasc" placeholder={props.info} required />
+                return <InputMask mask= {props.mask } class="form-control" id="dataNasc" placeholder={props.info} required />
             } else {
                 return (props.required != null
                     ? <input type={props.type} className="form-control" id={props.id} placeholder={props.info}  required />
@@ -41,7 +51,7 @@
                         <div className="col-12 col-sm-6">
                             <label for="form-senha  " className="text-input">Digite nova senha</label>
                             <input placeholder={props.info}  type="password" onChange={(e) => {
-                                if (e.target.value.length <= 8) {
+                                if (e.target.value.length <= 7) {
                                     setSenhaOk('msg-success displayFeedbackError ');
                                     setSenhaError('msg-error d-flex')
                                 } else {
@@ -97,5 +107,6 @@
             </>
         )
     }
+
 
     export default InputGroup
