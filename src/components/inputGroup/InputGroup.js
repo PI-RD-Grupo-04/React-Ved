@@ -24,6 +24,12 @@ function InputGroup(props) {
     let columns = " text-left mt-1 " + props.col;
 
     function inputa() {
+        if(props.data ){
+           return ( <input type='date' id={props.id}  name='dtnasc'/>);
+        }
+
+
+
         if (props.mask) {
             return (
                 (props.block != null)
