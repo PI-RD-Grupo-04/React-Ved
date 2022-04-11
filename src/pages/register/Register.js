@@ -37,8 +37,8 @@ function Register(props) {
                                     
                                     <InputGroup  label="Nome Social: " info="Não Obrigatório" id="Nome-Social" col="col-12 col-sm-6" />
                                     <InputGroup required label="CPF: " info="Apenas Números " mask="999.999.999-99" type="number" id="cpf" col="col-12 col-sm-6" />
-                                    <InputGroup required mask="99/99/9999" info="dia/mês/ano" label="Data de Nasc.: " id="nascimento" type="text" col="col-12 col-sm-3" />
-                                    <InputGroup required label="Email: " info="seu email" id="email" type="email" col="col-12 col-sm-5" />
+                                    <InputGroup required mask="" info="dia/mês/ano" label="Data de Nasc.: " type="text" id="dataNasc" col="col-12 col-sm-3" />
+                                    <InputGroup required label="Email: " mask="" info="seu email" id="email" type="email" col="col-12 col-sm-5" />
                                     <InputGroup required mask="(99) 99999-9999" info="fixo ou celular " label="Telefone: " id="telefone" type="number" col="col-12 col-sm-4" />
                                     <InputGroup  info="Digite a Senha"   info1="Confirme a Senha" password col="col-12" />
                                     <div class="d-grid justify-content-center align-items-center gap-2   align-cen  ter mt-3 mb-3">
