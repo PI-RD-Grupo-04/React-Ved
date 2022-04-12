@@ -39,13 +39,13 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>
@@ -54,13 +54,13 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>
@@ -79,11 +79,11 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>
@@ -91,11 +91,11 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome=" abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
 
       </div>
     </div>
@@ -104,11 +104,11 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>
@@ -117,11 +117,11 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>
@@ -138,9 +138,9 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>
@@ -148,9 +148,9 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
 
       </div>
     </div>
@@ -159,9 +159,9 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
 
       </div>
     </div>
@@ -170,9 +170,9 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
 
       </div>
     </div>
@@ -181,9 +181,9 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
 
       </div>
     </div>
@@ -192,9 +192,9 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12 col-sm-6 col-md-6   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
         <ProductCard col="col-12 col-sm-6 col-md-6    " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
 
       </div>
     </div>
@@ -211,7 +211,7 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>
@@ -219,7 +219,7 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>
@@ -227,7 +227,7 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>
@@ -235,63 +235,63 @@ function CarroseuHome() {
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>            <Carousel.Item>
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>            <Carousel.Item>
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>            <Carousel.Item>
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>            <Carousel.Item>
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>            <Carousel.Item>
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>            <Carousel.Item>
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>            <Carousel.Item>
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
   </Carousel.Item>            <Carousel.Item>
     <div className="container mb-5 mt-5 ">
       <div className="row d-flex justify-content-around ">
         <ProductCard col="col-12   " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-          peso={1.00} price={12.90} />
+          peso={1.00} price="12,90" />
       </div>
     </div>
 

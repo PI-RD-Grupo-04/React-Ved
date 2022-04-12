@@ -13,6 +13,10 @@
 }
 
 
+.title-subs{
+    font-weight: normal;
+}
+
 .boleto {
     resize: none;
     border: none;
