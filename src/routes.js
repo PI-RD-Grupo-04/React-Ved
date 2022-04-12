@@ -24,7 +24,7 @@ import ShippingPolicy from "./pages/shippingPolicy/ShippingPolicy"
 import Error404 from './pages/error404/Error'
 import Cart from "./pages/cart/Cart"
 import OrderDetails from './pages/orderDetails/OrderDetails'
-import DetailsOrder from './pages/detailsOrder/DetailsOrder' 
+import CompanyPolicy from './pages/companyPolicy/CompanyPolicy'
 
 
 export const Routes = () => {
@@ -54,9 +54,9 @@ export const Routes = () => {
             <Route path="/register" component={Register} /> 
             <Route path="/myAccount" component={MyAccount} />
             <Route path="/category" component={Category} />
-            <Route path="/shippingPolicy" component={ShippingPolicy} />
-            <Route path="/detalhespedido" component={DetailsOrder} />  
-            <Route path="/test" component={Test} />
+            <Route path="/shippingPolicy" component={ShippingPolicy} />  
+            <Route path="/test" component={Test} /> 
+            <Route path="/CompanyPolicy" component={CompanyPolicy} /> 
             <Route component={Error404} />
         </Switch>
     )
