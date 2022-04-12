@@ -166,7 +166,7 @@ class Checkout extends Component {
 
                                 {/*  <!--************* Parte esquerda da pagina começo  *********************--> */}
                                 <form className="needs-validation" >
-                                    <div className="row g-3">
+                                    <div className="row  g-3">
                                         <h5 className="title-subs mt-4"> selecione o endereço</h5>
                                         <AddressInfo id={1} av="Santos" n="230" complement="Casa" district="Vila São Paulo" zipcode="11740-000" city="Santos" states="Sao Paulo" country="Brasil" />
                                         <AddressInfo id={2} av="Condessa de Vimieiros" n="345" complement="Apto" district="Centro" zipcode="11740-000" city="Itanhaém" states="Sao Paulo" country="Brasil" />
