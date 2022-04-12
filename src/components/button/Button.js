@@ -19,6 +19,7 @@ function Button(props) {
   btn += props.img ? 'button-search ' : ''
   btn += props.none ? "none " : ''
   btn += props.plans2 ? 'btn-Plano ' : '' 
+  
 
  
 
