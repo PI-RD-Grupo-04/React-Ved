@@ -78,7 +78,8 @@ export default function Contact() {
                         </div>
 
                     </form>
-
+                    <br/>
+                    <Button success label="Enviar" />
                 </div>
             </div>
             <Footer />
