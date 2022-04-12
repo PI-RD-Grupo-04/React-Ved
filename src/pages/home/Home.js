@@ -76,9 +76,9 @@ function Home() {
 
       {/* Titulo * */}
       <div className="container title-main mt-5">
-        <Title label="OFERTAS ESPECIAIS" > OFERTAS ESPECIAIS</Title> 
+        <Title label="OFERTAS ESPECIAIS" > OFERTAS ESPECIAIS</Title>
 
-        
+
       </div>
 
 
@@ -108,19 +108,19 @@ function Home() {
 
           <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price="12,90" />
-
-          <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" img='https://i.ibb.co/bg0LQFx/Inusitadas-utiliza-es-para-a-Banana-em-casa-removebg-preview.png' link='/product' nome="abacaxi"
+          <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
             peso={1.00} price="12,90" />
+
         </div>
       </div>
 
-       {/* Titulo * */}
-       <div className="container title-main mt-5">
-        <Title label="NOVIDADES" ></Title> 
+      {/* Titulo * */}
+      <div className="container title-main mt-5">
+        <Title label="NOVIDADES" ></Title>
       </div>
 
 
-      <CarroseuHome/>
+      <CarroseuHome />
 
       <Footer />
     </>

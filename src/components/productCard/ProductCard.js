@@ -5,14 +5,10 @@ import { Link } from 'react-router-dom'
 
 function ProductCard(props) {
 
-  
-
-
-
   return (
     <div className={props.col}>
       <div class="product-card">
-        <div class="badge-B"><img src={favorito} width="20px" /></div>
+        <div class="badge-B  ">Disponivel</div>
         <div class="product-tumb">
           <Link to={props.link}>  <img src={props.img} alt="Abacaxi queen" /></Link>
         </div>

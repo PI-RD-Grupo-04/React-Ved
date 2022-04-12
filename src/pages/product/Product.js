@@ -24,11 +24,7 @@ function Product() {
                         {/* imagem do produto */}
                         <img className="border img-project  " src='https://i.ibb.co/nP8cZL2/abacaxi.png' alt="Banana-Prata-Organica-600g-800g-Ved"
                         />
-
-
                     </div>
-
-
                     {/* LADO DIREITO DA PAGINA  */}
                     <div className="col-12 col-xl-6">
                         <div className="media-body">
@@ -53,9 +49,9 @@ function Product() {
                                     </div>
                                 </div>
                                 <div className="d-flex justify-content-start">
-                                    <p> Estoque:</p> <p className="ms-1 title-main ">Disponível</p>
+                                    <p> Estoque:</p> <p className="ms-1 text-success     ">Disponível</p>
                                 </div>
-                                <div className="row text-center justify-content-center">
+                                <div className="row text-center ">
                                     <div className="col-10 col-sm-4 mb-1">
                                         {/* AREA DO BOTÃO DE QUANTIDADE */}
                                         <div className="row d-grid  mb-3 gy-2">
@@ -105,37 +101,26 @@ function Product() {
                         </Accordion.Item>
                     </Accordion>
                 </div>
-
-
-
-
                 <div className=" mt-5 d-grid gy-2 ">
                     <ModalConsumo/>
                 </div>
-
-
-
                 <hr />
                 {/* Sugestões de outros produtos */}
-
-
                 <Title label="Aproveite também" />
-
                 <div class="row  ">
                     {/* ********************* item unidade  *********************/}
                     <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                        peso={1.00} price={12.90} />
+                        peso={1.00} price="12,90" />
                     <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                        peso={1.00} price={12.90} />
+                        peso={1.00} price="12,90" />
                     <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                        peso={1.00} price={12.90} />
+                        peso={1.00} price="12,90" />
                     <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                        peso={1.00} price={12.90} />
+                        peso={1.00} price="12,90" />
 
                 </div>
             </div>
             <Footer />
-
         </>
     )
 }
