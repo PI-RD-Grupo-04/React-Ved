@@ -36,7 +36,7 @@ function Cart(props) {
                         <div className="container mb-3 border">
                             <div className="row mt-3 mb-1 d-flex align-items-center justify-content-start">
                                 <div className="col-2">
-                                <h4>Simule o frete:</h4>
+                                <h4 className="text-left" >Simule o frete:</h4>
                                 </div>
                                 <div className="col-12 col-sm-3  ">
                                 <InputMask mask="99999-999"  placeholder="Digite o CEP da entrega"  className="form-control" id="cep" required /> 
