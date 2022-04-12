@@ -5,7 +5,7 @@ function ButtonQty(props) {
     let delet = props.delete ? props.delete : null
 
 
-    const [qty, setQty] = useState(0)
+    const [qty, setQty] = useState(1)
 
     // const [valorTotal, setValorTotal] = useState(props.valor * props.qty)
 

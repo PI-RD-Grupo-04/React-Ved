@@ -101,7 +101,7 @@ function Product() {
                         </Accordion.Item>
                     </Accordion>
                 </div>
-                <div className=" mt-5 d-grid gy-2 ">
+                <div className=" mt-5 ">
                     <ModalConsumo/>
                 </div>
                 <hr />

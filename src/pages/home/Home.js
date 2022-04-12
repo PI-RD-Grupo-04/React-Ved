@@ -75,7 +75,7 @@ function Home() {
       </div>
 
       {/* Titulo * */}
-      <div className="container title-main mt-5">
+      <div className="container title-main mt-1">
         <Title label="OFERTAS ESPECIAIS" > OFERTAS ESPECIAIS</Title>
 
 
@@ -85,7 +85,7 @@ function Home() {
 
       {/* *************************************** PRODUTOS BEGIN ************************************ */}
 
-      <div className="container mb-5 mt-5">
+      <div className="container  ">
         <div className="row justify-content-space ">
 
           <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
