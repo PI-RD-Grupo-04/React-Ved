@@ -42,6 +42,8 @@ function InputGroup(props) {
                 ? <input value={props.value} type={props.type} disabled className="form-control" id={props.id} placeholder={props.info}  required/>
                 : <input value={props.value} type={props.type} className="form-control" id={props.id} placeholder={props.info} />)
         }
+
+        
     }
 
 

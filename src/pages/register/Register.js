@@ -40,7 +40,7 @@ function Register(props) {
                                     <InputGroup required  label="Data de Nasc.: " data id="nascimento"  col="col-12 col-sm-3" />
                                     <InputGroup required label="Email: " info="seu email" id="email" type="email" col="col-12 col-sm-5" />
                                     <InputGroup required mask="(99) 99999-9999" info="fixo ou celular " label="Telefone: " id="telefone" type="number" col="col-12 col-sm-4" />
-                                    <InputGroup  info="Digite a Senha"   info1="Confirme a Senha" password col="col-12" />
+                                    <InputGroup  info="Digite a Senha"   info1="Confirme a Senha"    password     col="col-12" />
                                     <div class="d-grid justify-content-center align-items-center gap-2   align-cen  ter mt-3 mb-3">
 
                                         <Button link="/Login" success label="Cadastrar" confirm></Button >
