@@ -17,7 +17,6 @@ function ModalEndereco() {
             </button>
 
 
-
             {/*  <!-- ****************** CAMPO DO MODAL ****************** --> */}
             <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">

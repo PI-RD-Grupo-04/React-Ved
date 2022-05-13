@@ -4,7 +4,6 @@ import Footer from '../../components/footer/Footer'
 import Title from '../../components/title/Title'
 import Button from '../../components/button/Button'
 
-
 export default function Contact() {
     return (
         <>

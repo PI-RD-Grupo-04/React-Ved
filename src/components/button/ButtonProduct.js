@@ -5,22 +5,26 @@ function ButtonQty(props) {
     let delet = props.delete ? props.delete : null
 
 
-    const [qty, setQty] = useState(0)
+    const [qty, setQty] = useState(1) 
+    const quantidade = props.quantidade ? props.quantidade : 0
 
     // const [valorTotal, setValorTotal] = useState(props.valor * props.qty)
 
     const incremento =  () => { 
-
-        setQty(qty + 1);
-        resu()
-        
+        if (qty < quantidade) {
+            setQty(qty + 1); 
+            
+        } else {
+            qty = quantidade;
+        }
+        resu() 
      }
 
 
      const decremento = () => {
         
         if(qty <= 0){
-            setQty(0); 
+            setQty(1); 
         } else {
             setQty(qty - 1); 
         }

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 function ItemBasket(props) {
-    const [qty, setQty] = useState(0)
+    const [qty, setQty] = useState(1)
     const [total, setTotal] = useState(props.valor)
 
     const incremento = () => {
@@ -14,10 +14,10 @@ function ItemBasket(props) {
 
 
     const decremento = () => {
-        if (qty <= 0) {
-            setQty(0);
+        if (qty <= 1) {
+            setQty(1);
         } else {
-            setQty(qty - 1);
+            setQty(qty - 1);    
         }
     }
 

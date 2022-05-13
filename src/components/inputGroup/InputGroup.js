@@ -14,12 +14,8 @@ function InputGroup(props) {
     const [senhaConfirmOk, setSenhaconfirmOk] = useState('d-none')
     const [senhaConfirmError, setSenhaConfirmError] = useState('d-none')
 
-
-
     const [senha, setSenha] = useState('')
     const [senhaConfirmar, setSenhaConfirmar] = useState('')
-
-
 
     let columns = " text-left mt-1 " + props.col;
 
@@ -27,7 +23,6 @@ function InputGroup(props) {
         if(props.data ){
            return ( <input type='date' id={props.id}  name='dtnasc'/>);
         }
-
 
 
         if (props.mask) {
@@ -45,8 +40,6 @@ function InputGroup(props) {
 
         
     }
-
-
 
     function password() {
         return (
@@ -98,7 +91,6 @@ function InputGroup(props) {
                     </div>
                 </div>
             </>)
-
 
     }
 
