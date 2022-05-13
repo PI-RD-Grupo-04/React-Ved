@@ -28,7 +28,12 @@ function Footer() {
                   <li><strong>Institucional</strong></li>
                   <li className="btn-link">
                     <Link to="/faq">
-                      FAQs e Política da Empresa
+                      FAQ
+                    </Link>
+                  </li>
+                  <li className="btn-link">
+                    <Link to="/CompanyPolicy">
+                     Política da Empresa
                     </Link>
                   </li>
                   <li className="btn-link">

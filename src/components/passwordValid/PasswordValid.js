@@ -17,8 +17,8 @@ function PasswordValid(props) {
 
     return (
         <>
-                <div className="col-12 ">
-                    <label for="form-senha  " className="form-label">Digite sua nova senha</label>
+                <div className="col-12  aa">
+                    <label for="form-senha  " className="text-input">Digite sua nova senha</label>
                     <input type="password" onChange={(e) => {
                         if (e.target.value.length <= 8) {
                             setSenhaOk('msg-success displayFeedbackError ');
@@ -43,7 +43,7 @@ function PasswordValid(props) {
 
                 </div>
                 <div className="col-12  mt-1">
-                    <label for="form-senha-confirma " className="form-label">Confirme sua nova senha</label>
+                    <label for="form-senha-confirma " className="text-input">Confirme sua nova senha</label>
                     <input type="password" onChange={(ev) => {
                         setSenhaConfirmar(ev.target.value)
                         console.log(senhaConfirmar);
@@ -64,7 +64,10 @@ function PasswordValid(props) {
                         <img src={iconOk} width='24px' height='24px' />
                     </div>
 
-                </div>
+                </div> 
+                
+                
+               
 
         </>
     )

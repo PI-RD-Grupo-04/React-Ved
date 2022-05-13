@@ -24,7 +24,8 @@ import ShippingPolicy from "./pages/shippingPolicy/ShippingPolicy"
 import Error404 from './pages/error404/Error'
 import Cart from "./pages/cart/Cart"
 import OrderDetails from './pages/orderDetails/OrderDetails'
-import DetailsOrder from './pages/detailsOrder/DetailsOrder' 
+import CompanyPolicy from './pages/companyPolicy/CompanyPolicy' 
+import  DetailsOrder from './pages/detailsOrder/DetailsOrder'
 
 
 export const Routes = () => {
@@ -32,7 +33,7 @@ export const Routes = () => {
         <Switch>
             <Route path="/" component={Home} exact/>
             <Route path="/cadastro" component={Register} />
-            <Route path="/product" component={Product} />
+            <Route path="/product/:id" component={Product} />
             <Route path="/cart" component={Cart}/>
             <Route path="/checkout" component={Checkout} /> 
             <Route path="/favorites" component={Favorites} />
@@ -54,9 +55,10 @@ export const Routes = () => {
             <Route path="/register" component={Register} /> 
             <Route path="/myAccount" component={MyAccount} />
             <Route path="/category" component={Category} />
-            <Route path="/shippingPolicy" component={ShippingPolicy} />
-            <Route path="/detalhespedido" component={DetailsOrder} />  
-            <Route path="/test" component={Test} />
+            <Route path="/shippingPolicy" component={ShippingPolicy} />  
+            <Route path="/DetailsOrder" component={ DetailsOrder} />  
+            <Route path="/CompanyPolicy" component={CompanyPolicy} /> 
+            <Route path="/test" component={Test} /> 
             <Route component={Error404} />
         </Switch>
     )

@@ -42,10 +42,7 @@ function DetailsOrder() {
                                         </li>
                                     </div>
 
-
-
                                 </div>
-
 
                                 <h4 className="d-flex justify-content-between align-items-center mb-3 mt-5">
                                     <span className="">Metodo de Pagamento : Cartão</span>
@@ -67,14 +64,9 @@ function DetailsOrder() {
                                     </li>
                                 </div>
 
-
-
-
                             </div>
 
                             <div className="container col-12 col-md-12 col-lg-6">
-
-
                                 <h4 className="d-flex  align-items-center mb-3 mt-2">
                                     <span className="mb-3">Detalhes de Pedido </span>
                                 </h4>
@@ -96,8 +88,6 @@ function DetailsOrder() {
                                     </li>
                                 </div>
 
-
-
                                 <h4 className="d-flex  align-items-center mb-3 mt-5">
                                     <span className="ml">Itens Comprados :  </span>
 
@@ -118,18 +108,8 @@ function DetailsOrder() {
                                         <span className="text-muted"><strong>R$ 48,70</strong> </span>
                                     </li>
                                 </div>
-
-
-
                             </div>
-
-
-
-
-
                         </div>
-
-
                     </div>
                 </div>
             </div>
