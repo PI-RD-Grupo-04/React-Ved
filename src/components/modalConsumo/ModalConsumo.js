@@ -1,7 +1,13 @@
 import './ModalConsumo.css'
 import Title from '../../components/title/Title'
-import CarroseuHome from '../carroseu/CarroseuHome';
-function ModalConsumo() {
+import CarroseuHome from '../carroseu/CarroseuHome'; 
+import React, { useState, useEffect } from 'react'
+
+
+function ModalConsumo(props) {
+
+
+
 
   return (
     <>
@@ -24,18 +30,18 @@ function ModalConsumo() {
             <div className=" col-12 container  ">
               <div>
                 <hr />
-                <h2 className=" row d-flex justify-content-center sugest2">Banana Caramelizada </h2>
+                <h2 className=" row d-flex justify-content-center sugest2">{props.titulo}</h2>
               </div>
 
               <div className="d-flex justify-content-center">
-                <img className="imagemsugestao1 imgresp " src='https://i.ibb.co/nP8cZL2/abacaxi.png' width={375} />
+                <img className="imagemsugestao1 imgresp " src={props.img} width={375} />
               </div>
 
               <div className="container primeiroAB mt-3 ">
                 <div className="row ">
                   <div className="col-lg-6 col-md-12">
                     <h2 className="col-12 sugest2">Ingredientes</h2>
-                    <ul className="col-12">
+                    {/* <ul className="col-12">
                       <li className="ponto">4 Banana (4 unidades).</li>
                       <li className="ponto">37 g de Amido de milho (1/4 de xícara).</li>
                       <li className="ponto">90 g de Farinha de trigo (3/4 de xícara).</li>
@@ -43,10 +49,11 @@ function ModalConsumo() {
                       <li className="ponto">Sal 1 pitada.</li>
                       <li className="ponto">180 mL de Água gelada (3/4 de xícara).</li>
                       <li className="ponto">5 g de Fermento químico (1 colher de chá).</li>
-                    </ul>
+                    </ul> */} 
+                    {props.ingredientes}
                   </div>
                   <div className=" col-6  d-flex justify-content-center">
-                    <img className="imagemsugestao " src='https://i.ibb.co/nP8cZL2/abacaxi.png' />
+                    <img className="imagemsugestao " src={props.img} />
                   </div>
                 </div>
               </div>
@@ -56,7 +63,7 @@ function ModalConsumo() {
                 <h2 className='sugest2'>Como Preparar</h2>
                 <div className="row">
                   <div className="col-12">
-                    <ul>
+                    {/* <ul>
                       <li className="ponto">Misture em uma tigela a farinha de trigo, amido de milho, açúcar e sal.</li>
                       <li className="ponto">Adicione a água gelada e mexa até ficar homogêneo, sem pelotinhos de farinha.</li>
                       <li className="ponto">Por último acrescente o fermento químico e misture novamente.</li>
@@ -69,7 +76,8 @@ function ModalConsumo() {
                       <li className="ponto">Quando atingir a coloração de caramelo (âmbar) retire do fogo.</li>
                       <li className="ponto">Coloque um pano levemente inclinado embaixo da panela e passe as bananas.</li>
                       <li className="ponto">Transfira para uma assadeira untada com óleo e coloque o gergelim imediatamente.</li>
-                    </ul>
+                    </ul> */} 
+                    {props.preparo}
                   </div>
                 </div>
               </div>

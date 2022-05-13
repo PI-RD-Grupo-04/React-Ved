@@ -33,7 +33,7 @@ export const Routes = () => {
         <Switch>
             <Route path="/" component={Home} exact/>
             <Route path="/cadastro" component={Register} />
-            <Route path="/product" component={Product} />
+            <Route path="/product/:id" component={Product} />
             <Route path="/cart" component={Cart}/>
             <Route path="/checkout" component={Checkout} /> 
             <Route path="/favorites" component={Favorites} />

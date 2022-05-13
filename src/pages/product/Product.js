@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import './Product.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
@@ -11,10 +12,44 @@ import Button from '../../components/button/Button'
 import { Accordion } from 'react-bootstrap'
 import Title from '../../components/title/Title'
 import ModalConsumo from '../../components/modalConsumo/ModalConsumo'
-
+import { useParams } from 'react-router-dom'
+//import { GetProduct } from '../../Api/https'
+import axios from 'axios'
+import { baseProduct } from '../../environments'
 
 
 function Product() {
+    const { id } = useParams()
+    const [product, setProduct] = useState({})
+    const [receita, setReceita] = useState({})
+
+
+    const getProduct = () => {
+        axios.get(`${baseProduct}/${id} `)
+            .then((response) => {
+                setProduct(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+
+    useEffect(() => {
+        getReceita()
+        getProduct()
+    }, [])
+
+
+    const getReceita = () => {
+        axios.get(`${baseProduct}/${id}/receita `)
+            .then((response) => {
+                setReceita(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+
     return (
         <>
             <Header />
@@ -22,7 +57,7 @@ function Product() {
                 <div className="row mt-3">
                     <div className="col-12 col-xl-6 mx-auto">
                         {/* imagem do produto */}
-                        <img className="border img-project  " src='https://i.ibb.co/nP8cZL2/abacaxi.png' alt="Banana-Prata-Organica-600g-800g-Ved"
+                        <img className="border img-project  " src={product.url}
                         />
                     </div>
                     {/* LADO DIREITO DA PAGINA  */}
@@ -30,15 +65,17 @@ function Product() {
                         <div className="media-body">
                             <div className="preco-avulso margin-price">
 
-                            <Title sub>Banana Prata Orgânica</Title>
-                                <p><strong>Código:</strong> 0021</p>
+                                <Title sub >{product.nome}</Title>
+                                <small>Categoria: {product.categoria}</small>
+                                <p>Código: {product.id}</p>
+
                                 <div className=" d-flex price-por product-price ">
                                     <p>De:
-                                        <small className="product-price de-product">R$15,20</small>
+                                        <small className="product-price de-product">{product.preco - 2}</small>
                                     </p>
                                 </div>
                                 <div className="d-flex justify-content-start">
-                                    <h2 className="mb-2 d-flex text-align justify-content-start title-main">Por: R$9,90</h2>
+                                    <h3 className="mb-2 d-flex text-align justify-content-start title-main">Por: {product.preco}</h3>
                                 </div>
                                 <div className="row">
                                     <div className="col-12">
@@ -49,13 +86,13 @@ function Product() {
                                     </div>
                                 </div>
                                 <div className="d-flex justify-content-start">
-                                    <p> Estoque:</p> <p className="ms-1 text-success     ">Disponível</p>
+                                    <p> Estoque:</p> <p className="ms-1 text-success">{product.statusProduto}</p>
                                 </div>
                                 <div className="row text-center ">
                                     <div className="col-10 col-sm-4 mb-1">
                                         {/* AREA DO BOTÃO DE QUANTIDADE */}
                                         <div className="row d-grid  mb-3 gy-2">
-                                            <Buttonqty />
+                                            <Buttonqty quantidade={product.quantidade} />
                                         </div>
                                         {/* FIM  AREA DO BOTÃO DE QUANTIDADE */}
                                     </div>
@@ -63,46 +100,37 @@ function Product() {
                                     <div className="col-12 col-sm-6">
                                         <Link to="/cart" className="btn btn-success btn-lg w-100 ">Adicionar</Link>
                                     </div>
-
-
-
-
                                 </div>
                             </div>
 
                         </div>
                     </div>
                 </div>
-               
+
                 <div className="telamenor mt-5">
                     <Accordion>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>Descrição</Accordion.Header>
                             <Accordion.Body>
-                                A Banana é a fruta mais consumida em todo o mundo! No Brasil, o IBGE estima que
-                                cada brasileiro consome em média 7 kilos de banana por ano e nosso país é um dos líderes em produção mundial
-                                dessa amarelinha. Bastante rica em nutrientes, a Banana tem além do conhecido potássio que ajuda na prevenção
-                                de cãibras na realização de exercícios físicos (lembram do tenista Guga?), também possui quantidades
-                                relevantes de magnésio, ferro e vitaminas A, C e do complexo B. A Banana Prata em geral tem consistência mais
-                                firme que as demais, sendo super indicada para fritar.
+                                {product.descricao}
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="1">
                             <Accordion.Header>Como guardar</Accordion.Header>
                             <Accordion.Body>
-                                Sempre fora da geladeira, a sua fruteira chama por ela!
+                                {product.armazenamento}
                             </Accordion.Body>
                         </Accordion.Item>
-                        <Accordion.Item eventKey="2">
+                        {/* <Accordion.Item eventKey="2">
                             <Accordion.Header>Curiosidades</Accordion.Header>
                             <Accordion.Body>
                                 A banana prata é rica em potássio e cálcio e é uma ótima fonte de fibras.
                             </Accordion.Body>
-                        </Accordion.Item>
+                        </Accordion.Item> */}
                     </Accordion>
                 </div>
                 <div className=" mt-5 ">
-                    <ModalConsumo/>
+                    <ModalConsumo titulo={receita.titulo} ingredientes={receita.ingredientes} preparo={receita.preparo} img={product.url} />
                 </div>
                 <hr />
                 {/* Sugestões de outros produtos */}

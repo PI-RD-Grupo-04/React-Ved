@@ -12,9 +12,6 @@ function CarroseuHome() {
 
 
  <>
-
-
-
 <div className="row  tela1">
 <div className="container mb-5 mt-5 ">
 <Carousel variant="dark">
