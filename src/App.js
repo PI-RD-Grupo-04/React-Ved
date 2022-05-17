@@ -1,12 +1,15 @@
 import './App.css'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Routes } from './routes'
+import Contexts from './context/index'
 
 function App() {
   return (
-    <Router>
-      <Routes/>
-    </Router>
+    <Contexts>
+      <Router>
+        <Routes />
+      </Router>
+    </Contexts>
   );
 }
 

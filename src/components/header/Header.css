@@ -92,7 +92,7 @@ header {
 
 .input-search{
     width: 40px;
-    height: 40px;
+    height: 39px;
     border: 1px solid #198754;
     border-right: none; 
 }
@@ -102,7 +102,6 @@ header {
 header a:hover{
     color:#1b925a ;
 }
-
 
 ul{
     margin: 0;

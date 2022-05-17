@@ -7,7 +7,11 @@ import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
 import Button from '../../components/button/Button'
 import Title from '../../components/title/Title'
 
+import React, { useState, useEffect } from 'react'  
+
 function Address() {
+
+
 
     return (
         <>
@@ -30,7 +34,7 @@ function Address() {
 
                         <div className='mt-5 row '>
                             <div className="col-12 d-grid gap-2 col-sm-8    ">
-                                <ModalEndereco />
+                                <ModalEndereco  />
                             </div>
 
                             <div className="col-12 d-grid gap-2  col-sm-4   ">
