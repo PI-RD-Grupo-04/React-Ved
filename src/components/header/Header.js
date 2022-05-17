@@ -7,7 +7,6 @@ import NavBar from '../navBar/NavBar'
 import Button from '../../components/button/Button'
 import React, { useState, useEffect, useContext } from 'react'
 import CartContext from '../../context/Cart.provider'
-
 import { Popover } from 'bootstrap'
 import PopoverCart from '../popoverCart/PopoverCart'
 
