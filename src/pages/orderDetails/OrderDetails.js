@@ -25,7 +25,7 @@ function OrderDetails() {
 
             </div>
 
-            <Title label="Compra Finalizada com Sucesso" />
+            <Title label="Compra Realizada com Sucesso" />
 
             <div className="container col-12 alterando d-flex mt-5">
 
