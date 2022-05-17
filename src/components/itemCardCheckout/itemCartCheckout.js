@@ -3,18 +3,6 @@ import React, { useState } from 'react'
 
 function ItemCart(props) {
 
-    //  aqui vai receber um map de item selecionados pelo usuario no nosso site
-    // se for promocional utilizar esse css -> 
-    /*
-     <li className="list-group-item d-flex justify-content-between bg-light">
-                                            <div className="text-success">
-                                                <h6 className="my-0">Código promocional</h6>
-                                                <small>Promoção XXX</small>
-                                            </div>
-                                            <span className="text-success">- R$ 5</span>
-                                        </li>
-    */
-
     let promo = props.promo ? 'text-success' : 'text-muted'
 
 

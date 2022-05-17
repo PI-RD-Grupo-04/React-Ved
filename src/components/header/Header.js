@@ -13,7 +13,6 @@ import CartContext from '../../context/Cart.provider'
 function Header() {
 
     const [buscar, setBuscar] = useState('')
-
     const { qtyCarrinho, setQtyCarrinho } = useContext
 
 
