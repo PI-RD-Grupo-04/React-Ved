@@ -1,21 +1,53 @@
 import './ModalEndereco.css'
 import Button from '../../components/button/Button'
+<<<<<<< HEAD
 import InputMask from 'react-input-mask';
 import InputGroup from '../inputGroup/InputGroup'
 
+=======
+import InputMask from 'react-input-mask'
+import InputGroup from '../inputGroup/InputGroup'
+import React, { useState, useEffect } from 'react'  
+import axios from 'axios' 
+>>>>>>> f919036cd442e3ee6a6ab8832ce2c4771b0178f1
 
-function ModalEndereco() {
+function ModalEndereco(props) { 
+  //  const [endereco, setEndereco] = useState('')
+    const [cep, setCep] = useState(0) 
+    const [endereco, setEndereco] = useState()  
+    console.log(cep)
+    
+    useEffect(() => {
+    }, []) 
 
+    
+    function getCep (cep)  {
+        return axios.get(`https://viacep.com.br/ws/${cep}/json/ `)
+             .then((response) => {
+                 setEndereco(response.data) 
+             })
+             .catch((error) => {
+                 console.error(error.messege)
+             })
+     }
+     console.log(endereco)
+ 
+ 
     return (
 
         <>
-
             {/*  <!-- BUTTON DO MODAL --> */}
+<<<<<<< HEAD
 
             <button type="button" className="btn btn-suport mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Cadastrar Novo Endereço
             </button>
 
+=======
+            <button type="button" className="btn btn-suport mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Cadastrar Novo Endereço
+            </button>
+>>>>>>> f919036cd442e3ee6a6ab8832ce2c4771b0178f1
 
             {/*  <!-- ****************** CAMPO DO MODAL ****************** --> */}
             <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -29,7 +61,16 @@ function ModalEndereco() {
                         </div>
                         <div className="modal-body">
                             <div className="row ">
+<<<<<<< HEAD
                                 <InputGroup required label="Cep: " mask="99999-999" info="seu cep" id="cep" type="number" col="col-12 col-sm-6" />
+=======
+                                <InputMask mask="99999-999" onChange={(e) => {
+                                    setCep(e.target.value) 
+                                    }} onBlur={ () => {getCep(cep)}}
+                                 className="form-control"  id="cep" placeholder='digite o cep do endereço' required  />
+
+                                <InputGroup  required label="Cep: " mask="99999-999" info="seu cep"  col="col-12 col-sm-6" />
+>>>>>>> f919036cd442e3ee6a6ab8832ce2c4771b0178f1
                                 <InputGroup required label="Rua: " info="seu rua" id="rua" type="text" col="col-12 col-sm-6" />
                                 <InputGroup required label="N°: " info="numero do local" id="numeracao " type="text" col="col-12 col-sm-6" />
                                 <InputGroup required label="Complemento: " info="seu complemento" id="Complemento" type="" col="col-12 col-sm-6" />

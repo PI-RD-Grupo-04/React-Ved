@@ -1,0 +1,25 @@
+{
+	 "Print to console": {
+	 	"scope": "javascript,typescript",
+	 	"prefix": "useAxios",
+	 	"body": [
+			" const [$1, set$1] = useState('')",
+			"",
+			" useEffect(() => {",
+			"get$1()",
+			"   }, [])",
+			"",
+	 		"const get$1 = (cep) => {",
+			 "axios.get(`${base}`)",
+			 ".then((response) => {",
+			 "set$1(response.data) ",
+			 "})",
+			 ".catch((error) => {",
+			 "console.error(error.messege)",
+			 "})",
+			 "}",
+	 		
+	 	],
+	 	"description": "Log output to console"
+	 }
+}

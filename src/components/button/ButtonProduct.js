@@ -23,7 +23,11 @@ function ButtonQty(props) {
 
      const decremento = () => {
         
+<<<<<<< HEAD
         if(qty <= 0){
+=======
+        if(qty <= 1){
+>>>>>>> f919036cd442e3ee6a6ab8832ce2c4771b0178f1
             setQty(1); 
         } else {
             setQty(qty - 1); 

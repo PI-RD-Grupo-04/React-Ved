@@ -1,18 +1,82 @@
 import './Category.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
+import React, { useState, useEffect } from 'react'
+import { useParams, Link } from 'react-router-dom'
 import ProductCard from '../../components/productCard/ProductCard'
 import hamburger_menu from '../../components/asserts/imagens/Header/hamburger_menu.png'
 import { InputGroup, Dropdown, DropdownButton, FormControl } from 'react-bootstrap'
-import Title from '../../components/title/Title'
-
+import { baseCategoria } from '../../environments'
+import axios from 'axios'
 
 
 export default function Category() {
+
+    const { buscar } = useParams()
+    const [busca, setBusca] = useState([])
+    const [categorias, setCategorias] = useState([])
+
+    useEffect(() => {
+        getBuscarProduto()
+        getBuscarCategoria()
+        listaProdutos()
+        listaCategorias()
+    }, [])
+
+    const getBuscarProduto = () => {
+        axios.get(`${baseCategoria}/palavra/${buscar}`)
+            .then((response) => {
+                setBusca(response.data)
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+
+    const getBuscarCategoria = () => {
+        axios.get(`${baseCategoria}/${buscar}/categoria`)
+            .then((response) => {
+                setBusca(response.data)
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+
+    const listaProdutos = () => {
+        return busca.map(item => {
+            return (
+                < >
+                    <ProductCard key={item.id} col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img={item.url} link={`/product/${item.id}`} nome={item.nomeProduto} status={item.statusProduto}
+                        descri={item.descricao} price={item.preco} />
+                </>
+            )
+        })
+    }
+
+    const listaCategorias = () => {
+        axios.get(`${baseCategoria}`)
+            .then((response) => {
+                setCategorias(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+
+    const menuCategoria = () => {
+        return categorias.map(cate => {
+            return (
+                <li className="nav-item menuletra"><Link to={`/category/${cate.id}`} className="nav-link menuletra" href={cate.id}>{cate.descricao}</Link></li>
+            )
+        })
+    }
+
     return (
         <>
             <Header />
-
             <div className="container mt-5 mb-4  ">
                 <div className="row ">
                     <div className="col-3 borda-menu color-menu2">
@@ -24,20 +88,7 @@ export default function Category() {
                                         <h2 className="text-category">Categoria</h2>
                                         <hr />
                                     </li>
-
-
-                                    <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Frutas</a>
-                                    </li>
-                                    <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Verduras</a>
-                                    </li>
-                                    <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Legumes</a>
-                                    </li>
-                                    <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Cestas</a>
-                                    </li>
-                                    <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Vinhos</a>
-                                    </li>
-                                    <li className="nav-item menuletra "><a className="nav-link menuletra" href="#">Mel</a>
-                                    </li>
+                                    {menuCategoria()}
 
                                     <li className="nav-item mt-5">
                                         <h2 className="text-category">Preço</h2>
@@ -135,13 +186,6 @@ export default function Category() {
                                             </li>
                                         </ul>
 
-
-
-
-
-
-
-
                                         <div className="filtrocanvas">
                                             <ul>
                                                 <li className="nav-item mt-5 ">
@@ -165,7 +209,7 @@ export default function Category() {
                             </div>
 
                             <p className="text-left  produtoencoontrado col-lg-8"> Produtos Encontrados: Frutas</p>
-                          
+
                             <div className="dropfilter col-sm-6 col-lg-4  ">
                                 <div className="d-flex flex-row-reverse bd-highligh align-items-center">
                                     <Dropdown>
@@ -185,41 +229,9 @@ export default function Category() {
 
                         </div>
 
-
-
-
-
                         <div className="row text-center">
 
-                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price="12,90" />
-
-                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price="12,90" />
-
-                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price="12,90" />
-
-                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price="12,90" />
-
-                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price="12,90" />
-
-                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price="12,90" />
-
-                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price="12,90" />
-
-                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price="12,90" />
-
-                            <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                                peso={1.00} price="12,90" />
-
-
-
+                            {listaProdutos()}
                         </div>
                     </div>
                 </div>
@@ -227,7 +239,6 @@ export default function Category() {
 
             <Footer />
             <div className="col-12 row">
-
 
             </div>
         </>

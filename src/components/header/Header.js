@@ -2,15 +2,23 @@ import { Link } from 'react-router-dom'
 import './Header.css'
 import logo from '../asserts/imagens/Header/logo.png'
 import menuhamburguer from '../asserts/imagens/Header/hamburger_menu.png'
-import lupa from '../asserts/imagens/Header/icon-seach.png'
 import cart from '../asserts/imagens/Users_icon/shopping-cart.png'
 import NavBar from '../navBar/NavBar'
 import Button from '../../components/button/Button'
+import React, { useState, useEffect, useContext } from 'react'
+import CartContext from '../../context/Cart.provider'
+
 
 
 function Header() {
+
+    const [buscar, setBuscar] = useState('')
+
+    const { qtyCarrinho, setQtyCarrinho } = useContext
+
+
     return (
-      <>
+        <>
             <header>
                 <div className="container ">
                     <div className="row align-items-center">
@@ -50,8 +58,13 @@ function Header() {
                         <div className="col-12 col-md-6 search-mobile">
                             <form className="d-flex">
                                 <div class="input-group mt-2 align-items-center justify-content-center">
-                                    <input type="text" class="form-control input-search" placeholder="Busque aqui..." aria-describedby="button-addon2" />
-                                    <Button success img />
+                                    <input onChange={(event) => {
+                                        setBuscar(event.target.value)
+                                    }} class="form-control input-search" placeholder="Busque aqui..." />
+                                    <Link to={'/category/' + buscar} className=' btn  btn-success'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 19 19">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg></Link>
+
                                 </div>
                             </form>
                         </div>
@@ -67,7 +80,7 @@ function Header() {
                             </div>
                             <div className="col-4 mt-3 mb-1">
                                 <Link className="icon-cesta icon-config" to='/cart'>Cesta</Link>
-                                <span className="badge bg-success bg-position">1</span>
+                                <span className="badge bg-success ">1</span>
                             </div>
                         </div>
                         {/*} end icones usuario */}
