@@ -5,8 +5,33 @@ import Button from '../../components/button/Button'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
 import InputMask from 'react-input-mask';
 import InputGroup from '../../components/inputGroup/InputGroup'
-
+import CartContext from '../../context/Cart.provider'
+import React, { useState, useEffect, useContext } from 'react'
 function Cart(props) {
+
+
+    const { carrinho } = useContext(CartContext)
+    const  listaItem = []
+    useEffect(() => {
+        listaItem = carrinho
+    }, [])
+
+    function listar() {
+        
+        if (listaItem == []) {
+            return ("Seu carrinho está vazio")
+        }
+        return listaItem.map((item) => {
+            return (
+                <li key={item.id}>
+                    <ItemBasket valor={item.price} qty={item.quantidade} nome={item.nome} />
+                </li>
+            )
+
+        })
+    }
+
+
 
 
     return (
@@ -20,11 +45,7 @@ function Cart(props) {
                         <h1 className="title">Sua cesta</h1>
                     </div>
                     <ul>
-                        <ItemBasket valor={10.000} qty={1} nome="abacaxi" />
-                        <ItemBasket valor={13} qty={1} nome="laranja" />
-                        <ItemBasket valor={10} qty={1} nome="abacaxi" />
-                        <ItemBasket valor={13} qty={1} nome="laranja" />
-
+                        {listar()}
                     </ul>
 
 
@@ -36,18 +57,18 @@ function Cart(props) {
                         <div className="container mb-3 border">
                             <div className="row mt-3 mb-1 d-flex align-items-center justify-content-start">
                                 <div className="col-12 col-sm-4 text-left">
-                                <h4>Simule o frete:</h4>
-                                <InputMask mask="99999-999"  placeholder="Digite o CEP da entrega"  className="form-control" id="cep" required /> 
+                                    <h4>Simule o frete:</h4>
+                                    <InputMask mask="99999-999" placeholder="Digite o CEP da entrega" className="form-control" id="cep" required />
                                 </div>
                             </div>
 
                             {/* <!--cep--> */}
                             <div className="row">
-                        
+
                                 <div className="mt-1 col-sm-12 col-lg-4">
                                     <p>Entrega Comum: R$ 45,50</p>
-                                    <p>Entrega Flex: R$ 65,50</p> 
-                                    
+                                    <p>Entrega Flex: R$ 65,50</p>
+
                                 </div>
 
                                 <div className="row d-flex">
