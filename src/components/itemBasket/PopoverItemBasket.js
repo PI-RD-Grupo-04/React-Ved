@@ -6,24 +6,24 @@ import { Row, Col } from 'react-bootstrap';
 
 
 function PopoverItemBasket(props) {
-    const [qty, setQty] = useState(0)
-    const [total, setTotal] = useState(props.valor)
+    // const [qty, setQty] = useState(0)
+    // const [total, setTotal] = useState(props.valor)
 
-    const incremento = () => {
-        setQty(qty + 1);
-    }
+    // const incremento = () => {
+    //     setQty(qty + 1);
+    // }
 
 
-    const decremento = () => {
-        if (qty <= 0) {
-            setQty(0);
-        } else {
-            setQty(qty - 1);
-        }
-    }
+    // const decremento = () => {
+    //     if (qty <= 0) {
+    //         setQty(0);
+    //     } else {
+    //         setQty(qty - 1);
+    //     }
+    // }
 
-    const valorTotal = (qty * total)
-    console.log(Math.round(valorTotal))
+    // const valorTotal = (qty * total)
+    // console.log(Math.round(valorTotal))
 
 
     return (

@@ -23,6 +23,8 @@ function Product() {
     const [product, setProduct] = useState({})
     const [receita, setReceita] = useState({}) 
 
+
+    const {quantidadeProduto } = useContext(CartContext) 
     const {addCarrinho } = useContext(CartContext)
 
     useEffect(() => {
@@ -101,7 +103,7 @@ function Product() {
                                     </div>
 
                                     <div className="col-12 col-sm-6">
-                                        <button onClick={() => addCarrinho(product)}>Adicionar ao Carrinho</button> 
+                                        <button onClick={() => addCarrinho(product , quantidadeProduto)}>Adicionar ao Carrinho</button> 
                                     </div>
                                 </div>
                             </div>
