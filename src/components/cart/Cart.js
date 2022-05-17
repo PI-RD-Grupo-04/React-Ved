@@ -1,11 +1,25 @@
-import React, { useState } from 'react'
-import './Cart.css' 
+import './Cart.css'
 import ItemCart from '../itemCardCheckout/itemCartCheckout'
+// import React, { useState, useEffect, useContext } from 'react'
+// import CartContext from '../../context/Cart.provider'
+
 
 function Cart(props) {
 
+    // const { listarCarrinho } = useContext(CartContext)
 
+    // useEffect(() => {
+    //     const listaItem = listarCarrinho()
+    // }, [])
 
+    // function listar() {
+    //     if (listaItem == []) {
+    //         return ("Seu carrinho está vazio")
+    //     }
+    //     return listaItem.map( (item) => { 
+    //         <ItemCart key={item.id} nome={item.nome} descricao={item.descricao} price={item.price} />
+    //     })
+    // }
 
     return (
         <>
@@ -16,12 +30,7 @@ function Cart(props) {
                     <span className="badge bg-success rounded-pill">2</span>
                 </h4>
                 <ul className="list-group mb-3">
-                    <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
-                    <ItemCart nome="laranja" descricao="8 unid." price="12,90" />
-                    <ItemCart nome="maça" descricao="1kg aprox." price="12,00" />
-                    <ItemCart nome="alface" descricao="1 unid." price="4,90" />
-                    <ItemCart nome="banana" descricao="1kg aprox." price="9,90" /> 
-                    <ItemCart promo nome="VED10" descricao="Cupom Promocional" price="-10,00" /> 
+                               {/* {listar()} */}
                     <div>
                         <li className="list-group-item list1 d-flex justify-content-between lh-sm">
                             <div>

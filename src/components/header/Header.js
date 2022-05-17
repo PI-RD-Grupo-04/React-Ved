@@ -14,8 +14,21 @@ function Header() {
 
     const [buscar, setBuscar] = useState('')
 
-    const { qtyCarrinho, setQtyCarrinho } = useContext
+    const { qtyCarrinho, setQtyCarrinho } = useContext (CartContext)
 
+
+    useEffect(() => {
+        quantidade()
+    }, [])
+
+function quantidade(){
+    if ( qtyCarrinho == 0 ) 
+    {
+      return ("")  
+    }
+    return qtyCarrinho;
+     }
+     
 
     return (
         <>
@@ -80,7 +93,7 @@ function Header() {
                             </div>
                             <div className="col-4 mt-3 mb-1">
                                 <Link className="icon-cesta icon-config" to='/cart'>Cesta</Link>
-                                <span className="badge bg-success ">1</span>
+                                <span className="badge bg-success ">  {quantidade()} </span>
                             </div>
                         </div>
                         {/*} end icones usuario */}
