@@ -8,6 +8,8 @@ import Button from '../../components/button/Button'
 import React, { useState, useEffect, useContext } from 'react'
 import CartContext from '../../context/Cart.provider'
 
+import { Popover } from 'bootstrap'
+import PopoverCart from '../popoverCart/PopoverCart'
 
 
 function Header() {
@@ -50,7 +52,7 @@ function Header() {
                             {/*} **************** CESTA **************** */}
                             <div className="col-3 mt-3 mb-3  icon-cesta-mobile">
                                 <span className="badge bg-success bg-position-mobile">1</span>
-                                <Link to="/cart"><img src={cart} width="60px" /></Link>
+                                <Link to="/popoverCart"><img src={cart} width="60px" /></Link>
                             </div>
                         </div>
 
@@ -81,6 +83,7 @@ function Header() {
                             <div className="col-4 mt-3 mb-1">
                                 <Link className="icon-cesta icon-config" to='/cart'>Cesta</Link>
                                 <span className="badge bg-success ">1</span>
+                            <PopoverCart></PopoverCart>
                             </div>
                         </div>
                         {/*} end icones usuario */}
@@ -135,9 +138,13 @@ function Header() {
                                 <Link to="/login"> <li className="nav-item mt-4">
                                     Fazer Login
                                 </li></Link>
-                                <Link to="/cart"><li className="nav-item">
+                                <Link to="/popoverCard">
+                                    <li className="nav-item">
                                     Cesta
-                                </li></Link>
+                                    </li>
+                                </Link>
+                                 
+                    
                                 <Link to="/favorites"><li className="nav-item">
                                     Favoritos
                                 </li></Link>
