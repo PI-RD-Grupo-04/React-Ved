@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
-//import './ItemCart.css'
+
 
 function ItemCart(props) {
-
-
     let promo = props.promo ? 'text-success' : 'text-muted'
-
 
     return (
 

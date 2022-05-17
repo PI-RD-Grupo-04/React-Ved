@@ -8,7 +8,7 @@ import './Button.css'
 
 
 function Button(props) {
-  const [show, setShow] = useState(false);
+
   let btn = ' ml-0 btn-lg mb-3 text-center '
   btn += props.card ? 'btn-add-card ' : ''
   btn += props.suporte ? 'btn-suport ' : ''
@@ -39,8 +39,9 @@ function Button(props) {
       <>
 
         {link != null 
-        ? <Link to={link} onClick={ props.modal ? () => setShow(true) : null}  className={btn} type="submit">{props.label}</Link>
-        : <button onClick={props.modal ? () => setShow(true) : null } className={btn} type="submit">{props.label}</button>}
+        ? <Link to={link}  className={btn} type="submit">{props.label}</Link>
+        : <button className={btn} >{props.label}</button>
+        }
            
 
       </>

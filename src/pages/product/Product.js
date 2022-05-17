@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import CartContext from '../../context/Cart.provider'
 import './Product.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
@@ -13,7 +14,6 @@ import { Accordion } from 'react-bootstrap'
 import Title from '../../components/title/Title'
 import ModalConsumo from '../../components/modalConsumo/ModalConsumo'
 import { useParams } from 'react-router-dom'
-//import { GetProduct } from '../../Api/https'
 import axios from 'axios'
 import { baseProduct } from '../../environments'
 
@@ -21,8 +21,14 @@ import { baseProduct } from '../../environments'
 function Product() {
     const { id } = useParams()
     const [product, setProduct] = useState({})
-    const [receita, setReceita] = useState({})
+    const [receita, setReceita] = useState({}) 
 
+    const {addCarrinho } = useContext(CartContext)
+
+    useEffect(() => {
+        getReceita()
+        getProduct()
+    }, [])
 
     const getProduct = () => {
         axios.get(`${baseProduct}/${id} `)
@@ -34,11 +40,6 @@ function Product() {
             })
     }
 
-    useEffect(() => {
-        getReceita()
-        getProduct()
-    }, [])
-
 
     const getReceita = () => {
         axios.get(`${baseProduct}/${id}/receita `)
@@ -49,6 +50,8 @@ function Product() {
                 console.error(error.messege)
             })
     }
+
+
 
     return (
         <>
@@ -98,7 +101,7 @@ function Product() {
                                     </div>
 
                                     <div className="col-12 col-sm-6">
-                                        <Link to="/cart" className="btn btn-success btn-lg w-100 ">Adicionar</Link>
+                                        <button onClick={() => addCarrinho(product)}>Adicionar ao Carrinho</button> 
                                     </div>
                                 </div>
                             </div>
