@@ -5,9 +5,9 @@ import CartContext from '../../context/Cart.provider'
 function ItemBasket(props) {
     const [qty, setQty] = useState(1)
     const [total, setTotal] = useState(props.valor) 
-
-    const {incrementoCarrinho, decrementoCarrinho, deleteCarrinho  } = useContext(CartContext) 
-
+    const [valorTotal, setValorTotal] = useState(props.valor * props.quantidadeProduto)
+    const {incrementoCarrinho, decrementoCarrinho, deleteCarrinho ,quantidadeProduto  } = useContext(CartContext) 
+console.log(quantidadeProduto);
     return (
         <>
             <li className="list-group-item py-3">
@@ -44,7 +44,7 @@ function ItemBasket(props) {
                                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                                     </svg> <i className="bi-caret-down" ></i>
                                 </button>
-                                <input type="text" className="form-control text-center border-dark " value={qty} />
+                                <input type="text" className="form-control text-center border-dark " value={quantidadeProduto} />
                                 <button onClick={decrementoCarrinho} className="btn btn-outline-dark btn-green btn-sm" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z" />
@@ -59,8 +59,8 @@ function ItemBasket(props) {
                                 </button>
                             </div>
                             <p className="text-dark">Valor Item: {props.valor}</p>
-                            {/* <small className="text-secondary">Valor Total: {valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })} </small><br /> */}
-                            {/* <small className="text-secondary">Valor Total: {valorTotal.toLocaleString('pt-br', {minimumFractionDigits: 2})} </small><br /> */}
+                            <small className="text-secondary">Valor Total: {valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })} </small><br /> 
+                             <small className="text-secondary">Valor Total: {valorTotal.toLocaleString('pt-br', {minimumFractionDigits: 2})} </small><br />
                         </div>
                     </div>
                 </div>

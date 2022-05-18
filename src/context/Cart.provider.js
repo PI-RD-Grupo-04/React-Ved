@@ -1,16 +1,14 @@
 import React, { useState, createContext } from 'react'
-
+import {ButtonQty} from '../components/productCard/ProductCard'
 const CartContext = createContext({})
 
 function CartProvider(props) {
 
     const [carrinho, setCarrinho] = useState([])
     const [qtyCarrinho, setQtyCarrinho] = useState(0)
+    const [quantidadeCesta,setQuantidadeCesta] = useState(0)
     const [quantidadeProduto, setQuantidadeProduto] = useState(0)
-
-    // const valorTotal = (qty * total) 
-
-    // console.log(Math.round(valorTotal)) 
+        
 
     function ValidaCarrinho() {
         let context = localStorage.getItem('cart')
@@ -20,11 +18,13 @@ function CartProvider(props) {
         return context
     }
 
-    const addCarrinho = (item, quantidade) => {
+    const addCarrinho = (item, quantidadeProduto) => {
         const carrinhoLista = localStorage.getItem('cart')
             ? JSON.parse(localStorage.getItem('cart'))
             : []
-        setQuantidadeProduto(item.quantidade)
+
+        setQuantidadeProduto(quantidadeProduto +1 )
+        
         carrinhoLista.push(item)
 
         localStorage.setItem('cart', JSON.stringify(carrinhoLista))
@@ -67,7 +67,8 @@ function CartProvider(props) {
 
     return (
         <CartContext.Provider
-            value={{ deleteCarrinho, decrementoCarrinho, incrementoCarrinho, addCarrinho, quantidadeCarrinho, listarCarrinho, carrinho, qtyCarrinho }}>
+            value={{ deleteCarrinho, decrementoCarrinho, incrementoCarrinho, addCarrinho, quantidadeCarrinho, listarCarrinho,
+             carrinho, qtyCarrinho , quantidadeProduto , quantidadeCesta }}>
             {props.children}
         </CartContext.Provider>
     )
