@@ -45,24 +45,15 @@ function CartProvider(props) {
     }
 
     const deleteCarrinho = (item) => {
-<<<<<<< HEAD
         const remove = carrinho.filter(items => items.id  !== item.id )
          localStorage.setItem("cart", remove)
          setCarrinho(remove)
 
-=======
-        carrinho.map((e) => {
-            if (e.id == item.id) {
-                carrinho.splice(e.index, 1)
-              
-            }
-        })
->>>>>>> 286341299e60a076127253c21f971ac48fec83b7
     }
 
     const quantidadeCarrinho = () => {
         let quantidade = ValidaCarrinho()
-        setQtyCarrinho(quantidade.lenght)
+        //setQtyCarrinho(quantidade.lenght)
     }
 
     const listarCarrinho = () => {
