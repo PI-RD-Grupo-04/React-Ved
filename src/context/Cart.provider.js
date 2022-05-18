@@ -47,10 +47,9 @@ function CartProvider(props) {
     }
    
     const deleteCarrinho = (item) => { 
-
         carrinho.map((e) => {
             if (e.id == item){
-                carrinho.splice(e.index, item)
+                carrinho.splice(e.index, 1)
             }
         })
     }
