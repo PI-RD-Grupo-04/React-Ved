@@ -61,8 +61,6 @@ function ButtonQty(props) {
                     </button>
                     : null}
 
-
-
             </div>
         </>
     )
