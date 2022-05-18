@@ -9,11 +9,13 @@ import React, { useState, useEffect, useContext } from 'react'
 
 function Cart(props) {
 
-    const { carrinho } = useContext(CartContext) 
+    const { carrinho, listarCarrinho } = useContext(CartContext) 
 
     const listaItem = carrinho
     useEffect(() => {
+        listarCarrinho()
         listar()
+        
     }, [])
 
     function listar() {
