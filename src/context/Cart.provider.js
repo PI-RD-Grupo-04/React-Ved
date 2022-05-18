@@ -52,6 +52,7 @@ function CartProvider(props) {
                 carrinho.splice(e.index, 1)
             }
         })
+        
     }
 
     const quantidadeCarrinho = () => {

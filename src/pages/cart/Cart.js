@@ -23,7 +23,7 @@ function Cart(props) {
        return  listaItem.map((item) => {
             return (
                 <li key={item.id}>
-                    <ItemBasket img={item.url} item={item.id} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nome} />
+                    <ItemBasket img={item.url} item={item} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nome} />
                 </li>
             )
 
