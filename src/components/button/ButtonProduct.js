@@ -6,10 +6,10 @@ import React, { useState, useContext } from 'react'
 function ButtonQty(props) {
 
    
-    const [quantidade1, setQuantidade1] = useState(0)
+    const [quantidade1, setQuantidade1] = useState(1)
     let delet = props.delete ? props.delete : null
 
-    const quantidade = props.quantidade ? props.quantidade : 0
+    const quantidade = props.quantidade ? props.quantidade : 1
 
 
     const incremento = () => {

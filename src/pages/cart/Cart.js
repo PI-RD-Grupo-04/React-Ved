@@ -4,7 +4,8 @@ import Footer from '../../components/footer/Footer'
 import Button from '../../components/button/Button'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
 import InputMask from 'react-input-mask';
-import CartContext from '../../context/Cart.provider'
+import CartContext from '../../context/Cart.provider' 
+import Title from '../../components/title/Title'
 import React, { useState, useEffect, useContext } from 'react'
 
 function Cart(props) {
@@ -45,7 +46,7 @@ function Cart(props) {
 
                 <div className="container">
                     <div className="row  mb-3 text-center mt-3">
-                        <h1 className="title">Sua cesta</h1>
+                        <Title label='Sua cesta' ></Title>
                     </div>
                     <ul>
                         {listar()}

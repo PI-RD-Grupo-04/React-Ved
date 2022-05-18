@@ -34,7 +34,7 @@ function ModalConsumo(props) {
               </div>
 
               <div className="d-flex justify-content-center">
-                <img className="imagemsugestao1 imgresp " src={props.img} width={375} />
+                <img className="imagemsugestao1 imgresp " src='https://www.guiadasemana.com.br/contentFiles/system/pictures/2015/11/147421/original/bolo-de-coco.jpg' width={375} />
               </div>
 
               <div className="container primeiroAB mt-3 ">
@@ -53,7 +53,7 @@ function ModalConsumo(props) {
                     {props.ingredientes}
                   </div>
                   <div className=" col-6  d-flex justify-content-center">
-                    <img className="imagemsugestao " src={props.img} />
+                    <img className="imagemsugestao " src="https://www.guiadasemana.com.br/contentFiles/system/pictures/2015/11/147421/original/bolo-de-coco.jpg" />
                   </div>
                 </div>
               </div>

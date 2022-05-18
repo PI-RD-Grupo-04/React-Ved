@@ -23,7 +23,7 @@ function CartProvider(props) {
             ? JSON.parse(localStorage.getItem('cart'))
             : []
         if(carrinhoLista.find(product => product.id == item.id)){
-            product.quantidade++
+           // product.quantidade++
         }else {
             carrinhoLista.push(item)
         }

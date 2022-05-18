@@ -9,38 +9,26 @@ import './Button.css'
 
 function Button(props) {
 
-  let btn = ' ml-0 btn-lg mb-3 text-center '
-  btn += props.card ? 'btn-add-card ' : ''
-  btn += props.suporte ? 'btn-suport ' : ''
-  btn += props.delete ? 'btn-delete ' : ''
-  btn += props.success ? 'btn-success ' : ''
-  btn += props.plans ? 'w-100 btn-Plano ' : ''
-  btn += props.cart ? 'btnCardDel ' : ''
-  btn += props.img ? 'button-search ' : ''
-  btn += props.none ? "none " : ''
-  btn += props.plans2 ? 'btn-Plano ' : '' 
-  
-
- 
+  let btn = ' ml-0  mb-3 text-center  '
+  btn += props.card ? 'btn-add-card btn-lg ' : ''
+  btn += props.suporte ? 'btn-suport btn-lg ' : ''
+  btn += props.delete ? 'btn-delete  ' : ''
+  btn += props.success ? 'btn-success btn-lg ' : ''
+  btn += props.plans ? 'w-100 btn-Plano btn-lg ' : ''
+  btn += props.cart ? 'btnCardDel btn-lg ' : ''
+  btn += props.img ? 'button-search btn-lg ' : ''
+  btn += props.none ? "none btn-lg " : ''
+  btn += props.plans2 ? 'btn-Plano btn-lg  ' : '' 
 
   let link = props.link ? props.link : null
-
-
-  let img, label, color = '';
-
-  label = props.confirm ? "Sucesso!" : "Error! tente novamente!"
-
-
-  //btn-outline-success
-
-
+  let label = props.confirm ? "Sucesso!" : "Error! tente novamente!"
 
     return (
       <>
 
         {link != null 
         ? <Link to={link}  className={btn} type="submit">{props.label}</Link>
-        : <button className={btn} >{props.label}</button>
+        : <button className={btn}  >{props.label}</button>
         }
            
 
