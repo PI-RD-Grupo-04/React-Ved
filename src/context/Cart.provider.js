@@ -45,11 +45,12 @@ function CartProvider(props) {
             setQuantidadeProduto(quantidadeProduto - 1);
         }
     }
-   
-    const deleteCarrinho = (item) => { 
+
+    const deleteCarrinho = (item) => {
         carrinho.map((e) => {
-            if (e.id == item){
+            if (e.id == item.id) {
                 carrinho.splice(e.index, 1)
+              
             }
         })
     }
