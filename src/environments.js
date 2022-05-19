@@ -8,5 +8,8 @@ const baseEndereco = 'http://localhost:8080/cliente/endereco'
 
 const baseUf = 'http://localhost:8080/uf'
 
+const baseCartao = 'http://localhost:8080/cliente/cartao'
 
-export { baseHome, baseProduct, baseCategoria, baseEndereco, baseUf }
+export { baseHome, baseProduct, baseCategoria, baseEndereco, baseUf ,baseCartao }
+
+
