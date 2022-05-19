@@ -5,4 +5,14 @@
 a:hover {
 	color: #54043c;
 	text-decoration: none;
+} 
+
+
+.body-success{
+	color: green
+} 
+
+
+.body-error{
+	color:#54043c;
 }

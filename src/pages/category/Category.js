@@ -6,23 +6,30 @@ import { useParams, Link } from 'react-router-dom'
 import ProductCard from '../../components/productCard/ProductCard'
 import hamburger_menu from '../../components/asserts/imagens/Header/hamburger_menu.png'
 import { InputGroup, Dropdown, DropdownButton, FormControl } from 'react-bootstrap'
-import { baseCategoria } from '../../environments'
-import { baseNovidades } from '../../environments'
+import { baseCategoria, baseHome } from '../../environments'
 import axios from 'axios'
 
 
 export default function Category() {
 
     const { buscar } = useParams()
+ 
     const [busca, setBusca] = useState([])
     const [categorias, setCategorias] = useState([])
+    const [novidade, setNovidade] = useState([])
 
     useEffect(() => {
-        getBuscarProduto()
+      
+        if (buscar == 'novidade') {
+            listaNovidade()
+        }else {
+            getBuscarProduto()
+        }
         getBuscarCategoria()
         listaProdutos()
         listaCategorias()
-      
+        listaNovidade()
+
     }, [])
 
     const getBuscarProduto = () => {
@@ -58,10 +65,10 @@ export default function Category() {
         })
     }
 
-    const listaNovidades = () => {
-        axios.get(`${baseNovidades}`)
+    const listaNovidade = () => {
+        axios.get(`${baseHome}/novidade`)
             .then((response) => {
-                listaNovidades(response.data)
+                setBusca(response.data)
             })
             .catch((error) => {
                 console.error(error.messege)
