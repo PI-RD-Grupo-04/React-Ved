@@ -103,7 +103,7 @@ function Product() {
                                     </div>
 
                                     <div className="col-12 col-sm-6">
-                                        <button onClick={() => addCarrinho(product , quantidadeProduto)}>Adicionar ao Carrinho</button> 
+                                        <button className='btn btn-success btn-lg' onClick={() => addCarrinho(product , quantidadeProduto)}>Adicionar ao Carrinho</button> 
                                     </div>
                                 </div>
                             </div>

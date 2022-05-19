@@ -1,5 +1,6 @@
 import './Addressinfo.css'
-import CheckInput from '../checkInput/CheckInput'
+import CheckInput from '../checkInput/CheckInput' 
+import Button from '../button/Button'
 
 function AddressInfo(props) {
 
@@ -14,7 +15,9 @@ function AddressInfo(props) {
                 <label className="margin" for={props.id}>CEP: {props.zipcode}</label>
                 <label className="margin" for={props.id}>Cidade: {props.city}</label>
                 <label className="margin" for={props.id}>Estado: {props.states}</label>
-                <label className="margin" for={props.id}>País: {props.country}</label>
+                <div className="col-12 col-sm-4   ">
+                    <button onClick={() =>  props.delete(props.id)} className="btn-delete"> Excluir</button>
+                </div>
                 </CheckInput>
             </div>
         </>

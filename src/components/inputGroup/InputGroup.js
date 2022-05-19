@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import InputMask from 'react-input-mask'
-import iconCancel from "../asserts/imagens/iconCancel.png"
 import iconOk from '../asserts/imagens/iconOk.png'
 
 import './InputGroup.css'
 
 function InputGroup(props) {
-
 
     const [senhaOk, setSenhaOk] = useState('d-none')
     const [senhaError, setSenhaError] = useState('d-none')
@@ -20,25 +18,22 @@ function InputGroup(props) {
     let columns = " text-left mt-1 " + props.col;
 
     function inputa() {
-        if(props.data ){
-           return ( <input type='date' id={props.id}  name='dtnasc'/>);
+        if (props.data) {
+            return (<input type='date' id={props.id} name='dtnasc' />);
         }
-
 
         if (props.mask) {
             return (
                 (props.block != null)
-                    ? <InputMask mask={props.mask} value={props.value} class="form-control" id={props.id} placeholder={props.info} required  disabled/>
-                    : <InputMask mask={props.mask} value={props.value} class="form-control" id={props.id} placeholder={props.info} required  />
-
+                    ? <InputMask mask={props.mask} value={props.value}  class="form-control" id={props.id} placeholder={props.info} required disabled />
+                    : <InputMask    mask={props.mask} value={props.value} class="form-control" id={props.id} placeholder={props.info} required />
             )
         } else {
-             return (props.block != null
-                ? <input value={props.value} type={props.type} disabled className="form-control" id={props.id} placeholder={props.info}  required/>
-                : <input value={props.value} type={props.type} className="form-control" id={props.id} placeholder={props.info} />)
+            return (props.block != null
+                ? <input   value={props.value} type={props.type} disabled className="form-control" id={props.id} placeholder={props.info} required />
+                : <input   value={props.value} type={props.type} className="form-control" id={props.id} placeholder={props.info} />)
         }
 
-        
     }
 
     function password() {
@@ -67,7 +62,7 @@ function InputGroup(props) {
                             <img src={iconOk} width='24px' height='24px' />
                         </div>
 
-                        
+
                     </div>
 
                     <div className="col-12 col-sm-6">

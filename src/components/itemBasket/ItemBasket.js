@@ -52,7 +52,7 @@ function ItemBasket(props) {
                                 
                             </div>
                             <p className="text-dark">Valor Item: {props.valor}</p>
-                            <small className="text-secondary">Valor Total: {valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })} </small><br /> 
+                            <small className="text-secondary">Valor Unitário: {valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })} </small><br /> 
                              <small className="text-secondary">Valor Total: {valorTotal.toLocaleString('pt-br', {minimumFractionDigits: 2})} </small><br />
                         </div>
                     </div>
