@@ -146,8 +146,6 @@ function ModalEndereco(props) {
                             Sair
                         </Button>
                         <Button className="btn btn-success" onClick={() => {
-
-                            setSuccessRegister(true)
                             setSuccessRegister(true)
                             postEndereco(address)
                             setTimeout(

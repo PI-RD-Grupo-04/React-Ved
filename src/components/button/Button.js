@@ -6,7 +6,6 @@ import error from '../asserts/imagens/error.png'
 import { useHistory } from "react-router-dom";
 import './Button.css'
 
-
 function Button(props) {
 
   let btn = ' ml-0  mb-3 text-center  '
@@ -23,12 +22,15 @@ function Button(props) {
   let link = props.link ? props.link : null
   let label = props.confirm ? "Sucesso!" : "Error! tente novamente!"
 
+
+
+
     return (
       <>
 
         {link != null 
-        ? <Link to={link}  className={btn} type="submit">{props.label}</Link>
-        : <button className={btn}  >{props.label}</button>
+        ? <Link to={link} onClick={props.click} className={btn} >{props.label}</Link>
+        : <button className={btn} onClick={ props.click}  >{props.label}</button>
         }
            
 
