@@ -6,10 +6,47 @@ import CardInfo from '../../components/cardInfo/CardInfo'
 import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
 import Button from '../../components/button/Button'
 import Title from '../../components/title/Title'
-
+import axios from 'axios'
+import { baseCartao } from "../../environments";
+import React , { useEffect, useState } from 'react'
 
 function PaymentCards() {
+
+    const [cartao, setCartao] = useState([])
+    useEffect(() => {
+        axios.get(`${baseCartao}/1/detalhes`
+        )
+            .then((response) => {
+                setCartao(response.data)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+
+    }, [])
+
+
+    
+        function ofertas() {
+           return cartao.map(item => {
+                return (
+                    <div key={item.id}>
+                        <div class="row mb-3 pb-3 pt-3">
+                            <div class="row ">
+
+                                <CardInfo id={item.id} nome={item.idBandeira.nome} numero= {item.numeroCartao} mes={item.diaVencimento} ano={item.anoVencimento} />
+                            </div>
+                        </div>
+                    </div>
+                    
+                )
+                })
+            }
+    
+
     return (
+
+
         <>
             <Header />
             <div class="container mt-3 mb-4  ">
@@ -23,12 +60,8 @@ function PaymentCards() {
                     <div class="col-12 col-sm-9 order-md-last  mb-3">
                         <Title label="Meus Cartões" />
                         {/* <!-- area do primeira cartão --> */}
-                        <div class="row mb-3 pb-3 pt-3">
-                            <div class="row ">
-                                <CardInfo id={1} nome="Visa" numero="*************23" mes="10" ano="24" />
-                                <CardInfo id={2} nome="MasterCard" numero="*************14" mes="10" ano="24" />
-                            </div>
-                        </div>
+
+                        {ofertas()} 
 
                         {/* <!-- ************************MODEL PARA CADASTRO DE CARTÃO ********************* --> */}
                         {/* <!-- DIVISÃO DOS BUTTONS --> */}
