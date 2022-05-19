@@ -7,6 +7,7 @@ import ProductCard from '../../components/productCard/ProductCard'
 import hamburger_menu from '../../components/asserts/imagens/Header/hamburger_menu.png'
 import { InputGroup, Dropdown, DropdownButton, FormControl } from 'react-bootstrap'
 import { baseCategoria } from '../../environments'
+import { baseNovidades } from '../../environments'
 import axios from 'axios'
 
 
@@ -21,6 +22,7 @@ export default function Category() {
         getBuscarCategoria()
         listaProdutos()
         listaCategorias()
+      
     }, [])
 
     const getBuscarProduto = () => {
@@ -54,6 +56,16 @@ export default function Category() {
                 </>
             )
         })
+    }
+
+    const listaNovidades = () => {
+        axios.get(`${baseNovidades}`)
+            .then((response) => {
+                listaNovidades(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
     }
 
     const listaCategorias = () => {

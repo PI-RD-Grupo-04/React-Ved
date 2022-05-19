@@ -10,6 +10,8 @@ const baseUf = 'http://localhost:8080/uf'
 
 const baseCartao = 'http://localhost:8080/cliente/cartao'
 
-export { baseHome, baseProduct, baseCategoria, baseEndereco, baseUf ,baseCartao }
+const baseNovidades = 'http://localhost:8080/novidades'
+
+export { baseHome, baseProduct, baseCategoria, baseEndereco, baseUf ,baseCartao, baseNovidades}
 
 
