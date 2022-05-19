@@ -3,6 +3,7 @@ import './CardInfo.css'
 
 function CardInfo(props) {
 
+    
     return (
         <>
             <div class="col-12 border mb-2">

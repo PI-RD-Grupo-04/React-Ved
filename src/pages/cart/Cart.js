@@ -4,16 +4,19 @@ import Footer from '../../components/footer/Footer'
 import Button from '../../components/button/Button'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
 import InputMask from 'react-input-mask';
-import CartContext from '../../context/Cart.provider'
+import CartContext from '../../context/Cart.provider' 
+import Title from '../../components/title/Title'
 import React, { useState, useEffect, useContext } from 'react'
 
 function Cart(props) {
 
-    const { carrinho } = useContext(CartContext) 
+    const { carrinho, listarCarrinho } = useContext(CartContext) 
 
     const listaItem = carrinho
     useEffect(() => {
+        listarCarrinho()
         listar()
+        
     }, [])
 
     function listar() {
@@ -23,7 +26,7 @@ function Cart(props) {
        return  listaItem.map((item) => {
             return (
                 <li key={item.id}>
-                    <ItemBasket img={item.url} item={item.id} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nome} />
+                    <ItemBasket img={item.url} item={item} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nome} />
                 </li>
             )
 
@@ -43,7 +46,7 @@ function Cart(props) {
 
                 <div className="container">
                     <div className="row  mb-3 text-center mt-3">
-                        <h1 className="title">Sua cesta</h1>
+                        <Title label='Sua cesta' ></Title>
                     </div>
                     <ul>
                         {listar()}

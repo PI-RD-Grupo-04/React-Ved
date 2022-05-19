@@ -4,7 +4,7 @@ const baseProduct = 'http://localhost:8080/produto'
 
 const baseCategoria = 'http://localhost:8080/categoria'  
 
-const baseEndereco = 'localhost:8080/cliente/endereco'
+const baseEndereco = 'http://localhost:8080/cliente/endereco'
 
 
 export { baseHome, baseProduct, baseCategoria, baseEndereco }
