@@ -98,7 +98,7 @@ function Address() {
 
                         <div className='mt-5 row '>
                             <div className="col-12 d-grid gap-2 col-sm-8    ">
-                                <ModalEndereco  address={address}/>
+                                <ModalEndereco  address={addressModal}/>
                             </div>
 
 
