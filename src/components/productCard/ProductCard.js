@@ -1,0 +1,38 @@
+import './ProductCard.css'
+import favorito from '../asserts/imagens/Users_icon/favorito.png'
+import Button from '../../components/button/Button'
+import { Link } from 'react-router-dom'
+
+function ProductCard(props) {
+
+  return (
+    <div className={props.col}>
+      <div class="product-card">
+        <div class="badge-B  ">{props.status}</div>
+        <div class="product-tumb">
+          <Link to={props.link}>  <img src={props.img} alt="Abacaxi queen" /></Link>
+        </div>
+        <div class="product-details align-items-center justify-content-center">
+
+          <h4 className="text-center"> <Link to={props.link}>{props.nome}</Link></h4>
+          <p className='text-center'>Peso: {props.peso} kg (aprox)</p>
+          <div class="product-bottom-details text-center">
+            <div class="product-price">
+
+              R$ {props.price}
+            </div>
+          </div>
+          <div class=" row text-center justify-content-center ">
+            <div className="col-12 d-grid gy-2">
+            <Link to={props.link} className="btn border btn-success">Adicionar a cesta</Link>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div >
+  )
+}
+
+export default ProductCard
