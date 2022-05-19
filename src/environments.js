@@ -6,10 +6,12 @@ const baseCategoria = 'http://localhost:8080/categoria'
 
 const baseEndereco = 'http://localhost:8080/cliente/endereco'
 
-const baseUf = 'http://localhost:8080/uf'
+const baseUf = 'http://localhost:8080/uf' 
+
+const baseCliente = 'http://localhost:8080/cliente'
 
 const baseCartao = 'http://localhost:8080/cliente/cartao'
 
-export { baseHome, baseProduct, baseCategoria, baseEndereco, baseUf ,baseCartao }
+export { baseHome, baseProduct, baseCategoria, baseEndereco, baseUf ,baseCartao, baseCliente }
 
 
