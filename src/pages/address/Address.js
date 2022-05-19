@@ -9,8 +9,7 @@ import React, { useState, useEffect } from 'react'
 import { baseEndereco } from '../../environments'
 import { AiFillCheckCircle } from "react-icons/ai";
 import { Alert } from 'react-bootstrap'
-import axios from 'axios' 
-import addressModal from '../../models/Address'
+import axios from 'axios'
 
 
 function Address() {
@@ -28,16 +27,7 @@ function Address() {
         axios.get(`${baseEndereco}/${cliente}/detalhes`)
             .then((response) => {
                 setEndereco(response.data)
-            })
-            .catch((error) => {
-                console.error(error.messege)
-            })
-    }
-
-    const postEndereco = (address) => {
-        axios.get(`${baseEndereco}/${cliente}/novo` , address )
-            .then((response) => {
-                setEndereco(response.data)
+                listEnderecos()
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -63,11 +53,12 @@ function Address() {
         return endereco.map(endereco => {
             return (
                 <div key={endereco.id}>
-                    <AddressInfo ssInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} city={endereco.cidade} states={endereco.municipio} id={endereco.id} delete={deleteEndereco} />
+                    <AddressInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} city={endereco.cidade} states={endereco.municipio} id={endereco.id} delete={deleteEndereco} />
                 </div >
             )
         })
     }
+
 
     return (
         <>
@@ -92,13 +83,14 @@ function Address() {
                                         :
                                         ''
                                 }
+
                                 {listEnderecos()}
                             </div>
                         </div>
 
                         <div className='mt-5 row '>
                             <div className="col-12 d-grid gap-2 col-sm-8    ">
-                                <ModalEndereco  address={addressModal}/>
+                                <ModalEndereco  lista={listEnderecos} get={getEndereco} />
                             </div>
 
 
