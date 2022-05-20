@@ -5,26 +5,24 @@ import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import AddressInfo from '../../components/addressInfo/AddressInfo'
 import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
 import Title from '../../components/title/Title'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { baseEndereco } from '../../environments'
-import { AiFillCheckCircle } from "react-icons/ai";
+import { AiFillCheckCircle } from "react-icons/ai"
 import { Alert } from 'react-bootstrap'
 import axios from 'axios'
+import ClientContext from '../../context/Client.provider'
 
-
-function Address() {
-
+function Address() { 
+    const { client } = useContext(ClientContext)
     const [endereco, setEndereco] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
-
-    let cliente = 1
 
     useEffect(() => {
         getEndereco()
     }, [])
 
     const getEndereco = () => {
-        axios.get(`${baseEndereco}/${cliente}/detalhes`)
+        axios.get(`${baseEndereco}/${client.id}/detalhes`)
             .then((response) => {
                 setEndereco(response.data)
                 listEnderecos()
@@ -35,7 +33,7 @@ function Address() {
     }
 
     const deleteEndereco = (endereco) => {
-        axios.delete(`${baseEndereco}/${cliente}/delete/${endereco}`)
+        axios.delete(`${baseEndereco}/${client.id}/delete/${endereco}`)
             .then(() => {
                 getEndereco()
                 setSuccessDelete(true)

@@ -5,7 +5,7 @@ const ClientContext = createContext({})
 
 function ClientProvider(props) {
 
-    const [client, setCliente] = useState({nome: 'Jefferson'}) 
+    const [client, setCliente] = useState({nome: 'Jefferson', id: 1}) 
 
     const logado = (cliente) => {
         setCliente(cliente) 

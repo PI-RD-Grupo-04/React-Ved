@@ -9,55 +9,87 @@ import Button from '../../components/button/Button'
 import iconNu from '../../components/asserts/imagens/Footer/iconNu.png'
 import CheckInput from '../../components/checkInput/CheckInput'
 import RadioBox from '../../components/radioBox/RadioBox'
-import qrcode from '../../components/asserts/imagens/qrcode.jpg'
 import Title from '../../components/title/Title'
 import InputMask from 'react-input-mask'
-import Cart from '../../components/cart/Cart' 
+import Cart from '../../components/cart/Cart'
 import axios from 'axios'
+import { baseEndereco, baseFrete } from '../../environments'
+import ClientContext from '../../context/Client.provider' 
+import OrderModel from '../../models/Order'
 
 function Checkout() {
+    const [order, setOrder] = useState(OrderModel) 
+    const { client } = useContext(ClientContext)
+    const [address, setAddress] = useState([])
+    const [entrega, setEntrega] = useState({})
+    const [frete, setFrete] = useState([]) 
 
+
+    console.log(order)
     const [pagamento, setPagamento] = useState({
-            card: false,
-            pix: false,
-            boleto: false,
-            cpfBoleto: false
+        card: false,
+        pix: false,
+        boleto: false,
+        cpfBoleto: false
     })
 
+    useEffect(() => {
+        getEndereco()
+        listEnderecos()
+    }, [])
 
-   
+    const getEndereco = () => {
+        axios.get(`${baseEndereco}/${client.id}/detalhes`)
+            .then((response) => {
+                setAddress(response.data)
+                listEnderecos()
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+
+    const getFrete = (cep) => {
+        axios.get(`${baseFrete}/${cep}`)
+            .then((response) => {
+                setFrete(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
 
 
-    // const pix = () => {
-    //     return (<div className="row gy-3 ">
-    //         <div className="col-12 d-flex flex-column align-items-center justify-content-center">
-    //             <h2 className="text-center mb-2" >QR code</h2>
-    //             <img src={qrcode}
-    //                 width="120px" />
-    //             <h4>ou copie o código: </h4>
-    //             <div className="container mb-3">
-    //                 <input type="text" disabled className="w-100 pix text-center" value="73fg7g6s7t65cxb78cv9c5x356h78dx4345ds6gs87vcx7" />
-    //             </div>
-    //         </div>
-    //     </div>)
-    // }
+    function opcoesFrete() {
+        return (frete.map((opcao) => {
+            return(
+                <div key={opcao.id} className="d-flex align-items-center justify-content-start" >
+                <RadioBox id={opcao.id} name="frete" onClick={() => {
+                    setOrder({...order, frete: opcao.id})
+                }} /> 
+                 <label className="form-check-label" for='frete' >{opcao.tipoFrete}</label>
+                <label className="form-check-label" for='frete' >{opcao.valor}</label>
+                </div>
+            )
+        })
+        )
+    }
+    
+    function listEnderecos() {
+        return address.map(endereco => {
+            return (
+                <div key={endereco.id}>
+                    <RadioBox id={endereco.id} name="endereco" onClick={() => {
+                        setEntrega(endereco)
+                        getFrete(endereco.idUf)
+                        setOrder({...order, endereco: endereco.id})
+                    }} />
+                    <AddressInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} city={endereco.cidade} states={endereco.municipio} uf={endereco.uf} id={endereco.id} />
+                </div >
+            )
+        })
 
-    // const boleto = () => {
-    //     return (
-    //         <div className="row gy-3 ">
-    //             <div className="col-12 d-flex flex-column align-items-center justify-content-center">
-    //                 <h2 className="text-center mb-2">Boleto gerado </h2>
-    //                 <textarea className="boleto border" disabled >34191.79001 01043.510047 91020.150008 7 89250026000</textarea>
-    //                 <h4>ou </h4>
-    //                 <div className="container d-grid gy-2 mb-3">
-    //                     <a className="btn btn-success" target="_blank" href="http://www.sicadi.com.br/mhouse/boleto/boleto3.php?numero_banco=341-7&local_pagamento=PAG%C1VEL+EM+QUALQUER+BANCO+AT%C9+O+VENCIMENTO&cedente=VED+-+ALIMENTOS+ORG%C2NICOS+&data_documento=25%2F03%2F2022&numero_documento=DF+00113&especie=&aceite=N&data_processamento=25%2F03%2F2022&uso_banco=&carteira=179&especie_moeda=Real&quantidade=2&valor=1900&vencimento=25%2F03%2F2022&agencia=0049&codigo_cedente=10201-5&meunumero=00010435&valor_documento=260%2C00&instrucoes=Taxa+de+visita+de+suporte%0D%0AAp%F3s+o+vencimento+R%24+0%2C80+ao+dia&mensagem1=&mensagem2=&mensagem3=ATEN%C7%C3O%3A+N%C3O+RECEBER+AP%D3S+15+DIAS+DO+VENCIMENTO&sacado=&Submit=Enviar">Acesse aqui</a>
-    //                 </div>
-
-    //             </div>
-    //         </div>
-    //     )
-    // }
-
+    }
 
     const ativaBoleto = () => setPagamento({
         paymentForm: {
@@ -67,8 +99,6 @@ function Checkout() {
             cpfBoleto: false
         }
     })
-
-
 
     const preBoleto = () => {
 
@@ -81,7 +111,6 @@ function Checkout() {
                     <input type="text" id="nomeboleto" class="form-control" />
                     <label for="nomecpf">CPF:</label>
                     <input type="text" id="cpfboleto" class="form-control" />
-
                     <div class="container mt-4 d-grid gy-2 mb-3" onClick={this.ativaBoleto}>
                         <Button success label="gera boleto" />
                     </div>
@@ -90,7 +119,6 @@ function Checkout() {
             </div>
         );
     }
-
 
     const creditcard = () => {
         return (
@@ -151,14 +179,11 @@ function Checkout() {
 
 
 
-
-
     return (
         <>
             <Header />
             <div className="container mt-3 checkout-style mb-4 ">
                 <Title label="Checkout" />
-
                 <form>
                     <div className="row ">
                         <div className="col-12 col-sm-6 border ">
@@ -168,19 +193,17 @@ function Checkout() {
                             <form className="needs-validation" >
                                 <div className="row  g-3">
                                     <h5 className="title-subs mt-4"> selecione o endereço</h5>
-                                    <AddressInfo id={1} av="Santos" n="230" complement="Casa" district="Vila São Paulo" zipcode="11740-000" city="Santos" states="Sao Paulo" country="Brasil" />
-                                    <AddressInfo id={2} av="Condessa de Vimieiros" n="345" complement="Apto" district="Centro" zipcode="11740-000" city="Itanhaém" states="Sao Paulo" country="Brasil" />
+                                    {listEnderecos()}
 
                                     {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
-                                    <ModalEndereco />
+                                    <ModalEndereco lista={listEnderecos} get={getEndereco} />
                                     <hr className="my-2" />
                                     <h4 className="mb-1 "> Frete</h4>
                                     {/* <div className="col-12"> */}
-                                    <label>Opções de Frete para ******-** </label>
+                                    <label>Opções de Frete para {entrega.cep} </label>
                                     {/*  <!-- opçes de frete --> */}
                                     <div className="col-12 ">
-                                        <CheckInput id="comum" label="entrega comum:" frete="10,00" />
-                                        <CheckInput id="express" label="entrega express:" frete="15,50" />
+                                    { opcoesFrete()  }
                                     </div>
                                     {/* </div> */}
                                 </div>
@@ -225,33 +248,32 @@ function Checkout() {
                                         {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
 
                                         <RadioBox onClick={() => setPagamento({
-                                                card: false,
-                                                pix: false,
-                                                boleto: false,
-                                                cpfBoleto: true
+                                            card: false,
+                                            pix: false,
+                                            boleto: false,
+                                            cpfBoleto: true
+
                                         })} label="Boleto" id='boleto' name="1" />
                                         <RadioBox onClick={() => setPagamento({
-
-                                                card: true,
-                                                pix: false,
-                                                boleto: false,
-                                                cpfBoleto: false
+                                            card: true,
+                                            pix: false,
+                                            boleto: false,
+                                            cpfBoleto: false
 
                                         })} label="Cartão de Crédito/Débito" id="card" name="1" />
                                         <RadioBox onClick={() => setPagamento({
-
-                                                card: false,
-                                                pix: true,
-                                                boleto: false,
-                                                cpfBoleto: false
+                                            card: false,
+                                            pix: true,
+                                            boleto: false,
+                                            cpfBoleto: false
 
                                         })} label="Pix" id='pix' name="1" />
                                     </div>
 
 
                                     <hr className="my-2 border" />
-                                    {this.state.paymentForm.card ? this.creditcard() : ""}
-                                    {this.state.paymentForm.cpfBoleto ? this.preBoleto() : ""}
+
+                                    {pagamento.boleto ? this.preBoleto() : ""}
                                     <hr className="my-4 mb-3" />
                                 </div>
                                 <div className="d-grid gy-2">
