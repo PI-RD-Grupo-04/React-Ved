@@ -9,12 +9,25 @@ import Title from '../../components/title/Title'
 import axios from 'axios'
 import { baseCartao } from "../../environments";
 import React , { useEffect, useState } from 'react'
+import { AiFillCheckCircle } from "react-icons/ai";
+import { Alert } from 'react-bootstrap'
 
 function PaymentCards() {
 
     const [cartao, setCartao] = useState([])
+    const [successDelete, setSuccessDelete] = useState(false);
+
+    let cliente = 1
+
+
+    
     useEffect(() => {
-        axios.get(`${baseCartao}/1/detalhes`
+        getCartao()
+    }, [])
+
+
+    const getCartao = () => {
+        axios.get(`${baseCartao}/${cliente}/detalhes`
         )
             .then((response) => {
                 setCartao(response.data)
@@ -22,8 +35,22 @@ function PaymentCards() {
             .catch((error) => {
                 console.error(error)
             })
+        }
 
-    }, [])
+    const deleteCartao = (cartao) => {
+        axios.delete(`${baseCartao}/${cliente}/deletar/${cartao}`)
+            .then(() => {
+                getCartao()
+                setSuccessDelete(true)
+                setTimeout(
+                    () => {
+                        setSuccessDelete(false)
+                    }, 3000)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
 
 
     
@@ -33,8 +60,7 @@ function PaymentCards() {
                     <div key={item.id}>
                         <div class="row mb-3 pb-3 pt-3">
                             <div class="row ">
-
-                                <CardInfo id={item.id} nome={item.idBandeira.nome} numero= {item.numeroCartao} mes={item.diaVencimento} ano={item.anoVencimento} />
+                                <CardInfo id={item.id} nome={item.idBandeira.nome} numero= {item.numeroCartao} mes={item.diaVencimento} ano={item.anoVencimento} delete={deleteCartao} get={getCartao} />
                             </div>
                         </div>
                     </div>
@@ -60,7 +86,15 @@ function PaymentCards() {
                     <div class="col-12 col-sm-9 order-md-last  mb-3">
                         <Title label="Meus Cartões" />
                         {/* <!-- area do primeira cartão --> */}
-
+                        {
+                                    successDelete
+                                        ?
+                                        <Alert key='success' variant='success'>
+                                            <AiFillCheckCircle size="30" /> Item apagado com suceso
+                                        </Alert>
+                                        :
+                                        ''
+                                }
                         {ofertas()} 
 
                         {/* <!-- ************************MODEL PARA CADASTRO DE CARTÃO ********************* --> */}
@@ -70,9 +104,6 @@ function PaymentCards() {
                                 <ModelPayCard />
                             </div>
 
-                            <div className="col-12 d-grid gap-2  col-sm-4  ">
-                                <Button label='Excluir' delete />
-                            </div>
 
                         </div>
 

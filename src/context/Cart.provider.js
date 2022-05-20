@@ -18,15 +18,15 @@ function CartProvider(props) {
         return context
     }
 
-    const addCarrinho = (item, quantidadeProduto) => {
+    const addCarrinho = (item) => {
         const carrinhoLista = localStorage.getItem('cart')
             ? JSON.parse(localStorage.getItem('cart'))
             : []
-        if(carrinhoLista.find(product => product.id == item.id)){
-           // product.quantidade++
-        }else {
-            carrinhoLista.push(item)
-        }
+        // if(carrinhoLista.find(product => product.id == item.id)){
+        //    // product.quantidade++
+        // }else {
+        carrinhoLista.push(item)
+        
         localStorage.setItem('cart', JSON.stringify(carrinhoLista))
         localStorage.qtyCarrinho = JSON.stringify(carrinhoLista.length)
         setCarrinho(carrinhoLista)

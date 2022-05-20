@@ -115,7 +115,7 @@ function Home() {
           oferta.map(item => {
             return (
               <ProductCard key={item.id} col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" status={item.statusProduto} img={item.url} link={`/product/${item.id}`} nome={item.nomeProduto}
-                descri={item.descricao} price={item.preco} />
+                descri={item.descricao} product={item} price={item.preco} />
             )
           })
           }

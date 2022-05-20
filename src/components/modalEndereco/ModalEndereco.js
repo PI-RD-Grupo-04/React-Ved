@@ -148,6 +148,7 @@ function ModalEndereco(props) {
                             postEndereco(address)
                             setTimeout(
                                 () => {
+                                    
                                     setSuccessRegister(false)
                                     handleClose()
                                 }, 1000)
