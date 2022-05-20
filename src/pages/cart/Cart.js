@@ -4,38 +4,32 @@ import Footer from '../../components/footer/Footer'
 import Button from '../../components/button/Button'
 import ItemBasket from '../../components/itemBasket/ItemBasket'
 import InputMask from 'react-input-mask';
-import CartContext from '../../context/Cart.provider' 
+import CartContext from '../../context/Cart.provider'
 import Title from '../../components/title/Title'
 import React, { useState, useEffect, useContext } from 'react'
 
 function Cart(props) {
 
-    const { carrinho, listarCarrinho } = useContext(CartContext) 
+    const { carrinho, listarCarrinho } = useContext(CartContext)
 
     const listaItem = carrinho
     useEffect(() => {
         listarCarrinho()
         listar()
-        
     }, [])
 
     function listar() {
         if (listaItem.length == 0) {
             return <li className="text-center">Seu carrinho está vazio</li>
         }
-       return  listaItem.map((item) => {
+        return listaItem.map((item) => {
             return (
                 <li key={item.id}>
                     <ItemBasket img={item.url} item={item} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nome} />
                 </li>
             )
-
         })
     }
-
-    console.log(listaItem)
-
-
 
 
     return (
@@ -43,7 +37,6 @@ function Cart(props) {
             <Header />
             {/* <!-- Titulo --> */}
             <div className="container">
-
                 <div className="container">
                     <div className="row  mb-3 text-center mt-3">
                         <Title label='Sua cesta' ></Title>
@@ -51,7 +44,6 @@ function Cart(props) {
                     <ul>
                         {listar()}
                     </ul>
-
 
                     <div className="text-end">
                         <h4 className="text-dark   mt-3 mb-3">
@@ -93,7 +85,6 @@ function Cart(props) {
                 </div>
             </div>
             {/* <!--***************************************CESTA END***********************************--> */}
-
             <Footer />
         </>
     )

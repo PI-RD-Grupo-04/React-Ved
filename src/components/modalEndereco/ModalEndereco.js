@@ -48,8 +48,6 @@ function ModalEndereco(props) {
                 console.error(error.messege)
             })
     }
-    console.log(endereco)
-
     const getStates = () => {
         axios.get(`${baseUf}`)
             .then((response) => {

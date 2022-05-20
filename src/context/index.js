@@ -1,12 +1,16 @@
 import { CartProvider } from './Cart.provider'
+import { ClientProvider } from './Client.provider'
 
 
 function Contexts(props) {
 
     return (
-        <CartProvider>
-            {props.children}
-        </CartProvider>
+        <ClientProvider>
+            <CartProvider>
+                {props.children}
+            </CartProvider>
+        </ClientProvider>
+
     )
 }
 

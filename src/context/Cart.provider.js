@@ -49,7 +49,8 @@ function CartProvider(props) {
     const deleteCarrinho = (item) => {
         const remove = carrinho.filter(items => items.id !== item.id) 
         localStorage.setItem("cart", JSON.stringify(remove))
-        setCarrinho(remove)
+        setCarrinho(remove) 
+        setQtyCarrinho(remove.length)
     }
 
     const quantidadeCarrinho = () => {

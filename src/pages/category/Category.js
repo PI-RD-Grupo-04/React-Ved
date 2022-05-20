@@ -12,25 +12,27 @@ import axios from 'axios'
 
 function Category() {
 
-    const { buscar } = useParams()
- 
+    const { buscar } = useParams('')
+
     const [busca, setBusca] = useState([])
     const [categorias, setCategorias] = useState([])
-    const [novidade, setNovidade] = useState([])
 
     useEffect(() => {
-      
+
         if (buscar == 'novidade') {
             listaNovidade()
-        }else {
+
+        } else if (buscar == '1' || buscar == '2' || buscar == '4') {
+            getBuscarCategoria(buscar)
+        }
+        else {
             getBuscarProduto()
         }
         getBuscarCategoria()
         listaProdutos()
         listaCategorias()
-        listaNovidade()
 
-    }, [])
+    }, [buscar])
 
     const getBuscarProduto = () => {
         axios.get(`${baseCategoria}/palavra/${buscar}`)
@@ -43,8 +45,20 @@ function Category() {
             })
     }
 
-    const getBuscarCategoria = () => {
-        axios.get(`${baseCategoria}/${buscar}/categoria`)
+    const getBuscarCategoria = (categoria) => {
+        axios.get(`${baseCategoria}/${categoria}`)
+            .then((response) => {
+                setBusca(response.data)
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+
+
+    const getPorValor = (valor) => {
+        axios.get(`${baseCategoria}/valor/${valor}`)
             .then((response) => {
                 setBusca(response.data)
                 console.log(response.data)
@@ -88,7 +102,7 @@ function Category() {
     const menuCategoria = () => {
         return categorias.map(cate => {
             return (
-                <li className="nav-item menuletra"><Link to={`/category/${cate.id}`} className="nav-link menuletra" href={cate.id}>{cate.descricao}</Link></li>
+                <li className="nav-item menuletra"><Link onClick={() => { getBuscarCategoria(cate.id) }} className="nav-link menuletra" >{cate.descricao}</Link></li>
             )
         })
     }
@@ -101,7 +115,7 @@ function Category() {
                     <div className="col-3 borda-menu color-menu2">
                         <div className="row text-left text-left">
                             <nav className="navlateral border-menu ">
-                                <ul className="nav flex-column">
+                                <ul className="nav flex-column mb-5">
                                     <li className="nav-item mt-3 ">
 
                                         <h2 className="text-category">Categoria</h2>
@@ -114,36 +128,22 @@ function Category() {
                                     </li>
 
                                     <hr />
-                                    <li className="nav-item menuletra "><a className="nav-link menuletra" href="#">Até R$ 10,00</a>
+                                    <li className="nav-item menuletra " ><Link onClick={() => { getPorValor(10) }}>Até R$ 10,00</Link>
                                     </li>
-                                    <li className="nav-item menuletra "><a className="nav-link menuletra" href="#">Até R$ 25,00</a>
+                                    <li className="nav-item menuletra "><Link onClick={() => { getPorValor(15) }}>Até R$ 15,00</Link>
                                     </li>
-                                    <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Até R$ 50,00</a>
+                                    <li className="nav-item menuletra"><Link onClick={() => { getPorValor(20) }}>Até R$ 20,00</Link>
                                     </li>
-                                    <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Até R$ 100,00</a>
+                                    <li className="nav-item menuletra"><Link onClick={() => { getPorValor(30) }}>Até R$ 30,00</Link>
                                     </li>
-                                    <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Até R$ 200,00</a>
-                                    </li>
-                                    <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Até R$ 500,00</a>
-                                    </li>
-                                    <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Até R$ 1000,00</a>
-                                    </li>
-
                                 </ul>
-
                             </nav>
-
                         </div>
-
                     </div>
-
-
 
 
                     <div className="col-sm-12 col-lg-9 ladodireito ">
                         <div className="row justify-content-between ">
-
-
                             <div className="col-12 col-sm-6  menucanvas">
 
                                 <button className="btn border " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvascategoria"
@@ -157,24 +157,12 @@ function Category() {
                                         <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                     </div>
                                     <div className="menucanvasdentro">
-
                                         <ul>
                                             <li className=" mt-3 ">
                                                 <h2 className="text-white">Categoria</h2>
                                             </li>
                                             <hr />
-                                            <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Frutas</a>
-                                            </li>
-                                            <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Verduras</a>
-                                            </li>
-                                            <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Legumes</a>
-                                            </li>
-                                            <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Cestas</a>
-                                            </li>
-                                            <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Vinhos</a>
-                                            </li>
-                                            <li className="nav-item menuletra "><a className="nav-link menuletra" href="#">Mel</a>
-                                            </li>
+                                            {menuCategoria()}
                                         </ul>
 
                                         <ul>
@@ -182,35 +170,20 @@ function Category() {
                                                 <h2 className="text-white" >Preço</h2>
                                             </li>
                                             <hr />
-                                            <li className="nav-item menuletra "><a className="nav-link menuletra" href="#">Até R$
-                                                10,00</a>
-                                            </li>
-                                            <li className="nav-item menuletra "><a className="nav-link menuletra" href="#">Até R$
-                                                25,00</a>
-                                            </li>
-                                            <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Até R$
-                                                50,00</a>
-                                            </li>
-                                            <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Até R$
-                                                100,00</a>
-                                            </li>
-                                            <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Até R$
-                                                200,00</a>
-                                            </li>
-                                            <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Até R$
-                                                500,00</a>
-                                            </li>
-                                            <li className="nav-item menuletra"><a className="nav-link menuletra" href="#">Até R$
-                                                1000,00</a>
-                                            </li>
+                                            <li className="nav-item menuletra " ><Link onClick={() => { getPorValor(10) }}>Até R$ 10,00</Link>
+                                    </li>
+                                    <li className="nav-item menuletra "><Link onClick={() => { getPorValor(15) }}>Até R$ 15,00</Link>
+                                    </li>
+                                    <li className="nav-item menuletra"><Link onClick={() => { getPorValor(20) }}>Até R$ 20,00</Link>
+                                    </li>
+                                    <li className="nav-item menuletra"><Link onClick={() => { getPorValor(30) }}>Até R$ 30,00</Link>
+                                    </li>
                                         </ul>
 
                                         <div className="filtrocanvas">
                                             <ul>
                                                 <li className="nav-item mt-5 ">
-
                                                     <h2 className="text-white">Filtro</h2>
-
                                                 </li>
                                                 <hr />
                                                 <li className="nav-item menuletra "><a className="nav-link menuletra" href="#"> Mais
@@ -236,10 +209,9 @@ function Category() {
                                             Filtro
                                         </Dropdown.Toggle>
                                         <Dropdown.Menu>
-                                            <Dropdown.Item href="#/action-1">Mais populares</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2">Mais vendidos</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-3">Menor Preço</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-4">Maior Preço</Dropdown.Item>
+                                            <Dropdown.Item onClick={() => { getPorValor(30) }}>Mais populares</Dropdown.Item>
+                                            <Dropdown.Item onClick={() => { getPorValor(15) }}>Mais vendidos</Dropdown.Item>
+                                            <Dropdown.Item onClick={() => { getPorValor(10) }}>Menor Preço</Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>
 
