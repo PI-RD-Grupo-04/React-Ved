@@ -10,7 +10,7 @@ import { baseCategoria, baseHome } from '../../environments'
 import axios from 'axios'
 
 
-export default function Category() {
+function Category() {
 
     const { buscar } = useParams()
  
@@ -265,3 +265,5 @@ export default function Category() {
 
     )
 }
+
+export default Category

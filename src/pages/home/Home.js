@@ -43,18 +43,6 @@ function Home() {
   }, [])
 
 
-
-  function ofertas() {
-    oferta.map(item => {
-      return (
-        <div key={item.id}>
-          <ProductCard col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" status={item.statusProduto} img={item.url} link='/product' nome={item.nomeProduto}
-            descri={item.descricao} price={item.preco} />
-        </div>
-      )
-    })
-  } 
-
  
   return (
     <>
@@ -123,7 +111,8 @@ function Home() {
 
       <div className="container  ">
         <div className="row justify-content-space ">
-          {oferta.map(item => {
+          {
+          oferta.map(item => {
             return (
               <ProductCard key={item.id} col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" status={item.statusProduto} img={item.url} link={`/product/${item.id}`} nome={item.nomeProduto}
                 descri={item.descricao} price={item.preco} />

@@ -12,7 +12,7 @@ import RadioBox from '../../components/radioBox/RadioBox'
 import qrcode from '../../components/asserts/imagens/qrcode.jpg'
 import Title from '../../components/title/Title'
 import InputMask from 'react-input-mask'
-import Cart from '../../components/cart/Cart'
+import Cart from '../../components/cart/Cart' 
 
 class Checkout extends Component {
 
@@ -24,7 +24,8 @@ class Checkout extends Component {
             cpfBoleto: false
 
         }
-    }
+    } 
+
 
 
 
