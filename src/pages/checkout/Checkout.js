@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import './Checkout.css'
 import AddressInfo from '../../components/addressInfo/AddressInfo'
 import Header from '../../components/header/Header'
@@ -13,9 +12,61 @@ import qrcode from '../../components/asserts/imagens/qrcode.jpg'
 import Title from '../../components/title/Title'
 import InputMask from 'react-input-mask'
 import Cart from '../../components/cart/Cart' 
+import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
+import React , { useEffect, useState , Component } from 'react'
+
+
+// const [cartao, setCartao] = useState([])
+
+// let cliente = 1
+
+
+    
+// useEffect(() => {
+//     getCartao()
+// }, [])
+
+
+// const getCartao = () => {
+//     axios.get(`${baseCartao}/${cliente}/detalhes`
+//     )
+//         .then((response) => {
+//             setCartao(response.data)
+//         })
+//         .catch((error) => {
+//             console.error(error)
+//         })
+//     }
+
+// function ofertas() {
+//     return cartao.map(item => {
+//          return (
+//              <div key={item.id}>
+//                  <div class="row mb-3 pb-3 pt-3">
+//                      <div class="row ">
+//                      <AccordionCart
+//                                         bandeira={item.item.idBandeira.nome}
+//                                         num={item.numeroCartao}
+//                                         nome={item.nome}
+//                                         mes={item.diaVencimento} ano={item.anoVencimento}
+//                                          />
+//                      </div>
+//                  </div>
+//              </div>
+// )})}
+
+
+
+
+
+
+
+
+
+
+
 
 class Checkout extends Component {
-
     state = {
         paymentForm: {
             card: false,
@@ -25,7 +76,6 @@ class Checkout extends Component {
 
         }
     } 
-
 
 
 
@@ -95,60 +145,16 @@ class Checkout extends Component {
 
     creditcard = () => {
         return (
-            <div className="row gy-3">
-                <div className="col-md-6">
-                    {/* <!-- nome do titular do cartão --> */}
-                    <label for="cc-name" className="form-label">Nome no cartão</label>
-                    <input type="text" className="form-control" id="cc-name" required />
-                    <small className="text-muted">Nome  exibido no cartão</small>
-                    <div className="invalid-feedback">Nome Obrigatório</div>
-                </div>
+            <div className='mt-5 row '>
+            <div className="col-12 d-grid gap-2 col-sm-8   mb-2 ">
+                <ModelPayCard />
+            </div>
 
-                <div className="col-md-6">
-                    {/* <!-- Número do cartão --> */}
-                    <label for="cc-number" className="form-label">Nº Cartão de Crédito</label>
-                    <InputMask mask="9999 9999 9999 9999" className="form-control" id="cc-number" required />
-                    <div className="invalid-feedback">Número do Cartão Obrigatório</div>
-                </div>
-                <div className="col-md-9">
-                    {/*  <!-- CPF do titular --> */}
-                    <label for="cpf-titular" className="form-label">CPF do Titular do Cartão</label>
-                    <InputMask mask="999.999.999-99 " className="form-control" id="cpf-titular" required />
-                    <div className="invalid-feedback">Número do Cartão Obrigatório</div>
-                </div>
-                <div className="col-3 ">
-                    {/* <!-- vencimento do cartão --> */}
-                    <label for="bandeira-card" className="form-label col-12">Bandeira</label>
-                    <img src={iconNu} className="iconCard" />
-                    <div className="invalid-feedback">Cartão inválido</div>
-                </div>
-                <div className="col-md-3">
-                    {/* <!-- vencimento do cartão --> */}
-                    <label for="cc-expiration" className="form-label">Vencimento</label>
-                    <InputMask mask="99/99" className="form-control" id="cc-expiration" required />
-                    <div className="invalid-feedback">Data de Expiração Obrigatória</div>
-                </div>
-                <div className="col-md-2">
-                    <label for="card-cvv" className="form-label">CVV</label>
-                    <InputMask mask="999" className="form-control" id="card-cvv" required />
-                    <div className="invalid-feedback">Codigo de seguranção Obrigatório</div>
-                </div>
-                <div className="col-md-6 d-grid gy-2">
-                    <label for="parcela" className="col-12">Parcelar em</label>
-                    <select id="parcela" required>
-                        <option value="">Selecione a parcela...</option>
-                        <option value="1">1x </option>
-                        <option value="2">2x</option>
-                        <option value="3">3x</option>
-                        <option value="4">4x</option>
-                        <option value="5">5x</option>
-                        <option value="6">5x</option>
-                    </select>
-                    <div className="invalid-feedback">Selecione pelo menos 1x</div>
-                </div>
             </div>
         )
     }
+
+
 
 
 
@@ -208,16 +214,15 @@ class Checkout extends Component {
                                 <hr className="my-2" />
                                 <div className="row">
                                     <h5> Selecione um Cartão Salvo</h5>
+
+                                    {/* {ofertas()} */}
                                     <AccordionCart
                                         bandeira='Bandeira'
                                         num='****-****-****-*000'
                                         nome='ved Alimentos'
-                                        dia={2} ano={2022} />
-                                    <AccordionCart
-                                        bandeira='Bandeira'
-                                        num='****-****-****-*000'
-                                        nome='ved Alimentos'
-                                        dia={2} ano={2022} />
+                                        dia={2} ano={2022}
+                                         />
+                                        
                                     <div>
                                         <hr className="my-2" />
                                         {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
