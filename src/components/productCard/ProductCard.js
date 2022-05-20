@@ -2,8 +2,13 @@ import './ProductCard.css'
 import favorito from '../asserts/imagens/Users_icon/favorito.png'
 import Button from '../../components/button/Button'
 import { Link } from 'react-router-dom'
+import CartContext from '../../context/Cart.provider'
+import React, { useContext } from 'react'
 
 function ProductCard(props) {
+
+  const { addCarrinho } = useContext(CartContext)
+
 
   return (
     <div className={props.col}>
@@ -24,7 +29,7 @@ function ProductCard(props) {
           </div>
           <div class=" row text-center justify-content-center ">
             <div className="col-12 d-grid gy-2">
-            <Link to={props.link} className="btn border btn-success">Adicionar a cesta</Link>
+              <Button label="Adicionar a Cesta" success click={() => addCarrinho(props.product)} className="btn border btn-success">Adicionar a cesta</Button>
             </div>
 
           </div>

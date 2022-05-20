@@ -15,7 +15,7 @@ function ItemBasket(props) {
                 <div className="row g-3">
                     <div className="col-4 col-md-3 col-lg-2">
                         <Link to="/product">
-                            <img className="mr-3 imgfruta" src={props.img} alt="Banana-Prata-Organica-600g-800g-Ved" />
+                            <img className="mr-3 imgfruta" src={props.img} />
                         </Link>
                     </div>
                     <div className="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">

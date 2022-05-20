@@ -17,7 +17,6 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { baseProduct } from '../../environments'
 
-
 function Product() {
     const { id } = useParams()
     const [product, setProduct] = useState({})
