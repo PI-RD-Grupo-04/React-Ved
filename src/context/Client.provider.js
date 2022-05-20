@@ -1,25 +1,24 @@
-import React, { useState, createContext } from 'react'
+import React, { useState, createContext } from 'react' 
+
 
 const ClientContext = createContext({})
 
 function ClientProvider(props) {
 
+    const [client, setCliente] = useState({nome: 'Jefferson'}) 
 
-    const [cliente, setCliente] = useState({})
-
-    useEffect(() => {
-        getCliente()
-    }, [])
-
-    const getCliente = (cep) => {
-        axios.get(`base`)
-            .then((response) => {
-                setCliente(response.data)
-            })
-            .catch((error) => {
-                console.error(error.messege)
-            })
+    const logado = (cliente) => {
+        setCliente(cliente) 
+        localStorage.nome = "jeff"
     }
+
+    
+    return (
+        <ClientContext.Provider
+            value={{client, logado}}>
+            {props.children}
+        </ClientContext.Provider>
+    )
 
 }
 

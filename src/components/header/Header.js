@@ -4,32 +4,42 @@ import logo from '../asserts/imagens/Header/logo.png'
 import menuhamburguer from '../asserts/imagens/Header/hamburger_menu.png'
 import cart from '../asserts/imagens/Users_icon/shopping-cart.png'
 import NavBar from '../navBar/NavBar'
-import Button from '../../components/button/Button'
 import React, { useState, useEffect, useContext } from 'react'
 import CartContext from '../../context/Cart.provider'
-import { Popover } from 'bootstrap'
-import PopoverCart from '../popoverCart/PopoverCart'
+import ClientContext from '../../context/Client.provider'
+
 
 
 function Header() {
 
     const [buscar, setBuscar] = useState('')
-
-    const { qtyCarrinho, setQtyCarrinho } = useContext (CartContext)
+    const { client } = useContext(ClientContext) 
+    const { qtyCarrinho  } = useContext(CartContext)
 
 
     useEffect(() => {
         quantidade()
     }, [])
 
-function quantidade(){
-    if ( qtyCarrinho == 0 ) 
-    {
-      return ("")  
+    function quantidade() {
+        if (qtyCarrinho == 0) {
+            return (0)
+        }
+        return qtyCarrinho;
     }
-    return qtyCarrinho;
-     }
-     
+ 
+
+    function exibirNome() {
+        if (client.nome == "") {
+            return(
+                <Link className="icon-perfil icon-config" to='/Login'>Faça Login</Link>
+            )
+        } else {
+            return(
+                <Link className="icon-perfil icon-config" to='/MyAccount'>{client.nome}</Link>
+            )
+        }
+    }
 
     return (
         <>
@@ -86,15 +96,15 @@ function quantidade(){
 
                         {/*} begin icones usuario */}
                         <div className="col-4  icon-user">
-                            <div className="col-4 mt-3 mb-1">
-                                <Link className="icon-perfil icon-config" to='/Login'>Faça Login</Link>
+                            <div className="col-4 mt-3 mb-1  ">
+                           {exibirNome()}
                             </div>
                             <div className="col-4 mt-3 mb-1">
                                 <Link className="icon-fav icon-config" to='/favorites'>Favoritos</Link>
                             </div>
                             <div className="col-4 mt-3 mb-1">
                                 <Link className="icon-cesta icon-config" to='/cart'>Cesta</Link>
-                                <span className="badge bg-success ">  {quantidade()} </span>
+                                <span className="badge bg-success bg-cest " >  {quantidade()} </span>
                             </div>
                         </div>
                         {/*} end icones usuario */}
@@ -118,7 +128,6 @@ function quantidade(){
                                         Categorias <svg className="mr" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z" />
                                         </svg>
-
                                     </a>
 
                                     {/*} CORPO */}
@@ -151,11 +160,11 @@ function quantidade(){
                                 </li></Link>
                                 <Link to="/popoverCard">
                                     <li className="nav-item">
-                                    Cesta
+                                        Cesta
                                     </li>
                                 </Link>
-                                 
-                    
+
+
                                 <Link to="/favorites"><li className="nav-item">
                                     Favoritos
                                 </li></Link>

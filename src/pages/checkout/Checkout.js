@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Checkout.css'
 import AddressInfo from '../../components/addressInfo/AddressInfo'
 import Header from '../../components/header/Header'
@@ -13,54 +13,53 @@ import qrcode from '../../components/asserts/imagens/qrcode.jpg'
 import Title from '../../components/title/Title'
 import InputMask from 'react-input-mask'
 import Cart from '../../components/cart/Cart' 
+import axios from 'axios'
 
-class Checkout extends Component {
+function Checkout() {
 
-    state = {
-        paymentForm: {
+    const [pagamento, setPagamento] = useState({
             card: false,
             pix: false,
             boleto: false,
             cpfBoleto: false
-
-        }
-    } 
+    })
 
 
+   
 
 
-    pix = () => {
-        return (<div className="row gy-3 ">
-            <div className="col-12 d-flex flex-column align-items-center justify-content-center">
-                <h2 className="text-center mb-2" >QR code</h2>
-                <img src={qrcode}
-                    width="120px" />
-                <h4>ou copie o código: </h4>
-                <div className="container mb-3">
-                    <input type="text" disabled className="w-100 pix text-center" value="73fg7g6s7t65cxb78cv9c5x356h78dx4345ds6gs87vcx7" />
-                </div>
-            </div>
-        </div>)
-    }
+    // const pix = () => {
+    //     return (<div className="row gy-3 ">
+    //         <div className="col-12 d-flex flex-column align-items-center justify-content-center">
+    //             <h2 className="text-center mb-2" >QR code</h2>
+    //             <img src={qrcode}
+    //                 width="120px" />
+    //             <h4>ou copie o código: </h4>
+    //             <div className="container mb-3">
+    //                 <input type="text" disabled className="w-100 pix text-center" value="73fg7g6s7t65cxb78cv9c5x356h78dx4345ds6gs87vcx7" />
+    //             </div>
+    //         </div>
+    //     </div>)
+    // }
 
-    boleto = () => {
-        return (
-            <div className="row gy-3 ">
-                <div className="col-12 d-flex flex-column align-items-center justify-content-center">
-                    <h2 className="text-center mb-2">Boleto gerado </h2>
-                    <textarea className="boleto border" disabled >34191.79001 01043.510047 91020.150008 7 89250026000</textarea>
-                    <h4>ou </h4>
-                    <div className="container d-grid gy-2 mb-3">
-                        <a className="btn btn-success" target="_blank" href="http://www.sicadi.com.br/mhouse/boleto/boleto3.php?numero_banco=341-7&local_pagamento=PAG%C1VEL+EM+QUALQUER+BANCO+AT%C9+O+VENCIMENTO&cedente=VED+-+ALIMENTOS+ORG%C2NICOS+&data_documento=25%2F03%2F2022&numero_documento=DF+00113&especie=&aceite=N&data_processamento=25%2F03%2F2022&uso_banco=&carteira=179&especie_moeda=Real&quantidade=2&valor=1900&vencimento=25%2F03%2F2022&agencia=0049&codigo_cedente=10201-5&meunumero=00010435&valor_documento=260%2C00&instrucoes=Taxa+de+visita+de+suporte%0D%0AAp%F3s+o+vencimento+R%24+0%2C80+ao+dia&mensagem1=&mensagem2=&mensagem3=ATEN%C7%C3O%3A+N%C3O+RECEBER+AP%D3S+15+DIAS+DO+VENCIMENTO&sacado=&Submit=Enviar">Acesse aqui</a>
-                    </div>
+    // const boleto = () => {
+    //     return (
+    //         <div className="row gy-3 ">
+    //             <div className="col-12 d-flex flex-column align-items-center justify-content-center">
+    //                 <h2 className="text-center mb-2">Boleto gerado </h2>
+    //                 <textarea className="boleto border" disabled >34191.79001 01043.510047 91020.150008 7 89250026000</textarea>
+    //                 <h4>ou </h4>
+    //                 <div className="container d-grid gy-2 mb-3">
+    //                     <a className="btn btn-success" target="_blank" href="http://www.sicadi.com.br/mhouse/boleto/boleto3.php?numero_banco=341-7&local_pagamento=PAG%C1VEL+EM+QUALQUER+BANCO+AT%C9+O+VENCIMENTO&cedente=VED+-+ALIMENTOS+ORG%C2NICOS+&data_documento=25%2F03%2F2022&numero_documento=DF+00113&especie=&aceite=N&data_processamento=25%2F03%2F2022&uso_banco=&carteira=179&especie_moeda=Real&quantidade=2&valor=1900&vencimento=25%2F03%2F2022&agencia=0049&codigo_cedente=10201-5&meunumero=00010435&valor_documento=260%2C00&instrucoes=Taxa+de+visita+de+suporte%0D%0AAp%F3s+o+vencimento+R%24+0%2C80+ao+dia&mensagem1=&mensagem2=&mensagem3=ATEN%C7%C3O%3A+N%C3O+RECEBER+AP%D3S+15+DIAS+DO+VENCIMENTO&sacado=&Submit=Enviar">Acesse aqui</a>
+    //                 </div>
 
-                </div>
-            </div>
-        )
-    }
+    //             </div>
+    //         </div>
+    //     )
+    // }
 
 
-    ativaBoleto = () => this.setState({
+    const ativaBoleto = () => setPagamento({
         paymentForm: {
             card: false,
             pix: false,
@@ -71,7 +70,7 @@ class Checkout extends Component {
 
 
 
-    preBoleto = () => {
+    const preBoleto = () => {
 
         return (
             <div class="row gy-3 ">
@@ -93,7 +92,7 @@ class Checkout extends Component {
     }
 
 
-    creditcard = () => {
+    const creditcard = () => {
         return (
             <div className="row gy-3">
                 <div className="col-md-6">
@@ -153,125 +152,122 @@ class Checkout extends Component {
 
 
 
-    render() {
-        return (
-            <>
-                <Header />
-                <div className="container mt-3 checkout-style mb-4 ">
-                    <Title label="Checkout" />
 
-                    <form>
-                        <div className="row ">
-                            <div className="col-12 col-sm-6 border ">
-                                <h4 className="mb-1 mt-2">Dados de Entrega</h4>
+    return (
+        <>
+            <Header />
+            <div className="container mt-3 checkout-style mb-4 ">
+                <Title label="Checkout" />
 
-                                {/*  <!--************* Parte esquerda da pagina começo  *********************--> */}
-                                <form className="needs-validation" >
-                                    <div className="row  g-3">
-                                        <h5 className="title-subs mt-4"> selecione o endereço</h5>
-                                        <AddressInfo id={1} av="Santos" n="230" complement="Casa" district="Vila São Paulo" zipcode="11740-000" city="Santos" states="Sao Paulo" country="Brasil" />
-                                        <AddressInfo id={2} av="Condessa de Vimieiros" n="345" complement="Apto" district="Centro" zipcode="11740-000" city="Itanhaém" states="Sao Paulo" country="Brasil" />
+                <form>
+                    <div className="row ">
+                        <div className="col-12 col-sm-6 border ">
+                            <h4 className="mb-1 mt-2">Dados de Entrega</h4>
 
-                                        {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
-                                        <ModalEndereco />
-                                        <hr className="my-2" />
-                                        <h4 className="mb-1 "> Frete</h4>
-                                        {/* <div className="col-12"> */}
-                                        <label>Opções de Frete para ******-** </label>
-                                        {/*  <!-- opçes de frete --> */}
-                                        <div className="col-12 ">
-                                            <CheckInput id="comum" label="entrega comum:" frete="10,00" />
-                                            <CheckInput id="express" label="entrega express:" frete="15,50" />
-                                        </div>
-                                        {/* </div> */}
+                            {/*  <!--************* Parte esquerda da pagina começo  *********************--> */}
+                            <form className="needs-validation" >
+                                <div className="row  g-3">
+                                    <h5 className="title-subs mt-4"> selecione o endereço</h5>
+                                    <AddressInfo id={1} av="Santos" n="230" complement="Casa" district="Vila São Paulo" zipcode="11740-000" city="Santos" states="Sao Paulo" country="Brasil" />
+                                    <AddressInfo id={2} av="Condessa de Vimieiros" n="345" complement="Apto" district="Centro" zipcode="11740-000" city="Itanhaém" states="Sao Paulo" country="Brasil" />
+
+                                    {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
+                                    <ModalEndereco />
+                                    <hr className="my-2" />
+                                    <h4 className="mb-1 "> Frete</h4>
+                                    {/* <div className="col-12"> */}
+                                    <label>Opções de Frete para ******-** </label>
+                                    {/*  <!-- opçes de frete --> */}
+                                    <div className="col-12 ">
+                                        <CheckInput id="comum" label="entrega comum:" frete="10,00" />
+                                        <CheckInput id="express" label="entrega express:" frete="15,50" />
                                     </div>
-                                </form>
-                                <hr className="my-2 mt-2" />
-                                {/*  <!--COMEÇOS CUPOM DE DESCONTO --> */}
-                                <h4 className="mb-3 mt-3 ">Cupom de Desconto</h4>
-                                <form className="border p-2">
-                                    <div className="input-group d-grid gy-2">
-                                        <input type="text" className="form-control w-100 mb-2" placeholder="Código promocional" />
-                                        <Button none success label="Resgatar" />
-                                    </div>
-                                    {/* <span className="campo-obrigatório mt-1" >Desconto aplicado! </span> */}
-                                </form>
-                                {/*  <!-- FIM CUPOM DE DESCONTO --> */}
-                                {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
-
-                            </div>
-                            {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
-                            <div className="col-12 col-sm-6 order-md-last border mb-3">
-
-                                <Cart />
-
-                                <hr className="my-2" />
-                                <div className="row">
-                                    <h5> Selecione um Cartão Salvo</h5>
-                                    <AccordionCart
-                                        bandeira='Bandeira'
-                                        num='****-****-****-*000'
-                                        nome='ved Alimentos'
-                                        dia={2} ano={2022} />
-                                    <AccordionCart
-                                        bandeira='Bandeira'
-                                        num='****-****-****-*000'
-                                        nome='ved Alimentos'
-                                        dia={2} ano={2022} />
-                                    <div>
-                                        <hr className="my-2" />
-                                        {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
-                                        <h4 className="mb-2">Pagamento</h4>
-                                        <div className="my-3">
-                                            {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
-
-                                            <RadioBox onClick={() => this.setState({
-                                                paymentForm: {
-                                                    card: false,
-                                                    pix: false,
-                                                    boleto: false,
-                                                    cpfBoleto: true
-
-                                                }
-                                            })} label="Boleto" id='boleto' name="1" />
-                                            <RadioBox onClick={() => this.setState({
-                                                paymentForm: {
-                                                    card: true,
-                                                    pix: false,
-                                                    boleto: false,
-                                                    cpfBoleto: false
-                                                }
-                                            })} label="Cartão de Crédito/Débito" id="card" name="1" />
-                                            <RadioBox onClick={() => this.setState({
-                                                paymentForm: {
-                                                    card: false,
-                                                    pix: true,
-                                                    boleto: false,
-                                                    cpfBoleto: false
-                                                }
-                                            })} label="Pix" id='pix' name="1" />
-                                        </div>
-
-
-                                        <hr className="my-2 border" />
-                                        {this.state.paymentForm.card ? this.creditcard() : ""}
-                                        {this.state.paymentForm.cpfBoleto ? this.preBoleto() : ""}
-                                        <hr className="my-4 mb-3" />
-                                    </div>
-                                    <div className="d-grid gy-2">
-                                        <Button label="Finalizar Pedido" card link="/orderSucess" success />
-                                    </div>
-
+                                    {/* </div> */}
                                 </div>
+                            </form>
+                            <hr className="my-2 mt-2" />
+                            {/*  <!--COMEÇOS CUPOM DE DESCONTO --> */}
+                            <h4 className="mb-3 mt-3 ">Cupom de Desconto</h4>
+                            <form className="border p-2">
+                                <div className="input-group d-grid gy-2">
+                                    <input type="text" className="form-control w-100 mb-2" placeholder="Código promocional" />
+                                    <Button none success label="Resgatar" />
+                                </div>
+                                {/* <span className="campo-obrigatório mt-1" >Desconto aplicado! </span> */}
+                            </form>
+                            {/*  <!-- FIM CUPOM DE DESCONTO --> */}
+                            {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
+
+                        </div>
+                        {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
+                        <div className="col-12 col-sm-6 order-md-last border mb-3">
+
+                            <Cart />
+
+                            <hr className="my-2" />
+                            <div className="row">
+                                <h5> Selecione um Cartão Salvo</h5>
+                                <AccordionCart
+                                    bandeira='Bandeira'
+                                    num='****-****-****-*000'
+                                    nome='ved Alimentos'
+                                    dia={2} ano={2022} />
+                                <AccordionCart
+                                    bandeira='Bandeira'
+                                    num='****-****-****-*000'
+                                    nome='ved Alimentos'
+                                    dia={2} ano={2022} />
+                                <div>
+                                    <hr className="my-2" />
+                                    {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
+                                    <h4 className="mb-2">Pagamento</h4>
+                                    <div className="my-3">
+                                        {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
+
+                                        <RadioBox onClick={() => setPagamento({
+                                                card: false,
+                                                pix: false,
+                                                boleto: false,
+                                                cpfBoleto: true
+                                        })} label="Boleto" id='boleto' name="1" />
+                                        <RadioBox onClick={() => setPagamento({
+
+                                                card: true,
+                                                pix: false,
+                                                boleto: false,
+                                                cpfBoleto: false
+
+                                        })} label="Cartão de Crédito/Débito" id="card" name="1" />
+                                        <RadioBox onClick={() => setPagamento({
+
+                                                card: false,
+                                                pix: true,
+                                                boleto: false,
+                                                cpfBoleto: false
+
+                                        })} label="Pix" id='pix' name="1" />
+                                    </div>
+
+
+                                    <hr className="my-2 border" />
+                                    {this.state.paymentForm.card ? this.creditcard() : ""}
+                                    {this.state.paymentForm.cpfBoleto ? this.preBoleto() : ""}
+                                    <hr className="my-4 mb-3" />
+                                </div>
+                                <div className="d-grid gy-2">
+                                    <Button label="Finalizar Pedido" card link="/orderSucess" success />
+                                </div>
+
                             </div>
                         </div>
-                    </form>
-                    {/*  <!--************* END PAGAMENTO   *********************--> */}
-                </div>
-                <Footer />
-            </>
-        )
-    }
+                    </div>
+                </form>
+                {/*  <!--************* END PAGAMENTO   *********************--> */}
+            </div>
+            <Footer />
+        </>
+    )
+
 }
 
 export default Checkout;
