@@ -29,18 +29,17 @@ function Home() {
       .catch((error) => {
         console.error(error)
       })
-
-  }, [])
-
-  useEffect(() => {
-    axios.get(`${baseHome}/novidade`)
+      axios.get(`${baseHome}/novidade`)
       .then((response) => {
         setNovidade(response.data)
       })
       .catch((error) => {
         console.error(error)
       })
+
   }, [])
+
+ 
 
 
  

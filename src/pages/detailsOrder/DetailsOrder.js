@@ -16,8 +16,8 @@ function DetailsOrder() {
                         <CustomerMenu />
                     </div>
                     <div className="col-12 col-md-9 order-md-last   mb-3 ">
-                    <Title label ="Detalhes do Pedido"/>
-                        
+                        <Title label="Detalhes do Pedido" />
+
                         <div className='alterando d-flex'>
                             <div className="container col-12 col-md-12 col-lg-6 alterando  ">
                                 <div>
@@ -93,21 +93,22 @@ function DetailsOrder() {
 
                                     <span className="badge bg-success rounded-pill"> 5</span>
                                 </h4>
-                                <ul className="list-group " />
-                                <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
-                                <ItemCart nome="laranja" descricao="8 unid." price="12,90" />
-                                <ItemCart nome="Maça" descricao="1kg aprox." price="12,00" />
-                                <ItemCart nome="Alface" descricao="1 unid." price="4,90" />
-                                <ItemCart nome="Banana" descricao="1kg aprox." price="9,90" />
-                                <div>
-                                    <li className="list-group-item list1 d-flex justify-content-between lh-sm">
-                                        <div>
-                                            <h6 className="my-0">Total</h6>
-                                            <small className="text-muted"></small>
-                                        </div>
-                                        <span className="text-muted"><strong>R$ 48,70</strong> </span>
-                                    </li>
-                                </div>
+                                <ul className="list-group " >
+                                    <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
+                                    <ItemCart nome="laranja" descricao="8 unid." price="12,90" />
+                                    <ItemCart nome="Maça" descricao="1kg aprox." price="12,00" />
+                                    <ItemCart nome="Alface" descricao="1 unid." price="4,90" />
+                                    <ItemCart nome="Banana" descricao="1kg aprox." price="9,90" />
+                                    <div>
+                                        <li className="list-group-item list1 d-flex justify-content-between lh-sm">
+                                            <div>
+                                                <h6 className="my-0">Total</h6>
+                                                <small className="text-muted"></small>
+                                            </div>
+                                            <span className="text-muted"><strong>R$ 48,70</strong> </span>
+                                        </li>
+                                    </div>
+                                </ul>
                             </div>
                         </div>
                     </div>

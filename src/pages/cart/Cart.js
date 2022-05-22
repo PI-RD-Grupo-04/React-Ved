@@ -10,7 +10,7 @@ import React, { useState, useEffect, useContext } from 'react'
 
 function Cart(props) {
 
-    const { carrinho, listarCarrinho } = useContext(CartContext)
+    const { carrinho, listarCarrinho, valorTotal } = useContext(CartContext)
 
     const listaItem = carrinho
     useEffect(() => {
@@ -30,7 +30,8 @@ function Cart(props) {
             )
         })
     }
-
+ 
+    console.log('o valor e -> ' + valorTotal)
 
     return (
         <>
@@ -47,7 +48,7 @@ function Cart(props) {
 
                     <div className="text-end">
                         <h4 className="text-dark   mt-3 mb-3">
-                            Valor Total: R$ 1.031,30
+                            Valor Total: {valorTotal}
                         </h4>
 
                         <div className="container mb-3 border">
