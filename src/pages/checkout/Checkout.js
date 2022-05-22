@@ -20,23 +20,20 @@ import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
 function Checkout() {
     const [order, setOrder] = useState(OrderModel)
-    const { client  } = useContext(ClientContext)
-    const { listarCarrinho  } = useContext(CartContext)
+    const { client } = useContext(ClientContext)
+    const { carrinho, listarCarrinho, valorTotal, qtyCarrinho } = useContext(CartContext)
     const [address, setAddress] = useState([])
     const [entrega, setEntrega] = useState({})
     const [frete, setFrete] = useState([])
     const [cupomValidation, setCupomValidation] = useState(0)
     const [cupom, setCupom] = useState({})
-
-
-    console.log(order)
     const [pagamento, setPagamento] = useState({
         card: false,
         pix: false,
-        boleto: false,
         cpfBoleto: false
     })
-
+    console.log(pagamento)
+    console.log(order)
     useEffect(() => {
         getEndereco()
         listEnderecos()
@@ -76,16 +73,16 @@ function Checkout() {
             })
     }
 
-    function ValidationCupom() { 
+    function ValidationCupom() {
         if (cupomValidation == 0) {
-            return( <></>) 
+            return (<></>)
         } else if (cupomValidation == 1) {
             return (
                 <div className="body-success"> <AiFillCheckCircle size="30" /> Registrado com Sucesso </div>
             )
         } else {
             return (
-                <div  className="body-error"> <AiOutlineCloseCircle size="30" /> Error ao Cadastrar</div>
+                <div className="body-error"> <AiOutlineCloseCircle size="30" /> Error ao Cadastrar</div>
             )
         }
     }
@@ -121,16 +118,7 @@ function Checkout() {
 
     }
 
-    const ativaBoleto = () => setPagamento({
-        paymentForm: {
-            card: false,
-            pix: false,
-            boleto: true,
-            cpfBoleto: false
-        }
-    })
-
-    const preBoleto = () => {
+    function preBoleto() {
 
         return (
             <div class="row gy-3 ">
@@ -141,7 +129,7 @@ function Checkout() {
                     <input type="text" id="nomeboleto" class="form-control" />
                     <label for="nomecpf">CPF:</label>
                     <input type="text" id="cpfboleto" class="form-control" />
-                    <div class="container mt-4 d-grid gy-2 mb-3" onClick={this.ativaBoleto}>
+                    <div class="container mt-4 d-grid gy-2 mb-3">
                         <Button success label="gera boleto" />
                     </div>
                 </div>
@@ -245,9 +233,8 @@ function Checkout() {
                                     getCupom(event.target.value);
                                 }} className="form-control w-100 mb-2" placeholder="Código promocional" />
                                 <Button none success label="Resgatar" click={() => {
-                                    setOrder({ ...order, cupomDesconto: cupom.id }) 
-
-                                }} /> 
+                                    setOrder({ ...order, cupomDesconto: cupom.id })
+                                }} />
                                 {ValidationCupom()}
                             </div>
 
@@ -257,10 +244,11 @@ function Checkout() {
                         </div>
                         {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
                         <div className="col-12 col-sm-6 order-md-last border mb-3">
-
-                            <Cart cupom={cupom} />
+                            <Cart quant={qtyCarrinho} cart={carrinho}
+                                cupom={cupom} valor={valorTotal} />
 
                             <hr className="my-2" />
+
                             <div className="row">
                                 <h5> Selecione um Cartão Salvo</h5>
                                 <AccordionCart
@@ -279,32 +267,30 @@ function Checkout() {
                                     <h4 className="mb-2">Pagamento</h4>
                                     <div className="my-3">
                                         {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
-
+                                        {/*---------------------------- boleto---------------------------- */}
                                         <RadioBox onClick={() => setPagamento({
                                             card: false,
                                             pix: false,
-                                            boleto: false,
                                             cpfBoleto: true
-
                                         })} label="Boleto" id='boleto' name="1" />
+                                        {/*------------------- cartao----------------------- */}
                                         <RadioBox onClick={() => setPagamento({
                                             card: true,
                                             pix: false,
-                                            boleto: false,
                                             cpfBoleto: false
 
                                         })} label="Cartão de Crédito/Débito" id="card" name="1" />
+                                        {/*---------------------------- pix --------------------*/}
                                         <RadioBox onClick={() => setPagamento({
                                             card: false,
                                             pix: true,
-                                            boleto: false,
                                             cpfBoleto: false
 
                                         })} label="Pix" id='pix' name="1" />
                                     </div>
                                     <hr className="my-2 border" />
 
-                                    {pagamento.boleto ? this.preBoleto() : ""}
+                                    {pagamento.cpfBoleto ? preBoleto() : ""}
                                     <hr className="my-4 mb-3" />
                                 </div>
                                 <div className="d-grid gy-2">
