@@ -6,9 +6,11 @@ import CartContext from '../../context/Cart.provider'
 
 function Cart(props) {
 
-    const { carrinho, valorTotal, qtyCarrinho } = useContext(CartContext)
+    const { carrinho, listarCarrinho, valorTotal, qtyCarrinho } = useContext(CartContext)
     const [listaItem, setListaItem] = useState([])
+
     useEffect(() => {
+        listarCarrinho()
         setListaItem(carrinho)
     }, [])
 
@@ -20,6 +22,13 @@ function Cart(props) {
         })
     }
 
+    function listarCupom() {
+
+            return (
+                <ItemCart promo key={props.cupom.id} nome={props.cupom.descricao} descricao='Cupom Promo Ved' price={props.cupom.porcentagemDesconto} />
+            )
+
+    }
     return (
         <>
             <div>
@@ -30,13 +39,13 @@ function Cart(props) {
                 </h4>
                 <ul className="list-group mb-3">
                     {listar()}
-
+                    {listarCupom()}
                     <div>
                         <li className="list-group-item list1 d-flex justify-content-between lh-sm">
                             <div>
                                 <h5 className="my-0">Total</h5>
                             </div>
-                            <span className="text-muted"> {valorTotal}</span>
+                            <span className="text-muted"> {valorTotal - props.cupom.porcentagemDesconto}</span>
                         </li>
                     </div>
                 </ul>

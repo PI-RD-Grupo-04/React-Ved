@@ -61,8 +61,10 @@ function CartProvider(props) {
     }
 
     const listarCarrinho = () => {
-        let lista = ValidaCarrinho()
+        let lista = ValidaCarrinho() 
+        let valor = localStorage.getItem('valorTotal')
         setCarrinho(lista)
+        setValorTotal(valor)
     }
 
     return (
