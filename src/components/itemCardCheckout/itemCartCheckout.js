@@ -2,7 +2,8 @@ import React from 'react'
 
 
 function ItemCart(props) {
-    let promo = props.promo ? 'text-success' : 'text-muted'
+    let promo = props.promo ? 'text-success' : 'text-muted' 
+    
 
     return (
         <div>

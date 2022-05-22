@@ -30,8 +30,7 @@ function Cart(props) {
             )
         })
     }
- 
-    console.log('o valor e -> ' + valorTotal)
+
 
     return (
         <>
