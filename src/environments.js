@@ -14,6 +14,12 @@ const baseCartao = 'http://localhost:8080/cliente/cartao'
 
 const baseNovidades = 'http://localhost:8080/novidades'
 
-export { baseHome, baseProduct, baseCategoria, baseEndereco, baseUf ,baseCartao, baseNovidades,  baseCliente}
+const baseFrete = 'http://localhost:8080/frete'
+
+const baseBandeira = 'http://localhost:8080/bandeira'
+
+export { baseBandeira, baseHome, baseProduct, baseFrete ,baseCategoria, baseEndereco, baseUf ,baseCartao, baseNovidades,  baseCliente}
+
+
 
 

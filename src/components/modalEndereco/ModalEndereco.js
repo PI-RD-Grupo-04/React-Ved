@@ -48,8 +48,6 @@ function ModalEndereco(props) {
                 console.error(error.messege)
             })
     }
-    console.log(endereco)
-
     const getStates = () => {
         axios.get(`${baseUf}`)
             .then((response) => {
@@ -150,6 +148,7 @@ function ModalEndereco(props) {
                             postEndereco(address)
                             setTimeout(
                                 () => {
+                                    
                                     setSuccessRegister(false)
                                     handleClose()
                                 }, 1000)

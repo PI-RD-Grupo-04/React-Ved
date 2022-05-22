@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 
 function ItemCart(props) {
     let promo = props.promo ? 'text-success' : 'text-muted'
 
     return (
-
         <div>
             <li className="list-group-item d-flex justify-content-between lh-sm">
                 <div>
