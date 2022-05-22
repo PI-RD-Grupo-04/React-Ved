@@ -1,4 +1,5 @@
 import './Addressinfo.css'
+import CheckInput from '../checkInput/CheckInput' 
 
 function AddressInfo(props) {
 
