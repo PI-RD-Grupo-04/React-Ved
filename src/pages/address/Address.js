@@ -17,6 +17,9 @@ function Address() {
     const [endereco, setEndereco] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
 
+
+    let cliente = 1
+
     useEffect(() => {
         getEndereco()
     }, [])
@@ -30,6 +33,15 @@ function Address() {
             .catch((error) => {
                 console.error(error.messege)
             })
+    }
+
+    const checkCEP = (endereco) => {
+        axios.cep(`${baseEndereco}/${cliente}/cep/${endereco}`)
+        fetch('URL: viacep.com.br/ws/01001000/json/')
+            .then(res => res.json()).then(data => {
+                console.log(data);
+            });
+
     }
 
     const deleteEndereco = (endereco) => {
@@ -51,7 +63,7 @@ function Address() {
         return endereco.map(endereco => {
             return (
                 <div key={endereco.id}>
-                    <AddressInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} city={endereco.cidade} states={endereco.municipio} id={endereco.id} delete={deleteEndereco} />
+                    <AddressInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} onBlur={checkCEP} city={endereco.cidade} states={endereco.municipio} id={endereco.id} delete={deleteEndereco} />
                 </div >
             )
         })
@@ -88,7 +100,7 @@ function Address() {
 
                         <div className='mt-5 row '>
                             <div className="col-12 d-grid gap-2 col-sm-8    ">
-                                <ModalEndereco  lista={listEnderecos} get={getEndereco} />
+                                <ModalEndereco lista={listEnderecos} get={getEndereco} />
                             </div>
 
 
