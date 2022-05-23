@@ -58,7 +58,7 @@ function Home() {
         </div>
         {/* *************************************** CAROUSEL BEGIN ************************************ */}
         <Carousel>
-          <Carousel.Item interval={1000}>
+          <Carousel.Item interval={2000}>
             <img
               className="d-block w-100"
               src={carrosel1mel}
@@ -68,7 +68,7 @@ function Home() {
 
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={500}>
+          <Carousel.Item interval={2000}>
             <img
               className="d-block w-100"
               src={item2}
@@ -78,7 +78,7 @@ function Home() {
             </Carousel.Caption>
           </Carousel.Item>
 
-          <Carousel.Item interval={500}>
+          <Carousel.Item interval={2000}>
             <img
               className="d-block w-100"
               src={item1}
