@@ -13,7 +13,7 @@ import bannerprincipal from '../../components/asserts/imagens/bannerprincipal.gi
 import Title from '../../components/title/Title'
 import CarroseuHome from '../../components/carroseu/CarroseuHome'
 import { baseHome } from "../../environments";
-
+import { baseCartao } from "../../environments";
 
 function Home() {
 

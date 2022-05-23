@@ -14,54 +14,8 @@ import InputMask from 'react-input-mask'
 import Cart from '../../components/cart/Cart' 
 import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
 import React , { useEffect, useState , Component } from 'react'
-
-
-// const [cartao, setCartao] = useState([])
-
-// let cliente = 1
-
-
-    
-// useEffect(() => {
-//     getCartao()
-// }, [])
-
-
-// const getCartao = () => {
-//     axios.get(`${baseCartao}/${cliente}/detalhes`
-//     )
-//         .then((response) => {
-//             setCartao(response.data)
-//         })
-//         .catch((error) => {
-//             console.error(error)
-//         })
-//     }
-
-// function ofertas() {
-//     return cartao.map(item => {
-//          return (
-//              <div key={item.id}>
-//                  <div class="row mb-3 pb-3 pt-3">
-//                      <div class="row ">
-//                      <AccordionCart
-//                                         bandeira={item.item.idBandeira.nome}
-//                                         num={item.numeroCartao}
-//                                         nome={item.nome}
-//                                         mes={item.diaVencimento} ano={item.anoVencimento}
-//                                          />
-//                      </div>
-//                  </div>
-//              </div>
-// )})}
-
-
-
-
-
-
-
-
+import axios from 'axios'
+import { baseCartao } from "../../environments";
 
 
 
@@ -77,7 +31,43 @@ class Checkout extends Component {
         }
     } 
 
+    const [cartao, setCartao] = useState([])
 
+    let cliente = 1
+    
+    useEffect(() => {
+        getCartao()
+    }, [])
+    
+    const getCartao = () => {
+        axios.get(`${baseCartao}/${cliente}/detalhes`
+        )
+            .then((response) => {
+                setCartao(response.data)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+        }
+    
+    function ofertas() {
+        return cartao.map(item => {
+             return (
+                 <div key={item.id}>
+                     <div class="row mb-3 pb-3 pt-3">
+                         <div class="row ">
+                         <AccordionCart
+                                            bandeira={item.item.idBandeira.nome}
+                                            num={item.numeroCartao}
+                                            nome={item.nome}
+                                            mes={item.diaVencimento} ano={item.anoVencimento}
+                                             />
+                         </div>
+                     </div>
+                 </div>
+    )})}
+    
+    
 
     pix = () => {
         return (<div className="row gy-3 ">
@@ -149,7 +139,6 @@ class Checkout extends Component {
             <div className="col-12 d-grid gap-2 col-sm-8   mb-2 ">
                 <ModelPayCard />
             </div>
-
             </div>
         )
     }
