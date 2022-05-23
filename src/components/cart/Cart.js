@@ -9,7 +9,7 @@ function Cart(props) {
         
         return (
         <>
-        <h6 className="font-price">{priceConverted}</h6>
+        <h6 className="">{priceConverted}</h6>
         </>
         )
         
