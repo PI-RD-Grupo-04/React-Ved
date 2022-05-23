@@ -21,7 +21,7 @@ import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 function Checkout() {
     const [order, setOrder] = useState(OrderModel)
     const { client } = useContext(ClientContext)
-    const { carrinho, listarCarrinho, valorTotal, qtyCarrinho } = useContext(CartContext)
+    const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
     const [address, setAddress] = useState([])
     const [entrega, setEntrega] = useState({})
     const [frete, setFrete] = useState([])
@@ -38,6 +38,7 @@ function Checkout() {
         getEndereco()
         listEnderecos()
         listarCarrinho()
+        total()
     }, [])
 
     const getEndereco = () => {
@@ -56,6 +57,7 @@ function Checkout() {
             .then((response) => {
                 setCupom(response.data)
                 setCupomValidation(1)
+
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -87,6 +89,22 @@ function Checkout() {
         }
     }
 
+    function CartComCupom() {
+        if (cupomValidation == 1) {
+            return (
+                <Cart quant={qtyCarrinho} cart={carrinho}
+                    cupom={cupom} valor={valorTotal} cupomValid />
+            )
+        } else {
+            return (
+                <Cart quant={qtyCarrinho} cart={carrinho}
+                    cupom={cupom} valor={valorTotal} />
+
+            )
+        }
+    }
+
+
     function opcoesFrete() {
         return (frete.map((opcao) => {
             return (
@@ -117,6 +135,8 @@ function Checkout() {
         })
 
     }
+
+
 
     function preBoleto() {
 
@@ -244,9 +264,8 @@ function Checkout() {
                         </div>
                         {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
                         <div className="col-12 col-sm-6 order-md-last border mb-3">
-                            <Cart quant={qtyCarrinho} cart={carrinho}
-                                cupom={cupom} valor={valorTotal} />
 
+                            {CartComCupom()}
                             <hr className="my-2" />
 
                             <div className="row">
@@ -307,4 +326,4 @@ function Checkout() {
 
 }
 
-export default Checkout;
+export default Checkout

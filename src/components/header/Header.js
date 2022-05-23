@@ -14,11 +14,12 @@ function Header() {
 
     const [buscar, setBuscar] = useState('')
     const { client } = useContext(ClientContext) 
-    const { qtyCarrinho  } = useContext(CartContext)
+    const { qtyCarrinho, total  } = useContext(CartContext)
 
 
     useEffect(() => {
         quantidade()
+        total()
     }, [])
 
     function quantidade() {

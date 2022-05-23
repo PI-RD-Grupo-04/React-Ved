@@ -13,18 +13,22 @@ function Cart(props) {
     }
 
     function listarCupom() {
-        return (
-            <ItemCart promo key={props.cupom.id} nome={props.cupom.descricao} descricao='Cupom Promo Ved' price={props.cupom.porcentagemDesconto} />
-        )
-    }  
+        if (props.cupomValid) {
+            return (
+                <ItemCart promo cupom key={props.cupom.id} nome={props.cupom.descricao} descricao='Cupom Promo Ved' price={props.cupom.porcentagemDesconto} />
+            )
+        } else {
+            <></>
+        }
+    }
 
     function calcularTotal() {
-        let valorT = props.valor 
+        let valorT = props.valor
         let porcento = props.cupom.porcentagemDesconto ? props.cupom.porcentagemDesconto : 0
-        let valorFinal =  ((porcento/100 ) * valorT ) 
+        let valorFinal = ((porcento / 100) * valorT)
         return (
-           <>{valorT - valorFinal} </>     
-        )  
+            <>{valorT - valorFinal} </>
+        )
     }
 
 
