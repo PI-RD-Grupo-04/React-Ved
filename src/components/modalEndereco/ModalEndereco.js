@@ -29,7 +29,8 @@ function ModalEndereco(props) {
 
 
     function getCep(cep) {
-        return axios.get(`https://viacep.com.br/ws/${cep}/json/ `)
+        if (!cep.target.value)
+        return axios.get.address(`https://viacep.com.br/ws/${cep}/json/ `)
             .then((response) => {
                 setEndereco(response.data)
             })
@@ -54,9 +55,7 @@ function ModalEndereco(props) {
                 setStates(response.data)
             })
     }
-
-
-
+    
     return (
 
         <>
@@ -78,7 +77,7 @@ function ModalEndereco(props) {
                     <div className="row ">
                         <div className="col-12 col-sm-6">
                             <label for='cep' className=" text-input">Cep:</label>
-                            <InputMask mask="99999-999" onChange={(e) => {
+                            <InputMask mask="99999-999" value={endereco.logradouro} onChange={(e) => {
                                 setCep(e.target.value)
                                 setAddress({ ...address, cep: e.target.value })
                             }} onBlur={() => { getCep(cep) }}
@@ -87,7 +86,7 @@ function ModalEndereco(props) {
                         <div className="col-12 col-sm-6">
                             <label for='rua' className=" text-input">Rua:</label>
                             <InputMask required
-                                onChange={(event) => { setAddress({ ...address, rua: event.target.value }) }} className="form-control mb-3" placeholder="r" id="rua" />
+                                onChange={(event) => { setAddress({ ...address, rua: event.target.value }) }} className="form-control mb-3" placeholder="rua" id="rua" />
                         </div>
 
                         <div className="col-12 col-sm-6">
@@ -99,13 +98,13 @@ function ModalEndereco(props) {
                         <div className="col-12 col-sm-6">
                             <label for='complemento' className=" text-input">Complemento:</label>
                             <InputMask required
-                                onChange={(event) => { setAddress({ ...address, complemento: event.target.value }) }} className="form-control mb-3" placeholder="c" info="seu complemento" id="Complemento" type="" />
+                                onChange={(event) => { setAddress({ ...address, complemento: event.target.value }) }} className="form-control mb-3" placeholder="complemento" info="seu complemento" id="Complemento" type="" />
                         </div>
 
                         <div className="col-12 col-sm-6">
                             <label for='cidade' className=" text-input">Cidade:</label>
                             <InputMask required
-                                onChange={(event) => { setAddress({ ...address, cidade: event.target.value }) }} className="form-control mb-3" placeholder="cc" info="sua cidade" id="cidade" />
+                                onChange={(event) => { setAddress({ ...address, cidade: event.target.value }) }} className="form-control mb-3" placeholder="cidade" info="sua cidade" id="cidade" />
                         </div>
 
                         <div className="col-12 col-sm-6">
@@ -148,7 +147,7 @@ function ModalEndereco(props) {
                             postEndereco(address)
                             setTimeout(
                                 () => {
-                                    
+
                                     setSuccessRegister(false)
                                     handleClose()
                                 }, 1000)

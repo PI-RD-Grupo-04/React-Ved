@@ -12,7 +12,7 @@ import { Alert } from 'react-bootstrap'
 import axios from 'axios'
 import ClientContext from '../../context/Client.provider'
 
-function Address() { 
+function Address() {
     const { client } = useContext(ClientContext)
     const [endereco, setEndereco] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
@@ -35,14 +35,8 @@ function Address() {
             })
     }
 
-    const checkCEP = (endereco) => {
-        axios.cep(`${baseEndereco}/${cliente}/cep/${endereco}`)
-        fetch('URL: viacep.com.br/ws/01001000/json/')
-            .then(res => res.json()).then(data => {
-                console.log(data);
-            });
 
-    }
+
 
     const deleteEndereco = (endereco) => {
         axios.delete(`${baseEndereco}/${client.id}/delete/${endereco}`)
@@ -63,7 +57,7 @@ function Address() {
         return endereco.map(endereco => {
             return (
                 <div key={endereco.id}>
-                    <AddressInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} onBlur={checkCEP} city={endereco.cidade} states={endereco.municipio} id={endereco.id} delete={deleteEndereco} />
+                    <AddressInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} city={endereco.cidade} states={endereco.municipio} id={endereco.id} delete={deleteEndereco} />
                 </div >
             )
         })
