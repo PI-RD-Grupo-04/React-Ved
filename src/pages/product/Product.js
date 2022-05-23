@@ -40,7 +40,7 @@ function Product() {
                 console.error(error.messege)
             })
     }
-
+    
 
     const getReceita = () => {
         axios.get(`${baseProduct}/${id}/receita `)
@@ -52,7 +52,16 @@ function Product() {
             })
     }
 
-
+    function showPrice  (number) {
+        let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
+        
+        return (
+        <>
+        <h6 className="font-price">{priceConverted}</h6>
+        </>
+        )
+        
+        }
 
     return (
         <>
@@ -75,11 +84,11 @@ function Product() {
 
                                 <div className=" d-flex price-por product-price ">
                                     <p>De:
-                                        <small className="product-price de-product">{product.preco - 2}</small>
+                                        <small className="product-price de-product"> {showPrice(product.preco +2)}</small>
                                     </p>
                                 </div>
                                 <div className="d-flex justify-content-start">
-                                    <h3 className="mb-2 d-flex text-align justify-content-start title-main">Por: {product.preco}</h3>
+                                    <h3 className="mb-2 d-flex text-align justify-content-start title-main">Por: {showPrice(product.preco)}</h3>
                                 </div>
                                 <div className="row">
                                     <div className="col-12">

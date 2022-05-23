@@ -17,7 +17,8 @@ import ClientContext from '../../context/Client.provider'
 import CartContext from '../../context/Cart.provider'
 import OrderModel from '../../models/Order'
 import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
-
+import { baseCartao } from "../../environments";
+import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
 function Checkout() {
     const [order, setOrder] = useState(OrderModel)
     const { client } = useContext(ClientContext)
@@ -27,11 +28,13 @@ function Checkout() {
     const [frete, setFrete] = useState([])
     const [cupomValidation, setCupomValidation] = useState(0)
     const [cupom, setCupom] = useState({})
+    const [cartao, setCartao] = useState([])
     const [pagamento, setPagamento] = useState({
         card: false,
         pix: false,
         cpfBoleto: false
     })
+    let cliente = 1
     console.log(pagamento)
     console.log(order)
     useEffect(() => {
@@ -87,7 +90,55 @@ function Checkout() {
                 <div className="body-error"> <AiOutlineCloseCircle size="30" /> Error ao Cadastrar</div>
             )
         }
-    }
+    } 
+
+    
+    useEffect(() => {
+        getCartao()
+    }, [])
+    
+    const getCartao = () => {
+        axios.get(`${baseCartao}/${cliente}/detalhes`
+        )
+            .then((response) => {
+                setCartao(response.data)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+        }
+    
+    function ofertas() {
+        return cartao.map(item => {
+             return (
+                 <div key={item.id}>
+                     <div class="row mb-3 pb-3 pt-3">
+                         <div class="row ">
+                         <AccordionCart
+                                            bandeira={item.idBandeira.nome}
+                                            num={item.numeroCartao}
+                                            nome={item.titular}
+                                            mes={item.diaVencimento} ano={item.anoVencimento}
+                                             />
+                         </div>
+                     </div>
+                 </div>
+    )})}
+
+
+    // function showPrice(number)  {
+    //     let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
+        
+    //     return (
+    //     <>
+    //     <h6 className="font-price">{priceConverted}</h6>
+    //     </>
+    //     )
+        
+    //     }
+
+
+    
 
     function CartComCupom() {
         if (cupomValidation == 1) {
@@ -138,6 +189,7 @@ function Checkout() {
 
 
 
+
     function preBoleto() {
 
         return (
@@ -160,57 +212,10 @@ function Checkout() {
 
     const creditcard = () => {
         return (
-            <div className="row gy-3">
-                <div className="col-md-6">
-                    {/* <!-- nome do titular do cartão --> */}
-                    <label for="cc-name" className="form-label">Nome no cartão</label>
-                    <input type="text" className="form-control" id="cc-name" required />
-                    <small className="text-muted">Nome  exibido no cartão</small>
-                    <div className="invalid-feedback">Nome Obrigatório</div>
-                </div>
-
-                <div className="col-md-6">
-                    {/* <!-- Número do cartão --> */}
-                    <label for="cc-number" className="form-label">Nº Cartão de Crédito</label>
-                    <InputMask mask="9999 9999 9999 9999" className="form-control" id="cc-number" required />
-                    <div className="invalid-feedback">Número do Cartão Obrigatório</div>
-                </div>
-                <div className="col-md-9">
-                    {/*  <!-- CPF do titular --> */}
-                    <label for="cpf-titular" className="form-label">CPF do Titular do Cartão</label>
-                    <InputMask mask="999.999.999-99 " className="form-control" id="cpf-titular" required />
-                    <div className="invalid-feedback">Número do Cartão Obrigatório</div>
-                </div>
-                <div className="col-3 ">
-                    {/* <!-- vencimento do cartão --> */}
-                    <label for="bandeira-card" className="form-label col-12">Bandeira</label>
-                    <img src={iconNu} className="iconCard" />
-                    <div className="invalid-feedback">Cartão inválido</div>
-                </div>
-                <div className="col-md-3">
-                    {/* <!-- vencimento do cartão --> */}
-                    <label for="cc-expiration" className="form-label">Vencimento</label>
-                    <InputMask mask="99/99" className="form-control" id="cc-expiration" required />
-                    <div className="invalid-feedback">Data de Expiração Obrigatória</div>
-                </div>
-                <div className="col-md-2">
-                    <label for="card-cvv" className="form-label">CVV</label>
-                    <InputMask mask="999" className="form-control" id="card-cvv" required />
-                    <div className="invalid-feedback">Codigo de seguranção Obrigatório</div>
-                </div>
-                <div className="col-md-6 d-grid gy-2">
-                    <label for="parcela" className="col-12">Parcelar em</label>
-                    <select id="parcela" required>
-                        <option value="">Selecione a parcela...</option>
-                        <option value="1">1x </option>
-                        <option value="2">2x</option>
-                        <option value="3">3x</option>
-                        <option value="4">4x</option>
-                        <option value="5">5x</option>
-                        <option value="6">5x</option>
-                    </select>
-                    <div className="invalid-feedback">Selecione pelo menos 1x</div>
-                </div>
+            <div className='mt-5 row '>
+            <div className="col-12 d-grid gap-2 col-sm-8   mb-2 ">
+                <ModelPayCard />
+            </div>
             </div>
         )
     }
@@ -270,16 +275,7 @@ function Checkout() {
 
                             <div className="row">
                                 <h5> Selecione um Cartão Salvo</h5>
-                                <AccordionCart
-                                    bandeira='Bandeira'
-                                    num='****-****-****-*000'
-                                    nome='ved Alimentos'
-                                    dia={2} ano={2022} />
-                                <AccordionCart
-                                    bandeira='Bandeira'
-                                    num='****-****-****-*000'
-                                    nome='ved Alimentos'
-                                    dia={2} ano={2022} />
+                                    {ofertas()}
                                 <div>
                                     <hr className="my-2" />
                                     {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
@@ -297,6 +293,7 @@ function Checkout() {
                                             card: true,
                                             pix: false,
                                             cpfBoleto: false
+                                            
 
                                         })} label="Cartão de Crédito/Débito" id="card" name="1" />
                                         {/*---------------------------- pix --------------------*/}
@@ -309,8 +306,10 @@ function Checkout() {
                                     </div>
                                     <hr className="my-2 border" />
 
+                                    {pagamento.card ? creditcard(): ""}
                                     {pagamento.cpfBoleto ? preBoleto() : ""}
                                     <hr className="my-4 mb-3" />
+
                                 </div>
                                 <div className="d-grid gy-2">
                                     <Button label="Finalizar Pedido" card link="/orderSucess" success />

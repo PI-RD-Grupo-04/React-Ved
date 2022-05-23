@@ -32,6 +32,19 @@ function Cart() {
     }
 
 
+
+    function showPrice(number)  {
+        let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
+        
+        return (
+        <>
+        <h6 className="font-price">{priceConverted}</h6>
+        </>
+        )
+        
+        }
+
+
     return (
         <>
             <Header />
@@ -47,7 +60,7 @@ function Cart() {
 
                     <div className="text-end">
                         <h4 className="text-dark   mt-3 mb-3">
-                            Valor Total: {valorTotal}
+                            Valor Total:  {showPrice(valorTotal)}
                         </h4>
 
                         <div className="container mb-3 border">
@@ -62,8 +75,8 @@ function Cart() {
                             <div className="row">
 
                                 <div className="mt-1 col-sm-12 col-lg-4">
-                                    <p>Entrega Comum: R$ 45,50</p>
-                                    <p>Entrega Flex: R$ 65,50</p>
+                                    <p>Entrega Comum: {showPrice(45,50)} </p>
+                                    <p>Entrega Flex: {showPrice(65,50)}</p>
 
                                 </div>
 

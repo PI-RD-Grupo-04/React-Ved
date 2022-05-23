@@ -8,6 +8,48 @@ function ItemBasket(props) {
     const [valorTotal, setValorTotal] = useState(props.valor * props.quantidadeProduto)
     const {incrementoCarrinho, decrementoCarrinho, deleteCarrinho ,quantidadeProduto  } = useContext(CartContext) 
 
+    // const [quantidade1, setQuantidade1] = useState(1)
+    // let delet = props.delete ? props.delete : null
+
+    // const quantidade = props.quantidade ? props.quantidade : 1
+
+
+    // const incremento = () => {
+    //     if (quantidade1 < quantidade) {
+    //         setQuantidade1(quantidade1 + 1);
+
+    //     } else {
+    //         quantidade1 = quantidade;
+    //     }
+    //     resu()
+    // }
+
+
+    // const decremento = () => {
+    //     if (quantidade1 <= 0) {
+    //         setQuantidade1(1);
+    //     } else {
+    //         setQuantidade1(quantidade1 - 1);
+    //     }
+    //     resu()
+    // }
+
+    // function resu() {
+    //     props.vl(props.preco, quantidade1)
+    // }
+
+
+    function showPrice(number)  {
+        let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
+        
+        return (
+        <>
+        <h6 className="font-price">{priceConverted}</h6>
+        </>
+        )
+        
+        }
+    
 
     return (
         <>
@@ -31,13 +73,13 @@ function ItemBasket(props) {
                     <div className="col-12 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
                         <div className="text-end mt-2 ">
                             <div className="input-group w-100 h-100 ">
-                                <button className="btn btn-outline-dark  btn-green btn-sm" >
+                                <button onClick={() => decremento()} className="btn btn-outline-dark  btn-green btn-sm" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                                     </svg> <i className="bi-caret-down" ></i>
                                 </button>
                                 <input type="text" className="form-control text-center border-dark " value={quantidadeProduto} />
-                                <button className="btn btn-outline-dark btn-green btn-sm" >
+                                <button onClick={() => incremento()} className="btn btn-outline-dark btn-green btn-sm" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z" />
                                     </svg> <i className="bi-caret-up" ></i>
@@ -51,9 +93,9 @@ function ItemBasket(props) {
                                 </button>
                                 
                             </div>
-                            <p className="text-dark">Valor Item: {props.valor}</p>
-                            <small className="text-secondary">Valor Unitário: {valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })} </small><br /> 
-                             <small className="text-secondary">Valor Total: {valorTotal.toLocaleString('pt-br', {minimumFractionDigits: 2})} </small><br />
+                            <p className="text-dark">Valor Item: {showPrice(props.valor)}</p>
+                            <small className="text-secondary">Valor Unitário: {showPrice(valorTotal)} </small><br /> 
+                             <small className="text-secondary">Valor Total: {showPrice(valorTotal)}</small><br />
                         </div>
                     </div>
                 </div>

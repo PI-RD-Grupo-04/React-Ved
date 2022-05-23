@@ -10,6 +10,12 @@
     height: 100%;
 } 
 
+
+.font-price{
+
+    font-size: 26px;
+}
+
 @media (max-width: 4000px) { 
 .telamenor1{display: none;}
 .telaxxl1 {display:block}
@@ -19,5 +25,9 @@
 
     .telamenor1{display: block;}
     .telaxxl1 {display:none}
+
+
+
+
 
 }
