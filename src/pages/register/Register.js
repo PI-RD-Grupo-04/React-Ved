@@ -22,11 +22,11 @@ function Register() {
     const [senha, setSenha] = useState('')
     const [senhaOk, setSenhaOk] = useState('d-none')
     const [senhaError, setSenhaError] = useState('d-none')
-
+    const [senhaConfirmar, setSenhaConfirmar] = useState('')
     const [senhaConfirmOk, setSenhaconfirmOk] = useState('d-none')
     const [senhaConfirmError, setSenhaConfirmError] = useState('d-none')
     const [show, setShow] = useState(false);
-    const [senhaConfirmar, setSenhaConfirmar] = useState('')
+  
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
