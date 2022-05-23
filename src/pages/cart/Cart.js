@@ -8,7 +8,7 @@ import CartContext from '../../context/Cart.provider'
 import Title from '../../components/title/Title'
 import React, { useState, useEffect, useContext } from 'react'
 
-function Cart(props) {
+function Cart() {
 
     const { carrinho, listarCarrinho, valorTotal } = useContext(CartContext)
 
@@ -30,8 +30,7 @@ function Cart(props) {
             )
         })
     }
- 
-    console.log('o valor e -> ' + valorTotal)
+
 
     return (
         <>

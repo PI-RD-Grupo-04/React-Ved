@@ -2,7 +2,8 @@ import React from 'react'
 
 
 function ItemCart(props) {
-    let promo = props.promo ? 'text-success' : 'text-muted'
+    let promo = props.promo ? 'text-success' : 'text-muted' 
+    
 
     return (
         <div>
@@ -11,7 +12,12 @@ function ItemCart(props) {
                     <h6 className={promo}>{props.nome}</h6>
                     <small className={promo}>{props.descricao}</small>
                 </div>
-                <span className={promo}>R$ {props.price}</span>
+                <span className={promo}>
+                    {props.cupom
+                    ? <> R$ -{props.price}</> 
+                    : <> R$ {props.price}</>
+                    }
+                    </span>
             </li>
         </div>
 
