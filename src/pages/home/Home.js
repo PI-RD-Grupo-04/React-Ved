@@ -21,15 +21,14 @@ function Home() {
   const [novidade, setNovidade] = useState([])
 
   useEffect(() => {
-    axios.get(`${baseHome}/ofertas`
-    )
+    axios.get(`${baseHome}/ofertas`)
       .then((response) => {
         setOferta(response.data)
       })
       .catch((error) => {
         console.error(error)
       })
-      axios.get(`${baseHome}/novidade`)
+    axios.get(`${baseHome}/novidade`)
       .then((response) => {
         setNovidade(response.data)
       })
@@ -39,10 +38,10 @@ function Home() {
 
   }, [])
 
- 
 
 
- 
+
+
   return (
     <>
 
@@ -111,12 +110,12 @@ function Home() {
       <div className="container  ">
         <div className="row justify-content-space ">
           {
-          oferta.map(item => {
-            return (
-              <ProductCard key={item.id} col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" status={item.statusProduto} img={item.url} link={`/product/${item.id}`} nome={item.nomeProduto}
-                descri={item.descricao} product={item} price={item.preco} />
-            )
-          })
+            oferta.map(item => {
+              return (
+                <ProductCard key={item.id} col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" status={item.statusProduto} img={item.url} link={`/product/${item.id}`} nome={item.nomeProduto}
+                  descri={item.descricao} product={item} price={item.preco} />
+              )
+            })
           }
         </div>
       </div>
