@@ -92,8 +92,6 @@ function Checkout() {
             })
     }
 
-
-
     const getCupom = (valor) => {
         axios.get(`${baseCupom}/${valor}`)
             .then((response) => {
@@ -186,7 +184,6 @@ function Checkout() {
             )
         }
     }
-
 
     function opcoesFrete() {
         return (frete.map((opcao) => {
