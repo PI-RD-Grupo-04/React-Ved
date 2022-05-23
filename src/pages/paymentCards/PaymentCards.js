@@ -17,6 +17,18 @@ function PaymentCards() {
     const [cartao, setCartao] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
 
+    const showPrice = (number) => {
+        let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
+        
+        return (
+        <>
+        <h6 className="font-price">{priceConverted}</h6>
+        </>
+        )
+        
+        }
+
+
     let cliente = 1
 
 
@@ -67,14 +79,22 @@ function PaymentCards() {
                     
                 )
                 })
-            }
-    
+        }
+
 
     return (
+                
+
+
+
+
 
 
         <>
             <Header />
+
+
+            {showPrice(3000)}
             <div class="container mt-3 mb-4  ">
 
                 <div class="row ">
@@ -111,6 +131,10 @@ function PaymentCards() {
                 </div>
             </div>
             <Footer />
+
+
+
+            
         </>
     )
 }
