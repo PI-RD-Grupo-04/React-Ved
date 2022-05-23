@@ -46,7 +46,9 @@ function CartProvider(props) {
 
     function total() {
         let valorFinal = 0  
-        const carrinhoList = JSON.parse(localStorage.getItem('cart'))
+        const carrinhoList  = JSON.parse(localStorage.getItem('cart'))
+        ?  JSON.parse(localStorage.getItem('cart'))
+        : []
         carrinhoList.forEach((value)=>{
             valorFinal = valorFinal + value.preco 
         })   
