@@ -8,35 +8,35 @@ function ItemBasket(props) {
     const [valorTotal, setValorTotal] = useState(props.valor * props.quantidadeProduto)
     const {incrementoCarrinho, decrementoCarrinho, deleteCarrinho ,quantidadeProduto  } = useContext(CartContext) 
 
-    // const [quantidade1, setQuantidade1] = useState(1)
-    // let delet = props.delete ? props.delete : null
+    const [quantidade1, setQuantidade1] = useState(1)
+    let delet = props.delete ? props.delete : null
 
-    // const quantidade = props.quantidade ? props.quantidade : 1
-
-
-    // const incremento = () => {
-    //     if (quantidade1 < quantidade) {
-    //         setQuantidade1(quantidade1 + 1);
-
-    //     } else {
-    //         quantidade1 = quantidade;
-    //     }
-    //     resu()
-    // }
+    const quantidade = props.quantidade ? props.quantidade : 1
 
 
-    // const decremento = () => {
-    //     if (quantidade1 <= 0) {
-    //         setQuantidade1(1);
-    //     } else {
-    //         setQuantidade1(quantidade1 - 1);
-    //     }
-    //     resu()
-    // }
+    const incremento = () => {
+        if (quantidade1 < quantidade) {
+            setQuantidade1(quantidade1 + 1);
 
-    // function resu() {
-    //     props.vl(props.preco, quantidade1)
-    // }
+        } else {
+            quantidade1 = quantidade;
+        }
+        resu()
+    }
+
+
+    const decremento = () => {
+        if (quantidade1 <= 0) {
+            setQuantidade1(1);
+        } else {
+            setQuantidade1(quantidade1 - 1);
+        }
+        resu()
+    }
+
+    function resu() {
+        props.vl(props.preco, quantidade1)
+    }
 
 
     function showPrice(number)  {

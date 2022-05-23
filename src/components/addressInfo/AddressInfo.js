@@ -4,7 +4,7 @@ function AddressInfo(props) {
 
     return (
         <>
-            <div className="col-12 mb-1">
+            <div className="col-12 mb-1 border-address">
                 <label className="margin" for={props.id}>Avenida: {props.av}</label>
                 <label className="margin" for={props.id}>N°: {props.n}</label>
                 <label className="margin" for={props.id}>Complemento: {props.complement}</label>

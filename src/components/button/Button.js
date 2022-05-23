@@ -30,7 +30,7 @@ function Button(props) {
 
         {link != null 
         ? <Link to={link} onClick={props.click} className={btn} >{props.label}</Link>
-        : <button className={btn} onClick={ props.click}  >{props.label}</button>
+        : <button type="text" className={btn} onClick={ props.click}  >{props.label}</button>
         }
            
 

@@ -7,20 +7,20 @@ import InputGroup from '../../components/inputGroup/InputGroup'
 import Button from '../../components/button/Button'
 import ClientContext from '../../context/Client.provider'
 import React, { useState, useEffect, useContext } from 'react'
-import { Modal } from 'react-bootstrap'
+import { Modal, Alert } from 'react-bootstrap'
 import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import iconOk from '../../components/asserts/imagens/iconOk.png'
 import UpdateClientModal from '../../models/UpdateClient'
 
 function MyAccount() {
 
-    const { client, getCliente, setAtualizaCliente } = useContext(ClientContext)
+    const { client, BuscaClient, setAtualizaCliente } = useContext(ClientContext)
     const [update, setUpdate] = useState(UpdateClientModal)
-
     const [show, setShow] = useState(false);
+    const [successUpdate, setSuccessUpdate] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [validacao, setValidacao] = useState(true)
+    const [validacao, setValidacao] = useState(false)
     const [senha, setSenha] = useState('')
     const [senhaOk, setSenhaOk] = useState('d-none')
     const [senhaError, setSenhaError] = useState('d-none')
@@ -28,9 +28,9 @@ function MyAccount() {
     const [senhaConfirmOk, setSenhaconfirmOk] = useState('d-none')
     const [senhaConfirmError, setSenhaConfirmError] = useState('d-none')
 
-    console.log(update)
+    console.log(client)
     useEffect(() => {
-        getCliente(1)
+        BuscaClient()
         setUpdate({
             nome: client.nome,
             sobrenome: client.sobrenome,
@@ -39,12 +39,6 @@ function MyAccount() {
             email: client.email
         })
     }, [])
-
-    function setAtualizar() {
-        handleShow()
-
-    }
-
 
 
     return (
@@ -58,26 +52,30 @@ function MyAccount() {
 
                     <div className="col-12 col-sm-9 order-md-last  align-items-center justify-content-center  mb-3">
                         <Title label="Meus Dados" />
-                        <form id="feedbackForm" >
-                            {/* <!--  inicio do formulario de cadastro --> */}
-                            {/* <!--  campo nome --> */}
-                            <div className="row border">
+                        {
+                            successUpdate
+                                ?
+                                <Alert key='success' variant='success'>
+                                    <AiFillCheckCircle size="30" /> Dados Alterados com Sucesso
+                                </Alert>
+                                :
+                                ''
+                        }
+                        {/* <!--  inicio do formulario de cadastro --> */}
+                        {/* <!--  campo nome --> */}
+                        <div className="row border">
 
-                                <InputGroup value={update.nome} required info="Primeiro Nome" label="Nome: " type="text" id="Nome" col="col-12 col-sm-6" />
-                                <InputGroup value={update.sobrenome} required label="Sobrenome: " info="Sobrenome" type="text" id="sobrenome" col="col-12 col-sm-6" />
-                                <InputGroup info="---" value={update.nomeSocial} label="Nome Social: " change={(e) => {} } blur={(e) => { setUpdate({...update, nomeSocial: e.target.value  })}}  id="Nome-Social" col="col-12 col-sm-6" />
-                                <InputGroup block value={client.cpf} required label="CPF: " info="Apenas Números " mask="999.999.999-99" type="number" id="cpf" col="col-12 col-sm-6" />
-                                <InputGroup block value={client.dataNascimento} required mask="99/99/9999" info="dia/mês/ano" label="Data de Nasc.: " id="nascimento" type="text" col="col-12 col-sm-3" />
-                                <InputGroup block value={client.email} required label="Email: " info="seu email" id="email" type="email" col="col-12 col-sm-5" />
-                                <InputGroup value={update.telefone} required mask="(99) 99999-9999" info="fixo ou celular " label="Telefone: " id="telefone" type="number" col="col-12 col-sm-4" />
-                                <InputGroup info="Digite a Senha" info1="Confirme a Senha" password col="col-12" />
-                                <div class="d-grid justify-content-center align-items-center gap-2   align-cen  ter mt-3 mb-3">
-                                    <Button success label="Atualizar Dados" confirm click={() => { setAtualizar() }}></Button >
-                                </div>
+                            <InputGroup value={update.nome} change={(e) => { setUpdate({ ...update, nome: e.target.value }) }} required info="Primeiro Nome" label="Nome: " type="text" id="Nome" col="col-12 col-sm-6" />
+                            <InputGroup value={update.sobrenome} change={(e) => { setUpdate({ ...update, sobrenome: e.target.value }) }} required label="Sobrenome: " info="Sobrenome" type="text" id="sobrenome" col="col-12 col-sm-6" />
+                            <InputGroup info="Nome Social" value={update.nomeSocial} label="Nome Social: " change={(e) => { setUpdate({ ...update, nomeSocial: e.target.value }) }} id="Nome-Social" col="col-12 col-sm-6" />
+                            <InputGroup block value={client.cpf} required label="CPF: " info="Apenas Números " mask="999.999.999-99" type="number" id="cpf" col="col-12 col-sm-6" />
+                            <InputGroup block value={client.dataNascimento} required mask="99/99/9999" info="dia/mês/ano" label="Data de Nasc.: " id="nascimento" type="text" col="col-12 col-sm-3" />
+                            <InputGroup block value={client.email} required label="Email: " info="seu email" id="email" type="email" col="col-12 col-sm-5" />
+                            <InputGroup value={update.telefone} change={(e) => { setUpdate({ ...update, telefone: e.target.value }) }} required mask="(99) 99999-9999" info="fixo ou celular " label="Telefone: " id="telefone" type="number" col="col-12 col-sm-4" />
+                            <div class="d-grid justify-content-center align-items-center gap-2   align-cen  ter mt-3 mb-3">
+                                <Button success label="Atualizar Dados" confirm click={() => { handleShow() }}></Button >
                             </div>
-
-
-                        </form>
+                        </div>
                     </div >
 
                 </div>
@@ -87,16 +85,12 @@ function MyAccount() {
             {/* //modal update */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title className={validacao
-                        ? "body-success"
-                        : 'body-error'}>
-                        {validacao
-                            ? <> <AiFillCheckCircle size="30" /> Dados Atualizados com Sucesso </>
-                            : <> <AiOutlineCloseCircle size="30" /> Error ao Atualizar dados</>
-                        }</Modal.Title>
+                    <Modal.Title className='body-success text-center d-flex align-items-center justify-content-center'>
+                        <h4 className="text-center">Atualizar Dados</h4>
+                    </Modal.Title>
                 </Modal.Header>
-                <Modal.Body >
-                    <h6>Informe a Senha do Cadastro para Confirmacao</h6>
+                <Modal.Body className='d-flex flex-column align-items-center'>
+                    <h6>Informe a Senha do Cadastro para Confirmação</h6>
                     <div className="col-12 col-sm-6">
                         <label for="form-senha  " className="text-input">Digite sua Senha</label>
                         <input required placeholder='informe a senha' type="password" onChange={(e) => {
@@ -111,26 +105,26 @@ function MyAccount() {
                             setSenha(e.target.value)
                         }}
                             className="form-control" id="form-senha" />
-                        <span className={senhaError}>Senha no mínimo 8 caracteres</span>
+                        {/* <span className={senhaError}>Senha no mínimo 8 caracteres</span> */}
 
-                        <div className={senhaOk + " "} >
+                        {/* <div className={senhaOk + " "} >
                             <img src={iconOk} width='24px' height='24px' />
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="col-12 col-sm-6">
                         <label for="form-senha-confirma " className="text-input">Confirme sua senha</label>
                         <input required placeholder='Confirme a senha' type="password" onChange={(ev) => {
                             setSenhaConfirmar(ev.target.value)
-                            console.log(senhaConfirmar);
                             if (ev.target.value != senha) {
                                 setSenhaconfirmOk('msg-success displayFeedbackError ');
                                 setSenhaConfirmError('msg-error d-flex')
+                                setValidacao(false)
                             } else {
                                 setSenhaconfirmOk('msg-success displayFeedbackOk ');
                                 setSenhaConfirmError('msg-error displayFeedbackError ')
-
-
+                                setUpdate({ ...update, senha: senha })
+                                setValidacao(true)
                             }
                         }}
                             className="form-control" id="form-senha-confirma" />
@@ -143,16 +137,21 @@ function MyAccount() {
                 <Modal.Footer>
                     <div className=" col-12 justify-content-center align-items-center d-flex">
                         {validacao
-                            ? <button className='btn btn-success btn-lg' onClick={() => {
+                            ? <><button className='btn btn-success btn-lg' onClick={() => {
+                                setAtualizaCliente(update)
+                                setSuccessUpdate(true)
                                 handleClose()
                                 console.log('opa')
-                                // setTimeout(
-                                //     () => {
+                                setTimeout(
+                                    () => {
+                                        handleClose()
+                                        setSuccessUpdate(false) 
 
-                                //     }, 3000)
-                            }}>Salvar e enviar</button>
+                                    }, 4000)
+
+                            }}>Salvar e enviar</button></>
                             : <> <button className='btn btn-delete btn-lg' onClick={
-                                () => { handleClose() }}  >ok</button></>
+                                () => { handleClose() }} >Cancelar</button></>
                         }
                     </div>
 

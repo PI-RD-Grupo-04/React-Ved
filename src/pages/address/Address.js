@@ -13,18 +13,19 @@ import axios from 'axios'
 import ClientContext from '../../context/Client.provider'
 
 function Address() { 
-    const { client, getCliente } = useContext(ClientContext)
+    const { client, getCliente, BuscaClient } = useContext(ClientContext)
     const [endereco, setEndereco] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
-    console.log(client.id)
 
     useEffect(() => {
-       // getCliente(1)
+        getCliente(1)
         getEndereco()
+        BuscaClient() 
+
     }, [])
 
     const getEndereco = () => {
-        axios.get(`${baseEndereco}/${client.id}/detalhes`)
+        axios.get(`${baseEndereco}/1/detalhes`)
             .then((response) => {
                 setEndereco(response.data)
                 listEnderecos()
@@ -93,8 +94,6 @@ function Address() {
                             <div className="col-12 d-grid gap-2 col-sm-8    ">
                                 <ModalEndereco lista={listEnderecos} get={getEndereco} />
                             </div>
-
-
 
                         </div>
                         {/*  ****************** CAMPO DO MODAL ****************** */}
