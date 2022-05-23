@@ -17,7 +17,8 @@ import ClientContext from '../../context/Client.provider'
 import CartContext from '../../context/Cart.provider'
 import OrderModel from '../../models/Order'
 import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
-
+import { baseCartao } from "../../environments";
+import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
 function Checkout() {
     const [order, setOrder] = useState(OrderModel)
     const { client } = useContext(ClientContext)
@@ -27,11 +28,13 @@ function Checkout() {
     const [frete, setFrete] = useState([])
     const [cupomValidation, setCupomValidation] = useState(0)
     const [cupom, setCupom] = useState({})
+    const [cartao, setCartao] = useState([])
     const [pagamento, setPagamento] = useState({
         card: false,
         pix: false,
         cpfBoleto: false
     })
+    let cliente = 1
     console.log(pagamento)
     console.log(order)
     useEffect(() => {
@@ -89,9 +92,6 @@ function Checkout() {
         }
     } 
 
-    const [cartao, setCartao] = useState([])
-
-    let cliente = 1
     
     useEffect(() => {
         getCartao()
@@ -115,16 +115,29 @@ function Checkout() {
                      <div class="row mb-3 pb-3 pt-3">
                          <div class="row ">
                          <AccordionCart
-                                            bandeira={item.item.idBandeira.nome}
+                                            bandeira={item.idBandeira.nome}
                                             num={item.numeroCartao}
-                                            nome={item.nome}
+                                            nome={item.titular}
                                             mes={item.diaVencimento} ano={item.anoVencimento}
                                              />
                          </div>
                      </div>
                  </div>
     )})}
-    
+
+
+    // function showPrice(number)  {
+    //     let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
+        
+    //     return (
+    //     <>
+    //     <h6 className="font-price">{priceConverted}</h6>
+    //     </>
+    //     )
+        
+    //     }
+
+
     
 
     function CartComCupom() {
@@ -173,6 +186,7 @@ function Checkout() {
         })
 
     }
+
 
 
 
@@ -261,16 +275,7 @@ function Checkout() {
 
                             <div className="row">
                                 <h5> Selecione um Cartão Salvo</h5>
-                                <AccordionCart
-                                    bandeira='Bandeira'
-                                    num='****-****-****-*000'
-                                    nome='ved Alimentos'
-                                    dia={2} ano={2022} />
-                                <AccordionCart
-                                    bandeira='Bandeira'
-                                    num='****-****-****-*000'
-                                    nome='ved Alimentos'
-                                    dia={2} ano={2022} />
+                                    {ofertas()}
                                 <div>
                                     <hr className="my-2" />
                                     {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
@@ -288,6 +293,7 @@ function Checkout() {
                                             card: true,
                                             pix: false,
                                             cpfBoleto: false
+                                            
 
                                         })} label="Cartão de Crédito/Débito" id="card" name="1" />
                                         {/*---------------------------- pix --------------------*/}
@@ -300,8 +306,10 @@ function Checkout() {
                                     </div>
                                     <hr className="my-2 border" />
 
+                                    {pagamento.card ? creditcard(): ""}
                                     {pagamento.cpfBoleto ? preBoleto() : ""}
                                     <hr className="my-4 mb-3" />
+
                                 </div>
                                 <div className="d-grid gy-2">
                                     <Button label="Finalizar Pedido" card link="/orderSucess" success />

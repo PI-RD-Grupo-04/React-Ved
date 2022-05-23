@@ -9,6 +9,19 @@ function ItemBasket(props) {
     const {incrementoCarrinho, decrementoCarrinho, deleteCarrinho ,quantidadeProduto  } = useContext(CartContext) 
 
 
+
+    function showPrice(number)  {
+        let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
+        
+        return (
+        <>
+        <h6 className="font-price">{priceConverted}</h6>
+        </>
+        )
+        
+        }
+    
+
     return (
         <>
             <li className="list-group-item py-3">
@@ -51,9 +64,9 @@ function ItemBasket(props) {
                                 </button>
                                 
                             </div>
-                            <p className="text-dark">Valor Item: {props.valor}</p>
-                            <small className="text-secondary">Valor Unitário: {valorTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })} </small><br /> 
-                             <small className="text-secondary">Valor Total: {valorTotal.toLocaleString('pt-br', {minimumFractionDigits: 2})} </small><br />
+                            <p className="text-dark">Valor Item: {showPrice(props.valor)}</p>
+                            <small className="text-secondary">Valor Unitário: {showPrice(valorTotal)} </small><br /> 
+                             <small className="text-secondary">Valor Total: {showPrice(valorTotal)}</small><br />
                         </div>
                     </div>
                 </div>
