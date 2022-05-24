@@ -7,6 +7,7 @@ function Cart(props) {
     function showPrice(number)  {
         let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
         
+
         return (
         <>
         <h6 className="">{priceConverted}</h6>
@@ -20,7 +21,7 @@ function Cart(props) {
     function listar() {
         return props.cart.map((item) => {
             return (
-                <ItemCart key={item.id} nome={item.nomeProduto} descricao={item.descricao} price={item.preco} />
+                <ItemCart key={item.id} nome={item.nomeProduto}  price={item.preco} />
             )
         })
     }

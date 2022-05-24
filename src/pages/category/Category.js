@@ -171,13 +171,13 @@ function Category() {
                                             </li>
                                             <hr />
                                             <li className="nav-item menuletra " ><Link onClick={() => { getPorValor(10) }}>Até R$ 10,00</Link>
-                                    </li>
-                                    <li className="nav-item menuletra "><Link onClick={() => { getPorValor(15) }}>Até R$ 15,00</Link>
-                                    </li>
-                                    <li className="nav-item menuletra"><Link onClick={() => { getPorValor(20) }}>Até R$ 20,00</Link>
-                                    </li>
-                                    <li className="nav-item menuletra"><Link onClick={() => { getPorValor(30) }}>Até R$ 30,00</Link>
-                                    </li>
+                                            </li>
+                                            <li className="nav-item menuletra "><Link onClick={() => { getPorValor(15) }}>Até R$ 15,00</Link>
+                                            </li>
+                                            <li className="nav-item menuletra"><Link onClick={() => { getPorValor(20) }}>Até R$ 20,00</Link>
+                                            </li>
+                                            <li className="nav-item menuletra"><Link onClick={() => { getPorValor(30) }}>Até R$ 30,00</Link>
+                                            </li>
                                         </ul>
 
                                         <div className="filtrocanvas">
