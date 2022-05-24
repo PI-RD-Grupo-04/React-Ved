@@ -20,7 +20,7 @@ function Product() {
     const { id } = useParams()
     const [product, setProduct] = useState({})
     const [receita, setReceita] = useState({})
-
+    const receitasbotao = false
 
     const { quantidadeProduto } = useContext(CartContext)
     const { addCarrinho } = useContext(CartContext)
@@ -34,6 +34,7 @@ function Product() {
         axios.get(`${baseProduct}/${id} `)
             .then((response) => {
                 setProduct(response.data)
+                localStorage(product)
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -45,9 +46,11 @@ function Product() {
         axios.get(`${baseProduct}/${id}/receita `)
             .then((response) => {
                 setReceita(response.data)
+                receitasbotao = true
             })
             .catch((error) => {
                 console.error(error.messege)
+
             })
     }
 
@@ -61,6 +64,17 @@ function Product() {
         )
         
         }
+
+
+    function receitas () {
+        if (receita.ingredientes != null ){
+            return (
+           <ModalConsumo titulo={receita.titulo} ingredientes={receita.ingredientes} preparo={receita.preparo} img={product.url} />)
+              }
+        else 
+            return  ""
+            }
+
 
     return (
         <>
@@ -141,7 +155,8 @@ function Product() {
                     </Accordion>
                 </div>
                 <div className=" mt-5 ">
-                    <ModalConsumo titulo={receita.titulo} ingredientes={receita.ingredientes} preparo={receita.preparo} img={product.url} />
+                    {receitas()}
+              
                 </div>
                 <hr />
                 {/* Sugestões de outros produtos */}
