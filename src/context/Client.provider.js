@@ -2,7 +2,6 @@ import React, { useState, createContext, useEffect } from 'react'
 import { baseCliente } from '../environments' 
 import axios from 'axios'
 
-
 const ClientContext = createContext({})
 
 function ClientProvider(props) {
@@ -25,15 +24,7 @@ function ClientProvider(props) {
             })
     } 
 
-    const setAtualizaCliente = (atualiza) => {
-        axios.put(`${baseCliente}/atualizar`, atualiza)
-        .then((response) => {
-            setCliente(response.data)
-        })
-        .catch((error) => {
-            console.error(error)
-        })
-    }
+
 
     const logado = (cliente) => {
         setCliente(cliente)
@@ -46,7 +37,7 @@ function ClientProvider(props) {
 
     return (
         <ClientContext.Provider
-            value={{ client, logado, getCliente, setAtualizaCliente, BuscaClient }}>
+            value={{ client, logado, getCliente, BuscaClient }}>
             {props.children}
         </ClientContext.Provider>
     )

@@ -25,13 +25,10 @@ function Checkout() {
 
     const { client } = useContext(ClientContext)
     const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
-    const [items, SetItems] = useState([])
-    function Setcarrinho(produtos) {
-        SetItems(produtos)
-    }
     const [address, setAddress] = useState([])
     const [entrega, setEntrega] = useState({})
     const [frete, setFrete] = useState([])
+    const [freteValor, setFreteValor] = useState(0)
     const [cupomValidation, setCupomValidation] = useState(0)
     const [cupom, setCupom] = useState({})
     const [cartao, setCartao] = useState([])
@@ -40,12 +37,13 @@ function Checkout() {
         pix: false,
         cpfBoleto: false
     })
-    let cliente = 1
+    const cliente = 1
     console.log(order)
 
     useEffect(() => {
         getEndereco()
         listEnderecos()
+        getCartao()
         listarCarrinho()
         total()
         dataNow()
@@ -84,8 +82,9 @@ function Checkout() {
     }
 
     const postItemPedido = () => {
-        axios.post(`${baseItemPedido}/novo`, items)
+        axios.post(`${baseItemPedido}/novo`, carrinho)
             .then(() => {
+
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -161,12 +160,12 @@ function Checkout() {
     function CartComCupom() {
         if (cupomValidation == 1) {
             return (
-                <Cart quant={qtyCarrinho} cart={carrinho}
-                   cupom={cupom} valor={valorTotal} cupomValid />
+                <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
+                    cupom={cupom} valor={valorTotal} cupomValid />
             )
         } else {
             return (
-                <Cart  quant={qtyCarrinho} cart={carrinho}
+                <Cart  frete={freteValor} quant={qtyCarrinho} cart={carrinho}
                     cupom={cupom} valor={valorTotal} />
 
             )
@@ -179,9 +178,10 @@ function Checkout() {
                 <div key={opcao.id} className="d-flex align-items-center justify-content-start" >
                     <RadioBox id={opcao.id} name="frete" onClick={() => {
                         setOrder({ ...order, frete: opcao.id })
+                        setFreteValor(opcao.valor)
                     }} />
-                    <label className="form-check-label" for='frete' >{opcao.tipoFrete}</label>
-                    <label className="form-check-label" for='frete' >{opcao.valor}</label>
+                    <label className="form-check-label" for='frete' >{opcao.tipoFrete} -</label>
+                    <label className="form-check-label" for='frete' >R${opcao.valor}</label>
                 </div>
             )
         })
