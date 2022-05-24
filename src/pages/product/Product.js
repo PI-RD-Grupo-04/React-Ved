@@ -21,11 +21,11 @@ import { baseProduct } from '../../environments'
 function Product() {
     const { id } = useParams()
     const [product, setProduct] = useState({})
-    const [receita, setReceita] = useState({}) 
+    const [receita, setReceita] = useState({})
 
 
-    const {quantidadeProduto } = useContext(CartContext) 
-    const {addCarrinho } = useContext(CartContext)
+    const { quantidadeProduto } = useContext(CartContext)
+    const { addCarrinho } = useContext(CartContext)
 
     useEffect(() => {
         getReceita()
@@ -62,8 +62,7 @@ function Product() {
                 <div className="row mt-3">
                     <div className="col-12 col-xl-6 mx-auto">
                         {/* imagem do produto */}
-                        <img className="border img-project  " src={product.url}
-                        />
+                        <img className="border img-project  " src={product.url} />
                     </div>
                     {/* LADO DIREITO DA PAGINA  */}
                     <div className="col-12 col-xl-6">
@@ -76,7 +75,7 @@ function Product() {
 
                                 <div className=" d-flex price-por product-price ">
                                     <p>De:
-                                        <small className="product-price de-product">{product.preco - 2}</small>
+                                        <small className="product-price de-product">{product.preco + 5}</small>
                                     </p>
                                 </div>
                                 <div className="d-flex justify-content-start">
@@ -103,7 +102,7 @@ function Product() {
                                     </div>
 
                                     <div className="col-12 col-sm-6">
-                                        <button className='btn btn-success btn-lg' onClick={() => addCarrinho(product , quantidadeProduto)}>Adicionar ao Carrinho</button> 
+                                        <button className='btn btn-success btn-lg' onClick={() => addCarrinho(product, quantidadeProduto)}>Adicionar ao Carrinho</button>
                                     </div>
                                 </div>
                             </div>

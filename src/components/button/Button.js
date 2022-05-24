@@ -28,7 +28,7 @@ function Button(props) {
 
         {link != null 
         ? <Link to={link}  className={btn} type="submit">{props.label}</Link>
-        : <button className={btn}  >{props.label}</button>
+        : <button className={btn} onClick={props.click} >{props.label}</button>
         }
            
 

@@ -63,7 +63,7 @@ function Address() {
         return endereco.map(endereco => {
             return (
                 <div key={endereco.id}>
-                    <AddressInfo ssInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} city={endereco.cidade} states={endereco.municipio} id={endereco.id} delete={deleteEndereco} />
+                    <AddressInfo  av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} city={endereco.cidade} states={endereco.municipio} id={endereco.id} delete={deleteEndereco} />
                 </div >
             )
         })
