@@ -11,13 +11,16 @@ import { Modal, Alert } from 'react-bootstrap'
 import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import iconOk from '../../components/asserts/imagens/iconOk.png'
 import UpdateClientModal from '../../models/UpdateClient'
+import { baseCliente } from '../../environments'
+import axios from 'axios'
 
 function MyAccount() {
 
-    const { client, BuscaClient, setAtualizaCliente } = useContext(ClientContext)
+    const { client, BuscaClient } = useContext(ClientContext)
     const [update, setUpdate] = useState(UpdateClientModal)
     const [show, setShow] = useState(false);
     const [successUpdate, setSuccessUpdate] = useState(false);
+    const [successError, setSuccessError] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [validacao, setValidacao] = useState(false)
@@ -29,6 +32,8 @@ function MyAccount() {
     const [senhaConfirmError, setSenhaConfirmError] = useState('d-none')
 
     console.log(client)
+
+
     useEffect(() => {
         BuscaClient()
         setUpdate({
@@ -39,6 +44,38 @@ function MyAccount() {
             email: client.email
         })
     }, [])
+
+    function setAtualizaCliente(atualiza) {
+        axios.put(`${baseCliente}/atualizar`, atualiza)
+            .then((response) => {
+                setSuccessUpdate(true)
+                setSuccessError(false)
+            })
+            .catch((error) => {
+                console.error(error)
+                setSuccessUpdate(false)
+                setSuccessError(true)
+            })
+    }
+
+    function feedback() {
+        if (successUpdate) {
+            return (
+                <Alert key='success' variant='success'>
+                    <AiFillCheckCircle size="30" /> Dados Alterados com Sucesso!
+                </Alert>
+            )
+        } else if (successError) {
+            return (
+                <Alert key='error' variant='dark'>
+                    <AiOutlineCloseCircle size="30" /> Error ao Alterar Dados!
+                </Alert>
+            )
+        }
+        return (
+            <></>
+        )
+    }
 
 
     return (
@@ -52,15 +89,8 @@ function MyAccount() {
 
                     <div className="col-12 col-sm-9 order-md-last  align-items-center justify-content-center  mb-3">
                         <Title label="Meus Dados" />
-                        {
-                            successUpdate
-                                ?
-                                <Alert key='success' variant='success'>
-                                    <AiFillCheckCircle size="30" /> Dados Alterados com Sucesso
-                                </Alert>
-                                :
-                                ''
-                        }
+                        {feedback()}
+
                         {/* <!--  inicio do formulario de cadastro --> */}
                         {/* <!--  campo nome --> */}
                         <div className="row border">
@@ -139,14 +169,13 @@ function MyAccount() {
                         {validacao
                             ? <><button className='btn btn-success btn-lg' onClick={() => {
                                 setAtualizaCliente(update)
-                                setSuccessUpdate(true)
                                 handleClose()
                                 console.log('opa')
                                 setTimeout(
                                     () => {
                                         handleClose()
-                                        setSuccessUpdate(false) 
-
+                                        setSuccessUpdate(false)
+                                        setSuccessError(false)
                                     }, 4000)
 
                             }}>Salvar e enviar</button></>
