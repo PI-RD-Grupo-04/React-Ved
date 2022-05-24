@@ -25,13 +25,10 @@ function Checkout() {
 
     const { client } = useContext(ClientContext)
     const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
-    const [items, SetItems] = useState([])
-    function Setcarrinho(produtos) {
-        SetItems(produtos)
-    }
     const [address, setAddress] = useState([])
     const [entrega, setEntrega] = useState({})
     const [frete, setFrete] = useState([])
+    const [freteValor, setFreteValor] = useState(0)
     const [cupomValidation, setCupomValidation] = useState(0)
     const [cupom, setCupom] = useState({})
     const [cartao, setCartao] = useState([])
@@ -40,15 +37,17 @@ function Checkout() {
         pix: false,
         cpfBoleto: false
     })
-    let cliente = 1
+    const cliente = 1
     console.log(order)
 
     useEffect(() => {
         getEndereco()
         listEnderecos()
+        getCartao()
         listarCarrinho()
         total()
         dataNow()
+        getCartao()
     }, [])
 
     const getEndereco = () => {
@@ -84,8 +83,9 @@ function Checkout() {
     }
 
     const postItemPedido = () => {
-        axios.post(`${baseItemPedido}/novo`, items)
+        axios.post(`${baseItemPedido}/novo`, carrinho)
             .then(() => {
+
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -157,16 +157,15 @@ function Checkout() {
         })
     }
 
-
     function CartComCupom() {
         if (cupomValidation == 1) {
             return (
-                <Cart quant={qtyCarrinho} cart={carrinho}
-                   cupom={cupom} valor={valorTotal} cupomValid />
+                <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
+                    cupom={cupom} valor={valorTotal} cupomValid />
             )
         } else {
             return (
-                <Cart  quant={qtyCarrinho} cart={carrinho}
+                <Cart  frete={freteValor} quant={qtyCarrinho} cart={carrinho}
                     cupom={cupom} valor={valorTotal} />
 
             )
@@ -179,9 +178,10 @@ function Checkout() {
                 <div key={opcao.id} className="d-flex align-items-center justify-content-start" >
                     <RadioBox id={opcao.id} name="frete" onClick={() => {
                         setOrder({ ...order, frete: opcao.id })
+                        setFreteValor(opcao.valor)
                     }} />
-                    <label className="form-check-label" for='frete' >{opcao.tipoFrete}</label>
-                    <label className="form-check-label" for='frete' >{opcao.valor}</label>
+                    <label className="form-check-label" for='frete' >{opcao.tipoFrete} -</label>
+                    <label className="form-check-label" for='frete' >R${opcao.valor}</label>
                 </div>
             )
         })
@@ -203,9 +203,6 @@ function Checkout() {
         })
 
     }
-
-
-
 
     function preBoleto() {
 
@@ -238,6 +235,20 @@ function Checkout() {
     }
 
 
+    function novocartao()  {
+
+        return (
+            <div>
+                 <div className="row">
+                            <h5> Selecione um Cartão Salvo</h5>
+                            {ofertas()}
+                </div>
+                            {creditcard()}
+                
+            </div>
+        )
+    }
+
 
     return (
         <>
@@ -249,7 +260,7 @@ function Checkout() {
                     <div className="col-12 col-sm-6 border ">
                         <h4 className="mb-1 mt-2">Dados de Entrega</h4>
 
-                        {/*  <!--************* Parte esquerda da pagina começo  *********************--> */}
+                        {/*  <!--***** Parte esquerda da pagina começo  *******--> */}
 
                         <div className="row  g-3">
                             <h5 className="title-subs mt-4"> selecione o endereço</h5>
@@ -281,21 +292,19 @@ function Checkout() {
                         </div>
 
                         {/*  <!-- FIM CUPOM DE DESCONTO --> */}
-                        {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
+                        {/*  <!--***** FIM esquerda da pagina começo  *******--> */}
 
                     </div>
-                    {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
+                    {/*  <!--***** COMEÇO DIREITA da pagina começo  *******--> */}
                     <div className="col-12 col-sm-6 order-md-last border mb-3">
 
                         {CartComCupom()}
                         <hr className="my-2" />
 
                         <div className="row">
-                            <h5> Selecione um Cartão Salvo</h5>
-                            {ofertas()}
+                       
                             <div>
-                                <hr className="my-2" />
-                                {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
+                                {/*  <!--***** BEGIN PAGAMENTO *******--> */}
                                 <h4 className="mb-2">Pagamento</h4>
                                 <div className="my-3">
                                     {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
@@ -313,7 +322,7 @@ function Checkout() {
 
 
                                     })} label="Cartão de Crédito/Débito" id="card" name="1" />
-                                    {/*---------------------------- pix --------------------*/}
+                                    {/---------------------------- pix --------------------/}
                                     <RadioBox onClick={() => setPagamento({
                                         card: false,
                                         pix: true,
@@ -323,7 +332,7 @@ function Checkout() {
                                 </div>
                                 <hr className="my-2 border" />
 
-                                {pagamento.card ? creditcard() : ""}
+                                {pagamento.card ? novocartao() : ""}
                                 {pagamento.cpfBoleto ? preBoleto() : ""}
                                 <hr className="my-4 mb-3" />
 

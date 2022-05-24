@@ -6,8 +6,8 @@ import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
 import master from '../../components/asserts/imagens/Users_icon/master.png'
 import Title from '../../components/title/Title'
-import { useParams } from 'react-router-dom' 
-import { basePedido } from '../../environments' 
+import { useParams } from 'react-router-dom'
+import { basePedido } from '../../environments'
 import axios from 'axios'
 
 function DetailsOrder() {
@@ -15,7 +15,7 @@ function DetailsOrder() {
 
     const { order } = useParams()
     const [details, setDetails] = useState()
-    const cliente = 1 
+    const cliente = 1
 
     useEffect(() => {
         getDetails()
@@ -30,7 +30,62 @@ function DetailsOrder() {
             .catch((error) => {
                 console.error(error.messege)
             })
-    } 
+    }
+
+    function endereço() {
+
+        return (
+            <>
+                <div className="d-flex ">
+                    <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                        <ul className="mt-2"> Rua : Santana de Parnaiba    </ul>
+                    </li>
+                    <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                        <ul className="mt-2"> Número : 45  </ul>
+                    </li>
+                </div>
+                <div className="d-flex ">
+                    <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                        <ul className="mt-2"> Município : Embu das Artes  </ul>
+                    </li>
+                    <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                        <ul className="mt-2"> UF : SP  </ul>
+                    </li>
+                </div>
+            </>
+        )
+    }
+
+    function cartao() {
+
+        return (
+            <>
+                <li className="list-group-item list1 d-flex-column lh-sm">
+                    <ul className="mt-2"> Número : **** **** **** 5674  </ul>
+                </li>
+                <li className="list-group-item list1 d-flex-column lh-sm">
+                    <ul className="mt-2"> Nome do titular : Washington Pereira  </ul>
+                </li>
+                <div className="d-flex">
+                    <li className="list-group-item list1 d-flex-column lh-sm col-4">
+                        <ul className="mt-2"> <img src={master} width="40px" height="40px" alt="Logo Ved"
+                            title="VED - Alimentos Organicos" />  </ul>
+                    </li>
+                    <li className="list-group-item list1 d-flex-column lh-sm col-8">
+                        <ul> Validade : 11/29 </ul>
+                    </li>
+                </div>
+
+
+            </>
+        )
+    }
+
+
+
+
+
+
 
 
     return (
@@ -51,44 +106,24 @@ function DetailsOrder() {
                                         <span className="mb-3">Endereço de entrega </span>
                                     </h4>
 
-                                    <div className="d-flex ">
-                                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                            <ul className="mt-2"> Rua : Santana de Parnaiba    </ul>
-                                        </li>
-                                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                            <ul className="mt-2"> Número : 45  </ul>
-                                        </li>
-                                    </div>
-                                    <div className="d-flex ">
-                                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                            <ul className="mt-2"> Município : Embu das Artes  </ul>
-                                        </li>
-                                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                            <ul className="mt-2"> UF : SP  </ul>
-                                        </li>
-                                    </div>
 
-                                </div>
 
+                                                    Endereço
+
+
+
+
+
+
+
+
+
+                                </div >
                                 <h4 className="d-flex justify-content-between align-items-center mb-3 mt-5">
                                     <span className="">Metodo de Pagamento : Cartão</span>
                                 </h4>
 
-                                <li className="list-group-item list1 d-flex-column lh-sm">
-                                    <ul className="mt-2"> Número : **** **** **** 5674  </ul>
-                                </li>
-                                <li className="list-group-item list1 d-flex-column lh-sm">
-                                    <ul className="mt-2"> Nome do titular : Washington Pereira  </ul>
-                                </li>
-                                <div className="d-flex">
-                                    <li className="list-group-item list1 d-flex-column lh-sm col-4">
-                                        <ul className="mt-2"> <img src={master} width="40px" height="40px" alt="Logo Ved"
-                                            title="VED - Alimentos Organicos" />  </ul>
-                                    </li>
-                                    <li className="list-group-item list1 d-flex-column lh-sm col-8">
-                                        <ul> Validade : 11/29 </ul>
-                                    </li>
-                                </div>
+                                Cartao
 
                             </div>
 
