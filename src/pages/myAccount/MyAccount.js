@@ -15,7 +15,6 @@ import { baseCliente } from '../../environments'
 import axios from 'axios'
 
 function MyAccount() {
-
     const { client, BuscaClient } = useContext(ClientContext)
     const [update, setUpdate] = useState(UpdateClientModal)
     const [show, setShow] = useState(false);
@@ -32,8 +31,7 @@ function MyAccount() {
     const [senhaConfirmError, setSenhaConfirmError] = useState('d-none')
 
     console.log(client)
-
-
+    
     useEffect(() => {
         BuscaClient()
         setUpdate({
@@ -94,7 +92,6 @@ function MyAccount() {
                         {/* <!--  inicio do formulario de cadastro --> */}
                         {/* <!--  campo nome --> */}
                         <div className="row border">
-
                             <InputGroup value={update.nome} change={(e) => { setUpdate({ ...update, nome: e.target.value }) }} required info="Primeiro Nome" label="Nome: " type="text" id="Nome" col="col-12 col-sm-6" />
                             <InputGroup value={update.sobrenome} change={(e) => { setUpdate({ ...update, sobrenome: e.target.value }) }} required label="Sobrenome: " info="Sobrenome" type="text" id="sobrenome" col="col-12 col-sm-6" />
                             <InputGroup info="Nome Social" value={update.nomeSocial} label="Nome Social: " change={(e) => { setUpdate({ ...update, nomeSocial: e.target.value }) }} id="Nome-Social" col="col-12 col-sm-6" />
