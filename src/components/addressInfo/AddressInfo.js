@@ -1,5 +1,4 @@
 import './Addressinfo.css'
-import ClientContext from '../../context/Client.provider'
 
 function AddressInfo(props) {
 
