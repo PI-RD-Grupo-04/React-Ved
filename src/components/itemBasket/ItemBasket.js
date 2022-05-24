@@ -73,13 +73,13 @@ function ItemBasket(props) {
                     <div className="col-12 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
                         <div className="text-end mt-2 ">
                             <div className="input-group w-100 h-100 ">
-                                <button onClick={() => decremento()} className="btn btn-outline-dark  btn-green btn-sm" >
+                                <button className="btn btn-outline-dark  btn-green btn-sm" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                                     </svg> <i className="bi-caret-down" ></i>
                                 </button>
                                 <input type="text" className="form-control text-center border-dark " value={quantidadeProduto} />
-                                <button onClick={() => incremento()} className="btn btn-outline-dark btn-green btn-sm" >
+                                <button className="btn btn-outline-dark btn-green btn-sm" >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z" />
                                     </svg> <i className="bi-caret-up" ></i>
