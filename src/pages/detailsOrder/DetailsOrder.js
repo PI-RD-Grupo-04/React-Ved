@@ -1,11 +1,37 @@
 import './DetailsOrder.css'
+import React, { useState, useEffect, useContext } from 'react'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
 import master from '../../components/asserts/imagens/Users_icon/master.png'
 import Title from '../../components/title/Title'
+import { useParams } from 'react-router-dom' 
+import { basePedido } from '../../environments' 
+import axios from 'axios'
+
 function DetailsOrder() {
+
+
+    const { order } = useParams()
+    const [details, setDetails] = useState()
+    const cliente = 1 
+
+    useEffect(() => {
+        getDetails()
+        console.log(details)
+    }, [])
+
+    const getDetails = () => {
+        axios.get(`${basePedido}/${cliente}/detalhar/${order}`)
+            .then((response) => {
+                setDetails(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    } 
+
 
     return (
         <>

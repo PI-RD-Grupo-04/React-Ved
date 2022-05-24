@@ -12,20 +12,25 @@ import { Alert } from 'react-bootstrap'
 import axios from 'axios'
 import ClientContext from '../../context/Client.provider'
 
-function Address() { 
+<<<<<<< HEAD
+function Address() {
     const { client } = useContext(ClientContext)
+=======
+function Address() { 
+    const { client, getCliente, BuscaClient } = useContext(ClientContext)
+>>>>>>> 6137e8c1da75722dd9f17ba7ffeb08c1bc4281cf
     const [endereco, setEndereco] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
 
-
-    let cliente = 1
-
     useEffect(() => {
+        getCliente(1)
         getEndereco()
+        BuscaClient() 
+
     }, [])
 
     const getEndereco = () => {
-        axios.get(`${baseEndereco}/${client.id}/detalhes`)
+        axios.get(`${baseEndereco}/1/detalhes`)
             .then((response) => {
                 setEndereco(response.data)
                 listEnderecos()
@@ -35,17 +40,14 @@ function Address() {
             })
     }
 
-    const checkCEP = (endereco) => {
-        axios.cep(`${baseEndereco}/${cliente}/cep/${endereco}`)
-        fetch('URL: viacep.com.br/ws/01001000/json/')
-            .then(res => res.json()).then(data => {
-                console.log(data);
-            });
+<<<<<<< HEAD
 
-    }
+
+=======
+>>>>>>> 6137e8c1da75722dd9f17ba7ffeb08c1bc4281cf
 
     const deleteEndereco = (endereco) => {
-        axios.delete(`${baseEndereco}/${client.id}/delete/${endereco}`)
+        axios.delete(`${baseEndereco}/1/delete/${endereco}`)
             .then(() => {
                 getEndereco()
                 setSuccessDelete(true)
@@ -63,7 +65,7 @@ function Address() {
         return endereco.map(endereco => {
             return (
                 <div key={endereco.id}>
-                    <AddressInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} onBlur={checkCEP} city={endereco.cidade} states={endereco.municipio} id={endereco.id} delete={deleteEndereco} />
+                    <AddressInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} city={endereco.cidade} states={endereco.municipio} id={endereco.id} delete={deleteEndereco} />
                 </div >
             )
         })
@@ -102,8 +104,6 @@ function Address() {
                             <div className="col-12 d-grid gap-2 col-sm-8    ">
                                 <ModalEndereco lista={listEnderecos} get={getEndereco} />
                             </div>
-
-
 
                         </div>
                         {/*  ****************** CAMPO DO MODAL ****************** */}

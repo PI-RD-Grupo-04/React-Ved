@@ -9,42 +9,83 @@ import Button from '../../components/button/Button'
 import iconNu from '../../components/asserts/imagens/Footer/iconNu.png'
 import RadioBox from '../../components/radioBox/RadioBox'
 import Title from '../../components/title/Title'
-import InputMask from 'react-input-mask'
 import Cart from '../../components/cart/Cart'
 import axios from 'axios'
-import { baseEndereco, baseFrete, baseCupom } from '../../environments'
+import { baseEndereco, baseFrete, baseCupom, basePedido, baseItemPedido } from '../../environments'
 import ClientContext from '../../context/Client.provider'
 import CartContext from '../../context/Cart.provider'
 import OrderModel from '../../models/Order'
 import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
+import { baseCartao } from "../../environments";
+import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
 
 function Checkout() {
     const [order, setOrder] = useState(OrderModel)
+
+
     const { client } = useContext(ClientContext)
-    const { carrinho, listarCarrinho, valorTotal, qtyCarrinho } = useContext(CartContext)
+    const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
+    const [items, SetItems] = useState([])
+    function Setcarrinho(produtos) {
+        SetItems(produtos)
+    }
     const [address, setAddress] = useState([])
     const [entrega, setEntrega] = useState({})
     const [frete, setFrete] = useState([])
     const [cupomValidation, setCupomValidation] = useState(0)
     const [cupom, setCupom] = useState({})
+    const [cartao, setCartao] = useState([])
     const [pagamento, setPagamento] = useState({
         card: false,
         pix: false,
         cpfBoleto: false
     })
-    console.log(pagamento)
+    let cliente = 1
     console.log(order)
+
     useEffect(() => {
         getEndereco()
         listEnderecos()
         listarCarrinho()
+        total()
+        dataNow()
     }, [])
 
     const getEndereco = () => {
-        axios.get(`${baseEndereco}/${client.id}/detalhes`)
+        axios.get(`${baseEndereco}/${cliente}/detalhes`)
             .then((response) => {
                 setAddress(response.data)
                 listEnderecos()
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+
+    const dataNow = () => {
+        var data = new Date();
+        var dia = String(data.getDate()).padStart(2, '0');
+        var mes = String(data.getMonth() + 1).padStart(2, '0');
+        var ano = data.getFullYear();
+        let dataAtual = dia + '/' + mes + '/' + ano;
+        setOrder({ ...order, cliente: cliente })
+        setOrder({ ...order, data: dataAtual })
+    }
+
+
+    const postPedido = () => {
+        axios.post(`${basePedido}/novo`, order)
+            .then(() => {
+                postItemPedido()
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+
+    const postItemPedido = () => {
+        axios.post(`${baseItemPedido}/novo`, items)
+            .then(() => {
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -86,6 +127,51 @@ function Checkout() {
             )
         }
     }
+    const getCartao = () => {
+        axios.get(`${baseCartao}/${cliente}/detalhes`
+        )
+            .then((response) => {
+                setCartao(response.data)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
+
+    function ofertas() {
+        return cartao.map(item => {
+            return (
+                <div key={item.id}>
+                    <div class="row mb-3 pb-3 pt-3">
+                        <div class="row ">
+                            <AccordionCart
+                                bandeira={item.idBandeira.nome}
+                                num={item.numeroCartao}
+                                nome={item.titular}
+                                mes={item.diaVencimento} ano={item.anoVencimento}
+                            />
+                        </div>
+                    </div>
+                </div>
+            )
+        })
+    }
+
+
+    function CartComCupom() {
+        if (cupomValidation == 1) {
+            return (
+                <Cart quant={qtyCarrinho} cart={carrinho}
+                   cupom={cupom} valor={valorTotal} cupomValid />
+            )
+        } else {
+            return (
+                <Cart  quant={qtyCarrinho} cart={carrinho}
+                    cupom={cupom} valor={valorTotal} />
+
+            )
+        }
+    }
 
     function opcoesFrete() {
         return (frete.map((opcao) => {
@@ -118,6 +204,9 @@ function Checkout() {
 
     }
 
+
+
+
     function preBoleto() {
 
         return (
@@ -140,56 +229,9 @@ function Checkout() {
 
     const creditcard = () => {
         return (
-            <div className="row gy-3">
-                <div className="col-md-6">
-                    {/* <!-- nome do titular do cartão --> */}
-                    <label for="cc-name" className="form-label">Nome no cartão</label>
-                    <input type="text" className="form-control" id="cc-name" required />
-                    <small className="text-muted">Nome  exibido no cartão</small>
-                    <div className="invalid-feedback">Nome Obrigatório</div>
-                </div>
-
-                <div className="col-md-6">
-                    {/* <!-- Número do cartão --> */}
-                    <label for="cc-number" className="form-label">Nº Cartão de Crédito</label>
-                    <InputMask mask="9999 9999 9999 9999" className="form-control" id="cc-number" required />
-                    <div className="invalid-feedback">Número do Cartão Obrigatório</div>
-                </div>
-                <div className="col-md-9">
-                    {/*  <!-- CPF do titular --> */}
-                    <label for="cpf-titular" className="form-label">CPF do Titular do Cartão</label>
-                    <InputMask mask="999.999.999-99 " className="form-control" id="cpf-titular" required />
-                    <div className="invalid-feedback">Número do Cartão Obrigatório</div>
-                </div>
-                <div className="col-3 ">
-                    {/* <!-- vencimento do cartão --> */}
-                    <label for="bandeira-card" className="form-label col-12">Bandeira</label>
-                    <img src={iconNu} className="iconCard" />
-                    <div className="invalid-feedback">Cartão inválido</div>
-                </div>
-                <div className="col-md-3">
-                    {/* <!-- vencimento do cartão --> */}
-                    <label for="cc-expiration" className="form-label">Vencimento</label>
-                    <InputMask mask="99/99" className="form-control" id="cc-expiration" required />
-                    <div className="invalid-feedback">Data de Expiração Obrigatória</div>
-                </div>
-                <div className="col-md-2">
-                    <label for="card-cvv" className="form-label">CVV</label>
-                    <InputMask mask="999" className="form-control" id="card-cvv" required />
-                    <div className="invalid-feedback">Codigo de seguranção Obrigatório</div>
-                </div>
-                <div className="col-md-6 d-grid gy-2">
-                    <label for="parcela" className="col-12">Parcelar em</label>
-                    <select id="parcela" required>
-                        <option value="">Selecione a parcela...</option>
-                        <option value="1">1x </option>
-                        <option value="2">2x</option>
-                        <option value="3">3x</option>
-                        <option value="4">4x</option>
-                        <option value="5">5x</option>
-                        <option value="6">5x</option>
-                    </select>
-                    <div className="invalid-feedback">Selecione pelo menos 1x</div>
+            <div className='mt-5 row '>
+                <div className="col-12 d-grid gap-2 col-sm-8   mb-2 ">
+                    <ModelPayCard />
                 </div>
             </div>
         )
@@ -202,104 +244,99 @@ function Checkout() {
             <Header />
             <div className="container mt-3 checkout-style mb-4 ">
                 <Title label="Checkout" />
-                <form>
-                    <div className="row ">
-                        <div className="col-12 col-sm-6 border ">
-                            <h4 className="mb-1 mt-2">Dados de Entrega</h4>
 
-                            {/*  <!--************* Parte esquerda da pagina começo  *********************--> */}
-                            <form className="needs-validation" >
-                                <div className="row  g-3">
-                                    <h5 className="title-subs mt-4"> selecione o endereço</h5>
-                                    {listEnderecos()}
-                                    {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
-                                    <ModalEndereco lista={listEnderecos} get={getEndereco} />
-                                    <hr className="my-2" />
-                                    <h4 className="mb-1 "> Frete</h4>
-                                    {/* <div className="col-12"> */}
-                                    <label>Opções de Frete para {entrega.cep} </label>
-                                    {/*  <!-- opçes de frete --> */}
-                                    <div className="col-12 ">
-                                        {opcoesFrete()}
-                                    </div>
-                                    {/* </div> */}
-                                </div>
-                            </form>
-                            <hr className="my-2 mt-2" />
-                            {/*  <!--COMEÇOS CUPOM DE DESCONTO --> */}
-                            <h4 className="mb-3 mt-3 ">Cupom de Desconto</h4>
-                            <div className="input-group d-grid gy-2">
-                                <input type="text" onBlur={(event) => {
-                                    getCupom(event.target.value);
-                                }} className="form-control w-100 mb-2" placeholder="Código promocional" />
-                                <Button none success label="Resgatar" click={() => {
-                                    setOrder({ ...order, cupomDesconto: cupom.id })
-                                }} />
-                                {ValidationCupom()}
-                            </div>
+                <div className="row ">
+                    <div className="col-12 col-sm-6 border ">
+                        <h4 className="mb-1 mt-2">Dados de Entrega</h4>
 
-                            {/*  <!-- FIM CUPOM DE DESCONTO --> */}
-                            {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
+                        {/*  <!--************* Parte esquerda da pagina começo  *********************--> */}
 
-                        </div>
-                        {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
-                        <div className="col-12 col-sm-6 order-md-last border mb-3">
-                            <Cart quant={qtyCarrinho} cart={carrinho}
-                                cupom={cupom} valor={valorTotal} />
-
+                        <div className="row  g-3">
+                            <h5 className="title-subs mt-4"> selecione o endereço</h5>
+                            {listEnderecos()}
+                            {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
+                            <ModalEndereco lista={listEnderecos} get={getEndereco} />
                             <hr className="my-2" />
+                            <h4 className="mb-1 "> Frete</h4>
+                            {/* <div className="col-12"> */}
+                            <label>Opções de Frete para {entrega.cep} </label>
+                            {/*  <!-- opçes de frete --> */}
+                            <div className="col-12 ">
+                                {opcoesFrete()}
+                            </div>
+                            {/* </div> */}
+                        </div>
 
-                            <div className="row">
-                                <h5> Selecione um Cartão Salvo</h5>
-                                <AccordionCart
-                                    bandeira='Bandeira'
-                                    num='****-****-****-*000'
-                                    nome='ved Alimentos'
-                                    dia={2} ano={2022} />
-                                <AccordionCart
-                                    bandeira='Bandeira'
-                                    num='****-****-****-*000'
-                                    nome='ved Alimentos'
-                                    dia={2} ano={2022} />
-                                <div>
-                                    <hr className="my-2" />
-                                    {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
-                                    <h4 className="mb-2">Pagamento</h4>
-                                    <div className="my-3">
-                                        {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
-                                        {/*---------------------------- boleto---------------------------- */}
-                                        <RadioBox onClick={() => setPagamento({
-                                            card: false,
-                                            pix: false,
-                                            cpfBoleto: true
-                                        })} label="Boleto" id='boleto' name="1" />
-                                        {/*------------------- cartao----------------------- */}
-                                        <RadioBox onClick={() => setPagamento({
-                                            card: true,
-                                            pix: false,
-                                            cpfBoleto: false
+                        <hr className="my-2 mt-2" />
+                        {/*  <!--COMEÇOS CUPOM DE DESCONTO --> */}
+                        <h4 className="mb-3 mt-3 ">Cupom de Desconto</h4>
+                        <div className="input-group d-grid gy-2">
+                            <input type="text" onBlur={(event) => {
+                                getCupom(event.target.value);
+                            }} className="form-control w-100 mb-2" placeholder="Código promocional" />
+                            <Button none success label="Resgatar" click={() => {
+                                setOrder({ ...order, cupomDesconto: cupom.id })
+                            }} />
+                            {ValidationCupom()}
+                        </div>
 
-                                        })} label="Cartão de Crédito/Débito" id="card" name="1" />
-                                        {/*---------------------------- pix --------------------*/}
-                                        <RadioBox onClick={() => setPagamento({
-                                            card: false,
-                                            pix: true,
-                                            cpfBoleto: false
+                        {/*  <!-- FIM CUPOM DE DESCONTO --> */}
+                        {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
 
-                                        })} label="Pix" id='pix' name="1" />
-                                    </div>
-                                    <hr className="my-2 border" />
+                    </div>
+                    {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
+                    <div className="col-12 col-sm-6 order-md-last border mb-3">
 
-                                    {pagamento.cpfBoleto ? preBoleto() : ""}
-                                    <hr className="my-4 mb-3" />
+                        {CartComCupom()}
+                        <hr className="my-2" />
+
+                        <div className="row">
+                            <h5> Selecione um Cartão Salvo</h5>
+                            {ofertas()}
+                            <div>
+                                <hr className="my-2" />
+                                {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
+                                <h4 className="mb-2">Pagamento</h4>
+                                <div className="my-3">
+                                    {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
+                                    {/*---------------------------- boleto---------------------------- */}
+                                    <RadioBox onClick={() => setPagamento({
+                                        card: false,
+                                        pix: false,
+                                        cpfBoleto: true
+                                    })} label="Boleto" id='boleto' name="1" />
+                                    {/*------------------- cartao----------------------- */}
+                                    <RadioBox onClick={() => setPagamento({
+                                        card: true,
+                                        pix: false,
+                                        cpfBoleto: false
+
+
+                                    })} label="Cartão de Crédito/Débito" id="card" name="1" />
+                                    {/*---------------------------- pix --------------------*/}
+                                    <RadioBox onClick={() => setPagamento({
+                                        card: false,
+                                        pix: true,
+                                        cpfBoleto: false
+
+                                    })} label="Pix" id='pix' name="1" />
                                 </div>
-                                <div className="d-grid gy-2">
-                                    <Button label="Finalizar Pedido" card link="/orderSucess" success />
-                                </div>
+                                <hr className="my-2 border" />
+
+                                {pagamento.card ? creditcard() : ""}
+                                {pagamento.cpfBoleto ? preBoleto() : ""}
+                                <hr className="my-4 mb-3" />
+
+                            </div>
+                            <div className="d-grid gy-2">
+                                <Button label="Finalizar Pedido" click={() => {
+                                    setOrder({ ...order, pedidoStatus: 2 },)
+                                }} card link="/orderSucess" success />
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
+
             </div>
             <Footer />
         </>
@@ -307,4 +344,4 @@ function Checkout() {
 
 }
 
-export default Checkout;
+export default Checkout

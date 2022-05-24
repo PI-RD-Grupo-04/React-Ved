@@ -17,6 +17,9 @@ function PaymentCards() {
     const [cartao, setCartao] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
 
+
+
+
     let cliente = 1
 
 
@@ -67,14 +70,22 @@ function PaymentCards() {
                     
                 )
                 })
-            }
-    
+        }
+
 
     return (
+                
+
+
+
+
 
 
         <>
             <Header />
+
+
+          
             <div class="container mt-3 mb-4  ">
 
                 <div class="row ">
@@ -111,6 +122,10 @@ function PaymentCards() {
                 </div>
             </div>
             <Footer />
+
+
+
+            
         </>
     )
 }

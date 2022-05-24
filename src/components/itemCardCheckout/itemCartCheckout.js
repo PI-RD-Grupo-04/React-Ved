@@ -12,7 +12,12 @@ function ItemCart(props) {
                     <h6 className={promo}>{props.nome}</h6>
                     <small className={promo}>{props.descricao}</small>
                 </div>
-                <span className={promo}>R$ {props.price}</span>
+                <span className={promo}>
+                    {props.cupom
+                    ? <> -{props.price}%</> 
+                    : <> R$ {props.price}</>
+                    }
+                    </span>
             </li>
         </div>
 

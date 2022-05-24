@@ -13,12 +13,14 @@ import ClientContext from '../../context/Client.provider'
 function Header() {
 
     const [buscar, setBuscar] = useState('')
-    const { client } = useContext(ClientContext) 
-    const { qtyCarrinho  } = useContext(CartContext)
+    const { client, getCliente } = useContext(ClientContext)
+    const { qtyCarrinho, total } = useContext(CartContext)
 
 
     useEffect(() => {
         quantidade()
+        getCliente(1)
+        total()
     }, [])
 
     function quantidade() {
@@ -27,15 +29,15 @@ function Header() {
         }
         return qtyCarrinho;
     }
- 
+
 
     function exibirNome() {
         if (client.nome == "") {
-            return(
+            return (
                 <Link className="icon-perfil icon-config" to='/Login'>Faça Login</Link>
             )
         } else {
-            return(
+            return (
                 <Link className="icon-perfil icon-config" to='/MyAccount'>{client.nome}</Link>
             )
         }
@@ -97,7 +99,7 @@ function Header() {
                         {/*} begin icones usuario */}
                         <div className="col-4  icon-user">
                             <div className="col-4 mt-3 mb-1  ">
-                           {exibirNome()}
+                                {exibirNome()}
                             </div>
                             <div className="col-4 mt-3 mb-1">
                                 <Link className="icon-fav icon-config" to='/favorites'>Favoritos</Link>
