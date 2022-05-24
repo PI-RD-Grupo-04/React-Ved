@@ -56,7 +56,7 @@ function Product() {
         
         return (
         <>
-        <h6 className="font-price">{priceConverted}</h6>
+        <>{priceConverted}</>
         </>
         )
         
