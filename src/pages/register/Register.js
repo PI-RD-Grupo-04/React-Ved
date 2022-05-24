@@ -22,11 +22,10 @@ function Register() {
     const [senha, setSenha] = useState('')
     const [senhaOk, setSenhaOk] = useState('d-none')
     const [senhaError, setSenhaError] = useState('d-none')
-
+    const [senhaConfirmar, setSenhaConfirmar] = useState('')
     const [senhaConfirmOk, setSenhaconfirmOk] = useState('d-none')
     const [senhaConfirmError, setSenhaConfirmError] = useState('d-none')
     const [show, setShow] = useState(false);
-    const [senhaConfirmar, setSenhaConfirmar] = useState('')
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -34,13 +33,12 @@ function Register() {
 
     const history = useHistory();
 
-
     useEffect(() => {
     }, [])
 
     const postClient = (cliente) => {
         axios.post(`${baseCliente}`, cliente)
-            .then((response) => {
+            .then(() => {
                 console.log('cadastrou')
                 setValidacao(true)
             })
@@ -159,10 +157,6 @@ function Register() {
                                         <img src={iconOk} width='24px' height='24px' />
                                     </div>
                                 </div>
-
-
-
-
                                 <div class="d-grid justify-content-center align-items-center gap-2   align-cen  ter mt-3 mb-3">
                                     <Button click={() => { cadastro() }} success label="Cadastrar" confirm></Button>
                                 </div>

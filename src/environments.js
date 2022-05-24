@@ -20,7 +20,16 @@ const baseBandeira = 'http://localhost:8080/bandeira'
 
 const baseCupom = 'http://localhost:8080/cupom'
 
-export { baseCupom, baseBandeira, baseHome, baseProduct, baseFrete, baseCategoria, baseEndereco, baseUf, baseCartao, baseNovidades, baseCliente }
+const basePedido = 'http://localhost:8080/pedido'
+
+const baseItemPedido = 'http://localhost:8080/itemPedido'
+
+export {
+    basePedido, baseCupom, baseBandeira, baseHome,
+    baseProduct, baseFrete, baseCategoria, baseEndereco,
+    baseUf, baseCartao, baseNovidades, baseCliente, 
+    baseItemPedido
+}
 
 
 

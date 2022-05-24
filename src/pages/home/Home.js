@@ -13,7 +13,7 @@ import bannerprincipal from '../../components/asserts/imagens/bannerprincipal.gi
 import Title from '../../components/title/Title'
 import CarroseuHome from '../../components/carroseu/CarroseuHome'
 import { baseHome } from "../../environments";
-
+import { baseCartao } from "../../environments";
 
 function Home() {
 
@@ -21,15 +21,14 @@ function Home() {
   const [novidade, setNovidade] = useState([])
 
   useEffect(() => {
-    axios.get(`${baseHome}/ofertas`
-    )
+    axios.get(`${baseHome}/ofertas`)
       .then((response) => {
         setOferta(response.data)
       })
       .catch((error) => {
         console.error(error)
       })
-      axios.get(`${baseHome}/novidade`)
+    axios.get(`${baseHome}/novidade`)
       .then((response) => {
         setNovidade(response.data)
       })
@@ -39,10 +38,10 @@ function Home() {
 
   }, [])
 
- 
 
 
- 
+
+
   return (
     <>
 
@@ -52,13 +51,12 @@ function Home() {
           <img src={bannerprincipal} className="bannergif" />
         </div>
         {/* *************************************** BANNER END ************************************ */}
-        <div className="d-flex justify-content-center flex-column">
-          <img className="banner" src={frete}
-            alt="imagem com informações sobre o frete" />
+        <div className= " mt-1 d-flex justify-content-center flex-column">
+      
         </div>
         {/* *************************************** CAROUSEL BEGIN ************************************ */}
         <Carousel>
-          <Carousel.Item interval={1000}>
+          <Carousel.Item interval={2000}>
             <img
               className="d-block w-100"
               src={carrosel1mel}
@@ -68,7 +66,7 @@ function Home() {
 
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={500}>
+          <Carousel.Item interval={2000}>
             <img
               className="d-block w-100"
               src={item2}
@@ -78,7 +76,7 @@ function Home() {
             </Carousel.Caption>
           </Carousel.Item>
 
-          <Carousel.Item interval={500}>
+          <Carousel.Item interval={2000}>
             <img
               className="d-block w-100"
               src={item1}
@@ -111,12 +109,12 @@ function Home() {
       <div className="container  ">
         <div className="row justify-content-space ">
           {
-          oferta.map(item => {
-            return (
-              <ProductCard key={item.id} col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" status={item.statusProduto} img={item.url} link={`/product/${item.id}`} nome={item.nomeProduto}
-                descri={item.descricao} product={item} price={item.preco} />
-            )
-          })
+            oferta.map(item => {
+              return (
+                <ProductCard key={item.id} col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" status={item.statusProduto} img={item.url} link={`/product/${item.id}`} nome={item.nomeProduto}
+                  descri={item.descricao} product={item} price={item.preco} />
+              )
+            })
           }
         </div>
       </div>

@@ -70,7 +70,7 @@ function ModalEndereco(props) {
             {/* //modal delete */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Excluir Cliente</Modal.Title>
+                    <Modal.Title>Cadastrar Cliente</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
 
@@ -83,6 +83,7 @@ function ModalEndereco(props) {
                             }} onBlur={() => { getCep(cep) }}
                                 className="form-control mb-3" id="cep" placeholder='digite o cep do endereço' required />
                         </div>
+
                         <div className="col-12 col-sm-6">
                             <label for='rua' className=" text-input">Rua:</label>
                             <InputMask required
