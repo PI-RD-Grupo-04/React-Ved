@@ -56,7 +56,7 @@ export const Routes = () => {
             <Route path="/myAccount" component={MyAccount} />
             <Route path="/category/:buscar" component={Category} />
             <Route path="/shippingPolicy" component={ShippingPolicy} />  
-            <Route path="/DetailsOrder" component={ DetailsOrder} />  
+            <Route path="/DetailsOrder/:order" component={ DetailsOrder} />  
             <Route path="/CompanyPolicy" component={CompanyPolicy} /> 
             <Route path="/test" component={Test} /> 
             <Route component={Error404} />
