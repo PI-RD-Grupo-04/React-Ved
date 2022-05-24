@@ -158,27 +158,15 @@ function Checkout() {
     }
 
 
-    // function showPrice(number)  {
-    //     let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
-
-    //     return (
-    //     <>
-    //     <h6 className="font-price">{priceConverted}</h6>
-    //     </>
-    //     )
-
-    //     }
-
-
     function CartComCupom() {
         if (cupomValidation == 1) {
             return (
                 <Cart quant={qtyCarrinho} cart={carrinho}
-                    cupom={cupom} valor={valorTotal} cupomValid />
+                   cupom={cupom} valor={valorTotal} cupomValid />
             )
         } else {
             return (
-                <Cart quant={qtyCarrinho} cart={carrinho}
+                <Cart  quant={qtyCarrinho} cart={carrinho}
                     cupom={cupom} valor={valorTotal} />
 
             )
