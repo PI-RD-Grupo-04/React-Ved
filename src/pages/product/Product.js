@@ -7,7 +7,6 @@ import transgenico from '../../components/asserts/imagens/selo-produtos/nao-tran
 import vegano from '../../components/asserts/imagens/selo-produtos/sem-gluten.png'
 import gluten from '../../components/asserts/imagens/selo-produtos/vegano.png'
 import ProductCard from '../../components/productCard/ProductCard'
-import { Link } from 'react-router-dom'
 import Buttonqty from '../../components/button/ButtonProduct'
 import Button from '../../components/button/Button'
 import { Accordion } from 'react-bootstrap'
