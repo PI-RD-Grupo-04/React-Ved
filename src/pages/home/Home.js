@@ -51,9 +51,8 @@ function Home() {
           <img src={bannerprincipal} className="bannergif" />
         </div>
         {/* *************************************** BANNER END ************************************ */}
-        <div className="d-flex justify-content-center flex-column">
-          <img className="banner" src={frete}
-            alt="imagem com informações sobre o frete" />
+        <div className="mt-1">
+        
         </div>
         {/* *************************************** CAROUSEL BEGIN ************************************ */}
         <Carousel>
