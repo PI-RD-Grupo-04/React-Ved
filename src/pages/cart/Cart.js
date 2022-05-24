@@ -6,7 +6,7 @@ import ItemBasket from '../../components/itemBasket/ItemBasket'
 import InputMask from 'react-input-mask';
 import CartContext from '../../context/Cart.provider'
 import Title from '../../components/title/Title'
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 
 function Cart() {
 
@@ -25,7 +25,7 @@ function Cart() {
         return listaItem.map((item) => {
             return (
                 <li key={item.id}>
-                    <ItemBasket img={item.url} item={item} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nome} />
+                    <ItemBasket img={item.url} product={item} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nome} />
                 </li>
             )
         })
@@ -33,16 +33,16 @@ function Cart() {
 
 
 
-    function showPrice(number)  {
+    function showPrice(number) {
         let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
-        
+
         return (
-        <>
-        <h6 className="font-price">{priceConverted}</h6>
-        </>
+            <>
+                <h6 className="">{priceConverted}</h6>
+            </>
         )
-        
-        }
+
+    }
 
 
     return (
@@ -75,8 +75,8 @@ function Cart() {
                             <div className="row">
 
                                 <div className="mt-1 col-sm-12 col-lg-4">
-                                    <p>Entrega Comum: {showPrice(45,50)} </p>
-                                    <p>Entrega Flex: {showPrice(65,50)}</p>
+                                    <p>Entrega Comum: {showPrice(45, 50)} </p>
+                                    <p>Entrega Flex: {showPrice(65, 50)}</p>
 
                                 </div>
 

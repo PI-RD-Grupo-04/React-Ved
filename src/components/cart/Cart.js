@@ -4,23 +4,21 @@ import React from 'react'
 
 function Cart(props) {
 
-    function showPrice(number)  {
+    function showPrice(number) {
         let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
-        
-        return (
-        <>
-        <h6 className="font-price">{priceConverted}</h6>
-        </>
-        )
-        
-        }
 
-    
+
+        return (
+            <>
+                <h4 className="">{priceConverted}</h4>
+            </>
+        )
+    }
 
     function listar() {
         return props.cart.map((item) => {
             return (
-                <ItemCart key={item.id} nome={item.nomeProduto} descricao={item.descricao} price={item.preco} />
+                <ItemCart key={item.id} nome={item.nomeProduto} price={item.preco} />
             )
         })
     }
@@ -40,7 +38,7 @@ function Cart(props) {
         let porcento = props.cupom.porcentagemDesconto ? props.cupom.porcentagemDesconto : 0
         let valorFinal = ((porcento / 100) * valorT)
         return (
-            <>{showPrice(valorT - valorFinal)} </>
+            <>{showPrice(valorT - valorFinal + props.frete)} </>
         )
     }
 
@@ -56,10 +54,11 @@ function Cart(props) {
                 <ul className="list-group mb-3">
                     {listar()}
                     {listarCupom()}
+                    {/* <ItemCart  key={99} nome={props.frete.tipoFrete} descricao='Cupom Promo Ved' price={props.cupom.porcentagemDesconto} />  */}
                     <div>
                         <li className="list-group-item list1 d-flex justify-content-between lh-sm">
                             <div>
-                                <h5 className="my-0">Total</h5>
+                                <h5 className="my-0">Total + Frete <small>(R${props.frete})</small> </h5>
                             </div>
                             <span className="text-muted">{calcularTotal()}</span>
                         </li>

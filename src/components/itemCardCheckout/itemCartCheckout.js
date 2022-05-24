@@ -14,7 +14,7 @@ function ItemCart(props) {
                 </div>
                 <span className={promo}>
                     {props.cupom
-                    ? <> R$ -{props.price}</> 
+                    ? <> -{props.price}%</> 
                     : <> R$ {props.price}</>
                     }
                     </span>
