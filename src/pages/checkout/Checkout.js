@@ -49,6 +49,7 @@ function Checkout() {
         listarCarrinho()
         total()
         dataNow()
+        getCartao()
     }, [])
 
     const getEndereco = () => {
@@ -157,7 +158,6 @@ function Checkout() {
         })
     }
 
-
     function CartComCupom() {
         if (cupomValidation == 1) {
             return (
@@ -204,9 +204,6 @@ function Checkout() {
 
     }
 
-
-
-
     function preBoleto() {
 
         return (
@@ -237,6 +234,20 @@ function Checkout() {
         )
     }
 
+
+    function novocartao()  {
+
+        return (
+            <div>
+                 <div className="row">
+                            <h5> Selecione um Cartão Salvo</h5>
+                            {ofertas()}
+                </div>
+                            {creditcard()}
+                
+            </div>
+        )
+    }
 
 
     return (
@@ -291,10 +302,8 @@ function Checkout() {
                         <hr className="my-2" />
 
                         <div className="row">
-                            <h5> Selecione um Cartão Salvo</h5>
-                            {ofertas()}
+                       
                             <div>
-                                <hr className="my-2" />
                                 {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
                                 <h4 className="mb-2">Pagamento</h4>
                                 <div className="my-3">
@@ -323,7 +332,7 @@ function Checkout() {
                                 </div>
                                 <hr className="my-2 border" />
 
-                                {pagamento.card ? creditcard() : ""}
+                                {pagamento.card ? novocartao() : ""}
                                 {pagamento.cpfBoleto ? preBoleto() : ""}
                                 <hr className="my-4 mb-3" />
 
