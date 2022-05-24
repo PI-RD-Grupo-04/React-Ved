@@ -29,7 +29,7 @@ function ModalEndereco(props) {
 
 
     function getCep(cep) {
-        return axios.get(`https://viacep.com.br/ws/${cep}/json/ `)
+        return axios.get(`https://viacep.com.br/ws/${cep}/json/` )
             .then((response) => {
                 setEndereco(response.data)
             })
@@ -37,6 +37,9 @@ function ModalEndereco(props) {
                 console.error(error.messege)
             })
     }
+    
+
+    
 
     const postEndereco = (address) => {
         axios.post(`${baseEndereco}/${cliente}/novo`, address)
