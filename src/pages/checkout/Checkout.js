@@ -21,9 +21,8 @@ import { baseCartao } from "../../environments";
 import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
 
 function Checkout() {
+    
     const [order, setOrder] = useState(OrderModel)
-
-
     const { client } = useContext(ClientContext)
     const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
     const [address, setAddress] = useState([])
@@ -104,7 +103,6 @@ function Checkout() {
             })
     }
 
-
     //pega o ID do ultimo pedido adicionado 
     function getPedido() {
         axios.get(`${basePedido}/ultimo`)
@@ -166,6 +164,7 @@ function Checkout() {
             )
         }
     }
+
     const getCartao = () => {
         axios.get(`${baseCartao}/${cliente}/detalhes`)
             .then((response) => {
@@ -243,7 +242,6 @@ function Checkout() {
     }
 
     function preBoleto() {
-
         return (
             <div class="row gy-3 ">
 
@@ -261,7 +259,7 @@ function Checkout() {
 
     const creditcard = () => {
         return (
-            <div className='mt-5 row '>
+            <div className='row '>
                 <div className="col-12 d-grid gap-2 col-sm-8   mb-2 ">
                     <ModelPayCard />
                 </div>
@@ -269,9 +267,7 @@ function Checkout() {
         )
     }
 
-
     function novocartao() {
-
         return (
             <div>
                 <div className="row">

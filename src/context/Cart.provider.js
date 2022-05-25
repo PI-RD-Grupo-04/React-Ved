@@ -13,15 +13,28 @@ function CartProvider(props) {
         let context = localStorage.getItem('cart')
             ? JSON.parse(localStorage.getItem('cart'))
             : []
-
         return context
     }
 
     const addCarrinho = (item) => {
-        const carrinhoLista = localStorage.getItem('cart')
-            ? JSON.parse(localStorage.getItem('cart'))
-            : []
-        carrinhoLista.push(item)
+       let carrinhoLista = []
+        if (localStorage.getItem('cart')) {
+            let validade = false
+            carrinhoLista = JSON.parse(localStorage.getItem('cart')) 
+            carrinhoLista.map((novo) => {
+                if (item.id == novo.id) {
+                    novo.quantidade++
+                    validade = true  
+                }  
+
+            }) 
+            if (!validade){
+                carrinhoLista.push(item) 
+            }
+
+        } else {
+            carrinhoLista.push(item) 
+        }
         localStorage.setItem('cart', JSON.stringify(carrinhoLista))
         localStorage.qtyCarrinho = JSON.stringify(carrinhoLista.length)
         setCarrinho(carrinhoLista)
@@ -61,9 +74,9 @@ function CartProvider(props) {
             ? JSON.parse(localStorage.getItem('cart'))
             : []
         carrinhoList.forEach((value) => {
-            console.log(value.preco + " <- preco // quanti -> "+ value.quantidade) 
-            console.log("valor final -> " + (value.preco * value.quantidade) ) 
-             totalItem = totalItem +  (value.preco * value.quantidade) 
+            console.log(value.preco + " <- preco // quanti -> " + value.quantidade)
+            console.log("valor final -> " + (value.preco * value.quantidade))
+            totalItem = totalItem + (value.preco * value.quantidade)
             setValorTotal(totalItem)
             localStorage.setItem('valorTotal', JSON.stringify(totalItem))
         })
