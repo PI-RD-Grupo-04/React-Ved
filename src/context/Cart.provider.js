@@ -9,7 +9,7 @@ function CartProvider(props) {
     const [qtyCarrinho, setQtyCarrinho] = useState(0)
     const [quantidadeCesta, setQuantidadeCesta] = useState(0)
     const [quantidadeProduto, setQuantidadeProduto] = useState(0)
-    const [valorTotal, setValorTotal] = useState(0.0)
+    const [valorTotal, setValorTotal] = useState(0)
     const [produto, setProduto] = useState({})
 
     function ValidaCarrinho() {
@@ -34,29 +34,38 @@ function CartProvider(props) {
 
     
     function incrementoCarrinho(item) {
-        setProduto( carrinho.find(produto => item.id == produto.id))
-        setQuantidadeProduto({...produto, quantidade: produto.quantidade++  })
+        const p = carrinho.find(produto => item.id == produto.id)
         const remove = carrinho.filter(items => items.id !== item.id)
-        remove.push(produto)
+        p.quantidade++
+        remove.push(p)
         localStorage.setItem("cart", JSON.stringify(remove))
         setCarrinho(remove)
         setQtyCarrinho(remove.length)
-
+        total()
     }
 
     const decrementoCarrinho = (item) => {
-        setProduto( carrinho.find(produto => item.id == produto.id))
-        setQuantidadeProduto({...produto, quantidade: produto.quantidade-- })
+        const p = carrinho.find(produto => item.id == produto.id)
+        const remove = carrinho.filter(items => items.id !== item.id)
+        if (p.quantidade == 1){
+
+        }else {
+            p.quantidade--
+        } 
+        remove.push(p)
+        localStorage.setItem("cart", JSON.stringify(remove))
+        setCarrinho(remove)
+        setQtyCarrinho(remove.length)
+        total()
     }
 
     function total() { 
-        var a = 0
         const carrinhoList  = JSON.parse(localStorage.getItem('cart'))
         ?  JSON.parse(localStorage.getItem('cart'))
         : []
         carrinhoList.forEach((value)=>{
-            // let totalItem = value.preco  * value.quantidade
-            // setValorTotal( valorTotal + totalItem)
+            let totalItem = value.preco  * value.quantidade
+            setValorTotal(totalItem)
         })   
         localStorage.setItem('valorTotal', JSON.stringify(valorTotal))
         setQtyCarrinho(carrinhoList.length)
@@ -68,6 +77,7 @@ function CartProvider(props) {
         localStorage.setItem("cart", JSON.stringify(remove))
         setCarrinho(remove)
         setQtyCarrinho(remove.length)
+        total()
     }
 
     const quantidadeCarrinho = () => {

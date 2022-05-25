@@ -10,13 +10,13 @@ import React, { useEffect, useContext } from 'react'
 
 function Cart() {
 
-    const { carrinho, listarCarrinho, valorTotal } = useContext(CartContext)
+    const { carrinho, listarCarrinho, valorTotal, total } = useContext(CartContext)
 
     const listaItem = carrinho
     useEffect(() => {
         listarCarrinho()
         listar()
-        
+        total()
     }, [])
 
     function listar() {
@@ -28,7 +28,7 @@ function Cart() {
                 <li key={item.id}>
                     <ItemBasket img={item.url} product={item} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nome} />
                 </li>
-            )
+            ) 
         })
     }
 
