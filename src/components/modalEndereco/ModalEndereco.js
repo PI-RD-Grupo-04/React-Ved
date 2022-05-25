@@ -37,7 +37,7 @@ function ModalEndereco(props) {
     const getCep = (cep) => {
          axios.get(`https://viacep.com.br/ws/${cep}/json/ `)
             .then((response) => {
-              
+              console.log(response.data);
             setAddress({
                 cep: response.data.cep ,
                 rua:response.data.logradouro,
@@ -87,7 +87,7 @@ function ModalEndereco(props) {
             {/* //modal delete */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Excluir Cliente</Modal.Title>
+                    <Modal.Title>Novo Endereço</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
 
