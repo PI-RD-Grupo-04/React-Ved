@@ -6,7 +6,11 @@
     
 }
 
-
+.mocall{
+    background-color: #1987540f;
+    border-radius: 2px;
+    border-bottom: 1px solid black;
+}
 
 .btn-suport:hover{
     background-color: #156b43;

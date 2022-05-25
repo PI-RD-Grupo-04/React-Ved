@@ -132,8 +132,9 @@ function Checkout() {
     const getCupom = (valor) => {
         axios.get(`${baseCupom}/${valor}`)
             .then((response) => {
-                setCupom(response.data)
-                setCupomValidation(1)
+                setCupom(response.data) 
+                setCupomValidation(1) 
+                 setOrder({ ...order, cupomDesconto: response.data.id })
             })
             .catch((error) => {
                 console.error(error.messege)
