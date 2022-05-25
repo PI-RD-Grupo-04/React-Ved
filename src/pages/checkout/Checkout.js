@@ -253,9 +253,6 @@ function Checkout() {
                     <input type="text" id="nomeboleto" class="form-control" />
                     <label for="nomecpf">CPF:</label>
                     <input type="text" id="cpfboleto" class="form-control" />
-                    <div class="container mt-4 d-grid gy-2 mb-3">
-                        <Button success label="gera boleto" />
-                    </div>
                 </div>
 
             </div>
