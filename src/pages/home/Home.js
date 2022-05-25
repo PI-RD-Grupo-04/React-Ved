@@ -4,7 +4,6 @@ import axios from 'axios'
 import Footer from '../../components/footer/Footer'
 import Header from '../../components/header/Header'
 import { Carousel } from 'react-bootstrap'
-import frete from '../../components/asserts/imagens/imgBody/frete.png'
 import carrosel1mel from '../../components/asserts/imagens/Carousel/carrosel1mel.jpg'
 import item1 from '../../components/asserts/imagens/Carousel/item1.webp'
 import item2 from '../../components/asserts/imagens/Carousel/item2.webp'
@@ -13,7 +12,7 @@ import bannerprincipal from '../../components/asserts/imagens/bannerprincipal.gi
 import Title from '../../components/title/Title'
 import CarroseuHome from '../../components/carroseu/CarroseuHome'
 import { baseHome } from "../../environments";
-import { baseCartao } from "../../environments";
+
 
 function Home() {
 
