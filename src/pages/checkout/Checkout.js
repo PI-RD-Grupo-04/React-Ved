@@ -26,13 +26,16 @@ function Checkout() {
 
     const { client } = useContext(ClientContext)
     const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
+    const [items, SetItems] = useState([])
+    function Setcarrinho(produtos) {
+        SetItems(produtos)
+    }
     const [address, setAddress] = useState([])
     const [entrega, setEntrega] = useState({})
     const [idPedido, setIdPedido] = useState(0)
     const [itemPedido, setItemPedido] = useState(ItemPedidoModal)
     const [listaItemPedido, setListaItemPedido] = useState([])
     const [frete, setFrete] = useState([])
-    const [freteValor, setFreteValor] = useState(0)
     const [cupomValidation, setCupomValidation] = useState(0)
     const [cupom, setCupom] = useState({})
     const [cartao, setCartao] = useState([])
@@ -41,18 +44,20 @@ function Checkout() {
         pix: false,
         cpfBoleto: false
     })
-    const cliente = 1
+    let cliente = 1
     console.log(order)
 
     useEffect(() => {
         getEndereco()
         listEnderecos()
-        getCartao()
         listarCarrinho()
         total()
         dataNow()
+<<<<<<< HEAD
         getCartao()
         console.log(carrinho)
+=======
+>>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
     }, [])
 
     const getEndereco = () => {
@@ -118,13 +123,17 @@ function Checkout() {
             })
     }
 
+<<<<<<< HEAD
 
 
 
     const postItemPedido = (idItemPedido) => {
         axios.post(`${baseItemPedido}/novo`, carrinho)
+=======
+    const postItemPedido = () => {
+        axios.post(`${baseItemPedido}/novo`, items)
+>>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
             .then(() => {
-
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -209,15 +218,20 @@ function Checkout() {
         })
     }
 
+
     function CartComCupom() {
         if (cupomValidation == 1) {
             return (
-                <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
-                    cupom={cupom} valor={valorTotal} cupomValid />
+                <Cart quant={qtyCarrinho} cart={carrinho}
+                   cupom={cupom} valor={valorTotal} cupomValid />
             )
         } else {
             return (
+<<<<<<< HEAD
                 <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
+=======
+                <Cart  quant={qtyCarrinho} cart={carrinho}
+>>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
                     cupom={cupom} valor={valorTotal} />
 
             )
@@ -230,10 +244,9 @@ function Checkout() {
                 <div key={opcao.id} className="d-flex align-items-center justify-content-start" >
                     <RadioBox id={opcao.id} name="frete" onClick={() => {
                         setOrder({ ...order, frete: opcao.id })
-                        setFreteValor(opcao.valor)
                     }} />
-                    <label className="form-check-label" for='frete' >{opcao.tipoFrete} -</label>
-                    <label className="form-check-label" for='frete' >R${opcao.valor}</label>
+                    <label className="form-check-label" for='frete' >{opcao.tipoFrete}</label>
+                    <label className="form-check-label" for='frete' >{opcao.valor}</label>
                 </div>
             )
         })
@@ -255,6 +268,9 @@ function Checkout() {
         })
 
     }
+
+
+
 
     function preBoleto() {
 
@@ -287,6 +303,7 @@ function Checkout() {
     }
 
 
+<<<<<<< HEAD
     function novocartao() {
 
         return (
@@ -301,6 +318,8 @@ function Checkout() {
         )
     }
 
+=======
+>>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
 
     return (
         <>
@@ -354,8 +373,14 @@ function Checkout() {
                         <hr className="my-2" />
 
                         <div className="row">
+<<<<<<< HEAD
 
+=======
+                            <h5> Selecione um Cartão Salvo</h5>
+                            {ofertas()}
+>>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
                             <div>
+                                <hr className="my-2" />
                                 {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
                                 <h4 className="mb-2">Pagamento</h4>
                                 <div className="my-3">
@@ -384,7 +409,7 @@ function Checkout() {
                                 </div>
                                 <hr className="my-2 border" />
 
-                                {pagamento.card ? novocartao() : ""}
+                                {pagamento.card ? creditcard() : ""}
                                 {pagamento.cpfBoleto ? preBoleto() : ""}
                                 <hr className="my-4 mb-3" />
 

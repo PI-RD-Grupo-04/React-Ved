@@ -12,7 +12,9 @@ import { Alert } from 'react-bootstrap'
 import axios from 'axios'
 import ClientContext from '../../context/Client.provider'
 
-function Address() {
+
+
+function Address() { 
     const { client, getCliente, BuscaClient } = useContext(ClientContext)
     const [endereco, setEndereco] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
@@ -33,7 +35,6 @@ function Address() {
                 console.error(error.messege)
             })
     }
-
 
     const deleteEndereco = (endereco) => {
         axios.delete(`${baseEndereco}/1/delete/${endereco}`)

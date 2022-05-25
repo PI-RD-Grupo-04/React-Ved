@@ -51,7 +51,9 @@ function Home() {
           <img src={bannerprincipal} className="bannergif" />
         </div>
         {/* *************************************** BANNER END ************************************ */}
-        <p className=""></p>
+        <div className= " mt-1 d-flex justify-content-center flex-column">
+      
+        </div>
         {/* *************************************** CAROUSEL BEGIN ************************************ */}
         <Carousel>
           <Carousel.Item interval={2000}>
