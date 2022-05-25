@@ -54,7 +54,6 @@ function Checkout() {
         total()
         dataNow()
         getCartao()
-        console.log(carrinho)
     }, [])
 
     const getEndereco = () => {
@@ -68,8 +67,7 @@ function Checkout() {
             })
     }
 
-    function addItemPedido() {
-
+    function addItemPedido(idpe) {
         const lista = []
         //percorre a lista salva na memoria
         carrinho.map((value) => {
@@ -79,13 +77,12 @@ function Checkout() {
                 porcentagemIcms: 1,
                 valorIcms: 1,
                 produto: value.id,
-                pedido: idPedido
+                pedido: idpe
             })
         })
-        console.log("lista de items q ira ser enviado para o back")
         console.log(lista)
-        //finalizado a conversao, chama o metodo para postar o array de item pedido
-        // postItemPedido(idPedido)
+        // chama o ultimo metodo para finalizar 
+        postItemPedido(lista)
     }
 
     const dataNow = () => {
@@ -102,46 +99,39 @@ function Checkout() {
     const postPedido = () => {
         axios.post(`${basePedido}/novo`, order)
             .then(() => {
+                getPedido()
             })
             .catch((error) => {
                 console.error(error.messege)
             })
     }
+
+
     //pega o ID do ultimo pedido adicionado 
-    async function getPedido() {
+    function getPedido() {
         axios.get(`${basePedido}/ultimo`)
             .then((response) => {
-            setIdPedido(response.data).then(() => console.log("setou" + idPedido   ))
-                //chama o metodo de converter os produto em "item_pedido"
-                console.log("pedido criado com ID -> " + idPedido)
+            console.log(response.data)
+            //chama o metodo de converter os produto em "item_pedido"
+            addItemPedido( response.data)
+           
             })
             .catch((error) => {
                 console.error(error.messege)
             })
     }
 
-    const postItemPedido = () => {
-        axios.post(`${baseItemPedido}/novo`, items)
+    // ultimo passo para finalizar o pedido
+    const postItemPedido = (idItemPedido) => {
+        axios.post(`${baseItemPedido}/novo`, idItemPedido)
             .then(() => {
+                console.log("flxo finalizado")
             })
             .catch((error) => {
                 console.error(error.messege)
             })
     }
 
-
-    async function fluxoPedido() {
-        //funcao que realiza todo o fluxo de comunicacao para o pedido--- ----
-        // cria o pedido, enviando as informações para o back
-        await postPedido()
-        //busca o id do pedido que acabou de ser criado
-        await getPedido()
-        // converte os itens em ITEM_PEDIDO
-        await addItemPedido()
-
-
-
-    }
 
     const getCupom = (valor) => {
         axios.get(`${baseCupom}/${valor}`)
@@ -395,7 +385,7 @@ function Checkout() {
                             <div className="d-grid gy-2">
                                 <Button label="Finalizar Pedido" click={() => {
                                     setOrder({ ...order, pedidoStatus: 2 },
-                                        fluxoPedido())
+                                        postPedido())
                                 }} card  success />
                             </div>
                         </div>

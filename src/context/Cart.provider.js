@@ -31,6 +31,8 @@ function CartProvider(props) {
         setCarrinho(carrinhoLista)
         setQtyCarrinho(carrinhoLista.length)
     }
+
+    
     function incrementoCarrinho(item) {
         setProduto( carrinho.find(produto => item.id == produto.id))
         setQuantidadeProduto({...produto, quantidade: produto.quantidade++  })
