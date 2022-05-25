@@ -53,11 +53,8 @@ function Checkout() {
         listarCarrinho()
         total()
         dataNow()
-<<<<<<< HEAD
         getCartao()
         console.log(carrinho)
-=======
->>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
     }, [])
 
     const getEndereco = () => {
@@ -123,16 +120,8 @@ function Checkout() {
             })
     }
 
-<<<<<<< HEAD
-
-
-
-    const postItemPedido = (idItemPedido) => {
-        axios.post(`${baseItemPedido}/novo`, carrinho)
-=======
     const postItemPedido = () => {
         axios.post(`${baseItemPedido}/novo`, items)
->>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
             .then(() => {
             })
             .catch((error) => {
@@ -227,11 +216,7 @@ function Checkout() {
             )
         } else {
             return (
-<<<<<<< HEAD
-                <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
-=======
                 <Cart  quant={qtyCarrinho} cart={carrinho}
->>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
                     cupom={cupom} valor={valorTotal} />
 
             )
@@ -303,7 +288,6 @@ function Checkout() {
     }
 
 
-<<<<<<< HEAD
     function novocartao() {
 
         return (
@@ -318,8 +302,6 @@ function Checkout() {
         )
     }
 
-=======
->>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
 
     return (
         <>
@@ -373,12 +355,8 @@ function Checkout() {
                         <hr className="my-2" />
 
                         <div className="row">
-<<<<<<< HEAD
-
-=======
                             <h5> Selecione um Cartão Salvo</h5>
                             {ofertas()}
->>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
                             <div>
                                 <hr className="my-2" />
                                 {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
