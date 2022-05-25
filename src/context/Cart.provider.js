@@ -7,7 +7,8 @@ function CartProvider(props) {
     const [qtyCarrinho, setQtyCarrinho] = useState(0)
     const [quantidadeCesta, setQuantidadeCesta] = useState(0)
     const [quantidadeProduto, setQuantidadeProduto] = useState(0)
-    const [valorTotal, setValorTotal] = useState(0)
+    const [valorTotal, setValorTotal] = useState(0) 
+
 
     function ValidaCarrinho() {
         let context = localStorage.getItem('cart')
@@ -17,30 +18,27 @@ function CartProvider(props) {
     }
 
     const addCarrinho = (item) => {
-       let carrinhoLista = []
+        let carrinhoLista = []
         if (localStorage.getItem('cart')) {
             let validade = false
-            carrinhoLista = JSON.parse(localStorage.getItem('cart')) 
+            carrinhoLista = JSON.parse(localStorage.getItem('cart'))
             carrinhoLista.map((novo) => {
                 if (item.id == novo.id) {
                     novo.quantidade++
-                    validade = true  
-                }  
-
-            }) 
-            if (!validade){
-                carrinhoLista.push(item) 
+                    validade = true
+                }
+            })
+            if (!validade) {
+                carrinhoLista.push(item)
             }
-
         } else {
-            carrinhoLista.push(item) 
+            carrinhoLista.push(item)
         }
         localStorage.setItem('cart', JSON.stringify(carrinhoLista))
         localStorage.qtyCarrinho = JSON.stringify(carrinhoLista.length)
         setCarrinho(carrinhoLista)
         setQtyCarrinho(carrinhoLista.length)
     }
-
 
     function incrementoCarrinho(item) {
         const p = carrinho.find(produto => item.id == produto.id)
@@ -66,6 +64,38 @@ function CartProvider(props) {
         setCarrinho(remove)
         setQtyCarrinho(remove.length)
         total()
+    }
+
+    function incrementoQuantyProduto(item) {
+        if (carrinho.find(produto => item.id == produto.id)) {
+            incrementoCarrinho(item) 
+            console.log("tem no carrinho")
+        } else {
+            if (item.estoque == item.quantidade) {
+                console.log("valor igual ao estue maximo" )
+                console.log( item)
+            } else {
+                console.log("adicionou + 1 ") 
+               console.log("adicionou") 
+               console.log(item.quantidade++ )
+               console.log( item)
+
+            }
+        }
+    }
+
+    function decrementoQuantyProduto(item) {
+        if (carrinho.find(produto => item.id == produto.id)) {
+            decrementoCarrinho(item)
+        } else {
+            if (item.quantidade == 1) {
+                console.log("valor igual a 1 " )
+            } else {
+               console.log("adicionou - 1") 
+               console.log(item.quantidade-- )
+               console.log( item)
+            }
+        }
     }
 
     function total() {
@@ -104,13 +134,14 @@ function CartProvider(props) {
     return (
         <CartContext.Provider
             value={{
-                deleteCarrinho, decrementoCarrinho, incrementoCarrinho, addCarrinho, quantidadeCarrinho, listarCarrinho,
-                carrinho, qtyCarrinho, quantidadeProduto, quantidadeCesta, valorTotal, total
+                deleteCarrinho, decrementoCarrinho, incrementoCarrinho,
+                addCarrinho, quantidadeCarrinho, listarCarrinho,
+                carrinho, qtyCarrinho, quantidadeProduto, quantidadeCesta,
+                valorTotal, total, incrementoQuantyProduto, decrementoQuantyProduto
             }}>
             {props.children}
         </CartContext.Provider>
     )
-
 }
 
 
