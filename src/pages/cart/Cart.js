@@ -16,6 +16,7 @@ function Cart() {
     useEffect(() => {
         listarCarrinho()
         listar()
+        
     }, [])
 
     function listar() {

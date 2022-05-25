@@ -12,15 +12,14 @@ import { Alert } from 'react-bootstrap'
 import axios from 'axios'
 import ClientContext from '../../context/Client.provider'
 
-function Address() { 
+function Address() {
     const { client, getCliente, BuscaClient } = useContext(ClientContext)
     const [endereco, setEndereco] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
 
     useEffect(() => {
-        getCliente(1)
         getEndereco()
-        BuscaClient() 
+        BuscaClient()
 
     }, [])
 
@@ -60,6 +59,7 @@ function Address() {
             )
         })
     }
+    console.log(endereco)
 
 
     return (

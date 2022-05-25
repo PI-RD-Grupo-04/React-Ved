@@ -1,6 +1,6 @@
 const OrderModel = {
     data: '',
-    cliente: 0,
+    cliente: 1,
     cupomDesconto:0,
     pedidoStatus: 1,
     frete:0 ,

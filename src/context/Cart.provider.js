@@ -31,30 +31,32 @@ function CartProvider(props) {
         setCarrinho(carrinhoLista)
         setQtyCarrinho(carrinhoLista.length)
     }
-
-
     function incrementoCarrinho(item) {
         setProduto( carrinho.find(produto => item.id == produto.id))
         setQuantidadeProduto({...produto, quantidade: produto.quantidade++  })
-        console.log(produto)
-    }
+        const remove = carrinho.filter(items => items.id !== item.id)
+        remove.push(produto)
+        localStorage.setItem("cart", JSON.stringify(remove))
+        setCarrinho(remove)
+        setQtyCarrinho(remove.length)
 
+    }
 
     const decrementoCarrinho = (item) => {
         setProduto( carrinho.find(produto => item.id == produto.id))
         setQuantidadeProduto({...produto, quantidade: produto.quantidade-- })
     }
 
-    function total() {
-        let valorFinal = 0  
+    function total() { 
+        var a = 0
         const carrinhoList  = JSON.parse(localStorage.getItem('cart'))
         ?  JSON.parse(localStorage.getItem('cart'))
         : []
         carrinhoList.forEach((value)=>{
-            valorFinal = valorFinal + value.preco 
+            // let totalItem = value.preco  * value.quantidade
+            // setValorTotal( valorTotal + totalItem)
         })   
-        localStorage.setItem('valorTotal', JSON.stringify(valorFinal))
-        setValorTotal(valorFinal)
+        localStorage.setItem('valorTotal', JSON.stringify(valorTotal))
         setQtyCarrinho(carrinhoList.length)
 
     }
