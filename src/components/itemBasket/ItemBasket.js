@@ -23,9 +23,9 @@ function ItemBasket(props) {
         <>
             <li className="list-group-item py-3">
                 <div className="row g-3">
-                    <div className="col-4 col-md-3 col-lg-2">
+                    <div className=" col-4 col-md-3 col-lg-2 d-flex align-items-center justify-content-center">
                         <Link to={`/product/${props.id}`}>
-                            <img className="mr-3 imgfruta" src={props.img} />
+                            <img className="mr-3  imgfruta" src={props.img} />
                         </Link>
                     </div>
                     <div className="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">

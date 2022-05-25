@@ -49,7 +49,19 @@ function Cart(props) {
                     <span>Seu carrinho</span>
                     <span className="badge bg-success rounded-pill">{props.quant}</span>
                 </h4>
+                <div className="d-flex flex-row border">
+                    <div className='col-7 d-flex'>
+                        <h5 >Produtos</h5>
+                    </div>
+                    <div className='col-2 d-flex'>
+                        <h5 >Quant.</h5>
+                    </div>
+                    <div className='col-3  '>
+                        <h5>Val. Unitário</h5>    
+                    </div>
+                </div>
                 <ul className="list-group mb-3">
+
                     {listar()}
                     {listarCupom()}
                     {/* <ItemCart  key={99} nome={props.frete.tipoFrete} descricao='Cupom Promo Ved' price={props.cupom.porcentagemDesconto} />  */}
@@ -58,7 +70,7 @@ function Cart(props) {
                             <div>
                                 <h5 className="my-0">Total + Frete <small>(R${props.frete})</small> </h5>
                             </div>
-                            <span className="text-muted">{calcularTotal()}</span>
+                            <span className="">{calcularTotal()}</span>
                         </li>
                     </div>
                 </ul>
