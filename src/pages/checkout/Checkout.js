@@ -165,7 +165,7 @@ function Checkout() {
             )
         } else {
             return (
-                <Cart  frete={freteValor} quant={qtyCarrinho} cart={carrinho}
+                <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
                     cupom={cupom} valor={valorTotal} />
 
             )
@@ -235,16 +235,16 @@ function Checkout() {
     }
 
 
-    function novocartao()  {
+    function novocartao() {
 
         return (
             <div>
-                 <div className="row">
-                            <h5> Selecione um Cartão Salvo</h5>
-                            {ofertas()}
+                <div className="row">
+                    <h5> Selecione um Cartão Salvo</h5>
+                    {ofertas()}
                 </div>
-                            {creditcard()}
-                
+                {creditcard()}
+
             </div>
         )
     }
@@ -302,7 +302,7 @@ function Checkout() {
                         <hr className="my-2" />
 
                         <div className="row">
-                       
+
                             <div>
                                 {/*  <!--***** BEGIN PAGAMENTO *******--> */}
                                 <h4 className="mb-2">Pagamento</h4>
@@ -322,7 +322,7 @@ function Checkout() {
 
 
                                     })} label="Cartão de Crédito/Débito" id="card" name="1" />
-                                    {/---------------------------- pix --------------------/}
+                                    {/*---------------------------- pix --------------------*/}
                                     <RadioBox onClick={() => setPagamento({
                                         card: false,
                                         pix: true,
