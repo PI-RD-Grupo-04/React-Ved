@@ -26,16 +26,13 @@ function Checkout() {
 
     const { client } = useContext(ClientContext)
     const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
-    const [items, SetItems] = useState([])
-    function Setcarrinho(produtos) {
-        SetItems(produtos)
-    }
     const [address, setAddress] = useState([])
     const [entrega, setEntrega] = useState({})
     const [idPedido, setIdPedido] = useState(0)
     const [itemPedido, setItemPedido] = useState(ItemPedidoModal)
     const [listaItemPedido, setListaItemPedido] = useState([])
     const [frete, setFrete] = useState([])
+    const [freteValor, setFreteValor] = useState(0)
     const [cupomValidation, setCupomValidation] = useState(0)
     const [cupom, setCupom] = useState({})
     const [cartao, setCartao] = useState([])
@@ -44,17 +41,17 @@ function Checkout() {
         pix: false,
         cpfBoleto: false
     })
-    let cliente = 1
+    const cliente = 1
     console.log(order)
 
     useEffect(() => {
         getEndereco()
         listEnderecos()
+        getCartao()
         listarCarrinho()
         total()
         dataNow()
         getCartao()
-        console.log(carrinho)
     }, [])
 
     const getEndereco = () => {
@@ -68,8 +65,7 @@ function Checkout() {
             })
     }
 
-    function addItemPedido() {
-
+    function addItemPedido(idpe) {
         const lista = []
         //percorre a lista salva na memoria
         carrinho.map((value) => {
@@ -79,13 +75,12 @@ function Checkout() {
                 porcentagemIcms: 1,
                 valorIcms: 1,
                 produto: value.id,
-                pedido: idPedido
+                pedido: idpe
             })
         })
-        console.log("lista de items q ira ser enviado para o back")
         console.log(lista)
-        //finalizado a conversao, chama o metodo para postar o array de item pedido
-        // postItemPedido(idPedido)
+        // chama o ultimo metodo para finalizar 
+        postItemPedido(lista)
     }
 
     const dataNow = () => {
@@ -102,46 +97,39 @@ function Checkout() {
     const postPedido = () => {
         axios.post(`${basePedido}/novo`, order)
             .then(() => {
+                getPedido()
             })
             .catch((error) => {
                 console.error(error.messege)
             })
     }
+
+
     //pega o ID do ultimo pedido adicionado 
-    async function getPedido() {
+    function getPedido() {
         axios.get(`${basePedido}/ultimo`)
             .then((response) => {
-            setIdPedido(response.data).then(() => console.log("setou" + idPedido   ))
-                //chama o metodo de converter os produto em "item_pedido"
-                console.log("pedido criado com ID -> " + idPedido)
+            console.log(response.data)
+            //chama o metodo de converter os produto em "item_pedido"
+            addItemPedido( response.data)
+           
             })
             .catch((error) => {
                 console.error(error.messege)
             })
     }
 
-    const postItemPedido = () => {
-        axios.post(`${baseItemPedido}/novo`, items)
+    // ultimo passo para finalizar o pedido
+    const postItemPedido = (idItemPedido) => {
+        axios.post(`${baseItemPedido}/novo`, idItemPedido)
             .then(() => {
+                console.log("flxo finalizado")
             })
             .catch((error) => {
                 console.error(error.messege)
             })
     }
 
-
-    async function fluxoPedido() {
-        //funcao que realiza todo o fluxo de comunicacao para o pedido--- ----
-        // cria o pedido, enviando as informações para o back
-        await postPedido()
-        //busca o id do pedido que acabou de ser criado
-        await getPedido()
-        // converte os itens em ITEM_PEDIDO
-        await addItemPedido()
-
-
-
-    }
 
     const getCupom = (valor) => {
         axios.get(`${baseCupom}/${valor}`)
@@ -207,16 +195,15 @@ function Checkout() {
         })
     }
 
-
     function CartComCupom() {
         if (cupomValidation == 1) {
             return (
-                <Cart quant={qtyCarrinho} cart={carrinho}
-                   cupom={cupom} valor={valorTotal} cupomValid />
+                <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
+                    cupom={cupom} valor={valorTotal} cupomValid />
             )
         } else {
             return (
-                <Cart  quant={qtyCarrinho} cart={carrinho}
+                <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
                     cupom={cupom} valor={valorTotal} />
 
             )
@@ -229,9 +216,10 @@ function Checkout() {
                 <div key={opcao.id} className="d-flex align-items-center justify-content-start" >
                     <RadioBox id={opcao.id} name="frete" onClick={() => {
                         setOrder({ ...order, frete: opcao.id })
+                        setFreteValor(opcao.valor)
                     }} />
-                    <label className="form-check-label" for='frete' >{opcao.tipoFrete}</label>
-                    <label className="form-check-label" for='frete' >{opcao.valor}</label>
+                    <label className="form-check-label" for='frete' >{opcao.tipoFrete} -</label>
+                    <label className="form-check-label" for='frete' >R${opcao.valor}</label>
                 </div>
             )
         })
@@ -254,9 +242,6 @@ function Checkout() {
 
     }
 
-
-
-
     function preBoleto() {
 
         return (
@@ -268,9 +253,6 @@ function Checkout() {
                     <input type="text" id="nomeboleto" class="form-control" />
                     <label for="nomecpf">CPF:</label>
                     <input type="text" id="cpfboleto" class="form-control" />
-                    <div class="container mt-4 d-grid gy-2 mb-3">
-                        <Button success label="gera boleto" />
-                    </div>
                 </div>
 
             </div>
@@ -313,7 +295,7 @@ function Checkout() {
                     <div className="col-12 col-sm-6 border ">
                         <h4 className="mb-1 mt-2">Dados de Entrega</h4>
 
-                        {/*  <!--************* Parte esquerda da pagina começo  *********************--> */}
+                        {/*  <!--***** Parte esquerda da pagina começo  *******--> */}
 
                         <div className="row  g-3">
                             <h5 className="title-subs mt-4"> selecione o endereço</h5>
@@ -345,21 +327,19 @@ function Checkout() {
                         </div>
 
                         {/*  <!-- FIM CUPOM DE DESCONTO --> */}
-                        {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
+                        {/*  <!--***** FIM esquerda da pagina começo  *******--> */}
 
                     </div>
-                    {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
+                    {/*  <!--***** COMEÇO DIREITA da pagina começo  *******--> */}
                     <div className="col-12 col-sm-6 order-md-last border mb-3">
 
                         {CartComCupom()}
                         <hr className="my-2" />
 
                         <div className="row">
-                            <h5> Selecione um Cartão Salvo</h5>
-                            {ofertas()}
+
                             <div>
-                                <hr className="my-2" />
-                                {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
+                                {/*  <!--***** BEGIN PAGAMENTO *******--> */}
                                 <h4 className="mb-2">Pagamento</h4>
                                 <div className="my-3">
                                     {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
@@ -387,7 +367,7 @@ function Checkout() {
                                 </div>
                                 <hr className="my-2 border" />
 
-                                {pagamento.card ? creditcard() : ""}
+                                {pagamento.card ? novocartao() : ""}
                                 {pagamento.cpfBoleto ? preBoleto() : ""}
                                 <hr className="my-4 mb-3" />
 
@@ -395,7 +375,7 @@ function Checkout() {
                             <div className="d-grid gy-2">
                                 <Button label="Finalizar Pedido" click={() => {
                                     setOrder({ ...order, pedidoStatus: 2 },
-                                        fluxoPedido())
+                                        postPedido())
                                 }} card  success />
                             </div>
                         </div>
