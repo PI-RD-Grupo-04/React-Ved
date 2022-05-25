@@ -1,7 +1,7 @@
 const OrderModel = {
     data: '',
     cliente: 1,
-    cupomDesconto:0,
+    cupomDesconto:1,
     pedidoStatus: 1,
     frete:0 ,
     endereco:0
