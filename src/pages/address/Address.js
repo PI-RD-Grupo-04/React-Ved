@@ -18,9 +18,8 @@ function Address() {
     const [successDelete, setSuccessDelete] = useState(false);
 
     useEffect(() => {
-        getCliente(1)
         getEndereco()
-        BuscaClient() 
+        BuscaClient()
 
     }, [])
 
@@ -34,6 +33,8 @@ function Address() {
                 console.error(error.messege)
             })
     }
+
+
 
 
     const deleteEndereco = (endereco) => {
@@ -60,6 +61,7 @@ function Address() {
             )
         })
     }
+    console.log(endereco)
 
 
     return (
