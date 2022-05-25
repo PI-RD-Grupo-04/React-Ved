@@ -15,6 +15,7 @@ import { baseEndereco, baseFrete, baseCupom, basePedido, baseItemPedido } from '
 import ClientContext from '../../context/Client.provider'
 import CartContext from '../../context/Cart.provider'
 import OrderModel from '../../models/Order'
+import ItemPedidoModal from '../../models/ItemPedido'
 import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import { baseCartao } from "../../environments";
 import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
@@ -31,6 +32,9 @@ function Checkout() {
     }
     const [address, setAddress] = useState([])
     const [entrega, setEntrega] = useState({})
+    const [idPedido, setIdPedido] = useState(0)
+    const [itemPedido, setItemPedido] = useState(ItemPedidoModal)
+    const [listaItemPedido, setListaItemPedido] = useState([])
     const [frete, setFrete] = useState([])
     const [cupomValidation, setCupomValidation] = useState(0)
     const [cupom, setCupom] = useState({})
@@ -49,6 +53,11 @@ function Checkout() {
         listarCarrinho()
         total()
         dataNow()
+<<<<<<< HEAD
+        getCartao()
+        console.log(carrinho)
+=======
+>>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
     }, [])
 
     const getEndereco = () => {
@@ -62,6 +71,26 @@ function Checkout() {
             })
     }
 
+    function addItemPedido() {
+
+        const lista = []
+        //percorre a lista salva na memoria
+        carrinho.map((value) => {
+            //a cada volta, cria um objeto de item pedido e salva no array acima
+            lista.push({
+                quantidade: value.quantidade,
+                porcentagemIcms: 1,
+                valorIcms: 1,
+                produto: value.id,
+                pedido: idPedido
+            })
+        })
+        console.log("lista de items q ira ser enviado para o back")
+        console.log(lista)
+        //finalizado a conversao, chama o metodo para postar o array de item pedido
+        // postItemPedido(idPedido)
+    }
+
     const dataNow = () => {
         var data = new Date();
         var dia = String(data.getDate()).padStart(2, '0');
@@ -72,24 +101,57 @@ function Checkout() {
         setOrder({ ...order, data: dataAtual })
     }
 
-
+    // comeco do pedido
     const postPedido = () => {
         axios.post(`${basePedido}/novo`, order)
             .then(() => {
-                postItemPedido()
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+    //pega o ID do ultimo pedido adicionado 
+    async function getPedido() {
+        axios.get(`${basePedido}/ultimo`)
+            .then((response) => {
+            setIdPedido(response.data).then(() => console.log("setou" + idPedido   ))
+                //chama o metodo de converter os produto em "item_pedido"
+                console.log("pedido criado com ID -> " + idPedido)
             })
             .catch((error) => {
                 console.error(error.messege)
             })
     }
 
+<<<<<<< HEAD
+
+
+
+    const postItemPedido = (idItemPedido) => {
+        axios.post(`${baseItemPedido}/novo`, carrinho)
+=======
     const postItemPedido = () => {
         axios.post(`${baseItemPedido}/novo`, items)
+>>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
             .then(() => {
             })
             .catch((error) => {
                 console.error(error.messege)
             })
+    }
+
+
+    async function fluxoPedido() {
+        //funcao que realiza todo o fluxo de comunicacao para o pedido--- ----
+        // cria o pedido, enviando as informações para o back
+        await postPedido()
+        //busca o id do pedido que acabou de ser criado
+        await getPedido()
+        // converte os itens em ITEM_PEDIDO
+        await addItemPedido()
+
+
+
     }
 
     const getCupom = (valor) => {
@@ -128,8 +190,7 @@ function Checkout() {
         }
     }
     const getCartao = () => {
-        axios.get(`${baseCartao}/${cliente}/detalhes`
-        )
+        axios.get(`${baseCartao}/${cliente}/detalhes`)
             .then((response) => {
                 setCartao(response.data)
             })
@@ -166,7 +227,11 @@ function Checkout() {
             )
         } else {
             return (
+<<<<<<< HEAD
+                <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
+=======
                 <Cart  quant={qtyCarrinho} cart={carrinho}
+>>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
                     cupom={cupom} valor={valorTotal} />
 
             )
@@ -238,6 +303,23 @@ function Checkout() {
     }
 
 
+<<<<<<< HEAD
+    function novocartao() {
+
+        return (
+            <div>
+                <div className="row">
+                    <h5> Selecione um Cartão Salvo</h5>
+                    {ofertas()}
+                </div>
+                {creditcard()}
+
+            </div>
+        )
+    }
+
+=======
+>>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
 
     return (
         <>
@@ -291,8 +373,12 @@ function Checkout() {
                         <hr className="my-2" />
 
                         <div className="row">
+<<<<<<< HEAD
+
+=======
                             <h5> Selecione um Cartão Salvo</h5>
                             {ofertas()}
+>>>>>>> 749edeb91e332a9522d51a6ee90741cda66a7467
                             <div>
                                 <hr className="my-2" />
                                 {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
@@ -330,8 +416,9 @@ function Checkout() {
                             </div>
                             <div className="d-grid gy-2">
                                 <Button label="Finalizar Pedido" click={() => {
-                                    setOrder({ ...order, pedidoStatus: 2 },)
-                                }} card link="/orderSucess" success />
+                                    setOrder({ ...order, pedidoStatus: 2 },
+                                        fluxoPedido())
+                                }} card  success />
                             </div>
                         </div>
                     </div>
