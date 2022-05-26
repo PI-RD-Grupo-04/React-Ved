@@ -184,7 +184,7 @@ function Checkout() {
                         <div class="row ">
                             <AccordionCart
                                 bandeira={item.idBandeira.nome}
-                                num={item.numeroCartao}
+                                numero={item.numeroCartao}
                                 nome={item.titular}
                                 mes={item.diaVencimento} ano={item.anoVencimento}
                             />
