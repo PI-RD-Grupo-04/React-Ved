@@ -22,13 +22,17 @@ const baseCupom = 'http://localhost:8080/cupom'
 
 const basePedido = 'http://localhost:8080/pedido'
 
-const baseItemPedido = 'http://localhost:8080/itemPedido'
+const baseItemPedido = 'http://localhost:8080/itemPedido' 
+
+const baseLogin = 'http://localhost:8080/' 
+
+
 
 export {
     basePedido, baseCupom, baseBandeira, baseHome,
     baseProduct, baseFrete, baseCategoria, baseEndereco,
     baseUf, baseCartao, baseNovidades, baseCliente, 
-    baseItemPedido
+    baseItemPedido, baseLogin
 }
 
 
