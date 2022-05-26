@@ -18,9 +18,7 @@ function Header() {
 
 
     useEffect(() => {
-        quantidade()
-        getCliente(1)
-        total()
+        // quantidade()
     }, [])
 
     function quantidade() {

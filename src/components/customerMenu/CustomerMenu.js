@@ -2,6 +2,7 @@ import './CustomerMenu.css'
 import menuhamburguer from '../asserts/imagens/Header/hamburger_menu.png'
 import { Link } from 'react-router-dom'
 import ClientContext from '../../context/Client.provider'
+import { useEffect, useState, useContext } from 'react'
 
 function CustomerMenu() { 
     const { sairClient } = useContext(ClientContext) 
