@@ -17,6 +17,7 @@ function ClientProvider(props) {
         getCliente(1)
         const logado = localStorage.getItem('client')  
         logado ? setCliente(JSON.parse(logado)) : setCliente(null) 
+        create.defaults.headers.Authorization = `Bearer ${token}`
     },[ ])
 
     const create = axios.create({

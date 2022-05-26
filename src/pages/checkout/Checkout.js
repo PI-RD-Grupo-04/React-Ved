@@ -21,16 +21,14 @@ import { baseCartao } from "../../environments";
 import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
 
 function Checkout() {
-    
+
     const [order, setOrder] = useState(OrderModel)
     const { client } = useContext(ClientContext)
     const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
     const [address, setAddress] = useState([])
     const [entrega, setEntrega] = useState({})
-    const [idPedido, setIdPedido] = useState(0)
-    const [itemPedido, setItemPedido] = useState(ItemPedidoModal)
-    const [listaItemPedido, setListaItemPedido] = useState([])
     const [frete, setFrete] = useState([])
+    const [valorFinal, setValor] = useState(0)
     const [freteValor, setFreteValor] = useState(0)
     const [cupomValidation, setCupomValidation] = useState(0)
     const [cupom, setCupom] = useState({})
@@ -64,7 +62,7 @@ function Checkout() {
             })
     }
 
-    function addItemPedido(idpe) {
+    function addItemPedido(pedido) {
         const lista = []
         //percorre a lista salva na memoria
         carrinho.map((value) => {
@@ -74,7 +72,7 @@ function Checkout() {
                 porcentagemIcms: 1,
                 valorIcms: 1,
                 produto: value.id,
-                pedido: idpe
+                pedido: pedido
             })
         })
         console.log(lista)
@@ -95,33 +93,20 @@ function Checkout() {
     // comeco do pedido
     const postPedido = () => {
         axios.post(`${basePedido}/novo`, order)
-            .then(() => {
-                getPedido()
+            .then((response) => {
+                addItemPedido(response.data.id)
             })
             .catch((error) => {
                 console.error(error.messege)
             })
     }
 
-    //pega o ID do ultimo pedido adicionado 
-    function getPedido() {
-        axios.get(`${basePedido}/ultimo`)
-            .then((response) => {
-            console.log(response.data)
-            //chama o metodo de converter os produto em "item_pedido"
-            addItemPedido( response.data)
-           
-            })
-            .catch((error) => {
-                console.error(error.messege)
-            })
-    }
 
     // ultimo passo para finalizar o pedido
     const postItemPedido = (idItemPedido) => {
         axios.post(`${baseItemPedido}/novo`, idItemPedido)
             .then(() => {
-                console.log("flxo finalizado")
+                console.log("fluxo finalizado")
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -132,9 +117,9 @@ function Checkout() {
     const getCupom = (valor) => {
         axios.get(`${baseCupom}/${valor}`)
             .then((response) => {
-                setCupom(response.data) 
-                setCupomValidation(1) 
-                 setOrder({ ...order, cupomDesconto: response.data.id })
+                setCupom(response.data)
+                setCupomValidation(1)
+                setOrder({ ...order, cupomDesconto: response.data.id })
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -198,12 +183,12 @@ function Checkout() {
     function CartComCupom() {
         if (cupomValidation == 1) {
             return (
-                <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
+                <Cart valort={valorTotalOrder} frete={freteValor} quant={qtyCarrinho} cart={carrinho}
                     cupom={cupom} valor={valorTotal} cupomValid />
             )
         } else {
             return (
-                <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
+                <Cart valort={valorTotalOrder} frete={freteValor} quant={qtyCarrinho} cart={carrinho}
                     cupom={cupom} valor={valorTotal} />
 
             )
@@ -226,6 +211,13 @@ function Checkout() {
         )
     }
 
+    function valorTotalOrder(valor) {
+        setValor(valor)
+        console.log()
+
+    }
+
+
     function listEnderecos() {
         return address.map(endereco => {
             return (
@@ -233,13 +225,12 @@ function Checkout() {
                     <RadioBox id={endereco.id} name="endereco" onClick={() => {
                         setEntrega(endereco)
                         getFrete(endereco.idUf)
-                        setOrder({ ...order, endereco: endereco.id })
+                        setOrder({ ...order, enderecos: endereco.id })
                     }} />
                     <AddressInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} city={endereco.cidade} states={endereco.municipio} uf={endereco.uf} id={endereco.id} />
                 </div >
             )
         })
-
     }
 
     function preBoleto() {
@@ -341,26 +332,33 @@ function Checkout() {
                                 <div className="my-3">
                                     {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
                                     {/*---------------------------- boleto---------------------------- */}
-                                    <RadioBox onClick={() => setPagamento({
-                                        card: false,
-                                        pix: false,
-                                        cpfBoleto: true
-                                    })} label="Boleto" id='boleto' name="1" />
+                                    <RadioBox onClick={() => {
+                                        setOrder({ ...order, tipoPagamento: "boleto", valorTotal: valorFinal })
+                                        setPagamento({
+                                            card: false,
+                                            pix: false,
+                                            cpfBoleto: true
+                                        })
+                                    }} label="Boleto" id='boleto' name="1" />
                                     {/*------------------- cartao----------------------- */}
-                                    <RadioBox onClick={() => setPagamento({
-                                        card: true,
-                                        pix: false,
-                                        cpfBoleto: false
-
-
-                                    })} label="Cartão de Crédito/Débito" id="card" name="1" />
+                                    <RadioBox onClick={() => {
+                                        setOrder({ ...order, tipoPagamento: "cartao", valorTotal: valorFinal })
+                                        setPagamento({
+                                            card: true,
+                                            pix: false,
+                                            cpfBoleto: false
+                                        })
+                                    }} label="Cartão de Crédito/Débito" id="card" name="1" />
                                     {/*---------------------------- pix --------------------*/}
-                                    <RadioBox onClick={() => setPagamento({
-                                        card: false,
-                                        pix: true,
-                                        cpfBoleto: false
+                                    <RadioBox onClick={() => {
+                                         setOrder({ ...order, tipoPagamento: "pix", valorTotal: valorFinal })
+                                        setPagamento({
+                                            card: false,
+                                            pix: true,
+                                            cpfBoleto: false
 
-                                    })} label="Pix" id='pix' name="1" />
+                                        })
+                                    }} label="Pix" id='pix' name="1" />
                                 </div>
                                 <hr className="my-2 border" />
 
@@ -373,7 +371,7 @@ function Checkout() {
                                 <Button label="Finalizar Pedido" click={() => {
                                     setOrder({ ...order, pedidoStatus: 2 },
                                         postPedido())
-                                }} card  success />
+                                }} card success />
                             </div>
                         </div>
                     </div>

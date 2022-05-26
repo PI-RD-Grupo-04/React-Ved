@@ -6,7 +6,7 @@ import Button from '../../components/button/Button'
 import Title from '../../components/title/Title'
 import InputGroup from '../../components/inputGroup/InputGroup'
 import ClientContext from '../../context/Client.provider'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 
 
 function Login() {
