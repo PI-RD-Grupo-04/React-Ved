@@ -34,9 +34,6 @@ function Address() {
             })
     }
 
-
-
-
     const deleteEndereco = (endereco) => {
         axios.delete(`${baseEndereco}/1/delete/${endereco}`)
             .then(() => {

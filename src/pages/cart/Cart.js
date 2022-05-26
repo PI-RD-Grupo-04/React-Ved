@@ -9,7 +9,6 @@ import Title from '../../components/title/Title'
 import React, { useEffect, useContext } from 'react'
 
 function Cart() {
-
     const { carrinho, listarCarrinho, valorTotal, total } = useContext(CartContext)
 
     const listaItem = carrinho
@@ -20,31 +19,26 @@ function Cart() {
     }, [])
 
     function listar() {
-        if (listaItem.length == 0) {
+        if (carrinho.length == 0) {
             return <li className="text-center">Seu carrinho está vazio</li>
         }
-        return listaItem.map((item) => {
+        return carrinho.map((item) => {
             return (
                 <li key={item.id}>
-                    <ItemBasket img={item.url} product={item} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nome} />
+                    <ItemBasket id={item.id} img={item.url} product={item} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nomeProduto} />
                 </li>
-            ) 
+            )
         })
     }
 
-
-
     function showPrice(number) {
         let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
-
         return (
             <>
                 <h6 className="">{priceConverted}</h6>
             </>
         )
-
     }
-
 
     return (
         <>

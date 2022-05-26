@@ -1,53 +1,27 @@
 
 import React, { useState, useContext } from 'react'
-
-
+import CartContext from '../../context/Cart.provider'
 
 function ButtonQty(props) {
 
-   
-    const [quantidade1, setQuantidade1] = useState(1)
+    const {incrementoCarrinho, decrementoCarrinho, deleteCarrinho  } = useContext(CartContext) 
+    const [product, setProduct] = useState(props.produto)
+
     let delet = props.delete ? props.delete : null
 
     const quantidade = props.quantidade ? props.quantidade : 1
 
 
-    const incremento = () => {
-        if (quantidade1 < quantidade) {
-            setQuantidade1(quantidade1 + 1);
-
-        } else {
-            quantidade1 = quantidade;
-        }
-        resu()
-    }
-
-
-    const decremento = () => {
-        if (quantidade1 <= 0) {
-            setQuantidade1(1);
-        } else {
-            setQuantidade1(quantidade1 - 1);
-        }
-        resu()
-    }
-
-    function resu() {
-        props.vl(props.preco, quantidade1)
-    }
-
-
-
     return (
         <>
             <div className="input-group w-100 h-100 ">
-                <button onClick={incremento} className="btn btn-outline-dark  btn-green btn-sm" >
+                <button onClick={incrementoCarrinho(product)} className="btn btn-outline-dark  btn-green btn-sm" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                     </svg> <i className="bi-caret-down" ></i>
                 </button>
-                <input type="text" className="form-control text-center border-dark " value={quantidade1} />
-                <button onClick={decremento} className="btn btn-outline-dark btn-green btn-sm" >
+                <input type="text" className="form-control text-center border-dark " value={quantidade} />
+                <button onClick={decrementoCarrinho(product)} className="btn btn-outline-dark btn-green btn-sm" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z" />
                     </svg> <i className="bi-caret-up" ></i>

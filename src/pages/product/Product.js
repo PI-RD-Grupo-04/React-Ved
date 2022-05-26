@@ -7,8 +7,6 @@ import transgenico from '../../components/asserts/imagens/selo-produtos/nao-tran
 import vegano from '../../components/asserts/imagens/selo-produtos/sem-gluten.png'
 import gluten from '../../components/asserts/imagens/selo-produtos/vegano.png'
 import ProductCard from '../../components/productCard/ProductCard'
-import Buttonqty from '../../components/button/ButtonProduct'
-import Button from '../../components/button/Button'
 import { Accordion } from 'react-bootstrap'
 import Title from '../../components/title/Title'
 import ModalConsumo from '../../components/modalConsumo/ModalConsumo'
@@ -20,27 +18,35 @@ function Product() {
     const { id } = useParams()
     const [product, setProduct] = useState({})
     const [receita, setReceita] = useState({})
+    const [productDetail, setProductDetail ] = useState(1)
     const receitasbotao = false
-
-    const { quantidadeProduto } = useContext(CartContext)
-    const { addCarrinho } = useContext(CartContext)
-
+    const { quantidadeProduto, addCarrinho,
+    incrementoQuantyProduto, decrementoQuantyProduto, carrinho } = useContext(CartContext)
+    let quanti = product.quantidade 
     useEffect(() => {
+        setProductDetail(quanti)
         getReceita()
-        getProduct()
+        validaCart()
     }, [])
+
+    function validaCart() {
+        if (carrinho.find(produto => id == produto.id)){
+            setProduct(carrinho.find(produto => id == produto.id)) 
+            setProductDetail(product.quantidade)
+        } else {
+            getProduct()
+        }
+    }
 
     const getProduct = () => {
         axios.get(`${baseProduct}/${id} `)
             .then((response) => {
                 setProduct(response.data)
-                localStorage(product)
             })
             .catch((error) => {
                 console.error(error.messege)
             })
     }
-    
 
     const getReceita = () => {
         axios.get(`${baseProduct}/${id}/receita `)
@@ -50,31 +56,53 @@ function Product() {
             })
             .catch((error) => {
                 console.error(error.messege)
-
             })
     }
 
-    function showPrice  (number) {
+    function showPrice(number) {
         let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
-        
         return (
-        <>
-        <>{priceConverted}</>
-        </>
+            <>
+                <>{priceConverted}</>
+            </>
         )
-        
-        }
+    }
 
-
-    function receitas () {
-        if (receita.ingredientes != null ){
+    function receitas() {
+        if (receita.ingredientes != null) {
             return (
-           <ModalConsumo titulo={receita.titulo} ingredientes={receita.ingredientes} preparo={receita.preparo} img={product.url} />)
-              }
-        else 
-            return  ""
-            }
+                <ModalConsumo titulo={receita.titulo} ingredientes={receita.ingredientes} preparo={receita.preparo} img={product.url} />)
+        }
+            return ""
+    }
 
+
+
+    function buttonQty() {
+        return (
+            <>
+                <div className="input-group w-100 h-100 ">
+                    <button onClick={() =>{ 
+                        incrementoQuantyProduto(product)
+                        setProductDetail(product.quantidade)
+                    }} className="btn btn-outline-dark  btn-green btn-sm" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                        </svg> <i className="bi-caret-down" ></i>
+                    </button>
+                    <input type="text" className="form-control text-center border-dark " value={quanti} />
+                    <button onClick={() => {
+                        decrementoQuantyProduto(product)
+                        setProductDetail(product.quantidade)
+                        }} className="btn btn-outline-dark btn-green btn-sm" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z" />
+                        </svg><i className="bi-caret-up" ></i>
+                    </button>
+                </div>
+            </>
+        )
+    }
 
     return (
         <>
@@ -96,7 +124,7 @@ function Product() {
 
                                 <div className=" d-flex price-por product-price ">
                                     <p>De:
-                                        <small className="product-price de-product"> {showPrice(product.preco +2)}</small>
+                                        <small className="product-price de-product"> {showPrice(product.preco + 2)}</small>
                                     </p>
                                 </div>
                                 <div className="d-flex justify-content-start">
@@ -117,7 +145,7 @@ function Product() {
                                     <div className="col-10 col-sm-4 mb-1">
                                         {/* AREA DO BOTÃO DE QUANTIDADE */}
                                         <div className="row d-grid  mb-3 gy-2">
-                                            <Buttonqty quantidade={product.quantidade} />
+                                            {buttonQty()}
                                         </div>
                                         {/* FIM  AREA DO BOTÃO DE QUANTIDADE */}
                                     </div>
@@ -146,17 +174,10 @@ function Product() {
                                 {product.armazenamento}
                             </Accordion.Body>
                         </Accordion.Item>
-                        {/* <Accordion.Item eventKey="2">
-                            <Accordion.Header>Curiosidades</Accordion.Header>
-                            <Accordion.Body>
-                                A banana prata é rica em potássio e cálcio e é uma ótima fonte de fibras.
-                            </Accordion.Body>
-                        </Accordion.Item> */}
                     </Accordion>
                 </div>
                 <div className=" mt-5 ">
                     {receitas()}
-              
                 </div>
                 <hr />
                 {/* Sugestões de outros produtos */}

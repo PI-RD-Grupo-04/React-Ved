@@ -20,19 +20,11 @@ function ModalEndereco(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-
-   
     let cliente = 1
     useEffect(() => {
       
         getStates()
     }, [])
-
-
-    const checkCEP = (e) => {
-       }
-
-
 
     const getCep = (cep) => {
          axios.get(`https://viacep.com.br/ws/${cep}/json/ `)
@@ -129,14 +121,14 @@ function ModalEndereco(props) {
                             <InputMask required value={address.bairro}
                                 onChange={(event) => { setAddress({ ...address, bairro: event.target.value }) }} className="form-control mb-3" placeholder="Informe seu Município" id="estado" />
                         </div>
-
+{/* 
                         <div className="col-12 col-sm-6">
                             <label for='uf' className=" text-input">UF:</label>
                             <InputMask required value={address.uf}
                                 onChange={(event) => { setAddress({ ...address, uf: event.target.value }) }} className="form-control mb-3" placeholder="Informe seu Município" id="estado" />
-                        </div>
+                        </div> */}
 
-{/* 
+
                         <Form.Group className="mb-3">
                             <Form.Label>Estado</Form.Label>
                             <Form.Select
@@ -150,7 +142,7 @@ function ModalEndereco(props) {
                                     })
                                 }
                             </Form.Select>
-                        </Form.Group> */}
+                        </Form.Group>
                     </div>
                 </Modal.Body>
                 {
