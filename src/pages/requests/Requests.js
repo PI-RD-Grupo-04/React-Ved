@@ -68,7 +68,6 @@ function Request() {
                         <Title label="Meus Pedidos" />
                         <div className="row py-3 ">
                             {listOrders()}
-                            <OrderStatus delivering pedido={3} />
                         </div>
                     </div>
                 </div>
