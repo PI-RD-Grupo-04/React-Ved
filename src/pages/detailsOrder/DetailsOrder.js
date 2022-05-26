@@ -70,11 +70,13 @@ function DetailsOrder() {
         function itens (){
                 return details.items.map(a => {
                     return (
-                    <div className=''>
-                        <li className="list-group-item list1 d-flex-column lh-sm">
-                            <ul className="mt-2"> Item: {a.produto} <br/>  Preço: {showPrice(a.preco)} <br/>   Quantidade: {a.quantidade} </ul>
-                        </li>
-                    </div>
+                   
+               <li className="list-group-item list1 d-flex justify-content-between lh-sm col-12">
+               <div>
+                   <h5 className="my-0">Item: {a.produto} <small>Preço: {showPrice(a.preco)}</small> <small> Quantidade {a.quantidade}</small></h5>
+               </div>
+                </li>
+
         )})}
     
 
