@@ -21,8 +21,9 @@ import { baseCartao } from "../../environments";
 import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
 
 function Checkout() {
-    
     const [order, setOrder] = useState(OrderModel)
+
+
     const { client } = useContext(ClientContext)
     const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
     const [address, setAddress] = useState([])
@@ -103,6 +104,7 @@ function Checkout() {
             })
     }
 
+
     //pega o ID do ultimo pedido adicionado 
     function getPedido() {
         axios.get(`${basePedido}/ultimo`)
@@ -132,9 +134,8 @@ function Checkout() {
     const getCupom = (valor) => {
         axios.get(`${baseCupom}/${valor}`)
             .then((response) => {
-                setCupom(response.data) 
-                setCupomValidation(1) 
-                 setOrder({ ...order, cupomDesconto: response.data.id })
+                setCupom(response.data)
+                setCupomValidation(1)
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -165,7 +166,6 @@ function Checkout() {
             )
         }
     }
-
     const getCartao = () => {
         axios.get(`${baseCartao}/${cliente}/detalhes`)
             .then((response) => {
@@ -243,6 +243,7 @@ function Checkout() {
     }
 
     function preBoleto() {
+
         return (
             <div class="row gy-3 ">
 
@@ -252,6 +253,9 @@ function Checkout() {
                     <input type="text" id="nomeboleto" class="form-control" />
                     <label for="nomecpf">CPF:</label>
                     <input type="text" id="cpfboleto" class="form-control" />
+                    <div class="container mt-4 d-grid gy-2 mb-3">
+                        <Button success label="gera boleto" />
+                    </div>
                 </div>
 
             </div>
@@ -260,7 +264,7 @@ function Checkout() {
 
     const creditcard = () => {
         return (
-            <div className='row '>
+            <div className='mt-5 row '>
                 <div className="col-12 d-grid gap-2 col-sm-8   mb-2 ">
                     <ModelPayCard />
                 </div>
@@ -268,7 +272,9 @@ function Checkout() {
         )
     }
 
+
     function novocartao() {
+
         return (
             <div>
                 <div className="row">

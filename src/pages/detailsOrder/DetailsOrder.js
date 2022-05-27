@@ -19,14 +19,19 @@ function DetailsOrder() {
 
     const { order } = useParams()
     const [details, setDetails] = useState(pedidoModal)
-
+    const [detailsCard, setDetailsCard] = useState({
+        nomeTitular: "",
+        numeroCartao: "",
+        bandeiraId: '',
+    })
     const cliente = 1
+    const cartao = 3
 
     const items = []
 
     useEffect(() => {
         getDetails()
-
+        getDetailsCard()
     }, [])
 
     const showPrice = (number) => {
@@ -45,7 +50,6 @@ function DetailsOrder() {
     function getDetails() {
         axios.get(`${basePedido}/${cliente}/detalhar/${order}`)
             .then((response) => {
-                // setDetails(response.data)
                 setDetails({
                     rua: response.data.enderecos.rua,
                     numero: response.data.enderecos.numero,
@@ -58,16 +62,34 @@ function DetailsOrder() {
                     valor_frete: response.data.valor_frete,
                     items: response.data.items,
                     produto: response.data.items.produto,
-                    tipo_pagamento: response.data.tipo_pagamento,
+                    tipoPagamento: response.data.tipoPagamento,
 
                 })
-
-
             })
             .catch((error) => {
                 console.error(error.messege)
             })
+
+
     }
+
+    function getDetailsCard() {
+        axios.get(`http://localhost:8080/pagamento/parcela/${cliente}/1`)
+            .then((response) => {
+                setDetailsCard({
+                    nomeTitular: response.data.cartao.nomeTitular,
+                    numeroCartao: response.data.cartao.numeroCartao,
+                    bandeiraId: response.data.cartao.bandeiraId.nome,
+                })
+                console.log(response)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+
+    }
+
+
 
     function itens() {
         return details.items.map(a => {
@@ -82,54 +104,61 @@ function DetailsOrder() {
         })
     }
 
-    
-    function pagamento () {
-        
-        if (details.tipo_pagamento == "cartao"){
-   
+
+    function pagamento() {
+
+        if (details.tipoPagamento == "cartao") {
+
             return (
                 <>
-                <span className="">Metodo de Pagamento : Cartão</span>
-                    <li className="list-group-item list1 d-flex-column lh-sm">
-                        <ul className="mt-2">  </ul>
-                    </li>
-                    <li className="list-group-item list1 d-flex-column lh-sm">
-                        <ul className="mt-2"> Nome do titular : Washington Pereira  </ul>
-                    </li>
-                    <div className="d-flex">
-                        <li className="list-group-item list1 d-flex-column lh-sm col-4">
-                            <ul className="mt-2"> <img src={master} width="40px" height="40px" alt="Logo Ved"
-                                title="VED - Alimentos Organicos" />  </ul>
-                        </li>
-                        <li className="list-group-item list1 d-flex-column lh-sm col-8">
-                            <ul> Validade : 11/29 </ul>
-                        </li>
-                    </div>
-    
-    
+                  
+                                <h4 className="d-flex  mb-3 mt-2">
+                                    <span className="">Metodo de Pagamento :{details.tipoPagamento} </span>
+                                </h4>
+                                <li className="list-group-item list1 d-flex-column lh-sm">
+                                    <ul className="mt-2"> Numero do Cartao : {detailsCard.numeroCartao} </ul>
+                                </li>
+                                <li className="list-group-item list1 d-flex-column lh-sm">
+                                    <ul className="mt-2"> Nome do titular : {detailsCard.nomeTitular} </ul>
+                                </li>
+
+                                <li className="list-group-item list1 d-flex-column lh-sm">
+                                    <ul> Bandeira: {detailsCard.bandeiraId}</ul>
+                                </li>
+
+                    
+
                 </>
             )
-            }
-        else if ( details.tipo_pagamento == "boleto"){
-                return (
-       
-                <span className="">Metodo de Pagamento : {details.tipo_pagamento}</span>
-                )}
+        }
+        else if (details.tipoPagamento == "boleto") {
+            return (
+                <h4 className="d-flex   mb-3 mt-2">
+                <span className="">Metodo de Pagamento : {details.tipoPagamento}</span>
+                </h4>
+            )
+        }
 
 
-       else {
-       return (<span className="">Metodo de Pagamento : {details.tipo_pagamento}</span>)
-                }
-       
-}
+        else if (details.tipoPagamento == "pix") {
+            
+            return (
+                <h4 className="d-flex   mb-3 mt-2">
+                <span className="">Metodo de Pagamento : {details.tipoPagamento}</span>
+                </h4>
+                )
+      
+        }
+        else { return ("erro") }
+    }
 
 
 
 
 
 
-        
-    
+
+
 
     return (
         <>
@@ -166,42 +195,22 @@ function DetailsOrder() {
                                         </li>
                                     </div>
                                 </div >
+
+
                                
-                               
-                               
-                                <h4 className="d-flex justify-content-between align-items-center mb-3 mt-5">
-                                 
-                            
-                               
-                                {pagamento()}
+                            <div className=" mt-5 ">
+                                        {pagamento()}
+                                    </div>
+                                </div >
 
-
-
-
-                                </h4>
-
-
-
-
-
-
-
-
-
-
-                                <h3>{details.items.produto}</h3>
-
-
-
-
-                            </div>
+                        
 
                             <div className="container col-12 col-md-12 col-lg-6">
 
 
-                            <h4 className="d-flex  align-items-center mb-3 mt-2">
-                                        <span className="mb-3">Detalhes do Pedido</span>
-                                    </h4>
+                                <h4 className="d-flex  align-items-center mb-3 mt-2">
+                                    <span className="mb-3">Detalhes do Pedido</span>
+                                </h4>
 
                                 <div className="d-flex ">
                                     <li className="list-group-item list1 d-flex lh-sm col-6">
