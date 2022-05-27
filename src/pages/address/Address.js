@@ -13,7 +13,7 @@ import ClientContext from '../../context/Client.provider'
 import { Alert, Modal } from 'react-bootstrap'
 
 function Address() {
-    const { client, getCliente, BuscaClient } = useContext(ClientContext)
+    const { client, getCliente } = useContext(ClientContext)
     const [endereco, setEndereco] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
 
@@ -21,12 +21,11 @@ function Address() {
 
     useEffect(() => {
         getEndereco()
-        BuscaClient()
 
     }, [])
 
     const getEndereco = () => {
-        axios.get(`${baseEndereco}/1/detalhes`)
+        axios.get(`${baseEndereco}/${client}/detalhes`)
             .then((response) => {
                 setEndereco(response.data)
                 listEnderecos()

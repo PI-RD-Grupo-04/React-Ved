@@ -21,16 +21,13 @@ function PaymentCards() {
 
     useEffect(() => {
         getCartao()
-
     }, [])
 
 
     const getCartao = () => {
-        axios.get(`${baseCartao}/${cliente}/detalhes`
-        )
+        axios.get(`${baseCartao}/1/detalhes`)
             .then((response) => {
                 setCartao(response.data)
-                listarCartao()
             })
             .catch((error) => {
                 console.error(error)
@@ -52,21 +49,17 @@ function PaymentCards() {
             })
     }
 
-
-    
-        function listarCartao() {
-           return cartao.map(item => {
-                return (
-                  
-                        <div class="row mb-3 pb-3 pt-3">
-                              <div key={item.id}>
-                                <CardInfo id={item.id} nome={item.idBandeira.nome} numero= {item.numeroCartao} mes={item.diaVencimento} ano={item.anoVencimento} delete={deleteCartao} get={getCartao} />
-                            </div>
-                        </div>
-                    
-                )
-                })
-        }
+    function listarCartao() {
+        return cartao.map(item => {
+            return (
+                <div class="row mb-3 pb-3 pt-3">
+                    <div key={item.id}>
+                        <CardInfo id={item.id} nome={item.idBandeira.nome} numero={item.numeroCartao} mes={item.diaVencimento} ano={item.anoVencimento} delete={deleteCartao} get={getCartao} />
+                    </div>
+                </div>
+            )
+        })
+    }
 
 
     return (
@@ -84,21 +77,21 @@ function PaymentCards() {
                         <Title label="Meus Cartões" />
                         {/* <!-- area do primeira cartão --> */}
                         {
-                                    successDelete
-                                        ?
-                                        <Alert key='success' variant='success'>
-                                            <AiFillCheckCircle size="30" /> Item apagado com suceso
-                                        </Alert>
-                                        :
-                                        ''
-                                }
-                        {listarCartao()} 
+                            successDelete
+                                ?
+                                <Alert key='success' variant='success'>
+                                    <AiFillCheckCircle size="30" /> Item apagado com suceso
+                                </Alert>
+                                :
+                                ''
+                        }
+                        {listarCartao()}
 
                         {/* <!-- ************************MODEL PARA CADASTRO DE CARTÃO ********************* --> */}
                         {/* <!-- DIVISÃO DOS BUTTONS --> */}
                         <div className='mt-5 row '>
                             <div className="col-12 d-grid gap-2 col-sm-8   mb-2 ">
-                                <ModelPayCard />
+                            <ModelPayCard />
                             </div>
 
 
