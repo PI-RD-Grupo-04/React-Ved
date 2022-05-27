@@ -15,7 +15,7 @@ import { baseCliente } from '../../environments'
 import axios from 'axios'
 
 function MyAccount() {
-    const { client,nome, BuscaClient, clienteDados } = useContext(ClientContext)
+    const { getCliente, client, getDadosDoCliente, clienteDados, getIdCliente } = useContext(ClientContext)
     const [update, setUpdate] = useState(UpdateClientModal)
     const [show, setShow] = useState(false);
     const [successUpdate, setSuccessUpdate] = useState(false);
@@ -30,9 +30,10 @@ function MyAccount() {
     const [senhaConfirmOk, setSenhaconfirmOk] = useState('d-none')
     const [senhaConfirmError, setSenhaConfirmError] = useState('d-none')
 
-    
+
     useEffect(() => {
-        BuscaClient()
+
+        getDadosDoCliente()
         setUpdate({
             nome: clienteDados.nome,
             sobrenome: clienteDados.sobrenome,
@@ -40,10 +41,10 @@ function MyAccount() {
             telefone: clienteDados.telefone,
             email: clienteDados.email
         })
-    }, []) 
 
+        console.log(clienteDados)
+    }, [])
 
-    
     function setAtualizaCliente(atualiza) {
         axios.put(`${baseCliente}/atualizar`, atualiza)
             .then(() => {
@@ -56,8 +57,6 @@ function MyAccount() {
                 setSuccessError(true)
             })
     }
-
-
 
     function feedback() {
         if (successUpdate) {
@@ -135,11 +134,6 @@ function MyAccount() {
                             setSenha(e.target.value)
                         }}
                             className="form-control" id="form-senha" />
-                        {/* <span className={senhaError}>Senha no mínimo 8 caracteres</span> */}
-
-                        {/* <div className={senhaOk + " "} >
-                            <img src={iconOk} width='24px' height='24px' />
-                        </div> */}
                     </div>
 
                     <div className="col-12 col-sm-6">
@@ -176,7 +170,7 @@ function MyAccount() {
                                         handleClose()
                                         setSuccessUpdate(false)
                                         setSuccessError(false)
-                                        BuscaClient()
+                                        getDadosDoCliente()
                                     }, 4000)
 
                             }}>Salvar e enviar</button></>
