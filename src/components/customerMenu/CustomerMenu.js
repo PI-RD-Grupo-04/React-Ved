@@ -1,8 +1,13 @@
 import './CustomerMenu.css'
 import menuhamburguer from '../asserts/imagens/Header/hamburger_menu.png'
 import { Link } from 'react-router-dom'
+import ClientContext from '../../context/Client.provider'
+import { useEffect, useState, useContext } from 'react'
 
-function CustomerMenu() {
+function CustomerMenu() { 
+    const { sairClient } = useContext(ClientContext) 
+   
+
     return (
         <>
             {/* ************** BEGIN Parte do Menu lateral  **************   */}
@@ -72,8 +77,8 @@ function CustomerMenu() {
                                             <li className="li-item-menuLateral">Meus Cartões</li>
                                         </Link>
                                         <hr />
-                                        <Link to="/login">
-                                            <li className="li-item-menuLateral">Sair</li>
+                                        <Link >
+                                            <li className="li-item-menuLateral" onClick={() =>{sairClient()}}>Sair</li>
                                         </Link>
                                     </ul>
                                 </div>

@@ -17,7 +17,8 @@ import { baseHome } from "../../environments";
 function Home() {
 
   const [oferta, setOferta] = useState([])
-  const [novidade, setNovidade] = useState([])
+  const [novidades, setNovidades] = useState([])
+
 
   useEffect(() => {
     axios.get(`${baseHome}/ofertas`)
@@ -27,18 +28,19 @@ function Home() {
       .catch((error) => {
         console.error(error)
       })
+    getNovidades()
+
+  }, [])
+
+  function getNovidades() {
     axios.get(`${baseHome}/novidade`)
       .then((response) => {
-        setNovidade(response.data)
+        setNovidades(response.data)
       })
       .catch((error) => {
         console.error(error)
       })
-
-  }, [])
-
-
-
+  }
 
 
   return (
@@ -123,8 +125,18 @@ function Home() {
         <Title label="NOVIDADES" ></Title>
       </div>
 
-
-      <CarroseuHome novidades={novidade} />
+      <div className="container  ">
+        <div className="row justify-content-space ">
+          {
+            novidades.map(item => {
+              return (
+                <ProductCard key={item.id} col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" status={item.statusProduto} img={item.url} link={`/product/${item.id}`} nome={item.nomeProduto}
+                  descri={item.descricao} product={item} price={item.preco} />
+              )
+            })
+          }
+        </div>
+      </div>
 
       <Footer />
     </>

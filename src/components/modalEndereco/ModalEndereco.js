@@ -50,7 +50,6 @@ function ModalEndereco(props) {
         axios.post(`${baseEndereco}/${cliente}/novo`, address)
             .then((response) => {
                 props.get()
-
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -79,7 +78,7 @@ function ModalEndereco(props) {
             {/* //modal delete */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Excluir Cliente</Modal.Title>
+                    <Modal.Title>Adicionar Endereco</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
 
@@ -89,13 +88,13 @@ function ModalEndereco(props) {
                             <InputMask mask= '99999-999' onChange={(e) => {
                                 setCep(e.target.value)
                                 setAddress({ ...address, cep: e.target.value })
-                            }} onBlur={(e) => { getCep(e.target.value) }}
+                            }} 
                                 className="form-control mb-3" id="cep" placeholder='digite o cep do endereço' required />
                         </div>
                         <div className="col-12 col-sm-6">
                             <label for='rua' className=" text-input">Rua:</label>
                             <InputMask required value={address.rua}
-                                onChange={(event) => { setAddress({ ...address, rua: event.target.value }) }} className="form-control mb-3" placeholder="r" id="rua" />
+                                onChange={(event) => { setAddress({ ...address, rua: event.target.value }) }} className="form-control mb-3" placeholder="digite a rua" id="rua" />
                         </div>
 
                         <div className="col-12 col-sm-6">
@@ -113,7 +112,7 @@ function ModalEndereco(props) {
                         <div className="col-12 col-sm-6">
                             <label for='cidade' className=" text-input">Cidade:</label>
                             <InputMask required value={address.cidade}
-                                onChange={(event) => { setAddress({ ...address, cidade: event.target.value }) }} className="form-control mb-3" placeholder="cc" info="sua cidade" id="cidade" />
+                                onChange={(event) => { setAddress({ ...address, cidade: event.target.value }) }} className="form-control mb-3" placeholder="digite sua cidade" info="sua cidade" id="cidade" />
                         </div>
 
                         <div className="col-12 col-sm-6">
@@ -121,13 +120,6 @@ function ModalEndereco(props) {
                             <InputMask required value={address.bairro}
                                 onChange={(event) => { setAddress({ ...address, bairro: event.target.value }) }} className="form-control mb-3" placeholder="Informe seu Município" id="estado" />
                         </div>
-{/* 
-                        <div className="col-12 col-sm-6">
-                            <label for='uf' className=" text-input">UF:</label>
-                            <InputMask required value={address.uf}
-                                onChange={(event) => { setAddress({ ...address, uf: event.target.value }) }} className="form-control mb-3" placeholder="Informe seu Município" id="estado" />
-                        </div> */}
-
 
                         <Form.Group className="mb-3">
                             <Form.Label>Estado</Form.Label>
@@ -163,7 +155,6 @@ function ModalEndereco(props) {
                             postEndereco(address)
                             setTimeout(
                                 () => {
-
                                     setSuccessRegister(false)
                                     handleClose()
                                 }, 1000)

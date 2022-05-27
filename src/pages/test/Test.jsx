@@ -3,36 +3,32 @@ import React, { useState } from 'react';
 
 
 const Test = () => {
+   //    var meuArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  
 
-      const [lista, setList] = useState([]) 
-      const [obj, setObj] = useState([]) 
+   //  var novoArray0 = []
+   //  var novoArray1 = []
+   //  var novoArray2 = []
+   //  var novoArray2 = []
+   // var a = 4
+   // var b = 3
+   // var c = 2
+   // var d = 1
 
-      setList([{id: 1, nome:"jeff", qt: 1},{id: 2, nome:"jeff2", qt: 1},{id: 3, nome:"jeff3", qt: 1},{id: 4, nome:"jeff4", qt: 1}]) 
-      localStorage.setItem("list", JSON.stringify(lista));    
-      if (lista.filter(item => item.id  == 2)) {
-         const achar =  lista.find(item => item.id  == 2) 
-         const acharString =  JSON.stringify(achar)
-         lista.findIndex((obj) => obj.id === 1); 
-         
-         localStorage.setItem("achar", acharString)
-         
-      }
-      //const remove = lista.filter(item => item.id  !== 2)
-      //console.log(remove)
-      // function adicionar() {
-      //    console.log(remove.id)
-      // } 
+   // let array = []
+   // let dividir
+
+   // console.log(novoArray)
 
 
-
-     // localStorage.setItem("list", JSON.stringify(remove))
-     
 
    return (
       <>
+         {/* {novoArray[0].map((e) => {
+         console.log(e)
+      })}
+  */}
 
- 
-        
       </>
 
    )

@@ -17,13 +17,8 @@ function PaymentCards() {
     const [cartao, setCartao] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
 
-
-
-
     let cliente = 1
 
-
-    
     useEffect(() => {
         getCartao()
     }, [])
