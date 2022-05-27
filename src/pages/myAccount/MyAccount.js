@@ -30,12 +30,11 @@ function MyAccount() {
     const [senhaConfirmOk, setSenhaconfirmOk] = useState('d-none')
     const [senhaConfirmError, setSenhaConfirmError] = useState('d-none')
 
-    console.log(client)
     
     useEffect(() => {
         BuscaClient()
         setUpdate({
-            nome: client.nome,
+            nome: "",
             sobrenome: "aaa" ,
             nomeSocial: "aaa" ,
             telefone: "aaa" ,
