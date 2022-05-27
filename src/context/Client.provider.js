@@ -71,7 +71,6 @@ function ClientProvider(props) {
        history.push('/Login')
    }
 
-
     function BuscaClient() {
         setCliente(JSON.parse(localStorage.getItem('client')))
     }

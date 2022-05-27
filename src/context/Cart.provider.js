@@ -69,10 +69,17 @@ function CartProvider(props) {
     function incrementoQuantyProduto(item) {
         if (carrinho.find(produto => item.id == produto.id)) {
             incrementoCarrinho(item) 
+            console.log("tem no carrinho")
         } else {
             if (item.estoque == item.quantidade) {
+                console.log("valor igual ao estue maximo" )
+                console.log( item)
             } else {
-            console.log(item.quantidade++ )
+                console.log("adicionou + 1 ") 
+               console.log("adicionou") 
+               console.log(item.quantidade++ )
+               console.log( item)
+
             }
         }
     }
@@ -82,8 +89,11 @@ function CartProvider(props) {
             decrementoCarrinho(item)
         } else {
             if (item.quantidade == 1) {
+                console.log("valor igual a 1 " )
             } else {
+               console.log("adicionou - 1") 
                console.log(item.quantidade-- )
+               console.log( item)
             }
         }
     }

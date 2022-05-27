@@ -35,8 +35,8 @@ function Login() {
                                 <p>Esqueceu sua senha? <Link to="/passwordRecovery">Clique aqui.</Link></p>
                                 <div className="d-grid gap-2 col-6 mx-auto mb-2">
                                     <Button success label="Acessar" click={() => {
-                                      LoginFlux(login)
-                                    }}>Logar</Button>
+                                    //   LoginFlux(login)
+                                    }} link={"/MyAccount"}>Logar</Button>
                                 </div>
                                 <div className="form-group col-12  d-grid gap-2 mx-auto">
                                     <p>Ainda não tem conta? <Button success link="/register" label="Cadastre-se"></Button></p>
