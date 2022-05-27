@@ -15,7 +15,7 @@ import { baseCliente } from '../../environments'
 import axios from 'axios'
 
 function MyAccount() {
-    const { client, BuscaClient } = useContext(ClientContext)
+    const { client,nome, BuscaClient } = useContext(ClientContext)
     const [update, setUpdate] = useState(UpdateClientModal)
     const [show, setShow] = useState(false);
     const [successUpdate, setSuccessUpdate] = useState(false);
@@ -35,7 +35,7 @@ function MyAccount() {
     useEffect(() => {
         BuscaClient()
         setUpdate({
-            nome: "client.nome",
+            nome: client.nome,
             sobrenome: "aaa" ,
             nomeSocial: "aaa" ,
             telefone: "aaa" ,
