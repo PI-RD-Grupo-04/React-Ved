@@ -39,18 +39,6 @@ function CartProvider(props) {
         setCarrinho(carrinhoLista)
         setQtyCarrinho(carrinhoLista.length)
     }
-
-    // function incrementoCarrinho(item) {
-    //     const p = carrinho.find(produto => item.id == produto.id)
-    //     const remove = carrinho.filter(items => items.id !== item.id)
-    //     p.quantidade++
-    //     remove.push(p)
-    //     localStorage.setItem("cart", JSON.stringify(remove))
-    //     setCarrinho(remove)
-    //     setQtyCarrinho(remove.length)
-    //     total()
-    // }
-
     
     function incrementoCarrinho(item) {
         let carrinhoLista = []
@@ -80,6 +68,7 @@ function CartProvider(props) {
             carrinhoLista.map((novo) => {
                 if (item.id == novo.id) {
                     novo.quantidade--
+
                     validade = true
                 }
             })
