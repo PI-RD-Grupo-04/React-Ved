@@ -8,7 +8,7 @@ import Button from '../../components/button/Button'
 import Title from '../../components/title/Title'
 import axios from 'axios'
 import { baseCartao } from "../../environments";
-import React , { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiFillCheckCircle } from "react-icons/ai";
 import { Alert } from 'react-bootstrap'
 
@@ -33,7 +33,7 @@ function PaymentCards() {
             .catch((error) => {
                 console.error(error)
             })
-        }
+    }
 
     const deleteCartao = (cartao) => {
         axios.delete(`${baseCartao}/${cliente}/deletar/${cartao}`)
@@ -51,25 +51,25 @@ function PaymentCards() {
     }
 
 
-    
-        function ofertas() {
-           return cartao.map(item => {
-                return (
-                    <div key={item.id}>
-                        <div class="row mb-3 pb-3 pt-3">
-                            <div class="row ">
-                                <CardInfo id={item.id} nome={item.idBandeira.nome} numero= {item.numeroCartao} mes={item.diaVencimento} ano={item.anoVencimento} delete={deleteCartao} get={getCartao} />
-                            </div>
+
+    function ofertas() {
+        return cartao.map(item => {
+            return (
+                <div key={item.id}>
+                    <div class="row mb-3 pb-3 pt-3">
+                        <div class="row ">
+                            <CardInfo id={item.id} nome={item.idBandeira.nome} numero={item.numeroCartao} mes={item.diaVencimento} ano={item.anoVencimento} delete={deleteCartao} get={getCartao} />
                         </div>
                     </div>
-                    
-                )
-                })
-        }
+                </div>
+
+            )
+        })
+    }
 
 
     return (
-                
+
 
 
 
@@ -80,7 +80,7 @@ function PaymentCards() {
             <Header />
 
 
-          
+
             <div class="container mt-3 mb-4  ">
 
                 <div class="row ">
@@ -93,15 +93,15 @@ function PaymentCards() {
                         <Title label="Meus Cartões" />
                         {/* <!-- area do primeira cartão --> */}
                         {
-                                    successDelete
-                                        ?
-                                        <Alert key='success' variant='success'>
-                                            <AiFillCheckCircle size="30" /> Item apagado com suceso
-                                        </Alert>
-                                        :
-                                        ''
-                                }
-                        {ofertas()} 
+                            successDelete
+                                ?
+                                <Alert key='success' variant='success'>
+                                    <AiFillCheckCircle size="30" /> Item apagado com suceso
+                                </Alert>
+                                :
+                                ''
+                        }
+                        {ofertas()}
 
                         {/* <!-- ************************MODEL PARA CADASTRO DE CARTÃO ********************* --> */}
                         {/* <!-- DIVISÃO DOS BUTTONS --> */}
@@ -120,7 +120,7 @@ function PaymentCards() {
 
 
 
-            
+
         </>
     )
 }
