@@ -2,7 +2,7 @@ import './OrderDetails.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
-import { Table } from 'react-bootstrap'
+import React, { useState, useEffect, useContext } from 'react'
 import logo from '../../components/asserts/imagens/Header/logo.png'
 import { Link } from 'react-router-dom'
 import master from '../../components/asserts/imagens/Users_icon/master.png'
@@ -13,6 +13,7 @@ import TicketPayment from '../../components/ticketPayment/TicketPayment'
 
 function OrderDetails() {
 
+  
 
 
     return (
@@ -34,7 +35,9 @@ function OrderDetails() {
                         <h4 className="d-flex  align-items-center mb-3 mt-2">
                             <span className="mb-3">Endereço de entrega </span>
                         </h4>
-
+                        <h4 className="d-flex  align-items-center mb-3 mt-2">
+                            <span className="mb-3"> </span>
+                        </h4>
                         <div className="d-flex ">
                             <li className="list-group-item list1 d-flex-column lh-sm col-6">
                                 <ul className="mt-2"> Rua : Santana de Parnaiba    </ul>
@@ -74,8 +77,8 @@ function OrderDetails() {
                         </li>
                     </div>
 
-                    <Pix/>
-                    <TicketPayment/>
+                    <Pix />
+                    <TicketPayment />
 
                 </div>
 

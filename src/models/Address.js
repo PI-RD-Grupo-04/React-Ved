@@ -3,7 +3,7 @@ const addressModal =  {
     rua:'',
     numero: '',
     complemento: '' ,
-    municipio: '',
+    bairro: '',
     cidade:'',
     uf:''
 } 

@@ -20,21 +20,29 @@ function ModalEndereco(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    console.log(cep)
     let cliente = 1
     useEffect(() => {
-
+      
         getStates()
     }, [])
 
-
-    function getCep(cep) {
-        return axios.get(`https://viacep.com.br/ws/${cep}/json/ `)
+    const getCep = (cep) => {
+         axios.get(`https://viacep.com.br/ws/${cep}/json/ `)
             .then((response) => {
-                setEndereco(response.data)
+              
+            setAddress({
+                cep: response.data.cep ,
+                rua:response.data.logradouro,
+                numero: '',
+                complemento: '' ,
+                bairro: response.data.bairro,
+                cidade:response.data.localidade,
+                uf:response.data.uf
+             })
             })
             .catch((error) => {
                 console.error(error.messege)
+
             })
     }
 
@@ -71,49 +79,55 @@ function ModalEndereco(props) {
             {/* //modal delete */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Cadastrar Cliente</Modal.Title>
+                    <Modal.Title>Excluir Cliente</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
 
                     <div className="row ">
                         <div className="col-12 col-sm-6">
                             <label for='cep' className=" text-input">Cep:</label>
-                            <InputMask mask="99999-999" onChange={(e) => {
+                            <InputMask mask= '99999-999' onChange={(e) => {
                                 setCep(e.target.value)
                                 setAddress({ ...address, cep: e.target.value })
-                            }} onBlur={() => { getCep(cep) }}
+                            }} onBlur={(e) => { getCep(e.target.value) }}
                                 className="form-control mb-3" id="cep" placeholder='digite o cep do endereço' required />
                         </div>
-
                         <div className="col-12 col-sm-6">
                             <label for='rua' className=" text-input">Rua:</label>
-                            <InputMask required
+                            <InputMask required value={address.rua}
                                 onChange={(event) => { setAddress({ ...address, rua: event.target.value }) }} className="form-control mb-3" placeholder="r" id="rua" />
                         </div>
 
                         <div className="col-12 col-sm-6">
                             <label for='numeracao' className=" text-input">N°:</label>
-                            <InputMask required
+                            <InputMask required value={address.numero}
                                 onChange={(event) => { setAddress({ ...address, numero: event.target.value }) }} className="form-control mb-3" placeholder="Numero da Residencia" id="numeracao " />
                         </div>
 
                         <div className="col-12 col-sm-6">
                             <label for='complemento' className=" text-input">Complemento:</label>
-                            <InputMask required
+                            <InputMask required value={address.complemento}
                                 onChange={(event) => { setAddress({ ...address, complemento: event.target.value }) }} className="form-control mb-3" placeholder="c" info="seu complemento" id="Complemento" type="" />
                         </div>
 
                         <div className="col-12 col-sm-6">
                             <label for='cidade' className=" text-input">Cidade:</label>
-                            <InputMask required
+                            <InputMask required value={address.cidade}
                                 onChange={(event) => { setAddress({ ...address, cidade: event.target.value }) }} className="form-control mb-3" placeholder="cc" info="sua cidade" id="cidade" />
                         </div>
 
                         <div className="col-12 col-sm-6">
-                            <label for='municipio' className=" text-input">Município:</label>
-                            <InputMask required
-                                onChange={(event) => { setAddress({ ...address, municipio: event.target.value }) }} className="form-control mb-3" placeholder="Informe seu Município" id="estado" />
+                            <label for='bairro' className=" text-input">Bairro:</label>
+                            <InputMask required value={address.bairro}
+                                onChange={(event) => { setAddress({ ...address, bairro: event.target.value }) }} className="form-control mb-3" placeholder="Informe seu Município" id="estado" />
                         </div>
+{/* 
+                        <div className="col-12 col-sm-6">
+                            <label for='uf' className=" text-input">UF:</label>
+                            <InputMask required value={address.uf}
+                                onChange={(event) => { setAddress({ ...address, uf: event.target.value }) }} className="form-control mb-3" placeholder="Informe seu Município" id="estado" />
+                        </div> */}
+
 
                         <Form.Group className="mb-3">
                             <Form.Label>Estado</Form.Label>

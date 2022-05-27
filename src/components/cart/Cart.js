@@ -6,8 +6,6 @@ function Cart(props) {
 
     function showPrice(number) {
         let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
-
-
         return (
             <>
                 <h4 className="">{priceConverted}</h4>
@@ -18,7 +16,7 @@ function Cart(props) {
     function listar() {
         return props.cart.map((item) => {
             return (
-                <ItemCart key={item.id} nome={item.nomeProduto} price={item.preco} />
+                <ItemCart key={item.id} nome={item.nomeProduto} quantidade={item.quantidade} price={item.preco} />
             )
         })
     }
@@ -37,8 +35,11 @@ function Cart(props) {
         let valorT = props.valor
         let porcento = props.cupom.porcentagemDesconto ? props.cupom.porcentagemDesconto : 0
         let valorFinal = ((porcento / 100) * valorT)
+        let frr = props.frete
+        props.valort(valorT - valorFinal + frr)
         return (
-            <>{showPrice(valorT - valorFinal + props.frete)} </>
+            <>{showPrice(valorT - valorFinal + frr)} </>
+            
         )
     }
 
@@ -51,7 +52,19 @@ function Cart(props) {
                     <span>Seu carrinho</span>
                     <span className="badge bg-success rounded-pill">{props.quant}</span>
                 </h4>
+                <div className="d-flex flex-row border">
+                    <div className='col-7 d-flex'>
+                        <h5 >Produtos</h5>
+                    </div>
+                    <div className='col-2 d-flex'>
+                        <h5 >Quant.</h5>
+                    </div>
+                    <div className='col-3  '>
+                        <h5>Val. Unitário</h5>    
+                    </div>
+                </div>
                 <ul className="list-group mb-3">
+
                     {listar()}
                     {listarCupom()}
                     {/* <ItemCart  key={99} nome={props.frete.tipoFrete} descricao='Cupom Promo Ved' price={props.cupom.porcentagemDesconto} />  */}
@@ -60,7 +73,7 @@ function Cart(props) {
                             <div>
                                 <h5 className="my-0">Total + Frete <small>(R${props.frete})</small> </h5>
                             </div>
-                            <span className="text-muted">{calcularTotal()}</span>
+                            <span className="">{calcularTotal()}</span>
                         </li>
                     </div>
                 </ul>
