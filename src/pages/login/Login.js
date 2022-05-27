@@ -1,21 +1,23 @@
 import './Login.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-import { Link } from 'react-router-dom'
+import { Link , useHistory} from 'react-router-dom'
 import Button from '../../components/button/Button'
 import Title from '../../components/title/Title'
 import InputGroup from '../../components/inputGroup/InputGroup'
 import ClientContext from '../../context/Client.provider'
-import { useEffect, useState, useContext } from 'react'
-
+import React,{ useEffect, useState, useContext } from 'react'
 
 function Login() {
-    const { LoginFlux } = useContext(ClientContext)
+
+    const { LogarCliente } = useContext(ClientContext)
 
     const [login, setLogin] = useState({
         email: '',
         senha: ''
     })
+
+    const history = useHistory();
 
     return (
         <>
@@ -34,9 +36,10 @@ function Login() {
                             <div className="col-12 text-center mt-2">
                                 <p>Esqueceu sua senha? <Link to="/passwordRecovery">Clique aqui.</Link></p>
                                 <div className="d-grid gap-2 col-6 mx-auto mb-2">
-                                    <Button success label="Acessar" click={() => {
-                                    //   LoginFlux(login)
-                                    }} link={"/MyAccount"}>Logar</Button>
+                                    <Button success label="Acessar" click={async() => {
+                                        let success =  await LogarCliente(login)
+                                       if (success)  history.push("/") 
+                                    }}>Logar</Button>
                                 </div>
                                 <div className="form-group col-12  d-grid gap-2 mx-auto">
                                     <p>Ainda não tem conta? <Button success link="/register" label="Cadastre-se"></Button></p>

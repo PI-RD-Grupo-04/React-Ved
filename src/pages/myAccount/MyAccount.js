@@ -15,8 +15,7 @@ import { baseCliente } from '../../environments'
 import axios from 'axios'
 
 function MyAccount() {
-    const { client, BuscaClient } = useContext(ClientContext) 
-    const [cliente, setCliente] = useState({});
+    const { client,nome, BuscaClient } = useContext(ClientContext)
     const [update, setUpdate] = useState(UpdateClientModal)
     const [show, setShow] = useState(false);
     const [successUpdate, setSuccessUpdate] = useState(false);
@@ -31,7 +30,6 @@ function MyAccount() {
     const [senhaConfirmOk, setSenhaconfirmOk] = useState('d-none')
     const [senhaConfirmError, setSenhaConfirmError] = useState('d-none')
 
-    console.log(client)
     
     useEffect(() => {
         getCliente(1)
@@ -112,9 +110,9 @@ function MyAccount() {
                             <InputGroup value={update.nome} change={(e) => { setUpdate({ ...update, nome: e.target.value }) }} required info="Primeiro Nome" label="Nome: " type="text" id="Nome" col="col-12 col-sm-6" />
                             <InputGroup value={update.sobrenome} change={(e) => { setUpdate({ ...update, sobrenome: e.target.value }) }} required label="Sobrenome: " info="Sobrenome" type="text" id="sobrenome" col="col-12 col-sm-6" />
                             <InputGroup info="Nome Social" value={update.nomeSocial} label="Nome Social: " change={(e) => { setUpdate({ ...update, nomeSocial: e.target.value }) }} id="Nome-Social" col="col-12 col-sm-6" />
-                            <InputGroup block value={cliente.cpf} required label="CPF: " info="Apenas Números " mask="999.999.999-99" type="number" id="cpf" col="col-12 col-sm-6" />
-                            <InputGroup block value={cliente.dataNascimento} required mask="99/99/9999" info="dia/mês/ano" label="Data de Nasc.: " id="nascimento" type="text" col="col-12 col-sm-3" />
-                            <InputGroup block value={cliente.email} required label="Email: " info="seu email" id="email" type="email" col="col-12 col-sm-5" />
+                            <InputGroup block value={update.cpf} required label="CPF: " info="Apenas Números " mask="999.999.999-99" type="number" id="cpf" col="col-12 col-sm-6" />
+                            <InputGroup block value={update.dataNascimento} required mask="99/99/9999" info="dia/mês/ano" label="Data de Nasc.: " id="nascimento" type="text" col="col-12 col-sm-3" />
+                            <InputGroup block value={update.email} required label="Email: " info="seu email" id="email" type="email" col="col-12 col-sm-5" />
                             <InputGroup value={update.telefone} change={(e) => { setUpdate({ ...update, telefone: e.target.value }) }} required mask="(99) 99999-9999" info="fixo ou celular " label="Telefone: " id="telefone" type="number" col="col-12 col-sm-4" />
                             <div class="d-grid justify-content-center align-items-center gap-2   align-cen  ter mt-3 mb-3">
                                 <Button success label="Atualizar Dados" confirm click={() => { handleShow() }}></Button >

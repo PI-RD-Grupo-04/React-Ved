@@ -10,7 +10,7 @@
     background-color: #1987540f;
     border-radius: 2px;
     border-bottom: 1px solid black;
-}
+} 
 
 .btn-suport:hover{
     background-color: #156b43;
@@ -21,6 +21,7 @@
     background-color: #757a78;
     border-color: #757a78;
     color: white;
+    width: 120px;
 }
 
 .btn-delete:hover {

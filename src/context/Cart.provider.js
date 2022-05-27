@@ -39,30 +39,44 @@ function CartProvider(props) {
         setCarrinho(carrinhoLista)
         setQtyCarrinho(carrinhoLista.length)
     }
-
+    
     function incrementoCarrinho(item) {
-        const p = carrinho.find(produto => item.id == produto.id)
-        const remove = carrinho.filter(items => items.id !== item.id)
-        p.quantidade++
-        remove.push(p)
-        localStorage.setItem("cart", JSON.stringify(remove))
-        setCarrinho(remove)
-        setQtyCarrinho(remove.length)
+        let carrinhoLista = []
+        if (localStorage.getItem('cart')) {
+            let validade = false
+            carrinhoLista = JSON.parse(localStorage.getItem('cart'))
+            carrinhoLista.map((novo) => {
+                if (item.id == novo.id) {
+                    novo.quantidade++
+                    validade = true
+                }
+            })
+        }
+        localStorage.setItem('cart', JSON.stringify(carrinhoLista))
+        localStorage.qtyCarrinho = JSON.stringify(carrinhoLista.length)
+        setCarrinho(carrinhoLista)
+        setQtyCarrinho(carrinhoLista.length)
         total()
     }
 
-    const decrementoCarrinho = (item) => {
-        const p = carrinho.find(produto => item.id == produto.id)
-        const remove = carrinho.filter(items => items.id !== item.id)
-        if (p.quantidade == 1) {
 
-        } else {
-            p.quantidade--
+    const decrementoCarrinho = (item) => {
+        let carrinhoLista = []
+        if (localStorage.getItem('cart')) {
+            let validade = false
+            carrinhoLista = JSON.parse(localStorage.getItem('cart'))
+            carrinhoLista.map((novo) => {
+                if (item.id == novo.id) {
+                    novo.quantidade--
+
+                    validade = true
+                }
+            })
         }
-        remove.push(p)
-        localStorage.setItem("cart", JSON.stringify(remove))
-        setCarrinho(remove)
-        setQtyCarrinho(remove.length)
+        localStorage.setItem('cart', JSON.stringify(carrinhoLista))
+        localStorage.qtyCarrinho = JSON.stringify(carrinhoLista.length)
+        setCarrinho(carrinhoLista)
+        setQtyCarrinho(carrinhoLista.length)
         total()
     }
 
