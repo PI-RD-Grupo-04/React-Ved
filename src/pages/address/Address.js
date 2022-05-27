@@ -21,7 +21,6 @@ function Address() {
 
     useEffect(() => {
         getEndereco()
-        BuscaClient()
 
     }, [])
 

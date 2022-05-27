@@ -4,7 +4,6 @@ import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
 import CardInfo from '../../components/cardInfo/CardInfo'
 import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
-import Button from '../../components/button/Button'
 import Title from '../../components/title/Title'
 import axios from 'axios'
 import { baseCartao } from "../../environments";
@@ -21,7 +20,6 @@ function PaymentCards() {
 
     useEffect(() => {
         getCartao()
-
     }, [])
 
 
@@ -30,7 +28,6 @@ function PaymentCards() {
         )
             .then((response) => {
                 setCartao(response.data)
-                listarCartao()
             })
             .catch((error) => {
                 console.error(error)
@@ -63,7 +60,6 @@ function PaymentCards() {
                                 <CardInfo id={item.id} nome={item.idBandeira.nome} numero= {item.numeroCartao} mes={item.diaVencimento} ano={item.anoVencimento} delete={deleteCartao} get={getCartao} />
                             </div>
                         </div>
-                    
                 )
                 })
         }
