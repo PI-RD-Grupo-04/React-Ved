@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import './AccordionCart.css'
 import { Accordion } from 'react-bootstrap'
-import Maska from 'maska'
+
 function AccordionCart(props) {
-
-
-    
 
     return (
         <>

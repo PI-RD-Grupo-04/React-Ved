@@ -7,12 +7,7 @@ import axios from 'axios'
 import { Form, Modal, Alert } from 'react-bootstrap'
 import { AiFillCheckCircle } from "react-icons/ai";
 
-
-function ModelPayCard(props) {
-    //import './ModelPayCard.css'
-
-
-
+function ModelPayCard(props) { 
 
     const [cartao, setCartao] = useState()
     const [bandeira, setBandeira] = useState([])
@@ -23,6 +18,9 @@ function ModelPayCard(props) {
     const [successRegister, setSuccessRegister] = useState(false);
     let cliente = 1
 
+    useEffect(() => {
+        getBandeira()
+    }, [])
 
     const postCartao = (cartaomodel) => {
         axios.post(`${baseCartao}/1/novo`, cartaomodel)
@@ -41,14 +39,10 @@ function ModelPayCard(props) {
             })
     }
 
-    useEffect(() => {
 
-        getBandeira()
-    }, [])
 
     return (
         <>
-
             <button type="button" class="btn btn-suport" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Cadastrar Cartão
             </button>

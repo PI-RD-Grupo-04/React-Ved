@@ -70,13 +70,8 @@ function PaymentCards() {
 
 
     return (
-            
-
         <>
             <Header />
-
-
-
             <div class="container mt-3 mb-4  ">
 
                 <div class="row ">
