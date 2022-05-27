@@ -21,6 +21,7 @@ function PaymentCards() {
 
     useEffect(() => {
         getCartao()
+
     }, [])
 
 
@@ -29,6 +30,7 @@ function PaymentCards() {
         )
             .then((response) => {
                 setCartao(response.data)
+                listarCartao()
             })
             .catch((error) => {
                 console.error(error)
@@ -51,30 +53,24 @@ function PaymentCards() {
     }
 
 
-
-    function ofertas() {
-        return cartao.map(item => {
-            return (
-                <div key={item.id}>
-                    <div class="row mb-3 pb-3 pt-3">
-                        <div class="row ">
-                            <CardInfo id={item.id} nome={item.idBandeira.nome} numero={item.numeroCartao} mes={item.diaVencimento} ano={item.anoVencimento} delete={deleteCartao} get={getCartao} />
+    
+        function listarCartao() {
+           return cartao.map(item => {
+                return (
+                  
+                        <div class="row mb-3 pb-3 pt-3">
+                              <div key={item.id}>
+                                <CardInfo id={item.id} nome={item.idBandeira.nome} numero= {item.numeroCartao} mes={item.diaVencimento} ano={item.anoVencimento} delete={deleteCartao} get={getCartao} />
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-            )
-        })
-    }
+                    
+                )
+                })
+        }
 
 
     return (
-
-
-
-
-
-
+            
 
         <>
             <Header />
@@ -93,15 +89,15 @@ function PaymentCards() {
                         <Title label="Meus Cartões" />
                         {/* <!-- area do primeira cartão --> */}
                         {
-                            successDelete
-                                ?
-                                <Alert key='success' variant='success'>
-                                    <AiFillCheckCircle size="30" /> Item apagado com suceso
-                                </Alert>
-                                :
-                                ''
-                        }
-                        {ofertas()}
+                                    successDelete
+                                        ?
+                                        <Alert key='success' variant='success'>
+                                            <AiFillCheckCircle size="30" /> Item apagado com suceso
+                                        </Alert>
+                                        :
+                                        ''
+                                }
+                        {listarCartao()} 
 
                         {/* <!-- ************************MODEL PARA CADASTRO DE CARTÃO ********************* --> */}
                         {/* <!-- DIVISÃO DOS BUTTONS --> */}

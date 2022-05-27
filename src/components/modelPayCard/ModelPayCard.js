@@ -8,9 +8,6 @@ import { Form, Modal, Alert } from 'react-bootstrap'
 import { AiFillCheckCircle } from "react-icons/ai";
 
 
-
-
-
 function ModelPayCard(props) {
     //import './ModelPayCard.css'
 

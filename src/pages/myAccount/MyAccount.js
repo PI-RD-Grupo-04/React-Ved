@@ -29,7 +29,7 @@ function MyAccount() {
     const [senhaConfirmar, setSenhaConfirmar] = useState('')
     const [senhaConfirmOk, setSenhaconfirmOk] = useState('d-none')
     const [senhaConfirmError, setSenhaConfirmError] = useState('d-none')
-
+    const [cliente , setCliente ] = useState ([])
     
     useEffect(() => {
         BuscaClient()
