@@ -8,7 +8,6 @@ import vegano from '../../components/asserts/imagens/selo-produtos/sem-gluten.pn
 import gluten from '../../components/asserts/imagens/selo-produtos/vegano.png'
 import ProductCard from '../../components/productCard/ProductCard'
 import Buttonqty from '../../components/button/ButtonProduct'
-import Button from '../../components/button/Button'
 import { Accordion } from 'react-bootstrap'
 import Title from '../../components/title/Title'
 import ModalConsumo from '../../components/modalConsumo/ModalConsumo'

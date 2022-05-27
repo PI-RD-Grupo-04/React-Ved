@@ -4,7 +4,6 @@ import axios from 'axios'
 import Footer from '../../components/footer/Footer'
 import Header from '../../components/header/Header'
 import { Carousel } from 'react-bootstrap'
-import frete from '../../components/asserts/imagens/imgBody/frete.png'
 import carrosel1mel from '../../components/asserts/imagens/Carousel/carrosel1mel.jpg'
 import item1 from '../../components/asserts/imagens/Carousel/item1.webp'
 import item2 from '../../components/asserts/imagens/Carousel/item2.webp'
@@ -13,12 +12,13 @@ import bannerprincipal from '../../components/asserts/imagens/bannerprincipal.gi
 import Title from '../../components/title/Title'
 import CarroseuHome from '../../components/carroseu/CarroseuHome'
 import { baseHome } from "../../environments";
-import { baseCartao } from "../../environments";
+
 
 function Home() {
 
   const [oferta, setOferta] = useState([])
-  const [novidade, setNovidade] = useState([])
+  const [novidades, setNovidades] = useState([])
+
 
   useEffect(() => {
     axios.get(`${baseHome}/ofertas`)
@@ -28,18 +28,19 @@ function Home() {
       .catch((error) => {
         console.error(error)
       })
+    getNovidades()
+
+  }, [])
+
+  function getNovidades() {
     axios.get(`${baseHome}/novidade`)
       .then((response) => {
-        setNovidade(response.data)
+        setNovidades(response.data)
       })
       .catch((error) => {
         console.error(error)
       })
-
-  }, [])
-
-
-
+  }
 
 
   return (
@@ -51,9 +52,8 @@ function Home() {
           <img src={bannerprincipal} className="bannergif" />
         </div>
         {/* *************************************** BANNER END ************************************ */}
-        <div className="d-flex justify-content-center flex-column">
-          <img className="banner" src={frete}
-            alt="imagem com informações sobre o frete" />
+        <div className=" mt-1 d-flex justify-content-center flex-column">
+
         </div>
         {/* *************************************** CAROUSEL BEGIN ************************************ */}
         <Carousel>
@@ -125,8 +125,18 @@ function Home() {
         <Title label="NOVIDADES" ></Title>
       </div>
 
-
-      <CarroseuHome novidades={novidade} />
+      <div className="container  ">
+        <div className="row justify-content-space ">
+          {
+            novidades.map(item => {
+              return (
+                <ProductCard key={item.id} col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" status={item.statusProduto} img={item.url} link={`/product/${item.id}`} nome={item.nomeProduto}
+                  descri={item.descricao} product={item} price={item.preco} />
+              )
+            })
+          }
+        </div>
+      </div>
 
       <Footer />
     </>

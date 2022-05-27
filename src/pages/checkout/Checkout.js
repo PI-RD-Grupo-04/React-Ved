@@ -165,7 +165,7 @@ function Checkout() {
             )
         } else {
             return (
-                <Cart  frete={freteValor} quant={qtyCarrinho} cart={carrinho}
+                <Cart frete={freteValor} quant={qtyCarrinho} cart={carrinho}
                     cupom={cupom} valor={valorTotal} />
 
             )
@@ -235,16 +235,16 @@ function Checkout() {
     }
 
 
-    function novocartao()  {
+    function novocartao() {
 
         return (
             <div>
-                 <div className="row">
-                            <h5> Selecione um Cartão Salvo</h5>
-                            {ofertas()}
+                <div className="row">
+                    <h5> Selecione um Cartão Salvo</h5>
+                    {ofertas()}
                 </div>
-                            {creditcard()}
-                
+                {creditcard()}
+
             </div>
         )
     }
@@ -296,13 +296,13 @@ function Checkout() {
 
                     </div>
                     {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
-                    <div className="col-12 col-sm-6 order-md-last border mb-3">
+                    <div className="col-12 col-sm-6 order-md-last border">
 
                         {CartComCupom()}
                         <hr className="my-2" />
 
                         <div className="row">
-                       
+
                             <div>
                                 {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
                                 <h4 className="mb-2">Pagamento</h4>
