@@ -21,6 +21,7 @@ function PaymentCards() {
 
     useEffect(() => {
         getCartao()
+
     }, [])
 
 
@@ -29,6 +30,7 @@ function PaymentCards() {
         )
             .then((response) => {
                 setCartao(response.data)
+                listarCartao()
             })
             .catch((error) => {
                 console.error(error)
@@ -52,16 +54,15 @@ function PaymentCards() {
 
 
     
-        function ofertas() {
+        function listarCartao() {
            return cartao.map(item => {
                 return (
-                    <div key={item.id}>
+                  
                         <div class="row mb-3 pb-3 pt-3">
-                            <div class="row ">
+                              <div key={item.id}>
                                 <CardInfo id={item.id} nome={item.idBandeira.nome} numero= {item.numeroCartao} mes={item.diaVencimento} ano={item.anoVencimento} delete={deleteCartao} get={getCartao} />
                             </div>
                         </div>
-                    </div>
                     
                 )
                 })
@@ -69,12 +70,7 @@ function PaymentCards() {
 
 
     return (
-                
-
-
-
-
-
+            
 
         <>
             <Header />
@@ -101,7 +97,7 @@ function PaymentCards() {
                                         :
                                         ''
                                 }
-                        {ofertas()} 
+                        {listarCartao()} 
 
                         {/* <!-- ************************MODEL PARA CADASTRO DE CARTÃO ********************* --> */}
                         {/* <!-- DIVISÃO DOS BUTTONS --> */}
