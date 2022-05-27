@@ -13,12 +13,13 @@ import ClientContext from '../../context/Client.provider'
 function Header() {
 
     const [buscar, setBuscar] = useState('')
-    const { client, getCliente, nome } = useContext(ClientContext)
+    const { client, getCliente, nome, Atualizar } = useContext(ClientContext)
     const { qtyCarrinho, total } = useContext(CartContext)
 
 
     useEffect(() => {
-        // quantidade()
+        Atualizar()
+        getCliente()
     }, [])
 
     function quantidade() {
