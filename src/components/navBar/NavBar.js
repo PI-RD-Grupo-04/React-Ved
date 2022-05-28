@@ -1,30 +1,28 @@
-import React, { useState } from 'react' 
-import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap'
-//import './NavBar.css'
+import React, { useState } from 'react'
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
+import './NavBar.css'
+import { Link } from 'react-router-dom'
+import { baseHome } from '../../environments'
 
 function NavBar(props) {
 
+
+
     return (
         <>
-            <Navbar bg="light" expand="lg">
-                <Container>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Link</Nav.Link>
-                            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                            </NavDropdown>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+            <div className="back container-fluid" >
+                <Navbar className=" nav d-flex justify-content-around back container-fluid" >
+
+                    <Nav.Link className="nav-hover"><Link to="/category/novidade">  Novidades</Link></Nav.Link>
+                    <Nav.Link className="nav-hover"><Link to="/plansVed">   Planos </Link> </Nav.Link>
+                    <NavDropdown title="Categorias" className="nav-hover">
+                        <NavDropdown.Item > <Link to="/category/1"> <p className="font"> Frutas </p> </Link> </NavDropdown.Item>
+                        <NavDropdown.Item > <Link to="/category/2"> <p className="font">  Verduras  </p> </Link> </NavDropdown.Item>
+                        <NavDropdown.Item > <Link to="/category/4"> <p className="font"> Mercearia </p> </Link> </NavDropdown.Item>
+                    </NavDropdown>
+                    <Nav.Link href="/aboutUS" className="nav-hover">Sobre Nós</Nav.Link>
+                </Navbar>
+            </div>
         </>
     )
 }

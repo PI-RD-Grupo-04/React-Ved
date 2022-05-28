@@ -1,72 +1,78 @@
 import './Requests.css'
+import react, { useEffect, useState, useContext } from 'react'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CustomerMenu from '../../components/customerMenu/CustomerMenu'
-
-
+import OrderStatus from '../../components/orderStatus/OrderStatus'
+import Title from '../../components/title/Title'
+import axios from 'axios'
+import { basePedido } from '../../environments'
+import ClientContext from '../../context/Client.provider'
 
 function Request() {
+
+    const [orders, setOrders] = useState([])
+    const [status, setStatus] = useState([])
+    const { client, getIdCliente } = useContext(ClientContext)
+    
+
+    let id = localStorage.getItem('id')
+    useEffect(() => {
+        getIdCliente()
+        getOrders() 
+    }, [])
+
+    const getOrders = () => {
+        axios.get(`${basePedido}/${id}/pedidos`)
+            .then((response) => {
+                setOrders(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+
+    function listOrders() {
+        return (orders.map((pedidos) => {
+            return (
+                validaStatus(pedidos)
+            )
+        }))
+    }
+
+
+    function validaStatus(pedido) {
+        if (pedido.status == "Aguardando confirmação") {
+            return (
+                <OrderStatus  link={pedido.id} waiting pedido={pedido.id} />
+            )
+        } else if (pedido.status == "Pedido confirmado") {
+            return (
+                <OrderStatus link={pedido.id} delivering pedido={pedido.id} />
+            ) 
+        } else {
+            return (
+                <OrderStatus link={pedido.id} canceled pedido={pedido.id} />
+            )
+        }
+    }
 
     return (
         <>
             <Header />
-
             <div className="container mt-3 mb-4  ">
                 <div className="row ">
                     <div className="col-2 col-sm-3">
                         <CustomerMenu />
                     </div>
-                    <div className="col-12 col-sm-9 order-md-last  mb-3">
-                        <h3 className="text-center title-main"> Meus Pedidos </h3>
-                        <div className="row border py-3 ">
-
-                            <div className="col-12 size-text ">
-                                {/* nome do titular do cartão */}
-                                <input type="checkbox" id="Pedido-01" name="pedido-01" value="pedido-01" />
-                                <label for="pedido-01 ">Pedido:</label>
-                                <label for="pedido-01">#125354 :</label>
-                                <label for="pedido-01" className="p-caminho">A caminho</label>
-                            </div>
-                        </div>
-
-                        <div className="row border py-3 mt-3">
-                            <div className="col-12 size-text">
-                                {/* nome do titular do cartão */}
-                                <input type="checkbox" id="Pedido-01" name="pedido-01" value="pedido-01" />
-                                <label for="pedido-01 ">Pedido:</label>
-                                <label for="pedido-01">#145544 :</label>
-                                <label for="pedido-01" className="p-analise">Aguardando</label>
-                            </div>
-                        </div>
-
-                        <div className="row border py-3 mt-3">
-                            <div className="col-12 size-text">
-                                {/* nome do titular do cartão */}
-                                <input type="checkbox" id="Pedido-01" name="pedido-01" value="pedido-01" />
-                                <label for="pedido-01 ">Pedido:</label>
-                                <label for="pedido-01">#003245 :</label>
-                                <label for="pedido-01" className="p-entregue">Entregue</label>
-                            </div>
-                        </div>
-
-                        <div className="row border py-3 mt-3">
-                            <div className="col-12 size-text">
-                                {/* nome do titular do cartão */}
-                                <input type="checkbox" id="Pedido-01" name="pedido-01" value="pedido-01" />
-                                <label for="pedido-01 ">Pedido:</label>
-                                <label for="pedido-01">#003245 :</label>
-                                <label for="pedido-01" className="p-cancelado">Cancelado</label>
-                            </div>
+                    <div className="col-12 col-sm-9 order-md-last  mb-3 ">
+                        <Title label="Meus Pedidos" />
+                        <div className="row py-3 ">
+                            {listOrders()}
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
             <Footer />
 
         </>

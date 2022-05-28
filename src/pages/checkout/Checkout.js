@@ -1,293 +1,395 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Checkout.css'
 import AddressInfo from '../../components/addressInfo/AddressInfo'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
 import AccordionCart from '../../components/accordionCart/AccordionCart'
+import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
+import Button from '../../components/button/Button'
+import iconNu from '../../components/asserts/imagens/Footer/iconNu.png'
+import RadioBox from '../../components/radioBox/RadioBox'
+import Title from '../../components/title/Title'
+import Cart from '../../components/cart/Cart'
+import axios from 'axios'
+import { baseEndereco, baseFrete, baseCupom, basePedido, baseItemPedido } from '../../environments'
+import ClientContext from '../../context/Client.provider'
+import CartContext from '../../context/Cart.provider'
+import OrderModel from '../../models/Order'
+import ItemPedidoModal from '../../models/ItemPedido'
+import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
+import { baseCartao } from "../../environments";
+import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
+
+function Checkout() {
+    const [order, setOrder] = useState(OrderModel)
 
 
+    const { client, getIdCliente } = useContext(ClientContext)
+    const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
+    const [address, setAddress] = useState([])
+    const [entrega, setEntrega] = useState({})
+    const [frete, setFrete] = useState([])
+    const [valorFinal, setValor] = useState(0)
+    const [freteValor, setFreteValor] = useState(0)
+    const [cupomValidation, setCupomValidation] = useState(0)
+    const [cupom, setCupom] = useState({})
+    const [cartao, setCartao] = useState([])
+    const [pagamento, setPagamento] = useState({
+        card: false,
+        pix: false,
+        cpfBoleto: false
+    })
+    let clienteId = JSON.parse(localStorage.getItem('id'))
+    console.log(order)
+    useEffect(() => {
+        getEndereco()
+        listEnderecos()
+        getCartao()
+        listarCarrinho()
+        total()
+        getCartao()
+        getIdCliente()
+        setOrder({ ...order, cliente: client })
+        var data = new Date();
+        var dia = String(data.getDate()).padStart(2, '0');
+        var mes = String(data.getMonth() + 1).padStart(2, '0');
+        var ano = data.getFullYear();
+        var dataAtual = dia + '/' + mes + '/' + ano
+        setOrder({ ...order, data: dataAtual, cliente:  clienteId })
 
-class Checkout extends Component {
+    }, [])
 
-    state = {
-        nome: ''
+    const getEndereco = () => {
+        axios.get(`${baseEndereco}/${clienteId}/detalhes`)
+            .then((response) => {
+                setAddress(response.data)
+                listEnderecos()
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
     }
-    //para mudar o estado de nome use: this.setState({nome: 'Novo Nome'})
 
-    render() {
-        return (
-            <>
-                <Header />
-                <div className="container mt-3 checkout-style mb-4 ">
-                    <h1 className="mb-2 text-center title-main">Checkout</h1>
-                    <form>
-                        <div className="row ">
-                            <div className="col-12 col-sm-6 border ">
-                                <h4 className="mb-3 ">Dados de Entrega</h4>
-                                <div className=" mb-3">
-                                    {/*  <!--************* Parte esquerda da pagina começo  *********************--> */}
-                                    <form className="needs-validation" >
-                                        <div className="row g-3">
-                                            <h5 className="title-subs"> selecione o endereço</h5>
-                                            {/* <AddressInfo /> */}
+    function addItemPedido(pedido) {
+        const lista = []
+        //percorre a lista salva na memoria
+        carrinho.map((value) => {
+            //a cada volta, cria um objeto de item pedido e salva no array acima
+            lista.push({
+                quantidade: value.quantidade,
+                porcentagemIcms: 1,
+                valorIcms: 1,
+                produto: value.id,
+                pedido: pedido
+            })
+        })
+        console.log(lista)
+        // chama o ultimo metodo para finalizar 
+        postItemPedido(lista)
+    }
 
 
-                                            {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
-                                            {/*  <!-- DIVISÃO DOS BUTTONS --> */}
-                                            <div className="row mt-1">
-                                                {/*  <!-- BUTTON DO MODAL --> */}
-                                                <div className="col-12 col-md-6">
-                                                    <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        Cadastrar Novo Endereço
-                                                    </button>
-                                                </div>
-                                            </div>
+    // comeco do pedido
+    const postPedido = () => {
+        axios.post(`${basePedido}/novo`, order)
+            .then((response) => {
+               addItemPedido(response.data.id)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
 
-                                            {/*  <!-- ****************** CAMPO DO MODAL ****************** --> */}
-                                            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                                aria-hidden="true">
-                                                <div className="modal-dialog">
-                                                    <div className="modal-content">
-                                                        <div className="modal-header">
-                                                            <h5 className="modal-title" id="exampleModalLabel">Novo Endereço de Entrega
-                                                            </h5>
-                                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div className="modal-body">
-                                                            {/*  <!-- CORPO DO MODAL PARA CADASTRAR ENDEREÇOS --> */}
-                                                            <div className="row border  pb-3 pt-3">
-                                                                <div className="row ">
-                                                                    {/* <!-- campo Rua --> */}
-                                                                    <div className="col-12">
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="Rua" className="form-label">Rua:</label>
-                                                                            <input type="text" className="form-control" id="Rua" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Letras</div>
-                                                                        </div>
-                                                                    </div>
-                                                                    {/*  <!--**campo Número * --> */}
-                                                                    <div className="col-12">
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="N°" className="form-label">N°:</label>
-                                                                            <input type="text" className="form-control" id="N°" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Números</div>
-                                                                        </div>
-                                                                        {/*  <!--**Campo Complemento * --> */}
-                                                                        <div className="col-12">
-                                                                            <div className="form-group form-title" >
-                                                                                <label for="Complemento" className="form-label">Complemento:</label>
-                                                                                <input type="text" className="form-control" id="Complemento" placeholder="" required />
-                                                                                <div className="invalid-feedback">Apenas Letras </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="CEP" className="form-label">CEP:</label>
-                                                                            <input type="text" className="form-control" id="CEP" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Números</div>
-                                                                        </div>
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="Bairro" className="form-label">Bairro:</label>
-                                                                            <input type="text" className="form-control" id="Bairro" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Letras</div>
-                                                                        </div>
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="Cidade" className="form-label">Cidade:</label>
-                                                                            <input type="text" className="form-control" id="Cidade" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Letras</div>
-                                                                        </div>
-                                                                        <div className="form-group form-title" >
-                                                                            <label for="Estado" className="form-label">Estado:</label>
-                                                                            <input type="text" className="form-control" id="Estado" placeholder="" required />
-                                                                            <div className="invalid-feedback">Apenas Letras</div>
-                                                                        </div>
-                                                                        {/* <!-- FIM DO CORPO DO MODAL --> */}
-                                                                        <div className="modal-footer justify-content-between">
-                                                                            <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                                                            <button type="button" className="btn btn-success">Salvar</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            {/*  <!-- ******* FIM DO MODAL ******* --> */}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
 
-                                            <hr className="my-2" />
 
-                                            <div className="form-check">
-                                                <input type="checkbox" className="form-check-input" id="same-address" />
-                                                <label className="form-check-label" for="same-address">O endereço de entrega é igual ao
-                                                    meu
-                                                    endereço de cobrança?
-                                                </label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input type="checkbox" className="form-check-input" id="save-info" />
-                                                <label className="form-check-label" for="save-info">Guarde esta informação para a
-                                                    próxima
-                                                    vez.
-                                                </label>
-                                            </div>
-                                            <hr className="my-2" />
+    // ultimo passo para finalizar o pedido
+    const postItemPedido = (idItemPedido) => {
+        axios.post(`${baseItemPedido}/novo`, idItemPedido)
+            .then(() => {
+                console.log("fluxo finalizado") 
+                localStorage.removeItem("cart")
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
 
-                                            <h4 className="mb-1 ">Calculo de Frete</h4>
-                                            <div className="col-12">
-                                                <label for="frete-comum">Frete para <b className="">12390-045</b></label>
-                                                <span className="msg-nome  msg-success  disblock valid-nome">ok</span>
-                                                <span className="campo-obrigatório disblock" >*Campo Obrigatório</span>
-                                                <span className="campo-obrigatório disblock" >Valor: </span>
-                                                <span className="" id="fretes" >Formas: </span>
-                                                {/*  <!-- opçes de frete --> */}
-                                                <div className="col-12 col-sm-6">
-                                                    <input type="radio" id="frete-comum" name="Frete" className="form-check-input" value="comum" />
-                                                    <label for="frete-comum">Frete Comum: 12,00</label>
 
-                                                </div>
-                                                <div className="col-12 col-sm-6 mb-3">
-                                                    <input type="radio" id="frete-flex" name="Frete" className="form-check-input" value="flex" />
-                                                    <label for="frete-flex">Frete Flex: 18,99</label>
+    const getCupom = (valor) => {
+        axios.get(`${baseCupom}/${valor}`)
+            .then((response) => {
+                setCupom(response.data)
+                setCupomValidation(1)
+                setOrder({ ...order, cupomDesconto: response.data.id })
+            })
+            .catch((error) => {
+                console.error(error.messege)
+                setCupomValidation(3)
+            })
+    }
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+    const getFrete = (cep) => {
+        axios.get(`${baseFrete}/${cep}`)
+            .then((response) => {
+                setFrete(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
 
-                                    <hr className="my-2" />
-                                    {/*  <!--COMEÇOS CUPOM DE DESCONTO --> */}
-                                    <h4 className="mb-3  ">Cupom de Desconto</h4>
-                                    <form className="border p-2">
-                                        <div className="input-group">
-                                            <input type="text" className="form-control" placeholder="Código promocional" />
-                                            <button type="submit" className="btn btn-success">Resgatar</button>
-                                        </div>
-                                        <span className="campo-obrigatório mt-1" >Desconto aplicado! </span>
-                                    </form>
-                                    {/*  <!-- FIM CUPOM DE DESCONTO --> */}
-                                </div>
-                                {/*  <!--************* FIM esquerda da pagina começo  *********************--> */}
+    function ValidationCupom() {
+        if (cupomValidation == 0) {
+            return (<></>)
+        } else if (cupomValidation == 1) {
+            return (
+                <div className="body-success"> <AiFillCheckCircle size="30" /> Registrado com Sucesso </div>
+            )
+        } else {
+            return (
+                <div className="body-error"> <AiOutlineCloseCircle size="30" /> Error ao Cadastrar</div>
+            )
+        }
+    }
+    const getCartao = () => {
+        axios.get(`${baseCartao}/${clienteId}/detalhes`)
+            .then((response) => {
+                setCartao(response.data)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
 
-                            </div>
-                            {/*  <!--************* COMEÇO DIREITA da pagina começo  *********************--> */}
-                            <div className="col-12 col-sm-6 order-md-last border mb-3">
-
-                                {/*  <!-- BEGIN SEUS PRODUTOS --> */}
-                                <h4 className="d-flex justify-content-between align-items-center mb-3 mt-2">
-                                    <span className="">Seu carrinho</span>
-                                    <span className="badge bg-success rounded-pill">3</span>
-                                </h4>
-                                <ul className="list-group mb-3">
-                                    <ItemCart nome="teste" descricao="aaa" price={2.90} />
-                                    <ItemCart />
-
-                                </ul>
-                                <a href="./cesta.html" className=" btn btn-success mb-1 mt-1 " type="submit">Volta a Cesta</a>
-
-                                <hr className="my-2" />
-                                <div className="row">
-                                    <h5> Selecione um Cartão Salvo</h5>
-                                    <div className="accordion" id="accordionExample">
-                                        <AccordionCart
-                                            bandeira='Bandeira'
-                                            num='****-****-****-*000'
-                                            nome='ved Alimentos'
-                                            dia={2} ano={2022} />
-                                    </div>
-                                    <div>
-                                        <hr className="my-2" />
-                                        {/*  <!--************* BEGIN PAGAMENTO *********************--> */}
-                                        <h4 className="mb-2">Pagamento</h4>
-                                        <div className="my-3">
-                                            {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
-                                            <div className="form-check">
-                                                <input id="credit" name="paymentMethod" type="radio" className="form-check-input" checked="" required />
-                                                <label className="form-check-label" for="credit">Cartão de crédito</label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input id="debit" name="paymentMethod" type="radio" className="form-check-input" required />
-                                                <label className="form-check-label" for="debit">Cartão de débito</label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input id="paypal" name="paymentMethod" type="radio" className="form-check-input" required />
-                                                <label className="form-check-label" for="pix">Pix</label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input id="paypal" name="paymentMethod" type="radio" className="form-check-input" required />
-                                                <label className="form-check-label" for="boleto">Boleto</label>
-                                            </div>
-                                        </div>
-                                        <hr className="my-2 border" />
-                                        <div className="row gy-3">
-                                            <div className="col-md-6">
-                                                {/* <!-- nome do titular do cartão --> */}
-                                                <label for="cc-name" className="form-label">Nome no cartão</label>
-                                                <input type="text" className="form-control" id="cc-name" placeholder="" required />
-                                                <small className="text-muted">Nome completo conforme exibido no cartão</small>
-                                                <div className="invalid-feedback">Nome Obrigatório</div>
-                                            </div>
-
-                                            <div className="col-md-6">
-                                                {/* <!-- Número do cartão --> */}
-                                                <label for="cc-number" className="form-label">Número do Cartão de Crédito</label>
-                                                <input type="text" className="form-control" id="cc-number" placeholder="" required />
-                                                <div className="invalid-feedback">Número do Cartão Obrigatório</div>
-                                            </div>
-                                            <div className="col-md-9">
-                                                {/*  <!-- CPF do titular --> */}
-                                                <label for="cpf-titular" className="form-label">CPF do Titular do Cartão</label>
-                                                <input type="text" className="form-control" id="cpf-titular" placeholder="" required />
-                                                <div className="invalid-feedback">Número do Cartão Obrigatório</div>
-                                            </div>
-                                            <div className="col-md-3">
-                                                {/* <!-- vencimento do cartão --> */}
-                                                <p for="bandeira-card" className="form-label">Bandeira</p>
-                                                {/* <img src="../images/Footer/icon-visa.png" width="80px"> */}
-                                                <div className="invalid-feedback">Cartão inválido</div>
-                                            </div>
-                                            <div className="col-md-3">
-                                                {/* <!-- vencimento do cartão --> */}
-                                                <label for="cc-expiration" className="form-label">Vencimento</label>
-                                                <input type="text" className="form-control" id="cc-expiration" placeholder="" required />
-                                                <div className="invalid-feedback">Data de Expiração Obrigatoria</div>
-                                            </div>
-                                            <div className="col-md-2">
-                                                <label for="card-cvv" className="form-label">CVV</label>
-                                                <input type="text" className="form-control" id="card-cvv" placeholder="" required />
-                                                <div className="invalid-feedback">Codigo de seguranção Obrigatório</div>
-                                            </div>
-                                            <div className="col-md-7">
-                                                <p>Parcelar em</p>
-                                                <select required>
-                                                    <option value="">Selecione a parcela...</option>
-                                                    <option value="1">1x </option>
-                                                    <option value="2">2x</option>
-                                                    <option value="3">3x</option>
-                                                    <option value="4">4x</option>
-                                                    <option value="5">5x</option>
-                                                    <option value="6">5x</option>
-                                                </select>
-                                                <div className="invalid-feedback">Selecione pelo menos 1x</div>
-                                            </div>
-                                        </div>
-
-                                        <hr className="my-4" />
-
-                                    </div>
-                                    <a href="./SucessoComprar.html" className="w-100 btn btn-success btn-lg  mb-3" type="submit">Continue
-                                        para finalizar a
-                                        compra</a>
-                                </div>
-                            </div>
+    function ofertas() {
+        return cartao.map(item => {
+            return (
+                <div key={item.id}>
+                    <div class="row mb-3 pb-3 pt-3">
+                        <div class="row ">
+                            <AccordionCart
+                                bandeira={item.idBandeira.nome}
+                                numero={item.numeroCartao}
+                                nome={item.titular}
+                                mes={item.diaVencimento} ano={item.anoVencimento}
+                            />
                         </div>
-                    </form>
-                    {/*  <!--************* END PAGAMENTO   *********************--> */}
+                    </div>
                 </div>
-                <Footer />
-            </>
+            )
+        })
+    }
+
+    function CartComCupom() {
+        if (cupomValidation == 1) {
+            return (
+                <Cart valort={valorTotalOrder} frete={freteValor} quant={qtyCarrinho} cart={carrinho}
+                    cupom={cupom} valor={valorTotal} cupomValid />
+            )
+        } else {
+            return (
+                <Cart valort={valorTotalOrder} frete={freteValor} quant={qtyCarrinho} cart={carrinho}
+                    cupom={cupom} valor={valorTotal} />
+
+            )
+        }
+    }
+
+    function opcoesFrete() {
+        return (frete.map((opcao) => {
+            return (
+                <div key={opcao.id} className="d-flex align-items-center justify-content-start" >
+                    <RadioBox id={opcao.id} name="frete" onClick={() => {
+                        setOrder({ ...order, frete: opcao.id })
+                        setFreteValor(opcao.valor)
+                    }} />
+                    <label className="form-check-label" for='frete' >{opcao.tipoFrete} -</label>
+                    <label className="form-check-label" for='frete' >R${opcao.valor}</label>
+                </div>
+            )
+        })
         )
     }
+
+    function valorTotalOrder(valor) {
+        setValor(valor)
+    }
+
+
+    function listEnderecos() {
+        return address.map(endereco => {
+            return (
+                <div key={endereco.id}>
+                    <RadioBox id={endereco.id} name="endereco" onClick={() => {
+                        setEntrega(endereco)
+                        getFrete(endereco.idUf)
+                        setOrder({ ...order, enderecos: endereco.id })
+                    }} />
+                    <AddressInfo av={endereco.rua} n={endereco.numero} complement={endereco.complemento} district={endereco.id} zipcode={endereco.cep} city={endereco.cidade} states={endereco.municipio} uf={endereco.uf} id={endereco.id} />
+                </div >
+            )
+        })
+    }
+
+    function preBoleto() {
+
+        return (
+            <div class="row gy-3 ">
+
+                <div class="col-12 d-flex flex-column align-items-center justify-content-center">
+                    <h2 class="text-center mb-2">Informações para o Boleto</h2>
+                    <label for="nomeboleto">Nome:</label>
+                    <input type="text" id="nomeboleto" class="form-control" />
+                    <label for="nomecpf">CPF:</label>
+                    <input type="text" id="cpfboleto" class="form-control" />
+                    <div class="container mt-4 d-grid gy-2 mb-3">
+                        <Button success label="gera boleto" />
+                    </div>
+                </div>
+
+            </div>
+        );
+    }
+
+    const creditcard = () => {
+        return (
+            <div className='mt-5 row '>
+                <div className="col-12 d-grid gap-2 col-sm-8   mb-2 ">
+                    <ModelPayCard />
+                </div>
+            </div>
+        )
+    }
+
+
+    function novocartao() {
+
+        return (
+            <div>
+                <div className="row">
+                    <h5> Selecione um Cartão Salvo</h5>
+                    {ofertas()}
+                </div>
+                {creditcard()}
+
+            </div>
+        )
+    }
+
+
+    return (
+        <>
+            <Header /> 
+        
+            <div className="container mt-3 checkout-style mb-4 ">
+                <Title label="Checkout" />
+
+                <div className="row ">
+                    <div className="col-12 col-sm-6 border ">
+                        <h4 className="mb-1 mt-2">Dados de Entrega</h4>
+
+                        {/*  <!--***** Parte esquerda da pagina começo  *******--> */}
+
+                        <div className="row  g-3">
+                            <h5 className="title-subs mt-4"> selecione o endereço</h5>
+                            {listEnderecos()}
+                            {/*  <!-- ADICIONAR NOVO ENDEREÇO --> */}
+                            <ModalEndereco lista={listEnderecos} get={getEndereco} />
+                            <hr className="my-2" />
+                            <h4 className="mb-1 "> Frete</h4>
+                            {/* <div className="col-12"> */}
+                            <label>Opções de Frete para {entrega.cep} </label>
+                            {/*  <!-- opçes de frete --> */}
+                            <div className="col-12 ">
+                                {opcoesFrete()}
+                            </div>
+                            {/* </div> */}
+                        </div>
+
+                        <hr className="my-2 mt-2" />
+                        {/*  <!--COMEÇOS CUPOM DE DESCONTO --> */}
+                        <h4 className="mb-3 mt-3 ">Cupom de Desconto</h4>
+                        <div className="input-group d-grid gy-2">
+                            <input type="text" onBlur={(event) => {
+                                getCupom(event.target.value);
+                            }} className="form-control w-100 mb-2" placeholder="Código promocional" />
+                            <Button none success label="Resgatar" click={() => {
+                                setOrder({ ...order, cupomDesconto: cupom.id })
+                            }} />
+                            {ValidationCupom()}
+                        </div>
+
+                        {/*  <!-- FIM CUPOM DE DESCONTO --> */}
+                        {/*  <!--***** FIM esquerda da pagina começo  *******--> */}
+
+                    </div>
+                    {/*  <!--***** COMEÇO DIREITA da pagina começo  *******--> */}
+                    <div className="col-12 col-sm-6 order-md-last border mb-3">
+
+                        {CartComCupom()}
+                        <hr className="my-2" />
+
+                        <div className="row">
+
+                            <div>
+                                {/*  <!--***** BEGIN PAGAMENTO *******--> */}
+                                <h4 className="mb-2">Pagamento</h4>
+                                <div className="my-3">
+                                    {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
+                                    {/*---------------------------- boleto---------------------------- */}
+                                    <RadioBox onClick={() => {
+
+                                        setOrder({ ...order, tipoPagamento: "boleto", valorTotal: valorFinal })
+                                        setPagamento({
+                                            card: false,
+                                            pix: false,
+                                            cpfBoleto: true
+                                        })
+                                    }} label="Boleto" id='boleto' name="1" />
+                                    {/*------------------- cartao----------------------- */}
+                                    <RadioBox onClick={() => {
+
+                                        setOrder({ ...order, tipoPagamento: "cartao", valorTotal: valorFinal })
+                                        setPagamento({
+                                            card: true,
+                                            pix: false,
+                                            cpfBoleto: false
+                                        })
+                                    }} label="Cartão de Crédito/Débito" id="card" name="1" />
+                                    {/*---------------------------- pix --------------------*/}
+                                    <RadioBox onClick={() => {
+
+                                        setOrder({ ...order, tipoPagamento: "pix", valorTotal: valorFinal })
+                                        setPagamento({
+                                            card: false,
+                                            pix: true,
+                                            cpfBoleto: false
+
+                                        })
+                                    }} label="Pix" id='pix' name="1" />
+                                </div>
+                                <hr className="my-2 border" />
+
+                                {pagamento.card ? novocartao() : ""}
+                                {pagamento.cpfBoleto ? preBoleto() : ""}
+                                <hr className="my-4 mb-3" />
+
+                            </div>
+                            <div className="d-grid gy-2">
+                                <Button label="Finalizar Pedido" click={() => {
+                                    setOrder({ ...order, pedidoStatus: 2 },
+                                        postPedido())
+                                }} card success />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <Footer />
+        </>
+    )
+
 }
 
-export default Checkout;
+export default Checkout

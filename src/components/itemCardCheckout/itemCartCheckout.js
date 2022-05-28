@@ -1,28 +1,34 @@
-import React, { useState } from 'react'
-//import './ItemCart.css'
+import React from 'react'
+
 
 function ItemCart(props) {
+    let promo = props.promo ? 'text-success' : 'text-center'
 
-    //  aqui vai receber um map de item selecionados pelo usuario no nosso site
-    // se for promocional utilizar esse css -> 
-    /*
-     <li className="list-group-item d-flex justify-content-between bg-light">
-                                            <div className="text-success">
-                                                <h6 className="my-0">Código promocional</h6>
-                                                <small>Promoção XXX</small>
-                                            </div>
-                                            <span className="text-success">- R$ 5</span>
-                                        </li>
-    */
+    function showPrice(number) {
+        let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
+        return (
+            <>
+                <h5 className="">{priceConverted}</h5>
+            </>
+        )
+    }
+
+
     return (
-
         <div>
-            <li className="list-group-item d-flex justify-content-between lh-sm">
-                <div>
-                    <h6 className="my-0">{props.nome}</h6>
-                    <small className="text-muted">{props.descricao}</small>
+            <li className="list-group-item d-flex justify-content-around lh-sm">
+                <div className='col-7 d-flex'>
+                    <h5 className={promo}>{props.nome}</h5>
                 </div>
-                <span className="text-muted">R$ {props.price}</span>
+                <div className='col-2 d-flex'>
+                    <h5 className={promo}>{props.quantidade} x</h5>
+                </div>
+                <div className='col-3 text-center d-flex align-items-center justify-content-between flex-row'> 
+                {props.cupom
+                        ? <h6 className='d-flex justify-content-between text-success'> -{showPrice(props.price)}%</h6>
+                        : <h4>{showPrice(props.price)}</h4>
+                    }
+                </div>
             </li>
         </div>
 
