@@ -19,16 +19,26 @@ import ItemPedidoModal from '../../models/ItemPedido'
 import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import { baseCartao } from "../../environments";
 import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
+import { useHistory } from 'react-router-dom'
 
 function Checkout() {
     const [order, setOrder] = useState(OrderModel)
-
-
     const { client, getIdCliente } = useContext(ClientContext)
     const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
     const [address, setAddress] = useState([])
     const [entrega, setEntrega] = useState({})
     const [frete, setFrete] = useState([])
+    const [boletoModel, setBoleto] = useState({
+        nome: "",
+        cpf: ""
+    })
+    const [cardModel, setCard] = useState({
+        pedido: 0,
+        cliente: JSON.parse(localStorage.getItem('id')),
+        cartao: 0,
+        numeroParcelas: 2,
+        statusPagamento: "Pago"
+    })
     const [valorFinal, setValor] = useState(0)
     const [freteValor, setFreteValor] = useState(0)
     const [cupomValidation, setCupomValidation] = useState(0)
@@ -39,6 +49,8 @@ function Checkout() {
         pix: false,
         cpfBoleto: false
     })
+
+
     let clienteId = JSON.parse(localStorage.getItem('id'))
     console.log(order)
     useEffect(() => {
@@ -55,10 +67,11 @@ function Checkout() {
         var mes = String(data.getMonth() + 1).padStart(2, '0');
         var ano = data.getFullYear();
         var dataAtual = dia + '/' + mes + '/' + ano
-        setOrder({ ...order, data: dataAtual, cliente:  clienteId })
+        setOrder({ ...order, data: dataAtual, cliente: clienteId }) 
 
     }, [])
 
+    const history = useHistory();
     const getEndereco = () => {
         axios.get(`${baseEndereco}/${clienteId}/detalhes`)
             .then((response) => {
@@ -85,15 +98,27 @@ function Checkout() {
         })
         console.log(lista)
         // chama o ultimo metodo para finalizar 
-        postItemPedido(lista)
+        postItemPedido(lista, pedido)
     }
-
 
     // comeco do pedido
     const postPedido = () => {
         axios.post(`${basePedido}/novo`, order)
             .then((response) => {
+            setCard({...cardModel, pedido: response.data.id})
                addItemPedido(response.data.id)
+               postBoleto(response.data.id)
+               postCartao(response.data.id)
+               
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+    //cadastro do boleto como pagamento
+    const postBoleto = (idpedido) => {
+        axios.post(`http://localhost:8080/pagamento/boleto/${idpedido}`, boletoModel)
+            .then(() => {
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -101,19 +126,32 @@ function Checkout() {
     }
 
 
+    const postCartao = async (idpedido) => {
+        setCard({...cardModel, pedido: idpedido})
+        axios.post("http://localhost:8080/historico/novo", cardModel)
+            .then(() => {
+                console.log("cadastro de cartao sucesso")
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
 
     // ultimo passo para finalizar o pedido
-    const postItemPedido = (idItemPedido) => {
+    const postItemPedido = (idItemPedido, idPedido) => {
         axios.post(`${baseItemPedido}/novo`, idItemPedido)
             .then(() => {
-                console.log("fluxo finalizado") 
+                console.log("fluxo finalizado")
                 localStorage.removeItem("cart")
+                localStorage.removeItem("valorTotal")
+                localStorage.removeItem("qtyCarrinho")
+                history.push("/OrderSuccess/" + idPedido) 
+
             })
             .catch((error) => {
                 console.error(error.messege)
             })
     }
-
 
     const getCupom = (valor) => {
         axios.get(`${baseCupom}/${valor}`)
@@ -151,6 +189,7 @@ function Checkout() {
             )
         }
     }
+
     const getCartao = () => {
         axios.get(`${baseCartao}/${clienteId}/detalhes`)
             .then((response) => {
@@ -167,6 +206,10 @@ function Checkout() {
                 <div key={item.id}>
                     <div class="row mb-3 pb-3 pt-3">
                         <div class="row ">
+                            <RadioBox id={item.id} name="cartao" onClick={() => {
+                                setCard({ ...cardModel, cartao: item.id})
+                                console.log(cardModel)
+                            }} />
                             <AccordionCart
                                 bandeira={item.idBandeira.nome}
                                 numero={item.numeroCartao}
@@ -179,6 +222,7 @@ function Checkout() {
             )
         })
     }
+
 
     function CartComCupom() {
         if (cupomValidation == 1) {
@@ -215,7 +259,6 @@ function Checkout() {
         setValor(valor)
     }
 
-
     function listEnderecos() {
         return address.map(endereco => {
             return (
@@ -232,23 +275,22 @@ function Checkout() {
     }
 
     function preBoleto() {
-
         return (
             <div class="row gy-3 ">
-
                 <div class="col-12 d-flex flex-column align-items-center justify-content-center">
                     <h2 class="text-center mb-2">Informações para o Boleto</h2>
                     <label for="nomeboleto">Nome:</label>
-                    <input type="text" id="nomeboleto" class="form-control" />
+                    <input type="text" id="nomeboleto" class="form-control" onChange={(e) => {
+                        setBoleto({ ...boletoModel, nome: e.target.value })
+                    }} />
                     <label for="nomecpf">CPF:</label>
-                    <input type="text" id="cpfboleto" class="form-control" />
-                    <div class="container mt-4 d-grid gy-2 mb-3">
-                        <Button success label="gera boleto" />
-                    </div>
+                    <input type="text" id="cpfboleto" class="form-control" onChange={(e) => {
+                        setBoleto({ ...boletoModel, cpf: e.target.value })
+                    }} />
                 </div>
-
             </div>
         );
+
     }
 
     const creditcard = () => {
@@ -260,7 +302,6 @@ function Checkout() {
             </div>
         )
     }
-
 
     function novocartao() {
 
@@ -276,11 +317,12 @@ function Checkout() {
         )
     }
 
+console.log(cardModel)
 
     return (
         <>
-            <Header /> 
-        
+            <Header />
+
             <div className="container mt-3 checkout-style mb-4 ">
                 <Title label="Checkout" />
 
@@ -376,9 +418,10 @@ function Checkout() {
 
                             </div>
                             <div className="d-grid gy-2">
-                                <Button label="Finalizar Pedido" click={() => {
-                                    setOrder({ ...order, pedidoStatus: 2 },
-                                        postPedido())
+                                <Button label="Finalizar Pedido" click={async () => {
+                                    setOrder({ ...order, pedidoStatus: 2 })
+                                    postPedido() 
+                                   
                                 }} card success />
                             </div>
                         </div>

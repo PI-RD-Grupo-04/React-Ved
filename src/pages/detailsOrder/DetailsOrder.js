@@ -9,29 +9,29 @@ import Title from '../../components/title/Title'
 import { useParams } from 'react-router-dom'
 import { basePedido, baseCupom } from '../../environments'
 import CartContext from '../../context/Cart.provider'
-import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import axios from 'axios'
 import Cart from '../../components/cart/Cart'
 import pedidoModal from '../../models/Pedido'
+import Pix from '../../components/pix/Pix'
+import TicketPayment from '../../components/ticketPayment/TicketPayment'
+import InputGroup from '../../components/inputGroup/InputGroup'
 
 function DetailsOrder() {
 
 
     const { order } = useParams()
     const [details, setDetails] = useState(pedidoModal)
+
     const [detailsCard, setDetailsCard] = useState({
         nomeTitular: "",
         numeroCartao: "",
-        bandeiraId: '',
+        bandeira: '',
     })
-    const cliente = 1
-    const cartao = 3
-
-    const items = []
-
+    let id = localStorage.getItem('id')
     useEffect(() => {
-        getDetails()
         getDetailsCard()
+        getDetails()
+    
     }, [])
 
     const showPrice = (number) => {
@@ -48,7 +48,7 @@ function DetailsOrder() {
 
 
     function getDetails() {
-        axios.get(`${basePedido}/${cliente}/detalhar/${order}`)
+        axios.get(`${basePedido}/${id}/detalhar/${order}`)
             .then((response) => {
                 setDetails({
                     rua: response.data.enderecos.rua,
@@ -63,7 +63,6 @@ function DetailsOrder() {
                     items: response.data.items,
                     produto: response.data.items.produto,
                     tipoPagamento: response.data.tipoPagamento,
-
                 })
             })
             .catch((error) => {
@@ -73,15 +72,12 @@ function DetailsOrder() {
 
     }
 
+
     function getDetailsCard() {
-        axios.get(`http://localhost:8080/pagamento/parcela/${cliente}/1`)
+        axios.get(`http://localhost:8080/historico/${order}/detalhes`)
             .then((response) => {
-                setDetailsCard({
-                    nomeTitular: response.data.cartao.nomeTitular,
-                    numeroCartao: response.data.cartao.numeroCartao,
-                    bandeiraId: response.data.cartao.bandeiraId.nome,
-                })
-                console.log(response)
+                setDetailsCard(response.data)
+                console.log(response.data)
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -108,48 +104,46 @@ function DetailsOrder() {
     function pagamento() {
 
         if (details.tipoPagamento == "cartao") {
-
             return (
                 <>
-                  
-                                <h4 className="d-flex  mb-3 mt-2">
-                                    <span className="">Metodo de Pagamento :{details.tipoPagamento} </span>
-                                </h4>
-                                <li className="list-group-item list1 d-flex-column lh-sm">
-                                    <ul className="mt-2"> Numero do Cartao : {detailsCard.numeroCartao} </ul>
-                                </li>
-                                <li className="list-group-item list1 d-flex-column lh-sm">
-                                    <ul className="mt-2"> Nome do titular : {detailsCard.nomeTitular} </ul>
-                                </li>
-
-                                <li className="list-group-item list1 d-flex-column lh-sm">
-                                    <ul> Bandeira: {detailsCard.bandeiraId}</ul>
-                                </li>
-
-                    
+                    <>
+                        <h4 className="d-flex justify-content-between align-items-center mb-3 mt-5">
+                            <span className="">Método de Pagamento : Cartão</span>
+                        </h4>
+                        <li className="list-group-item list1 d-flex-column lh-sm">
+                            <ul className="mt-2"> Nome do titular : {detailsCard.cartao} </ul>
+                        </li>
+                        <div className="d-flex ">
+                            <li className="list-group-item list1 d-flex-column lh-sm col-7">
+                                <ul> Bandeira: {detailsCard.bandeira} </ul>
+                            </li>
+                            <li className="list-group-item list1 d-flex-column lh-sm col-5">
+                                <ul> Parceladado:  {detailsCard.numeroParcelas}x </ul>
+                            </li>
+                        </div>
+                    </>
 
                 </>
             )
         }
         else if (details.tipoPagamento == "boleto") {
             return (
-                <h4 className="d-flex   mb-3 mt-2">
-                <span className="">Metodo de Pagamento : {details.tipoPagamento}</span>
-                </h4>
+                <>
+                    <h4 className="d-flex   mb-3 mt-2">
+                        <span className="">Metodo de Pagamento : {details.tipoPagamento}</span>
+                    </h4>
+                    <TicketPayment />
+                </>
             )
         }
-
-
-        else if (details.tipoPagamento == "pix") {
-            
+        else {
             return (
-                <h4 className="d-flex   mb-3 mt-2">
-                <span className="">Metodo de Pagamento : {details.tipoPagamento}</span>
-                </h4>
-                )
-      
+                <>
+                    <Pix />
+                </>
+            )
+
         }
-        else { return ("erro") }
     }
 
 
@@ -197,13 +191,13 @@ function DetailsOrder() {
                                 </div >
 
 
-                               
-                            <div className=" mt-5 ">
-                                        {pagamento()}
-                                    </div>
-                                </div >
 
-                        
+                                <div className=" mt-5 ">
+                                    {pagamento()}
+                                </div>
+                            </div >
+
+
 
                             <div className="container col-12 col-md-12 col-lg-6">
 
@@ -234,21 +228,6 @@ function DetailsOrder() {
                                     </li>
                                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 <h4 className="d-flex  align-items-center mb-3 mt-5">
                                     <span className="mb-3">Itens </span>
                                 </h4>
@@ -266,26 +245,11 @@ function DetailsOrder() {
                                 </div>
                                 {itens()}
 
-
-
-
-
-
-
-
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
 
             <Footer />
 

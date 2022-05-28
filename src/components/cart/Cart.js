@@ -39,7 +39,7 @@ function Cart(props) {
         props.valort(valorT - valorFinal + frr)
         return (
             <>{showPrice(valorT - valorFinal + frr)} </>
-            
+
         )
     }
 
@@ -60,7 +60,7 @@ function Cart(props) {
                         <h5 >Quant.</h5>
                     </div>
                     <div className='col-3  '>
-                        <h5>Val. Unitário</h5>    
+                        <h5>Val. Unitário</h5>
                     </div>
                 </div>
                 <ul className="list-group mb-3">

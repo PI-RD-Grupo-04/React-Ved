@@ -2,18 +2,134 @@ import './OrderDetails.css'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import ItemCart from '../../components/itemCardCheckout/itemCartCheckout'
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from '../../components/asserts/imagens/Header/logo.png'
-import { Link } from 'react-router-dom'
-import master from '../../components/asserts/imagens/Users_icon/master.png'
+import { useParams, Link } from 'react-router-dom'
 import Title from '../../components/title/Title'
 import Pix from '../../components/pix/Pix'
 import TicketPayment from '../../components/ticketPayment/TicketPayment'
-
+import pedidoModal from '../../models/Pedido'
+import axios from 'axios'
+import { basePedido } from '../../environments'
 
 function OrderDetails() {
 
-  
+    const { order } = useParams()
+
+    const [details, setDetails] = useState(pedidoModal)
+
+    const [detailsCard, setDetailsCard] = useState({
+        nomeTitular: "",
+        numeroCartao: "",
+        bandeiraId: '',
+    })
+
+    let id = localStorage.getItem('id')
+    useEffect(() => {
+        getDetailsCard() 
+         getDetails()
+    
+
+    }, [])
+
+    const showPrice = (number) => {
+        let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
+
+        return (
+            <>
+                <h6 className="mt-2 d-flex align-items-center ">{priceConverted}</h6>
+            </>
+        )
+
+    }
+
+
+    function getDetails() {
+        axios.get(`${basePedido}/${id}/detalhar/${order}`)
+            .then((response) => {
+                setDetails({
+                    rua: response.data.enderecos.rua,
+                    numero: response.data.enderecos.numero,
+                    municipio: response.data.enderecos.municipio,
+                    complemento: response.data.enderecos.complemento,
+                    codigo_pedido: response.data.codigo_pedido,
+                    tipoFrete: response.data.tipoFrete,
+                    data: response.data.data,
+                    total: response.data.total,
+                    valor_frete: response.data.valor_frete,
+                    items: response.data.items,
+                    produto: response.data.items.produto,
+                    tipoPagamento: response.data.tipoPagamento,
+
+                })
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+
+
+    }
+
+
+    function getDetailsCard() {
+        axios.get(`http://localhost:8080/historico/${order}/detalhes`)
+            .then((response) => {
+                setDetailsCard(response.data)
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+
+    }
+
+
+    function itens() {
+        return details.items.map(a => {
+            return (
+
+                <li className=" list1 ">
+                    <div className=" col-12 ">
+                        <h5 className="d-flex  "> <small className='col-4 mt-2 d-flex align-items-center justify-content-center '> {a.produto} </small> <small className='col-4 mt-2 d-flex align-items-center justify-content-center'>  {a.quantidade}</small> <small className='col-4'> {showPrice(a.preco)}</small></h5>
+                    </div>
+                </li>
+            )
+        })
+    }
+
+    function pagamento() {
+
+        if (details.tipoPagamento == "cartao") {
+            return (
+                <>
+                    <>
+                        <h4 className="d-flex justify-content-between align-items-center mb-3 mt-5">
+                            <span className="">Método de Pagamento : Cartão </span>
+                        </h4>
+                    </>
+
+                </>
+            )
+        }
+        else if (details.tipoPagamento == "boleto") {
+            return (
+                <>
+                    <TicketPayment />
+                </>
+            )
+        }
+        else {
+            return (
+                <>
+                    <Pix />
+                </>
+            )
+
+        }
+    }
+
+
+    console.log(details)
 
 
     return (
@@ -28,102 +144,93 @@ function OrderDetails() {
 
             <Title label="Compra Realizada com Sucesso" />
 
-            <div className="container col-12 alterando d-flex mt-5">
+            <div className="container mt-3 mb-4  ">
+                <div className="row ">
+                    <div className="col-12    mb-3 ">
+                        <Title label="Resumo do pedido" />
 
-                <div className="container col-12 col-md-12 col-lg-6 ">
-                    <div>
-                        <h4 className="d-flex  align-items-center mb-3 mt-2">
-                            <span className="mb-3">Endereço de entrega </span>
-                        </h4>
-                        <h4 className="d-flex  align-items-center mb-3 mt-2">
-                            <span className="mb-3"> </span>
-                        </h4>
-                        <div className="d-flex ">
-                            <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                <ul className="mt-2"> Rua : Santana de Parnaiba    </ul>
-                            </li>
-                            <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                <ul className="mt-2"> Número : 45  </ul>
-                            </li>
-                        </div>
-                        <div className="d-flex ">
-                            <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                <ul className="mt-2"> Múnicípio : Embu das Artes  </ul>
-                            </li>
-                            <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                <ul className="mt-2"> UF : SP  </ul>
-                            </li>
-                        </div>
+                        <div className='alterando d-flex'>
+                            <div className="container col-12 col-md-12 col-lg-6 alterando  ">
+                                <div>
+                                    <h4 className="d-flex  align-items-center mb-3 mt-2">
+                                        <span className="mb-3">Endereço de entrega </span>
+                                    </h4>
 
-                    </div>
+                                    <div className="d-flex ">
+                                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                                            Rua: {details.rua}
+                                        </li>
+                                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                                            <ul className="mt-2">  Numero:  {details.numero}  </ul>
+                                        </li>
+                                    </div>
+                                    <div className="d-flex ">
+                                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                                            <ul className="mt-2"> Município:{details.municipio}  </ul>
+                                        </li>
+                                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
+                                            <ul className="mt-2"> Complemento: {details.complemento}  </ul>
+                                        </li>
+                                    </div>
+                                </div >
 
-                    <h4 className="d-flex justify-content-between align-items-center mb-3 mt-5">
-                        <span className="">Método de Pagamento : Cartão</span>
-                    </h4>
 
-                    <li className="list-group-item list1 d-flex-column lh-sm">
-                        <ul className="mt-2"> Número : **** **** **** 5674  </ul>
-                    </li>
-                    <li className="list-group-item list1 d-flex-column lh-sm">
-                        <ul className="mt-2"> Nome do titular : Washington Pereira  </ul>
-                    </li>
-                    <div className="d-flex">
-                        <li className="list-group-item list1 d-flex-column lh-sm col-4">
-                            <ul className="mt-2"> <img src={master} width="40px" height="40px" alt="Logo Ved"
-                                title="VED - Alimentos Organicos" />  </ul>
-                        </li>
-                        <li className="list-group-item list1 d-flex-column lh-sm col-8">
-                            <ul> Validade : 11/29 </ul>
-                        </li>
-                    </div>
 
-                    <Pix />
-                    <TicketPayment />
+                                <div className=" mt-5 ">
+                                    {pagamento()}
+                                </div>
+                            </div >
 
-                </div>
 
-                <div className="container col-12 col-md-12 col-lg-6">
 
-                    <h4 className="d-flex  align-items-center mb-3 mt-2">
-                        <span className="mb-3">Detalhes de Pedido </span>
-                    </h4>
+                            <div className="container col-12 col-md-12 col-lg-6">
 
-                    <div className="d-flex ">
-                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                            <ul className="mt-2"> Pedido #123    </ul>
-                        </li>
-                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                            <ul className="mt-2"> Entrega Comum  </ul>
-                        </li>
-                    </div>
-                    <div className="d-flex ">
-                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                            <ul className="mt-2"> Data: 21/02/2022 </ul>
-                        </li>
-                        <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                            <ul className="mt-2"> Total : R$68,70  </ul>
-                        </li>
-                    </div>
 
-                    <h4 className="d-flex  align-items-center mb-3 mt-5">
-                        <span className="ml">Itens Comprados :  </span>
+                                <h4 className="d-flex  align-items-center mb-3 mt-2">
+                                    <span className="mb-3">Detalhes do Pedido</span>
+                                </h4>
 
-                        <span className="badge bg-success rounded-pill"> 5</span>
-                    </h4>
-                    <ul className="list-group " />
-                    <ItemCart nome="abacaxi" descricao="1kg aprox." price="9,00" />
-                    <ItemCart nome="laranja" descricao="8 unid." price="12,90" />
-                    <ItemCart nome="Maça" descricao="1kg aprox." price="12,00" />
-                    <ItemCart nome="Alface" descricao="1 unid." price="4,90" />
-                    <ItemCart nome="Banana" descricao="1kg aprox." price="9,90" />
-                    <div>
-                        <li className="list-group-item list1 d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 className="my-0">Total</h6>
-                                <small className="text-muted"></small>
+                                <div className="d-flex ">
+                                    <li className="list-group-item list1 d-flex lh-sm col-6">
+                                        <ul className="mt-2 mt-2 d-flex align-items-center "> Pedido #{details.codigo_pedido}   </ul>
+                                    </li>
+                                    <li className="list-group-item list1 d-flex lh-sm col-6">
+                                        <ul className="mt-2 mt-2 d-flex align-items-center "> Tipo Frete :{details.tipoFrete} </ul>
+                                    </li>
+                                </div>
+                                <div className="d-flex ">
+                                    <li className="list-group-item list1 d-flexlh-sm col-6">
+                                        <ul className="mt-2 mt-2 d-flex align-items-center "> Valor Frete :{showPrice(details.valor_frete)} </ul>
+                                    </li>
+                                    <li className="list-group-item list1 d-flex lh-sm col-6">
+                                        <ul className="mt-2 mt-2 d-flex align-items-center "> Data:{details.data} </ul>
+                                    </li>
+                                </div>
+                                <div className="d-flex ">
+                                    <li className="list-group-item list1 d-flex col-12 ">
+                                        <ul className="mt-2 d-flex align-items-center "> Total:{showPrice(details.total)}</ul>
+                                    </li>
+                                </div>
+
+                                <h4 className="d-flex  align-items-center mb-3 mt-5">
+                                    <span className="mb-3">Itens </span>
+                                </h4>
+
+                                <div className="d-flex flex-row border align-items-center justify-content-center">
+                                    <div className='col-4 d-flex'>
+                                        <h5>Produtos</h5>
+                                    </div>
+                                    <div className='col-4 d-flex'>
+                                        <h5>Quantidade</h5>
+                                    </div>
+                                    <div className='col-4  '>
+                                        <h5>Val. Unitário</h5>
+                                    </div>
+                                </div>
+                                {itens()}
+
                             </div>
-                            <span className="text-muted"><strong>R$ 48,70</strong> </span>
-                        </li>
+                        </div>
                     </div>
                 </div>
             </div>

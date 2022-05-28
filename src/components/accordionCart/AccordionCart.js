@@ -11,7 +11,7 @@ function AccordionCart(props) {
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Bandeira : {props.bandeira}</Accordion.Header>
                         <Accordion.Body>
-                        <input type="checkbox" className="margemright" id="card-02" name="Card-02" value="card-02" />
+                            
                         <label className="margin" for="card-01">Nome: {props.nome}</label>
                         <label Maska ="**** **** **** 9999"  className="margin" for="card-01">Nº {props.numero}</label>
                         <label className="margin" for="card-01">Val: {props.mes}/{props.ano}</label>

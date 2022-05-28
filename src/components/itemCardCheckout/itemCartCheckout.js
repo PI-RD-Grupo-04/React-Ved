@@ -21,11 +21,15 @@ function ItemCart(props) {
                     <h5 className={promo}>{props.nome}</h5>
                 </div>
                 <div className='col-2 d-flex'>
-                    <h5 className={promo}>{props.quantidade} x</h5>
+                   
+                    {props.cupom
+                        ?  <h5 className={promo}>Ativo</h5>
+                        :  <h5 className={promo}>{props.quantidade} x</h5>
+                    }
                 </div>
                 <div className='col-3 text-center d-flex align-items-center justify-content-between flex-row'> 
                 {props.cupom
-                        ? <h6 className='d-flex justify-content-between text-success'> -{showPrice(props.price)}%</h6>
+                        ? <h4 className='d-flex justify-content-between text-success'> -{props.price}%</h4  >
                         : <h4>{showPrice(props.price)}</h4>
                     }
                 </div>

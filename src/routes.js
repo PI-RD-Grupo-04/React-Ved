@@ -48,7 +48,7 @@ export const Routes = () => {
             <Route path="/suggestion" component={Suggestion}/>
             <Route path="/register" component={Register} />             
             <Route path="/login" component={Login} exact/>
-            <Route path="/orderSucess" component={OrderDetails} exact/>
+            <Route path="/orderSuccess/:order" component={OrderDetails} exact/>
             <Route path="/contact" component={Contact} exact/>
             <Route path="/passwordChange" component={PasswordChange}/>
             <Route path="/passwordRecovery" component={PasswordRecovery}/>

@@ -13,7 +13,6 @@ import ClientContext from '../../context/Client.provider'
 import { Alert, Modal } from 'react-bootstrap'
 
 function Address() {
-    const { client, getCliente } = useContext(ClientContext)
     const [endereco, setEndereco] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
 
