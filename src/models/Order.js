@@ -1,5 +1,5 @@
 const OrderModel = {
-    data: '',
+    data: "",
     cliente: 1,
     cupomDesconto:0,
     pedidoStatus: 1,
@@ -8,5 +8,6 @@ const OrderModel = {
     tipoPagamento: '',
     valorTotal: 0
 } 
+
 
 export default OrderModel

@@ -24,7 +24,7 @@ function Checkout() {
     const [order, setOrder] = useState(OrderModel)
 
 
-    const { client } = useContext(ClientContext)
+    const { client, getIdCliente } = useContext(ClientContext)
     const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
     const [address, setAddress] = useState([])
     const [entrega, setEntrega] = useState({})
@@ -48,8 +48,15 @@ function Checkout() {
         getCartao()
         listarCarrinho()
         total()
-        dataNow()
         getCartao()
+        getIdCliente()
+        setOrder({ ...order, cliente: client })
+        var data = new Date();
+        var dia = String(data.getDate()).padStart(2, '0');
+        var mes = String(data.getMonth() + 1).padStart(2, '0');
+        var ano = data.getFullYear();
+        var dataAtual = dia + '/' + mes + '/' + ano
+        setOrder({ ...order, data: dataAtual })
     }, [])
 
     const getEndereco = () => {
@@ -81,38 +88,18 @@ function Checkout() {
         postItemPedido(lista)
     }
 
-    const dataNow = () => {
-        var data = new Date();
-        var dia = String(data.getDate()).padStart(2, '0');
-        var mes = String(data.getMonth() + 1).padStart(2, '0');
-        var ano = data.getFullYear();
-        let dataAtual = dia + '/' + mes + '/' + ano;
-        setOrder({ ...order, cliente: cliente })
-        setOrder({ ...order, data: dataAtual })
-    }
 
     // comeco do pedido
     const postPedido = () => {
         axios.post(`${basePedido}/novo`, order)
-            .then(() => {
-                getPedido()
-            })
-            .catch((error) => {
-                console.error(error.messege)
-            })
-    }
-
-
-    //pega o ID do ultimo pedido adicionado 
-    function getPedido() {
-        axios.get(`${basePedido}/ultimo`)
             .then((response) => {
-                addItemPedido(response.data.id)
+               addItemPedido(response.data.id)
             })
             .catch((error) => {
                 console.error(error.messege)
             })
     }
+
 
 
     // ultimo passo para finalizar o pedido
@@ -225,8 +212,6 @@ function Checkout() {
 
     function valorTotalOrder(valor) {
         setValor(valor)
-        console.log()
-
     }
 
 
@@ -351,6 +336,7 @@ function Checkout() {
                                     {/*  <!-- OPÇOES DE PAGAMENTOS --> */}
                                     {/*---------------------------- boleto---------------------------- */}
                                     <RadioBox onClick={() => {
+
                                         setOrder({ ...order, tipoPagamento: "boleto", valorTotal: valorFinal })
                                         setPagamento({
                                             card: false,
@@ -360,6 +346,7 @@ function Checkout() {
                                     }} label="Boleto" id='boleto' name="1" />
                                     {/*------------------- cartao----------------------- */}
                                     <RadioBox onClick={() => {
+
                                         setOrder({ ...order, tipoPagamento: "cartao", valorTotal: valorFinal })
                                         setPagamento({
                                             card: true,
@@ -369,7 +356,8 @@ function Checkout() {
                                     }} label="Cartão de Crédito/Débito" id="card" name="1" />
                                     {/*---------------------------- pix --------------------*/}
                                     <RadioBox onClick={() => {
-                                         setOrder({ ...order, tipoPagamento: "pix", valorTotal: valorFinal })
+
+                                        setOrder({ ...order, tipoPagamento: "pix", valorTotal: valorFinal })
                                         setPagamento({
                                             card: false,
                                             pix: true,

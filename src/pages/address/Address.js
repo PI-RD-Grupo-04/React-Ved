@@ -20,12 +20,13 @@ function Address() {
 
 
     useEffect(() => {
+        let id = getCliente()
         getEndereco()
 
     }, [])
 
     const getEndereco = () => {
-        axios.get(`${baseEndereco}/${client}/detalhes`)
+        axios.get(`${baseEndereco}/${id}/detalhes`)
             .then((response) => {
                 setEndereco(response.data)
                 listEnderecos()

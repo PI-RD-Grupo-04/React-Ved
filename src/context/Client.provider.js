@@ -13,18 +13,14 @@ function ClientProvider(props) {
     const [clienteDados, setClienteDados] = useState({})
     const [logiin, setLogiin] = useState({})
 
-    useEffect(() => {
-        let logado = localStorage.getItem('id')
-        logado ? setClient(JSON.parse(logado)) : setClient(null)
-    }, [])
-
-
     const getCliente = (idcliente) => {
         axios.get(`${baseCliente}/${idcliente}`)
             .then((response) => {
                 setClienteDados(response.data)
                 console.log(response.data)
                 localStorage.cliente = JSON.stringify(response.data)
+                return response.data
+                
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -74,11 +70,13 @@ function ClientProvider(props) {
     function getIdCliente() {
         setClient(JSON.parse(localStorage.getItem('id')))
         getCliente(JSON.parse(localStorage.getItem('id')))
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
     }
 
 
     function getDadosDoCliente() {
         setClienteDados(JSON.parse(localStorage.getItem('cliente')))
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
     }
 
 
