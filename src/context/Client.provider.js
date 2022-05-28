@@ -1,43 +1,86 @@
 import React, { useState, createContext, useEffect } from 'react'
-import { baseCliente } from '../environments' 
+import { baseCliente, baseLogin } from '../environments'
 import axios from 'axios'
+
 
 const ClientContext = createContext({})
 
 function ClientProvider(props) {
 
-    const [client, setCliente] = useState({})
+    const [client, setClient] = useState(null)
+    const [nome, setNome] = useState('')
+    const [token, setToken] = useState('')
+    const [clienteDados, setClienteDados] = useState({})
+    const [logiin, setLogiin] = useState({})
 
-    useEffect(() => {
-        getCliente(1)
-        setCliente(JSON.parse(localStorage.getItem('user')))
-    },[ ])
-
-    const getCliente = (cliente) => {
-        axios.get(`${baseCliente}/${cliente}`)
+    const getCliente = (idcliente) => {
+        axios.get(`${baseCliente}/${idcliente}`)
             .then((response) => {
-                setCliente(response.data) 
-                localStorage.user = JSON.stringify(response.data)
+                setClienteDados(response.data)
+                console.log(response.data)
+                localStorage.cliente = JSON.stringify(response.data)
+                
             })
             .catch((error) => {
                 console.error(error.messege)
             })
-    } 
-
-
-
-    const logado = (cliente) => {
-        setCliente(cliente)
-        localStorage.nome = "jeff"
     }
 
-    function BuscaClient() {
-        setCliente(JSON.parse(localStorage.getItem('user')))
+    const LogarCliente = async (login) => {
+        let success = false
+        setLogiin(login)
+        await axios.post(`${baseLogin}auth`, login)
+            .then((response) => {
+                setNome(response.data.nome)
+                localStorage.setItem('nome', JSON.stringify(response.data.nome))
+                setClient(response.data.id)
+                localStorage.setItem('id', JSON.stringify(response.data.id))
+                setToken(response.data.token)
+                localStorage.setItem('token', JSON.stringify(response.data.token))
+                axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`
+                success = true
+                getCliente(response.data.id)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+
+        return success
     }
+
+
+
+  
+
+    function AtualizarNome() {
+        setClienteDados(JSON.parse(localStorage.getItem('cliente')))
+        setNome(JSON.parse(localStorage.getItem('nome')))
+        setClient(JSON.parse(localStorage.getItem('id')))
+    }
+    function getIdCliente() {
+        setClient(JSON.parse(localStorage.getItem('id')))
+        getCliente(JSON.parse(localStorage.getItem('id')))
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
+    }
+
+
+    function getDadosDoCliente() {
+        setClienteDados(JSON.parse(localStorage.getItem('cliente')))
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
+    }
+
+
+
+
+
 
     return (
         <ClientContext.Provider
-            value={{ client, logado, getCliente, BuscaClient }}>
+            value={{
+                client, getCliente, LogarCliente, AtualizarNome,
+                Autorizado: !!client, nome, clienteDados, getIdCliente,
+                getDadosDoCliente
+            }}>
             {props.children}
         </ClientContext.Provider>
     )

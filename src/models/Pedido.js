@@ -10,6 +10,11 @@ const pedidoModal =  {
     valor_frete: '',
     items: [], 
     produto: '',
+    tipoPagamento:'',
+    nomeTitular: '',
+    numeroCartao:'',
+    bandeiraId:'',
+
 } 
 
 

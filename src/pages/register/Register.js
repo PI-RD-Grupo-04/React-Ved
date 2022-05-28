@@ -37,7 +37,7 @@ function Register() {
     }, [])
 
     const postClient = (cliente) => {
-        axios.post(`${baseCliente}`, cliente)
+        axios.post(`${baseCliente}/novo`, cliente)
             .then(() => {
                 console.log('cadastrou')
                 setValidacao(true)

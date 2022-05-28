@@ -13,16 +13,17 @@ function Request() {
 
     const [orders, setOrders] = useState([])
     const [status, setStatus] = useState([])
-    const { client } = useContext(ClientContext)
-    const cliente = 1
+    const { client, getIdCliente } = useContext(ClientContext)
+    
 
-
+    let id = localStorage.getItem('id')
     useEffect(() => {
-        getOrders()
+        getIdCliente()
+        getOrders() 
     }, [])
 
     const getOrders = () => {
-        axios.get(`${basePedido}/${cliente}/pedidos`)
+        axios.get(`${basePedido}/${id}/pedidos`)
             .then((response) => {
                 setOrders(response.data)
             })

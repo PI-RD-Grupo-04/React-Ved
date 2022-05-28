@@ -19,91 +19,146 @@ function DetailsOrder() {
 
     const { order } = useParams()
     const [details, setDetails] = useState(pedidoModal)
-
+    const [detailsCard, setDetailsCard] = useState({
+        nomeTitular: "",
+        numeroCartao: "",
+        bandeiraId: '',
+    })
     const cliente = 1
+    const cartao = 3
 
     const items = []
 
     useEffect(() => {
         getDetails()
-       
+        getDetailsCard()
     }, [])
 
     const showPrice = (number) => {
         let priceConverted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number)
-        
-        return (
-        <>
-        <h6 className="">{priceConverted}</h6>
-        </>
-        )
-        
-        }
-
-  
-
-    function getDetails() {
-            axios.get(`${basePedido}/${cliente}/detalhar/${order}`)
-                .then((response) => {
-                    // setDetails(response.data)
-                    setDetails({
-                        rua: response.data.enderecos.rua,
-                        numero: response.data.enderecos.numero,
-                        municipio: response.data.enderecos.municipio,
-                        complemento: response.data.enderecos.complemento,
-                        codigo_pedido: response.data.codigo_pedido,
-                        tipoFrete: response.data.tipoFrete,
-                        data: response.data.data,
-                        total: response.data.total,
-                        valor_frete: response.data.valor_frete,
-                        items: response.data.items,
-                        produto: response.data.items.produto,
-                    })
-
-
-                })
-                .catch((error) => {
-                    console.error(error.messege)
-                })
-        }
-    
-        function itens (){
-                return details.items.map(a => {
-                    return (
-                   
-               <li className="list-group-item list1 d-flex justify-content-between lh-sm col-12">
-               <div>
-                   <h5 className="my-0">Item: {a.produto} <small>Preço: {showPrice(a.preco)}</small> <small> Quantidade {a.quantidade}</small></h5>
-               </div>
-                </li>
-
-        )})}
-    
-
-    function cartaoultilazo() {
 
         return (
             <>
-                <li className="list-group-item list1 d-flex-column lh-sm">
-                    <ul className="mt-2">  </ul>
-                </li>
-                <li className="list-group-item list1 d-flex-column lh-sm">
-                    <ul className="mt-2"> Nome do titular : Washington Pereira  </ul>
-                </li>
-                <div className="d-flex">
-                    <li className="list-group-item list1 d-flex-column lh-sm col-4">
-                        <ul className="mt-2"> <img src={master} width="40px" height="40px" alt="Logo Ved"
-                            title="VED - Alimentos Organicos" />  </ul>
-                    </li>
-                    <li className="list-group-item list1 d-flex-column lh-sm col-8">
-                        <ul> Validade : 11/29 </ul>
-                    </li>
-                </div>
-
-
+                <h6 className="mt-2 d-flex align-items-center ">{priceConverted}</h6>
             </>
         )
+
+    }
+
+
+
+    function getDetails() {
+        axios.get(`${basePedido}/${cliente}/detalhar/${order}`)
+            .then((response) => {
+                setDetails({
+                    rua: response.data.enderecos.rua,
+                    numero: response.data.enderecos.numero,
+                    municipio: response.data.enderecos.municipio,
+                    complemento: response.data.enderecos.complemento,
+                    codigo_pedido: response.data.codigo_pedido,
+                    tipoFrete: response.data.tipoFrete,
+                    data: response.data.data,
+                    total: response.data.total,
+                    valor_frete: response.data.valor_frete,
+                    items: response.data.items,
+                    produto: response.data.items.produto,
+                    tipoPagamento: response.data.tipoPagamento,
+
+                })
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+
+
+    }
+
+    function getDetailsCard() {
+        axios.get(`http://localhost:8080/pagamento/parcela/${cliente}/1`)
+            .then((response) => {
+                setDetailsCard({
+                    nomeTitular: response.data.cartao.nomeTitular,
+                    numeroCartao: response.data.cartao.numeroCartao,
+                    bandeiraId: response.data.cartao.bandeiraId.nome,
+                })
+                console.log(response)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+
+    }
+
+
+
+    function itens() {
+        return details.items.map(a => {
+            return (
+
+                <li className=" list1 ">
+                    <div className=" col-12 ">
+                        <h5 className="d-flex  "> <small className='col-4 mt-2 d-flex align-items-center justify-content-center '> {a.produto} </small> <small className='col-4 mt-2 d-flex align-items-center justify-content-center'>  {a.quantidade}</small> <small className='col-4'> {showPrice(a.preco)}</small></h5>
+                    </div>
+                </li>
+            )
+        })
+    }
+
+
+    function pagamento() {
+
+        if (details.tipoPagamento == "cartao") {
+
+            return (
+                <>
+                  
+                                <h4 className="d-flex  mb-3 mt-2">
+                                    <span className="">Metodo de Pagamento :{details.tipoPagamento} </span>
+                                </h4>
+                                <li className="list-group-item list1 d-flex-column lh-sm">
+                                    <ul className="mt-2"> Numero do Cartao : {detailsCard.numeroCartao} </ul>
+                                </li>
+                                <li className="list-group-item list1 d-flex-column lh-sm">
+                                    <ul className="mt-2"> Nome do titular : {detailsCard.nomeTitular} </ul>
+                                </li>
+
+                                <li className="list-group-item list1 d-flex-column lh-sm">
+                                    <ul> Bandeira: {detailsCard.bandeiraId}</ul>
+                                </li>
+
+                    
+
+                </>
+            )
         }
+        else if (details.tipoPagamento == "boleto") {
+            return (
+                <h4 className="d-flex   mb-3 mt-2">
+                <span className="">Metodo de Pagamento : {details.tipoPagamento}</span>
+                </h4>
+            )
+        }
+
+
+        else if (details.tipoPagamento == "pix") {
+            
+            return (
+                <h4 className="d-flex   mb-3 mt-2">
+                <span className="">Metodo de Pagamento : {details.tipoPagamento}</span>
+                </h4>
+                )
+      
+        }
+        else { return ("erro") }
+    }
+
+
+
+
+
+
+
+
 
     return (
         <>
@@ -125,7 +180,7 @@ function DetailsOrder() {
 
                                     <div className="d-flex ">
                                         <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                                   Rua: {details.rua} 
+                                            Rua: {details.rua}
                                         </li>
                                         <li className="list-group-item list1 d-flex-column lh-sm col-6">
                                             <ul className="mt-2">  Numero:  {details.numero}  </ul>
@@ -140,30 +195,54 @@ function DetailsOrder() {
                                         </li>
                                     </div>
                                 </div >
-                                <h4 className="d-flex justify-content-between align-items-center mb-3 mt-5">
-                                    <span className="">Metodo de Pagamento : Cartão</span>
-
-                                </h4>
 
 
+                               
+                            <div className=" mt-5 ">
+                                        {pagamento()}
+                                    </div>
+                                </div >
 
-                          
-
-                            
-                                <h3>{details.items.produto}</h3>
-
-
-
-
-                            </div>
+                        
 
                             <div className="container col-12 col-md-12 col-lg-6">
-                            <h4 className="d-flex  align-items-center mb-3 mt-2">
-                                        <span className="mb-3">Endereço de entrega </span>
-                                    </h4>
 
 
-                                {itens()}
+                                <h4 className="d-flex  align-items-center mb-3 mt-2">
+                                    <span className="mb-3">Detalhes do Pedido</span>
+                                </h4>
+
+                                <div className="d-flex ">
+                                    <li className="list-group-item list1 d-flex lh-sm col-6">
+                                        <ul className="mt-2 mt-2 d-flex align-items-center "> Pedido #{details.codigo_pedido}   </ul>
+                                    </li>
+                                    <li className="list-group-item list1 d-flex lh-sm col-6">
+                                        <ul className="mt-2 mt-2 d-flex align-items-center "> Tipo Frete :{details.tipoFrete} </ul>
+                                    </li>
+                                </div>
+                                <div className="d-flex ">
+                                    <li className="list-group-item list1 d-flexlh-sm col-6">
+                                        <ul className="mt-2 mt-2 d-flex align-items-center "> Valor Frete :{showPrice(details.valor_frete)} </ul>
+                                    </li>
+                                    <li className="list-group-item list1 d-flex lh-sm col-6">
+                                        <ul className="mt-2 mt-2 d-flex align-items-center "> Data:{details.data} </ul>
+                                    </li>
+                                </div>
+                                <div className="d-flex ">
+                                    <li className="list-group-item list1 d-flex col-12 ">
+                                        <ul className="mt-2 d-flex align-items-center "> Total:{showPrice(details.total)}</ul>
+                                    </li>
+                                </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -171,34 +250,31 @@ function DetailsOrder() {
 
 
                                 <h4 className="d-flex  align-items-center mb-3 mt-5">
-                                    <span className="mb-3">Detalhes de Pedido </span>
+                                    <span className="mb-3">Itens </span>
                                 </h4>
 
-                                <div className="d-flex ">
-                                    <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                        <ul className="mt-2"> Pedido #{details.codigo_pedido}   </ul>
-                                    </li>
-                                    <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                        <ul className="mt-2"> Tipo Frete :{details.tipoFrete} </ul>
-                                    </li>
-                                </div>
-                                <div className="d-flex ">
-                                    <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                        <ul className="mt-2"> Valor Frete :{showPrice(details.valor_frete)} </ul>
-                                    </li>
-                                    <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                        <ul className="mt-2"> Data:{details.data} </ul>
-                                    </li>
+                                <div className="d-flex flex-row border align-items-center justify-content-center">
+                                    <div className='col-4 d-flex'>
+                                        <h5>Produtos</h5>
                                     </div>
-                                    <div className="d-flex ">
-                                    <li className="list-group-item list1 d-flex-column col-12 ">
-                                        <ul className="mt-2"> Total : {showPrice(details.total)}  </ul>
-                                    </li>
+                                    <div className='col-4 d-flex'>
+                                        <h5>Quantidade</h5>
+                                    </div>
+                                    <div className='col-4  '>
+                                        <h5>Val. Unitário</h5>
+                                    </div>
                                 </div>
+                                {itens()}
 
-                       
 
-                              
+
+
+
+
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -215,8 +291,8 @@ function DetailsOrder() {
 
         </>
     )
-    }
+}
 
-    
+
 
 export default DetailsOrder;

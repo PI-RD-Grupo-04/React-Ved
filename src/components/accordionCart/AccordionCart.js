@@ -4,9 +4,6 @@ import { Accordion } from 'react-bootstrap'
 
 function AccordionCart(props) {
 
-
-    
-
     return (
         <>
 
@@ -16,7 +13,7 @@ function AccordionCart(props) {
                         <Accordion.Body>
                         <input type="checkbox" className="margemright" id="card-02" name="Card-02" value="card-02" />
                         <label className="margin" for="card-01">Nome: {props.nome}</label>
-                        <label className="margin" for="card-01">Nº {props.numero}</label>
+                        <label Maska ="**** **** **** 9999"  className="margin" for="card-01">Nº {props.numero}</label>
                         <label className="margin" for="card-01">Val: {props.mes}/{props.ano}</label>
                         <div className="col-3">
                             <p>CVV</p>

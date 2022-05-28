@@ -35,8 +35,11 @@ function Cart(props) {
         let valorT = props.valor
         let porcento = props.cupom.porcentagemDesconto ? props.cupom.porcentagemDesconto : 0
         let valorFinal = ((porcento / 100) * valorT)
+        let frr = props.frete
+        props.valort(valorT - valorFinal + frr)
         return (
-            <>{showPrice(valorT - valorFinal + props.frete)} </>
+            <>{showPrice(valorT - valorFinal + frr)} </>
+            
         )
     }
 

@@ -7,24 +7,25 @@ import ModalEndereco from '../../components/modalEndereco/ModalEndereco'
 import Title from '../../components/title/Title'
 import React, { useState, useEffect, useContext } from 'react'
 import { baseEndereco } from '../../environments'
-import { AiFillCheckCircle } from "react-icons/ai"
-import { Alert } from 'react-bootstrap'
+import { AiOutlineCloseCircle, AiFillCheckCircle } from "react-icons/ai"
 import axios from 'axios'
 import ClientContext from '../../context/Client.provider'
+import { Alert, Modal } from 'react-bootstrap'
 
-function Address() { 
-    const { client, getCliente, BuscaClient } = useContext(ClientContext)
+function Address() {
+    const { client, getCliente } = useContext(ClientContext)
     const [endereco, setEndereco] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
 
+
+    let id = localStorage.getItem('id')
     useEffect(() => {
         getEndereco()
-        BuscaClient()
 
     }, [])
 
     const getEndereco = () => {
-        axios.get(`${baseEndereco}/1/detalhes`)
+        axios.get(`${baseEndereco}/${id}/detalhes`)
             .then((response) => {
                 setEndereco(response.data)
                 listEnderecos()
@@ -35,7 +36,7 @@ function Address() {
     }
 
     const deleteEndereco = (endereco) => {
-        axios.delete(`${baseEndereco}/1/delete/${endereco}`)
+        axios.delete(`${baseEndereco}/${id}/delete/${endereco}`)
             .then(() => {
                 getEndereco()
                 setSuccessDelete(true)
@@ -99,6 +100,8 @@ function Address() {
                     </div>
                 </div>
             </div>
+
+
 
             <Footer />
 

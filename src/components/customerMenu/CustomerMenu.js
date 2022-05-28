@@ -2,7 +2,16 @@ import './CustomerMenu.css'
 import menuhamburguer from '../asserts/imagens/Header/hamburger_menu.png'
 import { Link } from 'react-router-dom'
 
+
 function CustomerMenu() {
+
+    const sairClient = () => {
+        //limpa tudo da memoria e revoga tudo da memoria
+        console.log('sair')
+
+        // delete axios.defaults.headers.common["Authorization"]
+    }
+
     return (
         <>
             {/* ************** BEGIN Parte do Menu lateral  **************   */}
@@ -42,7 +51,7 @@ function CustomerMenu() {
                 <div className="col-12 col-sm-6 menucanvas">
 
                     <button className="btn border " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvascategoria"
-                        aria-controls="offcanvasExample"><img src= {menuhamburguer} alt="" />
+                        aria-controls="offcanvasExample"><img src={menuhamburguer} alt="" />
                     </button>
 
 
@@ -72,8 +81,13 @@ function CustomerMenu() {
                                             <li className="li-item-menuLateral">Meus Cartões</li>
                                         </Link>
                                         <hr />
-                                        <Link to="/login">
-                                            <li className="li-item-menuLateral">Sair</li>
+                                        <Link >
+                                            <li className="li-item-menuLateral" onClick={() => {
+                                                localStorage.removeItem('token')
+                                                localStorage.removeItem('id')
+                                                localStorage.removeItem("nome")
+                                                localStorage.removeItem('cliente')
+                                            }}>Sair</li>
                                         </Link>
                                     </ul>
                                 </div>

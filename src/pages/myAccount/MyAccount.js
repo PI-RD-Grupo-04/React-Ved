@@ -15,7 +15,7 @@ import { baseCliente } from '../../environments'
 import axios from 'axios'
 
 function MyAccount() {
-    const { client, BuscaClient } = useContext(ClientContext)
+    const { getCliente, client, getDadosDoCliente, clienteDados, getIdCliente } = useContext(ClientContext)
     const [update, setUpdate] = useState(UpdateClientModal)
     const [show, setShow] = useState(false);
     const [successUpdate, setSuccessUpdate] = useState(false);
@@ -29,23 +29,25 @@ function MyAccount() {
     const [senhaConfirmar, setSenhaConfirmar] = useState('')
     const [senhaConfirmOk, setSenhaconfirmOk] = useState('d-none')
     const [senhaConfirmError, setSenhaConfirmError] = useState('d-none')
-
-    console.log(client)
+    const [cliente , setCliente ] = useState ([])
     
     useEffect(() => {
-        BuscaClient()
+
+        getDadosDoCliente()
         setUpdate({
-            nome: client.nome,
-            sobrenome: client.sobrenome,
-            nomeSocial: client.nomeSocial,
-            telefone: client.telefone,
-            email: client.email
+            nome: clienteDados.nome,
+            sobrenome: clienteDados.sobrenome,
+            nomeSocial: clienteDados.nomeSocial,
+            telefone: clienteDados.telefone,
+            email: clienteDados.email
         })
+
+        console.log(clienteDados)
     }, [])
 
     function setAtualizaCliente(atualiza) {
         axios.put(`${baseCliente}/atualizar`, atualiza)
-            .then((response) => {
+            .then(() => {
                 setSuccessUpdate(true)
                 setSuccessError(false)
             })
@@ -95,9 +97,9 @@ function MyAccount() {
                             <InputGroup value={update.nome} change={(e) => { setUpdate({ ...update, nome: e.target.value }) }} required info="Primeiro Nome" label="Nome: " type="text" id="Nome" col="col-12 col-sm-6" />
                             <InputGroup value={update.sobrenome} change={(e) => { setUpdate({ ...update, sobrenome: e.target.value }) }} required label="Sobrenome: " info="Sobrenome" type="text" id="sobrenome" col="col-12 col-sm-6" />
                             <InputGroup info="Nome Social" value={update.nomeSocial} label="Nome Social: " change={(e) => { setUpdate({ ...update, nomeSocial: e.target.value }) }} id="Nome-Social" col="col-12 col-sm-6" />
-                            <InputGroup block value={client.cpf} required label="CPF: " info="Apenas Números " mask="999.999.999-99" type="number" id="cpf" col="col-12 col-sm-6" />
-                            <InputGroup block value={client.dataNascimento} required mask="99/99/9999" info="dia/mês/ano" label="Data de Nasc.: " id="nascimento" type="text" col="col-12 col-sm-3" />
-                            <InputGroup block value={client.email} required label="Email: " info="seu email" id="email" type="email" col="col-12 col-sm-5" />
+                            <InputGroup block value={clienteDados.cpf} required label="CPF: " info="Apenas Números " mask="999.999.999-99" type="number" id="cpf" col="col-12 col-sm-6" />
+                            <InputGroup block value={clienteDados.dataNascimento} required mask="99/99/9999" info="dia/mês/ano" label="Data de Nasc.: " id="nascimento" type="text" col="col-12 col-sm-3" />
+                            <InputGroup block value={clienteDados.email} required label="Email: " info="seu email" id="email" type="email" col="col-12 col-sm-5" />
                             <InputGroup value={update.telefone} change={(e) => { setUpdate({ ...update, telefone: e.target.value }) }} required mask="(99) 99999-9999" info="fixo ou celular " label="Telefone: " id="telefone" type="number" col="col-12 col-sm-4" />
                             <div class="d-grid justify-content-center align-items-center gap-2   align-cen  ter mt-3 mb-3">
                                 <Button success label="Atualizar Dados" confirm click={() => { handleShow() }}></Button >
@@ -132,11 +134,6 @@ function MyAccount() {
                             setSenha(e.target.value)
                         }}
                             className="form-control" id="form-senha" />
-                        {/* <span className={senhaError}>Senha no mínimo 8 caracteres</span> */}
-
-                        {/* <div className={senhaOk + " "} >
-                            <img src={iconOk} width='24px' height='24px' />
-                        </div> */}
                     </div>
 
                     <div className="col-12 col-sm-6">
@@ -173,6 +170,7 @@ function MyAccount() {
                                         handleClose()
                                         setSuccessUpdate(false)
                                         setSuccessError(false)
+                                        getDadosDoCliente()
                                     }, 4000)
 
                             }}>Salvar e enviar</button></>

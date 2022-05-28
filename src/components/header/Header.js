@@ -13,14 +13,12 @@ import ClientContext from '../../context/Client.provider'
 function Header() {
 
     const [buscar, setBuscar] = useState('')
-    const { client, getCliente } = useContext(ClientContext)
+    const {  nome, AtualizarNome } = useContext(ClientContext)
     const { qtyCarrinho, total } = useContext(CartContext)
 
 
     useEffect(() => {
-        quantidade()
-        getCliente(1)
-        total()
+        AtualizarNome()
     }, [])
 
     function quantidade() {
@@ -32,13 +30,13 @@ function Header() {
 
 
     function exibirNome() {
-        if (client.nome == "") {
+        if (nome == "" || nome == null) {
             return (
                 <Link className="icon-perfil icon-config" to='/Login'>Faça Login</Link>
             )
         } else {
             return (
-                <Link className="icon-perfil icon-config" to='/MyAccount'>{client.nome}</Link>
+                <Link className="icon-perfil icon-config" to='/MyAccount'>{nome}</Link>
             )
         }
     }
