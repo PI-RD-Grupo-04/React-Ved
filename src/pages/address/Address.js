@@ -18,9 +18,8 @@ function Address() {
     const [successDelete, setSuccessDelete] = useState(false);
 
 
-
+    let id = localStorage.getItem('id')
     useEffect(() => {
-        let id = getCliente()
         getEndereco()
 
     }, [])
@@ -37,7 +36,7 @@ function Address() {
     }
 
     const deleteEndereco = (endereco) => {
-        axios.delete(`${baseEndereco}/1/delete/${endereco}`)
+        axios.delete(`${baseEndereco}/${id}/delete/${endereco}`)
             .then(() => {
                 getEndereco()
                 setSuccessDelete(true)

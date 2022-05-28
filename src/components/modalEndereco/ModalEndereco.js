@@ -20,7 +20,7 @@ function ModalEndereco(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    let cliente = 1
+    let id = localStorage.getItem('id')
     useEffect(() => {
       
         getStates()
@@ -29,7 +29,6 @@ function ModalEndereco(props) {
     const getCep = (cep) => {
          axios.get(`https://viacep.com.br/ws/${cep}/json/ `)
             .then((response) => {
-              
             setAddress({
                 cep: response.data.cep ,
                 rua:response.data.logradouro,
@@ -47,7 +46,7 @@ function ModalEndereco(props) {
     }
 
     const postEndereco = (address) => {
-        axios.post(`${baseEndereco}/${cliente}/novo`, address)
+        axios.post(`${baseEndereco}/${id}/novo`, address)
             .then((response) => {
                 props.get()
             })

@@ -17,7 +17,7 @@ function PaymentCards() {
     const [cartao, setCartao] = useState([])
     const [successDelete, setSuccessDelete] = useState(false);
 
-    let cliente = 1
+    let id = localStorage.getItem('id')
 
     useEffect(() => {
         getCartao()
@@ -25,7 +25,7 @@ function PaymentCards() {
 
 
     const getCartao = () => {
-        axios.get(`${baseCartao}/1/detalhes`)
+        axios.get(`${baseCartao}/${id}/detalhes`)
             .then((response) => {
                 setCartao(response.data)
             })
@@ -35,7 +35,7 @@ function PaymentCards() {
     }
 
     const deleteCartao = (cartao) => {
-        axios.delete(`${baseCartao}/${cliente}/deletar/${cartao}`)
+        axios.delete(`${baseCartao}/${id}/deletar/${cartao}`)
             .then(() => {
                 getCartao()
                 setSuccessDelete(true)
@@ -91,12 +91,9 @@ function PaymentCards() {
                         {/* <!-- DIVISÃO DOS BUTTONS --> */}
                         <div className='mt-5 row '>
                             <div className="col-12 d-grid gap-2 col-sm-8   mb-2 ">
-                            <ModelPayCard />
+                                <ModelPayCard />
                             </div>
-
-
                         </div>
-
                     </div>
                 </div>
             </div>

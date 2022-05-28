@@ -19,7 +19,6 @@ function ClientProvider(props) {
                 setClienteDados(response.data)
                 console.log(response.data)
                 localStorage.cliente = JSON.stringify(response.data)
-                return response.data
                 
             })
             .catch((error) => {
@@ -51,16 +50,7 @@ function ClientProvider(props) {
 
 
 
-    const sairClient = () => {
-        //limpa tudo da memoria e revoga tudo da memoria
-        console.log('sair')
-        localStorage.removeItem('token')
-        localStorage.removeItem('id')
-        localStorage.removeItem('nome')
-        localStorage.removeItem('cliente')
-        delete axios.defaults.headers.common["Authorization"]
-        setClient(null)
-    }
+  
 
     function AtualizarNome() {
         setClienteDados(JSON.parse(localStorage.getItem('cliente')))
@@ -88,7 +78,7 @@ function ClientProvider(props) {
         <ClientContext.Provider
             value={{
                 client, getCliente, LogarCliente, AtualizarNome,
-                Autorizado: !!client, sairClient, nome, clienteDados, getIdCliente,
+                Autorizado: !!client, nome, clienteDados, getIdCliente,
                 getDadosDoCliente
             }}>
             {props.children}

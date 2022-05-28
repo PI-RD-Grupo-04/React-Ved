@@ -14,16 +14,16 @@ function Request() {
     const [orders, setOrders] = useState([])
     const [status, setStatus] = useState([])
     const { client, getIdCliente } = useContext(ClientContext)
+    
 
+    let id = localStorage.getItem('id')
     useEffect(() => {
         getIdCliente()
         getOrders() 
-
-
     }, [])
 
     const getOrders = () => {
-        axios.get(`${basePedido}/${client}/pedidos`)
+        axios.get(`${basePedido}/${id}/pedidos`)
             .then((response) => {
                 setOrders(response.data)
             })
@@ -39,10 +39,6 @@ function Request() {
             )
         }))
     }
-
-
-
-
 
 
     function validaStatus(pedido) {

@@ -39,9 +39,8 @@ function Checkout() {
         pix: false,
         cpfBoleto: false
     })
-    const cliente = 1
+    let clienteId = JSON.parse(localStorage.getItem('id'))
     console.log(order)
-
     useEffect(() => {
         getEndereco()
         listEnderecos()
@@ -56,11 +55,12 @@ function Checkout() {
         var mes = String(data.getMonth() + 1).padStart(2, '0');
         var ano = data.getFullYear();
         var dataAtual = dia + '/' + mes + '/' + ano
-        setOrder({ ...order, data: dataAtual })
+        setOrder({ ...order, data: dataAtual, cliente:  clienteId })
+
     }, [])
 
     const getEndereco = () => {
-        axios.get(`${baseEndereco}/${cliente}/detalhes`)
+        axios.get(`${baseEndereco}/${clienteId}/detalhes`)
             .then((response) => {
                 setAddress(response.data)
                 listEnderecos()
@@ -106,7 +106,8 @@ function Checkout() {
     const postItemPedido = (idItemPedido) => {
         axios.post(`${baseItemPedido}/novo`, idItemPedido)
             .then(() => {
-                console.log("fluxo finalizado")
+                console.log("fluxo finalizado") 
+                localStorage.removeItem("cart")
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -151,7 +152,7 @@ function Checkout() {
         }
     }
     const getCartao = () => {
-        axios.get(`${baseCartao}/${cliente}/detalhes`)
+        axios.get(`${baseCartao}/${clienteId}/detalhes`)
             .then((response) => {
                 setCartao(response.data)
             })
@@ -278,7 +279,8 @@ function Checkout() {
 
     return (
         <>
-            <Header />
+            <Header /> 
+        
             <div className="container mt-3 checkout-style mb-4 ">
                 <Title label="Checkout" />
 
