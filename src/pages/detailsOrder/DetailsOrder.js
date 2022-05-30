@@ -177,7 +177,7 @@ function DetailsOrder() {
                                             Rua: {details.rua}
                                         </li>
                                         <li className="list-group-item list1 d-flex-column lh-sm col-6">
-                                            <ul className="mt-2">  Numero:  {details.numero}  </ul>
+                                            <ul className="mt-2">  Número:  {details.numero}  </ul>
                                         </li>
                                     </div>
                                     <div className="d-flex ">

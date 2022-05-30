@@ -366,7 +366,7 @@ console.log(cardModel)
 
                     </div>
                     {/*  <!--***** COMEÇO DIREITA da pagina começo  *******--> */}
-                    <div className="col-12 col-sm-6 order-md-last border mb-3">
+                    <div className="col-12 col-sm-6 order-md-last border ">
 
                         {CartComCupom()}
                         <hr className="my-2" />

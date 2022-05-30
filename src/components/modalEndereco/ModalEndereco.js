@@ -105,7 +105,7 @@ function ModalEndereco(props) {
                         <div className="col-12 col-sm-6">
                             <label for='complemento' className=" text-input">Complemento:</label>
                             <InputMask required value={address.complemento}
-                                onChange={(event) => { setAddress({ ...address, complemento: event.target.value }) }} className="form-control mb-3" placeholder="c" info="seu complemento" id="Complemento" type="" />
+                                onChange={(event) => { setAddress({ ...address, complemento: event.target.value }) }} className="form-control mb-3" placeholder="seu complemento" info="seu complemento" id="Complemento" type="" />
                         </div>
 
                         <div className="col-12 col-sm-6">
