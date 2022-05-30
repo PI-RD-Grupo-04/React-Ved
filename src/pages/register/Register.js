@@ -104,7 +104,7 @@ function Register() {
 
                                 <div className="col-12 col-sm-6">
                                     <label for='telefone' className="text-input">Telefone:</label>
-                                    <InputMask mask="(99) 99999-9999" className="form-control" id='telefone' placeholder='Email para acesso ao Ved' required onChange={(event) => {
+                                    <InputMask mask="(99) 99999-9999" className="form-control" id='telefone' placeholder='Digite telefone para contato' required onChange={(event) => {
                                         setClient({ ...client, telefone: event.target.value })
                                     }} />
                                 </div>

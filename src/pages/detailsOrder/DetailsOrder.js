@@ -129,9 +129,6 @@ function DetailsOrder() {
         else if (details.tipoPagamento == "boleto") {
             return (
                 <>
-                    <h4 className="d-flex   mb-3 mt-2">
-                        <span className="">Metodo de Pagamento : {details.tipoPagamento}</span>
-                    </h4>
                     <TicketPayment />
                 </>
             )
