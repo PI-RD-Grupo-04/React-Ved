@@ -20,9 +20,11 @@ import { AiFillCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import { baseCartao } from "../../environments";
 import ModelPayCard from '../../components/modelPayCard/ModelPayCard'
 import { useHistory } from 'react-router-dom'
+import InputMask from 'react-input-mask'
+
 
 function Checkout() {
-    const [order, setOrder] = useState(OrderModel)
+    const [order, setOrder] = useState({})
     const { client, getIdCliente } = useContext(ClientContext)
     const { carrinho, listarCarrinho, valorTotal, qtyCarrinho, total } = useContext(CartContext)
     const [address, setAddress] = useState([])
@@ -59,7 +61,6 @@ function Checkout() {
         getCartao()
         listarCarrinho()
         total()
-        getCartao()
         getIdCliente()
         setOrder({ ...order, cliente: client })
         var data = new Date();
@@ -101,6 +102,7 @@ function Checkout() {
         postItemPedido(lista, pedido)
     }
 
+
     // comeco do pedido
     const postPedido = () => {
         axios.post(`${basePedido}/novo`, order)
@@ -115,6 +117,8 @@ function Checkout() {
                 console.error(error.messege)
             })
     }
+
+
     //cadastro do boleto como pagamento
     const postBoleto = (idpedido) => {
         axios.post(`http://localhost:8080/pagamento/boleto/${idpedido}`, boletoModel)
@@ -284,9 +288,8 @@ function Checkout() {
                         setBoleto({ ...boletoModel, nome: e.target.value })
                     }} />
                     <label for="nomecpf">CPF:</label>
-                    <input type="text" id="cpfboleto" class="form-control" onChange={(e) => {
-                        setBoleto({ ...boletoModel, cpf: e.target.value })
-                    }} />
+                    <InputMask mask="999.999.999-99 " class="form-control" id="cpf-titular" onChange={(e) => {
+                        setBoleto({ ...boletoModel, cpf: e.target.value })} }/>
                 </div>
             </div>
         );
@@ -418,7 +421,7 @@ console.log(cardModel)
 
                             </div>
                             <div className="d-grid gy-2">
-                                <Button label="Finalizar Pedido" click={async () => {
+                                <Button label="Finalizar Pedido" click={() => {
                                     setOrder({ ...order, pedidoStatus: 2 })
                                     postPedido() 
                                    

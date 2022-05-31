@@ -18,6 +18,7 @@ function ModelPayCard(props) {
 
 
     let id = localStorage.getItem('id')
+
     const postCartao = (cartaomodel) => {
         axios.post(`${baseCartao}/${id}/novo`, cartaomodel)
             .then(() => {
@@ -135,6 +136,7 @@ function ModelPayCard(props) {
                                     () => {
                                         setSuccessRegister(false)
                                         handleClose()
+                                        
                                     }, 1000)
                             }
                             }

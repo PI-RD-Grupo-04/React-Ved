@@ -24,7 +24,7 @@ function Cart() {
         return carrinho.map((item) => {
             return (
                 <li key={item.id}>
-                    <ItemBasket id={item.id} img={item.url} product={item} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nomeProduto} />
+                    <ItemBasket id={item.id} nomea={item.nome} img={item.url} product={item} valor={item.preco} descricao={item.descricao} qty={item.quantidade} nome={item.nomeProduto} />
                 </li>
             )
         })

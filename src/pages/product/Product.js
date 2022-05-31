@@ -18,15 +18,19 @@ function Product() {
     const { id } = useParams()
     const [product, setProduct] = useState({})
     const [receita, setReceita] = useState({})
+    const [relacionados, setRelacionados] = useState([])
     const [productDetail, setProductDetail ] = useState(1)
     const receitasbotao = false
     const { quantidadeProduto, addCarrinho,
     incrementoQuantyProduto, decrementoQuantyProduto, carrinho } = useContext(CartContext)
-    let quanti = product.quantidade 
+    let quanti = product.quantidade  
+
+
     useEffect(() => {
         setProductDetail(quanti)
         getReceita()
         validaCart()
+        getRelacionados()
     }, [])
 
     function validaCart() {
@@ -42,6 +46,16 @@ function Product() {
         axios.get(`${baseProduct}/${id} `)
             .then((response) => {
                 setProduct(response.data)
+            })
+            .catch((error) => {
+                console.error(error.messege)
+            })
+    }
+
+    const getRelacionados = () => {
+        axios.get(`${baseProduct}/${id}/ `)
+            .then((response) => {
+                setRelacionados(response.data)
             })
             .catch((error) => {
                 console.error(error.messege)
@@ -103,6 +117,17 @@ function Product() {
             </>
         )
     }
+
+
+    function ListaRelacionados() {
+        return (
+            relacionados.map((item ) => {
+                return (<ProductCard key={item.id} col="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" status={item.statusProduto} img={item.url} link={`/product/${item.id}`} nome={item.nomeProduto}
+                  descri={item.descricao} product={item} price={item.preco} />)
+            })
+        )
+    }
+
 
     return (
         <>
@@ -184,14 +209,8 @@ function Product() {
                 <Title label="Aproveite também" />
                 <div class="row  ">
                     {/* ********************* item unidade  *********************/}
-                    <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3  " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                        peso={1.00} price="12,90" />
-                    <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3" img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                        peso={1.00} price="12,90" />
-                    <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                        peso={1.00} price="12,90" />
-                    <ProductCard col="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3 " img='https://i.ibb.co/nP8cZL2/abacaxi.png' link='/product' nome="abacaxi"
-                        peso={1.00} price="12,90" />
+
+                    {ListaRelacionados()}
 
                 </div>
             </div>

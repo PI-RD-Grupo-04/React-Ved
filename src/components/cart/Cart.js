@@ -16,7 +16,7 @@ function Cart(props) {
     function listar() {
         return props.cart.map((item) => {
             return (
-                <ItemCart key={item.id} nome={item.nomeProduto} quantidade={item.quantidade} price={item.preco} />
+                <ItemCart key={item.id}  nomea={item.nome} nome={item.nomeProduto} quantidade={item.quantidade} price={item.preco} />
             )
         })
     }

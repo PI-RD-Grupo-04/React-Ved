@@ -19,6 +19,7 @@ function ItemCart(props) {
             <li className="list-group-item d-flex justify-content-around lh-sm">
                 <div className='col-7 d-flex'>
                     <h5 className={promo}>{props.nome}</h5>
+                    <h5 className={promo}>{props.nomea}</h5>
                 </div>
                 <div className='col-2 d-flex'>
                    

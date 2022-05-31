@@ -32,7 +32,7 @@ function ItemBasket(props) {
                         <h4>
                             <Link to={`/product/${props.id}`} className="text-decoration-none text-success">
                                 {props.nome}
-                                
+                                {props.nomea}
                             </Link>
                         </h4>
                         <h5>
