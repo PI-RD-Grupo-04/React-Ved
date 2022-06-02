@@ -324,8 +324,7 @@ console.log(cardModel)
 
     return (
         <>
-            <Header />
-
+            <Header/>
             <div className="container mt-3 checkout-style mb-4 ">
                 <Title label="Checkout" />
 
